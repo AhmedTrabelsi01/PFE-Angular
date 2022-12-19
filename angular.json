@@ -23,9 +23,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/ngx-toastr/toastr.css" 
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/loginjs.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -97,5 +100,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "f5c13627-0c7f-4a02-b222-6cd8d150e3cf"
   }
 }

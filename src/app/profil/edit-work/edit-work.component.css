@@ -1,0 +1,317 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+
+.rpbox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px;
+}
+.boxarchive{
+
+    justify-content: center;
+}
+
+     .text {  
+         color: #000000;
+         font-size: 40px;
+         margin-top: -200px;
+        text-align: center;
+         position: absolute;
+         width: 100%;
+         
+       }
+       
+       *{
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          }
+          body{
+              font-family: Calibri;
+          }
+        
+/*start path page */
+.path {
+    text-align: center;
+    margin-top: -190px;
+    margin-bottom: 132px;
+}
+/*end path page */
+body {
+    font-family: 'calibri', sans-serif;
+}
+
+/*  start button retour*/
+
+
+.btn_retour button {
+  background: transparent;
+  cursor: pointer;
+  color: #0081C2;
+  border: 2px solid #0081c2;
+  border-radius: 5px;
+  transition: background 0.5s;
+  padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.btn_retour {
+  max-width: 23%;
+  padding: 5px 0px;
+
+  position: relative;
+  
+ 
+  
+
+}
+
+.btn_retour button:hover {
+  color: white;
+  background: #0081c2;
+  border-color: #0081c2;
+}
+
+.btn_retour button:hover {
+  color: white;
+  background: #0081c2;
+  border-color: #0081c2;
+}
+
+/* fin button */
+
+
+
+
+/* part 2 */ 
+
+  .box{
+      display: flex;
+      flex-wrap: wrap; 
+      border-radius: 50px;
+      border: 2px solid #edf2f4;
+      background-color: white;
+      box-shadow: 0 0 5pt 1pt rgb(226, 225, 225);
+      margin-left: 180px;
+      margin-right: 180px;
+      margin-top: 30px; 
+      margin-bottom: 100px;
+      gap: 60px;
+      padding: 20px;
+      padding-left: 40px;
+  }
+  
+  
+ .box-1  {
+  border-radius: 15px;
+  border: 2px solid #edf2f4;
+  background-color: white;
+  box-shadow: 0 0 5pt 1pt hsla(0, 2%, 88%, 0.308);
+  padding: 50px;
+
+
+}
+
+
+
+   /* icons in input fields*/
+
+  
+  .input-field {
+    margin-left: -70px;
+    width: 300%;
+    padding: 15px;
+    text-align: left;
+    padding-left: 20px;
+    border-radius: 20px;
+    margin-bottom: 17px;
+    display: inline-block;
+    background: #f1f1f1;
+    border:none;
+  }
+  .input-field:focus{
+  background-color: #ddd;
+  outline: none;
+  }
+  /* end part 2 */
+  
+  .btn {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 7px;
+    border: 1px solid;
+    border-radius: 10px;
+    border-color: #0081C2;
+    background: #0081c2;
+    color: white;
+    margin-top: 20px;
+    cursor: pointer;
+}
+button {
+  background: #0081c2;
+  color: white;
+  border: none;
+}
+button:hover{
+background: #239edc;
+
+}
+   /*avatar */
+    
+    .avatar-upload {
+    position: relative;
+    max-width: 205px;
+  
+  }
+  .avatar-upload .avatar-edit {
+    position: absolute;
+    z-index: 1;
+    top: -10px;
+  }
+  .avatar-upload .avatar-edit input {
+    display: none;
+  }
+  .avatar-upload .avatar-edit input + label {
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    margin-bottom: 0;
+    border-radius: 100%;
+    background: #FFFFFF;
+    border: 1px solid #f1f1f1;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    font-weight: normal;
+    transition: all 0.2s ease-in-out;
+  }
+  .avatar-upload .avatar-edit input + label:hover {
+    background: #f1f1f1;
+    border-color: #d6d6d6;
+  }
+  .avatar-upload .avatar-edit input + label:after {
+    content: "\f040";
+    font-family: 'FontAwesome';
+    color: #757575;
+    position: absolute;
+    top: 5px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin: auto;
+  }
+  
+  .avatar-upload .avatar-preview img {
+    width: 350px;
+    height: 300px;
+    border-radius: 10px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left;
+  }
+  /* end avatar*/
+  
+  /* tooltip*/
+  
+  /* Tooltip text */
+  .avatar-edit .tooltiptext {
+  visibility: hidden;
+  width: 150px;
+  background-color:#0081c2;
+  color: white;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  }
+  
+  /* Show the tooltip text when you mouse over the tooltip container */
+  .avatar-edit:hover .tooltiptext {
+  visibility: visible;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.main-container .border-left {
+  margin-bottom: 30px;
+}
+
+/*-- Banner --*/
+.banner-area {
+  position: relative;
+  min-height: 300px;
+
+  color: #fff;
+  background-position: 50% 50%;
+  background-size: cover;
+  
+}
+
+.banner-title {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 58px;
+  font-weight: 900;
+}
+
+@media (max-width: 767px) {
+  .banner-title {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 575px) {
+  .banner-title {
+    font-size: 32px;
+  }
+}
+
+.banner-text {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  max-width: 1170px;
+  margin: 0 auto;
+  width: 100%;
+  z-index: 1;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.banner-heading {
+  text-align: center;
+}

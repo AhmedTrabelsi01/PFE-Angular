@@ -1,0 +1,168 @@
+body {
+    font-family: 'calibri', sans-serif;
+  
+  }
+  
+  /*titre sign */
+  .titre {
+    font-family: 'calibri', sans-serif;
+    position: relative;
+    top: 90px;
+    right: 10px;
+    font-size: 35px;
+  }
+ 
+  /* photo grand de 3 page */
+  .photo_grand {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 1000px;
+    height: 100%;
+  }
+  @media (max-width:700px){
+    .photo_grand {
+     
+      display: none;
+    }
+  }
+  
+  
+  /* start input */
+  form input {
+    padding: 8px;
+    border: none;
+    border: 1px solid gray;
+    outline: none;
+    margin: 10px;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+  
+    font-size: 16px !important;
+    height: 40px;
+
+  
+  }
+  
+  .lo {
+    width: 30%;
+    border: 1px solid;
+    border-radius: 15px;
+    font-size: 16px;
+    border-color: #0081C2;
+    background-color: #0081C2;
+    color: aliceblue;
+    padding-bottom: 7px;
+    padding-top: 5px;
+    text-align: center;
+    margin-bottom: 17px;
+    margin-top: 12px;
+    cursor: pointer;
+}
+select{
+  padding: 8px;
+    border: none;
+    border: 1px solid gray;
+    outline: none;
+    margin: 15px;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 16px;
+    width: 200px;
+
+    
+}
+
+  /* end input */
+  
+  /* start hr + or + h3 */
+  hr {
+    margin-top: 20px;
+    width: 100%;
+  }
+  
+  .or {
+    background: #fff;
+    width: 30px;
+    margin: -19px auto 15px;
+  }
+  
+  
+  
+  h3 {
+    margin-bottom: 5px;
+  }
+  
+  /*end hr + or + h3*/
+   /* button retour */
+  
+   .btn_retour button {
+    background: transparent;
+    cursor: pointer;
+    color: #0081C2;
+    border: 2px solid #0081c2;
+    border-radius: 15px;
+    font-size: 16px;
+    transition: background 0.5s;
+    padding-left: 8px;
+    padding-right: 6px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  
+  .btn_retour {
+    max-width: 23%;
+    padding: 5px 0px;
+  
+    position: relative;
+    left: -15%;
+    margin-top: 30px;
+  
+  
+  
+  
+  }
+  
+  .btn_retour button:hover {
+    color: white;
+    background: #0081c2;
+    border-color: #0081c2;
+  }
+  
+  .btn_retour button:hover {
+    color: white;
+    background: #0081c2;
+    border-color: #0081c2;
+  }
+  
+  /* end button retour */
+  
+  .photo_googel {
+    position: relative;
+    right: 40px;
+    top: 8px;
+  
+  }
+  
+  .photo_facebook {
+    position: relative;
+    left: 40px;
+    top: -20px;
+  }
+  /* start page sign up student */
+.sign_box_student {
+
+  width: 360px;
+  height: 550px;
+  text-align: center;
+  position: absolute;
+  top: 8px;
+  right: 80px;
+  font-size: 16px;
+  }
+  .error{
+    color: red;
+    font-weight: bold;
+}

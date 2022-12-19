@@ -1,0 +1,401 @@
+<!-- Start Banner Hero -->
+<div id="template-mo-zay-hero-carousel" class="carousel slide " data-bs-ride="carousel">
+    <ol class="carousel-indicators">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="container">
+                <div class="row p-5">
+                    <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                        <img class="img-fluid" style="border-radius: 15px;" src="assets/img/singel.jpg" alt="">
+                    </div>
+                    <div class="col-lg-6 mb-0 d-flex align-items-center">
+                        <div class="text-align-left align-self-center">
+                            <h1 class="h1 text-success"><b>Djagora</b><br> Foundation</h1>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item ">
+            <div class="container">
+                <div class="row p-5">
+                    <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                        <img class="img-fluid" style="border-radius: 15px;" src="assets/img/startup.jpg" alt="">
+                    </div>
+                    <div class="col-lg-6 mb-0 d-flex align-items-center">
+                        <div class="text-align-left align-self-center">
+                            <h1 class="h1 text-success"><b>Djagora</b><br> Foundation</h1>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item ">
+            <div class="container">
+                <div class="row p-5">
+                    <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                        <img class="img-fluid" style="border-radius: 15px;" src="assets/img/1600337032232.jpeg" alt="">
+                    </div>
+                    <div class="col-lg-6 mb-0 d-flex align-items-center">
+                        <div class="text-align-left align-self-center">
+                            <h1 class="h1 text-success"><b>Djagora</b> <br> Foundation</h1>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel"
+        role="button" data-bs-slide="prev">
+        <i class="fas fa-chevron-left"></i>
+    </a>
+    <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel"
+        role="button" data-bs-slide="next">
+        <i class="fas fa-chevron-right"></i>
+    </a>
+</div>
+
+<!----------------------------------------->
+
+    
+
+<!------------------part2:departement boxs----------------------->
+
+<div class="departements">
+    <div class="titre">
+
+        <h3 name="1" class="titre">DEPARTMENTS</h3>
+    </div>
+    <div class="sdep container offset-md-1 px-4">
+   
+        <div class="row " >
+            <div class="sous_dep  p-sm-5 row-cols-1 my-4 mx-5">
+                <div class="pos">
+                    
+                    <i class="fa-solid fa-right-to-bracket goin " *ngIf="user.djACA==0">Guest mode</i>
+                    <i class="fa-solid fa-right-to-bracket goin " style="opacity:0;" *ngIf="user.djACA==1"> Guest mode</i>
+
+                    <a routerLink="/djagoraacadimy">
+                        <img style="height: 72PX; width: 193PX;" src="assets/img/academy.png" alt="">
+                    </a>
+
+                    <h5>Djagora makes outliers outstanding</h5>
+
+                    <button class="preINS" (click)="onPreRegisterACA()" *ngIf="user.djACA==0">pre-register</button>
+                    <small class="registered" *ngIf="user.djACA==1">already registered</small>
+                    <small class="registered"  *ngIf="user.djACA==2">waiting for admin
+                        confirmation...</small>
+                </div>
+
+            </div>
+
+            <div class="sous_dep p-sm-5 row-cols-1 my-4  mx-4 ">
+                <div class="pos">
+                    <i class="fa-solid fa-right-to-bracket goin " *ngIf="user.djFab==0 || user.djFab==2"> Guest mode</i>
+                    <i class="fa-solid fa-right-to-bracket goin " style="opacity:0;" *ngIf="user.djFab==1">Guest mode</i>
+
+
+                    <a routerLink="/notfound">
+                        <img style="height: 72PX; width: 193PX;" src="assets/img/fabalab.png" alt="">
+                    </a>
+                    <h5>Djagora makes outliers outstanding</h5>
+
+                    <button class="preINS" (click)="onPreRegisterFAB()" *ngIf="user.djFab==0">pre-register</button>
+                    <small class="registered" *ngIf="user.djFab==1">already registered</small>
+                    <small class="registered"  *ngIf="user.djFab==2">waiting for admin
+                        confirmation...</small>
+                </div>
+            </div>
+            <div class="sous_dep p-sm-5 row-cols-1 my-4 mx-5 ">
+                <div class="pos">
+                    <i class="fa-solid fa-right-to-bracket goin " *ngIf="user.djJU==0 || user.djJU==2"> Guest mode</i>
+                    <i class="fa-solid fa-right-to-bracket goin " style="opacity:0;" *ngIf="user.djJU==1">Guest mode</i>
+
+
+                    <a routerLink="/notfound">
+                        <img style="height: 72PX; width: 193PX;" src="assets/img/junior.png" alt="">
+                    </a>
+                    <h5>Djagora makes outliers outstanding</h5>
+
+                    <button class="preINS" (click)="onPreRegisterJU()" *ngIf="user.djJU==0">pre-register</button>
+                    <small class="registered" *ngIf="user.djJU==1">already registered </small>
+                    <small class="registered"  *ngIf="user.djJU==2">waiting for admin
+                        confirmation...</small>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="  margin-left: 20%;">
+
+            <div class=" sous_dep p-sm-5 row-cols-1 my-4 mx-1 ">
+                <div class="pos">
+                    <i class="fa-solid fa-right-to-bracket goin " *ngIf="user.djMD==0 || user.djMD==2"> Guest mode</i>
+                    <i class="fa-solid fa-right-to-bracket goin " style="opacity:0;" *ngIf="user.djMD==1">Guest mode</i>
+
+
+                    <a routerLink="/notfound">
+                        <img style=" height: 72PX; width: 193PX;" src="assets/img/Djagora M.png">
+
+                    </a>
+                    <h5>Djagora makes outliers outstanding</h5>
+
+                    <button class="preINS" (click)="onPreRegisterMD()" *ngIf="user.djMD==0">pre-register</button>
+                    <small class="registered" *ngIf="user.djMD==1">already registered</small>
+                    <small class="registered"  *ngIf="user.djMD==2">waiting for admin
+                        confirmation...</small>
+                </div>
+            </div>
+
+
+            <div class=" sous_dep p-sm-5 row-cols-1 my-4 mx-5 ">
+                <div class="pos">
+                    <i class="fa-solid fa-right-to-bracket goin " *ngIf="user.djOUt==0 || user.djOUt==2"> Guest mode</i>
+                    <i class="fa-solid fa-right-to-bracket goin " style="opacity:0;" *ngIf="user.djOUt==1">Guest mode</i>
+
+
+                    <a href="https://www.outliers.tn">
+                        <img style="height: 72PX; width: 193PX;" src="assets/img/Djagora Outliers.png" alt="">
+                    </a>
+                    <h5>Djagora makes outliers outstanding</h5>
+                    <button class="preINS" (click)="onPreRegisterOUT()" *ngIf="user.djOUt==0">pre-register</button>
+                    <small class="registered" *ngIf="user.djOUt==1">already registered</small>
+                    <small class="registered"  *ngIf="user.djOUt==2">waiting for admin
+                        confirmation...</small>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!----------------------------------------->
+
+
+
+<!------------------part3:recent project----------------------->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="recentproject">
+
+    <h3 class="title">RECENT PROJECTS</h3>
+
+
+
+
+
+
+
+
+
+
+
+    <div id="template-mo-zay-hero-carousel" class="carousel slide " data-bs-ride="carousel">
+        <ol class="carousel-indicators">
+            <li class="active" style="visibility: hidden;"></li>
+            <li style="visibility: hidden;"></li>
+            <li style="visibility: hidden;"></li>
+        </ol>
+        <div class="carousel-inner" style="background-color: rgb(241, 241, 241);">
+            <div class="carousel-item active">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                            <div class="body">
+                                <div class="blog-card">
+                                    <div class="meta">
+                                        <div class="photo"><img [src]="imgpath+p3.img" alt=""></div>
+                                        <ul class="details">
+                                            <li class="author">{{p3.owner}}</li>
+                                            <li class="date">{{p3.estimated_date}}</li>
+
+                                        </ul>
+                                    </div>
+                                    <div class="description">
+                                        <p> {{p3.description}}</p>
+                                        <p class="read-more">
+                                            <a href="#">Read More</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left align-self-center">
+                                <h1 class="h1 text-success"><b>{{p3.name}}</b> </h1>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item ">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                            <div class="body">
+                                <div class="blog-card">
+                                    <div class="meta">
+                                        <div class="photo"><img [src]="imgpath+p2.img" alt=""></div>
+                                        <ul class="details">
+                                            <li class="author">{{p2.owner}}</li>
+                                            <li class="date">{{p2.estimated_date}}</li>
+
+                                        </ul>
+                                    </div>
+                                    <div class="description">
+                                        <p> {{p2.description}}</p>
+                                        <p class="read-more">
+                                            <a href="#">Read More</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left align-self-center">
+                                <h1 class="h1 text-success"><b>{{p2.name}}</b></h1>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item ">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                            <div class="body">
+                                <div class="blog-card">
+                                    <div class="meta">
+                                        <div class="photo"><img [src]="imgpath+p1.img" alt=""></div>
+                                        <ul class="details">
+                                            <li class="author">{{p1.owner}}</li>
+                                            <li class="date">{{p1.estimated_date}}</li>
+
+                                        </ul>
+                                    </div>
+                                    <div class="description">
+                                        <p> {{p1.description}}</p>
+                                        <p class="read-more">
+                                            <a href="#">Read More</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left align-self-center">
+                                <h1 class="h1 text-success"><b>{{p1.name}}</b> </h1>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+</div>
+
+
+
+
+<!----------------------------------------->
+
+
+
+
+
+<!------------------part4:partner----------------------->
+
+
+    <div class="mt-5">
+        <div class="container mt-5">
+            <h2 class="title mt-5 ">PARTNERS</h2>
+        </div>
+        
+        
+        
+        <div class="demo-row">
+            <div class="container" id="id-sponsors">
+             
+            <div id="sponsor-carousel" class="carousel slide" data-ride="carousel"> 
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+              </ol>
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                  <div class="row">
+                    <div class="col-sm-3 col-xs-6">
+                      <div class="sponsor-feature"><img alt="" src="https://itagroup.hs.llnwd.net/o40/csg/pse-demo/channel-incentive/nucor-logo.svg" style="width: 200px;" /></div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                      <div class="sponsor-feature"><img alt="" src="https://itagroup.hs.llnwd.net/o40/csg/pse-demo/channel-incentive/logo-mil.png" style="width: 155px;" /></div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                      <div class="sponsor-feature"><img alt="" src="https://itagroup.hs.llnwd.net/o40/csg/pse-demo/channel-incentive/logo-timberline.jpg" style="width: 200px;" /></div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                      <div class="sponsor-feature"><img alt="" src="https://itagroup.hs.llnwd.net/o40/csg/pse-demo/channel-incentive/logo-ppg.jpg" style="width: 200px;" /></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="row">
+                    <div class="col-sm-3 col-xs-6">
+                      <div class="sponsor-feature"><img alt="" src="https://itagroup.hs.llnwd.net/o40/csg/pse-demo/channel-incentive/logos/logo1.jpg" style="width: 160px;" /></div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                      <div class="sponsor-feature"><img alt="" src="https://itagroup.hs.llnwd.net/o40/csg/pse-demo/channel-incentive/logos/logo2.jpg" style="width: 160px;" /></div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                      <div class="sponsor-feature"><img alt="" src="https://itagroup.hs.llnwd.net/o40/csg/pse-demo/channel-incentive/logos/logo3.jpg" style="width: 160px;" /></div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                      <div class="sponsor-feature"><img alt="" src="https://itagroup.hs.llnwd.net/o40/csg/pse-demo/channel-incentive/logos/logo4.jpg" style="width: 160px;" /></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+            </div>
+    </div>

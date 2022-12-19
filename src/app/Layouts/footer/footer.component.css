@@ -1,0 +1,110 @@
+
+@import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+
+body {
+    font-family: 'Rubik', sans-serif;
+    height: 100% !important;
+    background-color: #F8F9FB !important;
+}
+
+.container-fluid{
+    margin-top: 101px;
+    color:#000 !important;
+}
+
+.card{
+    background-color: #F8F9FB !important;
+}
+
+p{
+    font-size: calc(12px + (14 - 12) * ((100vw - 360px) / (1600 - 360))) !important; 
+    display: fkex;
+}
+
+h3{
+    font-size: calc(24px + (30 - 24) * ((100vw - 360px) / (1600 - 360))) !important; 
+}
+
+.social{
+    font-size: 12px !important; 
+}
+
+
+.color-text{
+    color:#757575 !important;
+}
+
+
+button {
+    font-size:12px !important;
+    background-color: #2CA6FB !important;
+    padding-left:  calc(20px + (28 - 20) * ((100vw - 360px) / (1600 - 360))) !important; 
+    padding-right: calc(20px + (28 - 20) * ((100vw - 360px) / (1600 - 360))) !important; 
+    padding-top:  calc(10px + (12 - 10) * ((100vw - 360px) / (1600 - 360))) !important; 
+    padding-bottom:   calc(10px + (12 - 10) * ((100vw - 360px) / (1600 - 360))) !important; 
+ }
+
+ button:focus {
+     -moz-box-shadow: none !important;
+     -webkit-box-shadow: none !important;
+     box-shadow: none !important;
+     outline-width: 0
+ }
+
+ footer{
+    color:#caced1 !important;
+ }
+
+ li{
+     margin-top: 20px ;
+     margin-bottom: 20px ;
+     font-size: 14px !important;
+ }
+ 
+.Careers{ 
+    cursor: pointer;
+    color: #1E88E5;
+}
+
+.row-1{
+    background-color:#1E242A !important;
+}
+
+.row-2{
+    
+    background-color: #28323C !important;
+}
+
+
+.list-unstyled a{
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 0 10px 10px 0;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 70%;
+  color: #ffffff;
+  transform: all 0.5s ease;
+}
+.list-unstyled a:hover{
+  color: #24262b;
+  background-color: #ffffff;
+
+}
+.title2::after{
+  content: '';
+  background: #0081c2;
+  width: 80px;
+  height: 5px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 0;
+  right: 75%;
+}
+
+.title2{
+  position: relative;
+  line-height: 60px;
+  }

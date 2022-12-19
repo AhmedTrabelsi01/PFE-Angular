@@ -1,0 +1,351 @@
+
+
+
+
+
+
+button.signup{
+  float: right;
+  padding: 7px 30px;
+  font-size: 14px;
+  background: transparent;
+  cursor: pointer;
+  border: 2px solid #0081c2;
+  border-radius: 30px;
+  transition: background 0.5s;
+  color: #0081c2;
+  }
+  button.signup:hover{
+  color: white;
+  background: #0081c2;
+  border-color:#0081c2 ;
+  }
+    
+  button.login{
+    font-size: 14px;
+
+    float: right;
+     padding: 7px 30px;
+    
+     border: none;
+     cursor: pointer;
+     background: transparent;
+     transition: all 0.3s ease; 
+      }
+      button.login:hover{
+        color: #0081c2;
+      }
+
+
+.navbar1{
+  height: 65px;
+  
+}
+
+.sticky {
+
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  background-color: white;
+  width: 100%;
+
+  
+}
+
+
+.logo{
+  position: relative;
+  right: 20px ;
+}
+
+
+/*--------------------------------------*/
+.profileimg{
+    height: 30px;
+    width: 30px;
+    border-radius: 50px;
+   position: absolute;
+   right: 10.7%;
+   margin-top: -15px;
+}
+
+.sous_footer ul li a{
+  font-size: 16px;
+  text-transform: capitalize;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 300;
+  color: #bbbbbb;
+  display: block;
+  transition: all 0.3s ease;
+}
+ 
+.sous_footer ul li a:hover{
+  color: #ffffff;
+  padding-left: 10px;
+}
+
+.sous_footer .social-links a{
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 0 10px 10px 0;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 70%;
+  color: #ffffff;
+  transform: all 0.5s ease;
+}
+  
+.sous_footer .social-links a:hover{
+  color: #24262b;
+  background-color: #ffffff;
+
+}
+
+
+@media(max-width: 990px) {
+
+.notif-btn{
+  padding-top: 5%;
+  padding-bottom: 5%;
+  margin-right: 40%;
+margin-bottom: 5%;
+  margin-right: 45%;
+}
+.profileimg{
+  margin-right: 14%;
+  margin-top: 1.5%;
+
+}
+
+.navbar1{
+  height: 85px;
+}
+  .arrow{
+    position: absolute;
+    margin-left: 2200%;
+    margin-top: -320%;
+  }
+.test1{
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 10px;
+
+  background-color: white;
+}
+}
+
+.dropdown .dropbtn {
+  border: none;
+  outline: none;
+  background-color: inherit;
+}
+
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 180px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+.dropdown-content:hover{
+  color: #0081c2;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+/********************notification***************************/
+
+   .notif-btn span {
+    display: flex;
+      background: #f00;
+      padding: 5px;
+      border-radius: 50%;
+    font-size: 15px;
+      color: #fff;
+  margin-left: 13px;
+  width: 35px;
+  }
+  
+  i:hover {
+      opacity: .7;
+     
+  }
+  .notif-btn i{
+    position: absolute;
+    right: 14%;
+    margin-top: -9px;
+
+  }
+  .notifi-box {
+      width: 300px;
+      opacity: 0;
+    background-color: white;
+      position:fixed;
+      top: 125px;
+      right: 200px;
+      border-radius: 3px;
+    visibility: hidden;
+      transition: 0.3s opacity, 250ms height;
+      box-shadow: 0 0 5pt 1pt rgb(226, 225, 225,0.308), 0 6px 20px 0 rgb(226, 225, 225,0.308);
+  }
+   .notifi-box.activeNot{
+  visibility: visible;
+  opacity: 1;
+  }
+  
+  .notifi-box h2 {
+      font-size: 14px;
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+      color: #999;
+  }
+  .notifi-box h2 span {
+      color: #f00;
+  }
+  
+  .notifi-item {
+      display: flex;
+      border-bottom: 1px solid #eee;
+      padding: 15px 5px;
+   
+  }
+  .notifi-item:hover {
+      background-color: #eee;
+  }
+  .notifi-item img {
+  
+      width: 30px;
+    height: 30px;
+       margin-right: 10px;
+      border-radius: 5px;
+      margin-top: 10px;
+  }
+  .notifi-item .text h4 {
+      color: #777;
+      font-size: 16px;
+    margin-top: 9px;
+  
+  }
+  .notifi-item .text p {
+      color: #aaa;
+      font-size: 12px;
+  }
+
+
+  
+  
+  /*-----------------------------------------------------------*/
+  
+  
+    
+  
+.arrow{
+  position: absolute;
+  cursor: pointer;
+  left:-90%;
+  top: -7px;
+
+}
+.arrow img{
+position: absolute;
+
+
+
+object-fit: cover;
+width: 15px;
+}
+
+.action{
+position: fixed;
+}
+.action .arrow{
+position: relative;
+cursor: pointer;
+
+}
+.action .menu{
+position:  absolute;
+background: white;
+left: -70px;
+top: 37px;
+width: 180px;
+box-shadow: 0 0 5pt 1pt rgb(226, 225, 225,0.308), 0 6px 20px 0 rgb(226, 225, 225,0.308);
+border-radius: 3px;
+transition: 0.5;
+visibility: hidden;
+opacity: 0;
+transition: 0.3s opacity, 250ms height;
+
+}
+.action .menu.active{
+visibility: visible;
+opacity: 1;
+
+}
+.action .menu ul li{
+list-style: none;
+margin-left: -10%;
+align-items: center;
+font-size: 14px;
+
+}
+
+.action .menu ul li img{
+max-width: 20px;
+margin-right: 10px;
+opacity: 0.5;
+transition: 0.5s;
+
+}
+.action .menu ul li:hover img{
+opacity: 1;
+
+}
+.action .menu ul li a{
+display: inline-block;
+text-decoration: none;
+color: #555;
+transition: 0.5;
+}
+.action .menu ul li:hover a{
+color: #37C3A7;
+}
+
+.menu ul li a{
+margin-top: 15px;
+}
+
+
+
+
+
+    
+    
+  
+  
+
+/*# sourceMappingURL=bootstrap.min.css.map */

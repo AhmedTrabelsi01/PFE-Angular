@@ -1,0 +1,254 @@
+<!------------------part1:image----------------------------------->
+<div id="banner-area" class="banner-area" style="background-image:url(assets/img/contact.jpg);margin-top: 8%;margin-bottom: 3%;">
+    <div class="banner-text">
+      <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="banner-heading">
+                <h1 class="banner-title">Contact</h1>
+              </div>
+            </div><!-- Col end -->
+          </div><!-- Row end -->
+      </div><!-- Container end -->
+    </div><!-- Banner text end -->
+  </div><!-- Banner area end --> 
+  
+
+<!---------------------------------------------------->
+
+
+
+
+
+
+
+<!------------------part2:contact box---------------------------------
+<div class="part2 container">
+    <div class="row">
+
+    <div class="contactbox ">
+
+            <div class="scontactbox1">
+                <i class="fa fa-phone"></i>
+                <h4>Call</h4>
+                <p>+21674205123</p>
+            </div>
+            <div class="scontactbox2">
+                <img src="assets/img/gmail.png" alt="">
+                <h4>Email</h4>
+                <p>Fondation@gmail.com</p>
+            </div>
+            <div class="scontactbox3">
+                <i class="fas fa-map-marker-alt"></i>
+                <h4>Localisation</h4>
+                <p>cite el Ons</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+-->
+<!---------------------------------------------------->
+
+
+
+
+
+<!------------------part3:FORMULAIRE---------------------------------
+<div class="part3 container ">
+    <div class="box  mx-5  ">
+        <div class="title">
+            <h1>Contact Us</h1>
+        </div>
+        <form [formGroup]="contactForm">
+            <div class="user-details">
+                <div class="row">
+                    <div class="input-box">
+                        <span class="details">Full Name</span>
+                        <input type="text" formControlName="name" name="name" type="text" required
+                            placeholder="Your Name...">
+
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Email</span>
+                        <input type="text" formControlName="email" name="email" type="email"
+                            placeholder="Your Email...">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-box">
+                        <span class="details">Phone</span>
+                        <input type="text" placeholder="Your Phone..." formControlName="phone">
+
+                    </div>
+                    <div class="input-box">
+                        <span class="details">State</span>
+                        <select name="state" id="state" formControlName="state">
+                            <option value="" disabled selected hidden>please select a state </option>
+                            <option value="Ariana">Ariana</option>
+                            <option value="Béja">Béja</option>
+                            <option value="Ben Arous">Ben Arous</option>
+                            <option value="Bizerte">Bizerte</option>
+                            <option value="Gabès">Gabès</option>
+                            <option value="Gafsa">Gafsa</option>
+                            <option value="Jendouba">Jendouba</option>
+                            <option value="Kairouan">Kairouan</option>
+                            <option value="Kasserine">Kasserine</option>
+                            <option value="Kebili">Kebili</option>
+                            <option value="Kef">Kef</option>
+                            <option value="Mahdia">Mahdia</option>
+                            <option value="Manouba">Manouba</option>
+                            <option value="Mednine">Mednine</option>
+                            <option value="Monastir">Monastir</option>
+                            <option value="Nabeul">Nabeul</option>
+                            <option value="Sfax">Sfax</option>
+                            <option value="Sidi Bouzid">Sidi Bouzid</option>
+                            <option value="Siliana">Siliana</option>
+                            <option value="Sousse">Sousse</option>
+                            <option value="Tataouine">Tataouine</option>
+                            <option value="Tozeur">Tozeur</option>
+                            <option value="Tunis">Tunis</option>
+                            <option value="Zaghouan">Zaghouan</option>
+                        </select>
+
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+            <div class="row">
+
+                <div class="input-box2">
+                    <span class="details2">DESCRIPTION</span>
+                    <textarea formControlName="description" id="" placeholder="Description ..."></textarea>
+
+                </div>
+            </div>
+            <div *ngIf="counterr!=0">
+                <br> <small class="error">{{errors.name}}</small>
+                <br><small class="error">{{errors.email}}</small>
+                <br><small class="error">{{errors.phone}}</small>
+                <br><small class="error">{{errors.state}}</small>
+                <br><small class="error">{{errors.description}}</small>
+
+            </div>
+
+            <a (click)="onSubmit()"><input type="submit" value="send"></a>
+        </form>
+    </div>
+</div>-->
+<!---------------------------------------------------->
+<div class="container body">
+    <div class="bg-light">
+        <div class="row">
+            <div class="col-lg-8 col-md-12 p-5 bg-white rounded-3">
+                <div class="d-flex mb-3 flex-column">
+                   
+                </div>
+                <form class="row mb-3">
+                    <div class="col-md-6 p-3">
+                        <input required placeholder="full name" formControlName="name" type="text" name="" id="" />
+                    </div>
+                    <div class="col-md-6 p-3">
+                        <input required placeholder="E-mail" formControlName="email" type="email" name="" id="" />
+                    </div>
+                    <div class="col-md-6 p-3">
+                        <select name="state" id="state" formControlName="state">
+                            <option value="" selected hidden>State </option>
+                            <option value="Ariana">Ariana</option>
+                            <option value="Béja">Béja</option>
+                            <option value="Ben Arous">Ben Arous</option>
+                            <option value="Bizerte">Bizerte</option>
+                            <option value="Gabès">Gabès</option>
+                            <option value="Gafsa">Gafsa</option>
+                            <option value="Jendouba">Jendouba</option>
+                            <option value="Kairouan">Kairouan</option>
+                            <option value="Kasserine">Kasserine</option>
+                            <option value="Kebili">Kebili</option>
+                            <option value="Kef">Kef</option>
+                            <option value="Mahdia">Mahdia</option>
+                            <option value="Manouba">Manouba</option>
+                            <option value="Mednine">Mednine</option>
+                            <option value="Monastir">Monastir</option>
+                            <option value="Nabeul">Nabeul</option>
+                            <option value="Sfax">Sfax</option>
+                            <option value="Sidi Bouzid">Sidi Bouzid</option>
+                            <option value="Siliana">Siliana</option>
+                            <option value="Sousse">Sousse</option>
+                            <option value="Tataouine">Tataouine</option>
+                            <option value="Tozeur">Tozeur</option>
+                            <option value="Tunis">Tunis</option>
+                            <option value="Zaghouan">Zaghouan</option>
+                        </select>                    </div>
+                    <div class="col-md-6 p-3">
+                        <input required placeholder="phone" type="tel" formControlName="phone" name="" id="" />
+                    </div>
+                    <div class="col-md">
+                        <textarea required name="" formControlName="description" placeholder="write your message" id="" cols="30" rows="1"></textarea>
+                    </div>
+                    <div *ngIf="counterr!=0">
+                        <br> <small class="error">{{errors.name}}</small>
+                        <br><small class="error">{{errors.email}}</small>
+                        <br><small class="error">{{errors.phone}}</small>
+                        <br><small class="error">{{errors.state}}</small>
+                        <br><small class="error">{{errors.description}}</small>
+        
+                    </div>
+                    <div class="text-end mt-4">
+                        <input class="btn px-4 py-3 "  (click)="onSubmit()" type="submit" value="Send Message" />
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-4 col-md-12 text-white aside px-4 py-5">
+                <div class="mb-5">
+                    <h1 class="h3">Contact Information</h1>
+                    <p class="opacity-50">
+                        <small>
+                            Fill out the from and we will get back to you whitin 24 hours
+                        </small>
+                    </p>
+                </div>
+                <div class="d-flex flex-column px-0">
+                    <ul class="m-0 p-0">
+                        <li class="d-flex justify-content-start align-items-center mb-4">
+                            <span class="opacity-50 d-flex align-items-center me-3 fs-2">
+                            </span>
+                            <span>+216 74205123</span>
+                        
+                        <li class="d-flex align-items-center r mb-4">
+                            <span class="opacity-50 d-flex align-items-center me-3 fs-2">
+                            </span>
+                            <span>Fondation@gmail.com</span>
+                        </li>
+                        <li class="d-flex justify-content-start align-items-center mb-4">
+                            <span class="opacity-50 d-flex align-items-center me-3 fs-2">
+                            </span>
+                            <span>
+                                cite el Ons
+                            </span>
+                        </li>
+                    </ul>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>                                                                     
+
+
+<!------------------part4:map----------------------------------->
+
+
+
+<!------------------part4:map----------------------------------->
+
+
+
+<div class="map">
+    <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+        src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=1%20%20djagora,%20Dublin,%20djagorafablab+&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+</div>

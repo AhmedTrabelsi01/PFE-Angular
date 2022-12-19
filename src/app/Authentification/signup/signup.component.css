@@ -1,0 +1,105 @@
+body {
+    font-family: 'calibri', sans-serif;
+  
+  }
+  /*titre sign */
+  .titre {
+    font-family: 'calibri', sans-serif;
+    position: relative;
+    top: 90px;
+    right: 10px;
+    font-size: 35px;
+  }
+ 
+  /* photo grand de 3 page */
+  .photo_grand {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 1000px;
+    height: 100%;
+  }
+  .sign_box_signup {
+    width: 360px;
+    
+    text-align: center;
+    position: absolute;
+    top: 20%;
+    right:5%;
+  }
+  @media (max-width:700px){
+    .photo_grand {
+     
+      display: none;
+    }
+  }
+   /* Start buttons */
+  
+  
+   .button_signup input[type=button] {
+    text-decoration: none;
+    font-size: 1.25em;
+    position: relative;
+    margin: 20px;
+  
+  }
+  .button_signup input[type=button] {
+    background: #0081c2e8;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+    color: #fff;
+  border: #0081c2e8;
+    cursor: pointer;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+  }
+  .button_signup input[type=button]::after,
+  .button-input[type=button]::before {
+    content: "";
+    position: absolute;
+    opacity: 0.3;
+    background: white;
+    border-radius: 10px;
+    width: 50%;
+    height: 50%;
+    bottom: 0;
+    z-index: -1;
+    transition: transform 0.3s ease;
+  }
+  /* effet de button */
+  .button_signup input[type=button]:hover {
+    transform: scale(1.05);
+  }
+  .button_signup input[type=button]:hover::after {
+    transform: scale(1.05);
+  }
+  .position_button {
+    position: relative;
+    left: 0px;
+    top: 160px;
+  
+  }
+  /* end buttons */
+  
+  /* paragraphe */
+  
+  .paragraphe_welcom {
+    position: absolute;
+    top: 157px;
+    left: 70px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .paragraphe_hello {
+    position: relative;
+    top: 150px;
+    left: 5px;
+    font-size: 16px;
+    margin-bottom: 10px
+  }
+  
+  /* end button */
+  /*end page sign up */  

@@ -1,0 +1,266 @@
+<!--
+<div class="header" *ngIf="auth!='true'">
+    <div class="logo">
+
+        <img src="assets/img/djagora_bg.png" width="100px" alt="">
+
+        <button type="button" routerLink="login/signup" class="signup">SIGN UP</button>
+        <button type="button" routerLink="login" class="login">LOG IN</button>
+
+
+
+
+        <div class="navbar">
+            <nav>
+                <ul>
+                    <li><a routerLink="">Home</a></li>
+                    <li>
+                        <div class="dropdown">
+                            <button class="dropbtn">Projects 
+                              <i class="fa fa-caret-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                              <a routerLink="/djagoraacadimy">Djagora Academy</a>
+                              <a routerLink="/notfound">Djagora Fablab</a>
+                            </div>
+                          </div> 
+                    </li>
+                    <li><a routerLink="contact">contact</a></li>
+                    <li><a routerLink="aboutus">about</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<header *ngIf="auth=='true'">
+    <div class="header">
+        <div class="logo">
+            <div class="top">
+                <img src="assets/img/djagora_bg.png" width="100px" alt="">
+
+                <div class="topright">
+                    <div (click)="setOldnotifs()" class="notif-btn">
+                        <i class="far fa-bell"  onclick="toggleNotifi()" aria-hidden="true"></i>
+                        <span id="NotificationBadge" *ngIf="notiCount!=0" >+{{notiCount}}</span>
+                        
+                    </div>
+
+                    
+                    <div class="notifi-box" id="box">
+                        <h2>New Notifications <span>{{notiCount}}</span></h2>
+
+                        <div class="notifi-item" *ngFor="let n of notifications" >
+                            <img src="assets/img/user.png" alt="img">
+                            <div class="text">
+                                <h5>Admin :<i  (click)="onDelete(n.id)" class="fa-solid fa-xmark" style="margin-left: 170px;opacity: 50%;"  aria-hidden="true" ></i>
+                                </h5>
+                                <p>{{n.name}} : {{n.content}}</p>
+
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                   <img [src]="imgpath+profil.img" class="profileimg">
+
+
+                    <h4>{{profil.name}}</h4>
+
+
+
+                    <div class="action">
+                        <div class="arrow">
+                            <img src="assets/img/down-arrow.png" onclick="menuToggle();" class="arrow" id="arrowImg">
+                        </div>
+                        <div class="menu" id="dropDown">
+                            <ul>
+                                <li><img src="assets/img/user.png"><a
+                                        [routerLink]="['/profil',loggeduser.id]">Profile</a></li>
+                                <li *ngIf=" role!='1' " ><img src="assets/img/project.png"><a [routerLink]="['/ownedwork']"   >My Projects</a></li>
+                                <li *ngIf=" role=='1' "><img src="assets/img/project.png"><a [routerLink]="['/ownedwork']"  >My Applications</a></li>
+                                <li (click)="onLogout()"><img src="assets/img/switch.png" ><a href ="">Logout</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+            <div class="navbar">
+                <nav>
+                    <ul>
+                        <li><a routerLink="">Home</a></li>
+                        <li>
+                            <div class="dropdown">
+                                <button class="dropbtn">Projects 
+                                  <i class="fa fa-caret-down"></i>
+                                </button>
+                                <div class="dropdown-content">
+                                  <a routerLink="/djagoraacadimy">Djagora Academy</a>
+                                  <a routerLink="/notfound">Djagora Fablab</a>
+                                </div>
+                              </div> 
+                        </li>
+                        <li><a routerLink="contact">contact</a></li>
+                        <li><a routerLink="aboutus">about</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+
+</header>
+-->
+
+<header class="sticky">
+    <nav class="navbar    navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+        <div class="container text-light">
+            <div class="w-100 d-flex justify-content-between">
+                <div>
+                    <i class="fa fa-envelope mx-2"></i>
+                    <a class="navbar-sm-brand text-light text-decoration-none">Fondation@gmail.com</a>
+                    <br><i class="fa fa-phone mx-2"></i>
+                    <a class="navbar-sm-brand text-light text-decoration-none">+216 74205123</a>
+                </div>
+                <div class="sous_footer">
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Close Top Nav -->
+
+
+    <!-- Header -->
+    <nav class="navbar fixed  navbar1 navbar-expand-lg navbar-light shadow">
+        <div class="container test1  d-flex justify-content-between align-items-center">
+
+            <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
+                <img style="height: 40px;" src="assets/img/djagora logo.png" alt="">
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between  "
+                id="templatemo_main_nav">
+                <div class="flex-fill ">
+                    <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto" >
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <button class="dropbtn  nav-link">Projects
+                                    <i class="fa fa-caret-down"></i>
+                                </button>
+                                <div class="dropdown-content">
+                                    <a routerLink="/djagoraacadimy">Djagora Academy</a>
+                                    <a routerLink="/notfound">Djagora Fablab</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="contact">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="aboutus">About</a>
+                        </li>
+
+
+                    </ul>
+                </div>
+                <div *ngIf="auth!='true'" class="navbar align-self-center d-flex">
+                    <button type="button" routerLink="login" class="login">LOG IN</button>
+
+                    <button type="button" routerLink="login/signup" class="signup">SIGN UP</button>
+
+
+
+
+                </div>
+
+                <div *ngIf="auth=='true'">
+                    <img [src]="imgpath+profil.img" class="profileimg" >
+
+
+
+                    <div (click)="setOldnotifs()" class="notif-btn">
+                        <i class="far fa-bell " style="cursor: pointer;" onclick="toggleNotifi()"  aria-hidden="true"></i>
+                        <span id="NotificationBadge" *ngIf="notiCount!=0">+{{notiCount}}</span>
+
+                    </div>
+
+                    <div class="notifi-box" id="box">
+                        <h2>New Notifications <span>{{notiCount}}</span></h2>
+
+                        <div class="notifi-item" *ngFor="let n of notifications" >
+                            <img src="assets/img/user.png" alt="img">
+                            <div class="text">
+                                <h5>Admin :<i  (click)="onDelete(n.id)" class="fa-solid fa-xmark" style="margin-left: 170px;opacity: 50%;"  aria-hidden="true" ></i>
+                                </h5>
+                                <p>{{n.name}} : {{n.content}}</p>
+
+                            </div>
+                            
+
+                        </div>
+
+
+                    </div>
+
+
+                    <a class=" dropdown active">
+
+                        <div class="action">
+
+                            <div class="menu" id="dropDown">
+
+                                <ul>
+                                    <li><img src="assets/img/user.png"><a [routerLink]="['/profil',loggeduser.id]">Profile</a></li>
+                                    <li (click)="onLogout()"><img src="assets/img/switch.png"><a href="">Logout</a></li>
+                                </ul>
+                            </div>
+                            <div class="arrow ">
+                                <img src="assets/img/down-arrow.png" onclick="menuToggle();" class="arrow  "
+                                    id="arrowImg">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+    <!-- Modal -->
+
+</header>

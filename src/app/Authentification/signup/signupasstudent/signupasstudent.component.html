@@ -1,0 +1,47 @@
+<section>
+    <img class="photo_grand" src="assets/img/a.jpg">
+    <div class="sign_box_student">
+
+        <div class="btn_retour">
+            <button routerLink="/login/signup">🢀 Back</button>
+        </div>
+
+        <h1>SIGN UP</h1>
+        <form [formGroup]="userForm">
+
+            <input type="name" formControlName="name" placeholder="Full name">
+
+            <input type="email" formControlName="email" placeholder="Email">
+            <div >
+
+                <select name="gender" id="gender" formControlName="gender">
+                    <option value="" disabled selected hidden>Gender </option>
+                    <option value="men">Men</option>
+                    <option value="women">Women</option>
+                
+                </select>
+
+            </div>
+
+            <input type="password" formControlName="password" placeholder="Password">
+
+            <input type="password" formControlName="confirmation" placeholder="Confirm Password">
+            
+            
+           <div  *ngIf="counterr!=0">
+            <br> <small class="error">{{errors.name}}</small>
+            <br><small class="error">{{errors.email}}</small>
+            <br><small class="error">{{errors.gender}}</small>
+            <br><small class="error">{{errors.password}}</small>
+            <br><small class="error">{{errors.confirmation}}</small>
+
+        </div><br>
+        <button class="lo" (click)="onSubmit()">Sign Up</button>
+        </form>
+        <h5>You have an account ?</h5>
+        <a  class="anow" style="color: rgb(80, 130, 177);cursor: pointer;" routerLink="/login">Login now</a>
+
+       
+
+    </div>
+</section>

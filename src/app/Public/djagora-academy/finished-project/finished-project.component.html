@@ -1,0 +1,147 @@
+<div class="topimg">
+    <img src="assets/img/singel.jpg">
+    <div class="path">
+        <h1>{{SingleProject.Name}}</h1>
+        <p>Departements\Djagora Acadimy\{{SingleProject.Name}}</p>
+    </div>
+</div>
+<div class="tout_singel">
+    <div class="btn_retour">
+        <button routerLink="/djagoraacadimy"><a >🢀 Back</a></button>
+    </div>
+    <div class="singel_project">
+        <div class="sp">
+            <img [src]="imgpath+SingleProject.img" >
+            <div class="sp_2">
+                <h2>project owner</h2>
+                <p>{{ProjectOwner.name}}</p>
+
+                <h2>project name</h2>
+
+                <p>{{SingleProject.name}}</p>
+
+                <h2>estimated date</h2>
+                <p>{{SingleProject.estimated_date}}</p>
+                <h2>description</h2>
+                <p>{{SingleProject.description}}</p>
+
+            </div>
+            
+        </div>
+
+
+
+
+
+
+        <div  class="part6" >
+            <div class="titreapp">
+              <h1 name="1">Senior Team</h1>
+            </div>
+         </div>   
+
+
+        <span *ngFor="let s of senior" >
+            <div class="sp-2" >
+                <div class="titre">
+                    <img [src]="imgpath+s.img" >
+
+                </div>
+                <div class="titre-2">
+                   <!-- <div class="proo" style="text-align: right;">
+                        <a href="#"> Profile</a>
+                        <i class="fa fa-angle-right" ></i>
+                    </div>
+                    -->
+                    <div class="name">
+                        <h3>Name:</h3>
+                        <p>{{s.name}}</p>
+                    </div>
+                    <div class="emaill">
+                        <h3>Email:</h3>
+                        <p>{{s.email}}</p>
+                    </div>
+                  
+                   
+
+
+                    
+                </div>
+            </div>
+        </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div  class="part6" >
+            <div class="titreapp">
+              <h1 name="1">Junior Team</h1>
+            </div>
+         </div>   
+
+
+        <span *ngFor="let a of AppApplications" >
+            <div class="sp-2" >
+                <div class="titre">
+                    <img [src]="imgpath+a.img" >
+
+                </div>
+                <div class="titre-2">
+                   <!-- <div class="proo" style="text-align: right;">
+                        <a href="#"> Profile</a>
+                        <i class="fa fa-angle-right" ></i>
+                    </div>
+                    -->
+                    <div class="name">
+                        <h3>Name:</h3>
+                        <p>{{a.name}}</p>
+                    </div>
+                    <div class="emaill">
+                        <h3>Email:</h3>
+                        <p>{{a.email}}</p>
+                    </div>
+                    <div class="cv">
+                        <h3>CV:</h3>
+                        <p>{{a.cv}}</p>
+
+                    </div>
+                   
+
+
+                    
+                </div>
+            </div>
+        </span>
+
+     
+       
+        
+    </div>
+</div>
+

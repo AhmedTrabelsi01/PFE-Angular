@@ -1,0 +1,185 @@
+<div id="banner-area" class="banner-area"
+    style="background-image:url(assets/img/contact.jpg);margin-top: 8%;margin-bottom: 3%;">
+    <div class="banner-text">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="banner-heading">
+                        <h1 class="banner-title">profiles/Edit work</h1>
+                    </div>
+                </div><!-- Col end -->
+            </div><!-- Row end -->
+        </div><!-- Container end -->
+    </div><!-- Banner text end -->
+</div><!-- Banner area end -->
+
+
+
+
+
+<!--      <form class="box" [formGroup]="projectForm"  *ngIf=" role!='1'    ">
+                  
+                    <div style="max-width:400px;margin:auto">
+                        <div class="input-icons">
+                          <h4>Name</h4>
+                            <input class="input-field" [(ngModel)]="proj.name" formControlName="name" type="text"><br>
+                            <h4>Date</h4>
+                            <input class="input-field"  [ngModel] ="proj.estimated_date | date:'yyyy-MM-dd'" formControlName="date" type="text"><br>
+                            <h4>Description</h4>
+                            <input class="input-field" [(ngModel)]="proj.description" formControlName="description" type="text"><br>
+                           
+                        </div>
+                    </div>
+                     <div class="btn">
+                                    <button (click)="onSubmitProject(proj.id)">
+                                        Save
+                                    </button>
+                                </div>
+                
+                
+                </form>
+                -->
+
+<div class="rpbox" *ngIf=" role!='1' ">
+    <div class="boxarchive container">
+        <div class="btn_retour mb-5">
+            <button routerLink='/ownedwork'><a>🢀 Back</a></button>
+        </div>
+        <div class="part1">
+            <div class="box-1 boxarchive container ">
+
+
+                <form class="mx-5" [formGroup]="projectForm" >
+                    <div class="me-sm-4">
+                        <div class="row justify-content-md-center mb-5 me-sm-5">
+                            <div class="avatar-upload me-sm-5">
+                            
+                                <div class="avatar-edit">
+                                    <input type='file' id="imageUpload" (change)="onChange($event)" formControlName="img"
+                                        accept=".png, .jpg, .jpeg" />
+                                    <label for="imageUpload"></label>
+                                    <span class="tooltiptext">Edit project pàicture</span>
+                                </div>
+                                <div class="avatar-preview ">
+                                    <img [src]="imgpath+proj.img">
+                                </div>
+        
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="row justify-content-md-center">
+                        <div class="col-md-5 mb-4 mx-4">
+                            <label for="validationServer01">Name</label>
+                            <input formControlName="name"  [(ngModel)]="proj.name" type="text" class="form-control p-3" id="validationServer01"
+                                placeholder="First name">
+
+                        </div>
+                        <div class="col-md-5 mb-4 mx-4 ">
+                            <label for="validationServer02">Estimated date</label>
+                            <input type="date" formControlName="estimated_date" class="form-control p-3"
+                                [ngModel] ="proj.estimated_date | date:'yyyy-MM-dd'" >
+
+                        </div>
+
+                    </div>
+                    <div class="row justify-content-md-center">
+
+                        
+
+                        <div class="col-md-5 mb-4 mx-4">
+                            <label for="validationServer03">Description</label>
+                            <textarea type="text" formControlName="description" [(ngModel)]="proj.description" class="form-control "
+                                id="validationServer03" placeholder="City"></textarea>
+
+                        </div>
+
+                    </div>
+
+                    <div class="row justify-content-md-center">
+
+
+                        <button class="btn btn-primary col-md-2" (click)="onSubmitProject(proj.id)" type="submit">Submit</button>
+
+                    </div>
+
+                </form>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<form class="box" [formGroup]="PostulationtForm" *ngIf=" role=='1'    ">
+
+    <div class="avatar-upload">
+        <div class="avatar-edit">
+            <input type='file' id="imageUpload" (change)="onChange($event)" formControlName="img"
+                accept=".png, .jpg, .jpeg" />
+            <label for="imageUpload"></label>
+            <span class="tooltiptext">Edit Profile Picture</span>
+        </div>
+        <div class="avatar-preview">
+            <p><a style="text-decoration: none;" href="http://127.0.0.1:8000/storage/post/{{app.cv}}" download>
+                    {{app.cv}}</a> </p>
+        </div>
+
+    </div>
+    <div style="max-width:400px;margin:auto">
+        <div class="input-icons">
+            <h4>Name</h4>
+            <input class="input-field" [(ngModel)]="app.name" formControlName="name" type="text"><br>
+            <h4>Family name</h4>
+            <input class="input-field" [(ngModel)]="app.family_name" formControlName="family_name" type="text"><br>
+            <h4>Email</h4>
+            <input class="input-field" [(ngModel)]="app.email" formControlName="email" type="text"><br>
+            <h4>Number</h4>
+            <input class="input-field" [(ngModel)]="app.number" formControlName="number" type="number"><br>
+
+        </div>
+    </div>
+    <div class="btn">
+        <button (click)="onSubmitApp(app.id)">
+            Save
+        </button>
+    </div>
+
+
+</form>

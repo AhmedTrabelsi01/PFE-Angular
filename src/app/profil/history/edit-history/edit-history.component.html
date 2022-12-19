@@ -1,0 +1,56 @@
+
+
+
+
+
+
+
+
+
+
+      <div class="part1">
+        <div class="topimg">
+            <img src="assets/img/singel.jpg" alt="">
+            <div class="text">Edit History</div>
+    
+        </div>
+    </div>
+    
+    
+    <button  [routerLink]="['/profil',loggeduser['id']]" class="btn--new">
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+        <span> Back</span>
+    </button>
+    
+                <form class="box" [formGroup]="historyForm">
+                    <div class="avatar-upload">
+                        <div class="avatar-edit">
+                            <input type='file' id="imageUpload" (change)="onChange($event)" formControlName="img" accept=".png, .jpg, .jpeg" />
+                            <label for="imageUpload"></label>
+                            <span class="tooltiptext">Edit Profile Picture</span>
+                        </div>
+                        <div class="avatar-preview">
+                            <img [src]="imgpath+history1.img">
+                        </div>
+                
+                    </div>
+                    <div style="max-width:400px;margin:auto">
+                        <div class="input-icons">
+                          <h4>Name</h4>
+                            <input class="input-field" [(ngModel)]="history1.name" formControlName="name" type="text"><br>
+                            <h4>Description</h4>
+                            <input class="input-field" [(ngModel)]="history1.description" formControlName="description" type="text"><br>
+                           
+                        </div>
+                    </div>
+                     <div class="btn">
+                                    <button (click)="onSubmit()">
+                                        Save
+                                    </button>
+                                </div>
+                                <button class="delete" (click)="onDelete()">
+                                    delete
+                                </button>
+                
+                </form>
+    

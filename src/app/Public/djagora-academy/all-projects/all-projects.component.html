@@ -1,0 +1,202 @@
+<!------------------part1:image after header----------------------->
+<div id="banner-area" class="banner-area" style="background-image:url(assets/img/contact.jpg);margin-top: 8%;margin-bottom: 3%;">
+    <div class="banner-text">
+      <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="banner-heading">
+                <h1 class="banner-title">Djagora academy</h1>
+              </div>
+            </div><!-- Col end -->
+          </div><!-- Row end -->
+      </div><!-- Container end -->
+    </div><!-- Banner text end -->
+  </div><!-- Banner area end --> 
+<!-------------------------------------------------------------------->
+
+
+<!------------------part2:who_we_are----------------------->
+<div class="who_we_are ">
+
+    <div class="rpbox ">
+        <div class="rpsbox container">
+            <img src="assets/img/singel.jpg" alt="">
+            <div class="content">
+                <h2>Who We Are</h2>
+                <p>Nice to meet you! We are a tech-driven online retailer located near Salt Lake
+                    City in the shadow of the Wasatch Mountains. Since our beginnings in 1999,
+                    Overstosck has evolved from a fledging startup to a billion-dollar online
+                    retailer as a result of a hard-working and creative team.
+                </p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+<!-------------------------------------------------------------------->
+
+
+
+
+<!------------------part3:search bar----------------------->
+<div class="rpbox">
+    <div class="boxarchive container ">
+        <div class="titre">
+
+            <h1 name="1">PROJECTS</h1>
+        </div>
+
+        <div class="searchbar" >
+
+            <div class="input-box">
+                <div class="search2">
+                    <input type="text" placeholder="search project" [(ngModel)]="searchTerm">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </div>
+
+            </div>
+            <div class="input-box2"  *ngIf="auth=='true' && role!='1' && acaState=='true' ">
+                <div routerLink="/AddProject" class="addproject">
+                    <button>Add Project</button>
+                    <i class="far fa-edit" aria-hidden="true"></i>
+                </div>
+            </div>
+
+        </div>
+
+    <!-------------------------------------------------------------------->
+
+    <!------------------part4:projects----------------------->
+
+
+
+
+    <h1 *ngIf="countproj==0" style="margin-left: 40%; color: gray;">No projects added yet</h1>
+
+
+
+
+        <div class="container py-4 "  *ngFor="let p of projectss | filter:st ">
+            
+            <article class="postcard light yellow mx-5">
+                <a class="postcard__img_link" href="#">
+                    <img class="postcard__img" [src]="imgpath+p.img" alt="Image Title" />
+                </a>
+                <div class="postcard__text t-dark">
+                    <h1 class="postcard__title yellow"><a href="#"><b>{{p.name}}</b></a></h1>
+                    
+                    <div class="postcard__bar"></div>
+                    <div class="postcard__preview-txt">{{p.description}}</div>
+                    <ul class="postcard__tagbox">
+                        <li class="tag__item"><i class="fas fa-user mr-2"></i>{{p.owner}}</li>
+                        <li class="tag__item"><i class="fas fa-calendar-alt mr-2"></i>{{p.estimated_date}}</li>
+                       
+                    </ul>
+                    <p class="read-more">
+                        <a [routerLink]="['/SingleProject',p.id]" *ngIf="auth=='true' && acaState=='true' ">Read More</a>
+                    </p>
+                </div>
+            </article>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="pag">
+    <nav aria-label="Page navigation example ">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="#" style="border: none;"><i class="fa-solid fa-arrow-left"></i></a></li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#" style="border: none;"><i class="fa-solid fa-arrow-right"></i></a></li>
+        </ul>
+      </nav>
+
+</div>
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+
+<!----------------------------------------------------------------------------->
+
+
+
+
+
+<!------------------part5:search archive----------------------->
+<div class="rpbox">
+    <div class="boxarchive container">
+        <div class="part5 container">
+            <div class="titre">
+                <h1 name="1">ARCHIVE</h1>
+            </div>
+    
+            <div class="searchbar ">
+    
+                
+    
+            </div>
+        </div>
+    
+    
+        <!------------------part6:project archive----------------------->
+        <div class="part6">
+           <h1 *ngIf="countar==0" style="margin-left: 40%; margin-bottom: 6%; color: gray;">No archive added yet</h1>
+    
+            <div class=" sdep" >
+                
+                            <div class="  col-md-8 col-lg-4 order-lg-last mx-3  "  *ngFor="let p3 of archive">
+                                <div class="body ">
+                                    <div class="blog-card ">
+                                        <div class="meta">
+                                            <div class="photo"><img [src]="imgpath+p3.img" alt=""></div>
+                                            <ul class="details">
+                                                <li class="author">{{p3.owner}}</li>
+                                                <li class="date">{{p3.estimated_date}}</li>
+    
+                                            </ul>
+                                        </div>
+                                        <div class="description">
+                                            <p> {{p3.description}}</p>
+                                            <p class="read-more">
+                                                <a href="#">Read More</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                         
+                    
+            
+            </div>
+        </div>
+    </div>
+</div>

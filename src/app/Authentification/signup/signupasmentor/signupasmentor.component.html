@@ -1,0 +1,74 @@
+<section>
+    <img class="photo_grand" src="assets/img/a.jpg">
+    <div class="sign_box_montor">
+
+        <div class="btn_retour">
+            <button routerLink="/login/signup">🢀 Back</button>
+        </div>
+        <h2>SIGN UP</h2>
+
+        <form [formGroup]="userForm">
+            <div>
+                <input type="name" formControlName="name" placeholder="Full name">
+
+                <input type="email" formControlName="email" placeholder="Email">
+
+
+                <div>
+                    <select name="gender" id="gender" formControlName="gender">
+                        <option value="" disabled selected hidden>Gender </option>
+                        <option value="men">Men</option>
+                        <option value="women">Women</option>
+
+                    </select>
+
+                </div>
+
+
+
+                <input type="password" formControlName="password" placeholder="Password">
+
+                <input type="password" formControlName="confirmation" placeholder="Confirm password">
+
+            </div>
+            <div class="button_radio_c">
+                <label class="btn_radio">
+                    <input type="radio" formControlName="role" value="Professor"><br>
+                    <b>Professor</b>
+                </label>
+
+                <label class="btn_radio">
+                    <input type="radio" formControlName="role" value="Entrepreneur"><br>
+                    <b>Entrepreneur</b>
+                </label>
+
+                <label class="btn_radio">
+                    <input type="radio" formControlName="role" value="Expert">
+                    <br>
+                    <b>Expert</b>
+                </label>
+
+            </div>
+            <div  *ngIf="counterr!=0">
+                <br> <small class="error">{{errors.name}}</small>
+                <br><small class="error">{{errors.email}}</small>
+                <br><small class="error">{{errors.gender}}</small>
+                <br><small class="error">{{errors.password}}</small>
+                <br><small class="error">{{errors.confirmation}}</small>
+                <br><small class="error">{{errors.role}}</small>
+
+            </div>
+
+
+            <br>
+            <button class="lo" (click)="onSubmit()">Sign Up</button>
+            <h5 >You have an account ?</h5>
+            <a class="anow" style="color: rgb(80, 130, 177); cursor: pointer;     font-size: 16px;" routerLink="/login">Login now</a>
+
+        </form>
+
+
+
+    </div>
+
+</section>

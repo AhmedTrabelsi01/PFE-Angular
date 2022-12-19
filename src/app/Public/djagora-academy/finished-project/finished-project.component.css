@@ -1,0 +1,360 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.singel_project{
+    margin-bottom: 92px
+}
+
+/*exemple d'image */
+.topimg {
+    padding-top: 138px;
+    padding-bottom: -10px;
+
+}
+
+
+
+/*-----------box part 3---------*/
+
+.sp-2 {
+    width: 78%;
+    margin: 3% auto;
+    padding-right: 10px;
+    border-radius: 20px;
+    border: 2px solid #edf2f4;
+    background-color: white;
+    box-shadow: 0 0 5pt 1pt rgb(226 225 225);
+    margin-right: 10%;
+    margin-left: 12%;
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 29px;
+}
+
+.titre-2 {
+    margin-left:10%;
+    line-height: 45px;
+}
+.titreapp{
+    text-align: center;
+    position: relative;
+    line-height: 60px;
+    color: #555;
+  }
+  .titreapp::after{
+    content: '';
+    background: #0081c2;
+  width: 80px;
+  height: 5px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  }
+/*-------img profile-----------*/
+.titre img{
+    width: 100px;
+    border-radius: 30px;
+    margin-top: 20px;
+}
+
+/*--------contenu box3-----------*/
+.name{
+    display: flex;
+}
+.emaill{
+    display: flex;
+   
+}
+.cv{
+    display: flex;
+
+}
+p{ padding-left: 12px;}
+
+
+.iconss{
+    margin-bottom: -20px;
+    margin-top: -20px;
+    text-align: right;
+    width: 368%;
+    font-size: 25px;
+}
+.fa-long-arrow-down {
+   padding-top: 13px;
+    padding-left: 10px;
+   
+}
+.fa-times-circle{
+    color: red;
+    padding-right: 15px;
+}
+.fa-check-circle{
+    color: green;
+    
+}
+
+.proo{
+    text-align: right;
+    width: 366%;
+    margin-bottom: -23px;
+    margin-top: -20px;
+    
+}
+.proo a{
+    color: black;
+    text-decoration: none;
+
+}
+
+input[type="submit"]{
+    margin-top: 20%;
+    margin-left: 80%;     
+    width: 120px;
+    height: 40px;   
+   cursor: pointer;
+   border: 1px solid;
+   border-radius: 20px;
+   font-size: medium;
+   border-color: #0081C2;
+   background-color: #0081C2;
+   color: aliceblue;
+   
+}
+
+.topimg img {
+    width: 100%;
+    height: 300px;
+}
+
+/*fin exemple d'image */
+
+/*start path page */
+.path {
+    text-align: center;
+    margin-top: -190px;
+    margin-bottom: 132px;
+}
+/*end path page */
+
+body {
+    font-family: 'calibri', sans-serif;
+
+}
+
+/*  start button retour*/
+
+
+.btn_retour button {
+    background: transparent;
+    cursor: pointer;
+    color: #0081C2;
+    border: 2px solid #0081c2;
+    border-radius: 20px;
+    transition: background 0.5s;
+    padding-left: 14px;
+      padding-right: 12px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+  }
+  
+  .btn_retour {
+    max-width: 23%;
+    padding: 5px 0px;
+  
+    position: relative;
+    left: 12%;
+    margin-top: 30px;
+    
+   
+    
+  
+  }
+  
+  .btn_retour button:hover {
+    color: white;
+    background: #0081c2;
+    border-color: #0081c2;
+  }
+  
+  .btn_retour button:hover {
+    color: white;
+    background: #0081c2;
+    border-color: #0081c2;
+  }
+  
+
+/*end button retour*/
+/* start claas singel project parti 1 et 2*/
+.tout_singel {
+    padding-top: 130px;
+}
+
+.sp {
+
+    max-width: fill-available;
+    width: 80%;
+
+    margin: 3% auto;
+    padding-right: 10px;
+    border-radius: 50px;
+    border: 2px solid #edf2f4;
+    background-color: white;
+    box-shadow: 0 0 5pt 1pt rgb(226, 225, 225);
+    margin-right: 10%;
+    margin-left: 12%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: relative;
+   
+
+
+}
+/*position image*/
+.sp img {
+    height: 520px;
+    width: 550px;
+    border-radius: 50px 0 0 50px;
+}
+/*paragraphe de page single project  */
+.sp_2 {
+    flex-basis: 50%;
+    padding-right: 40px;
+    padding-top: 40px;
+    margin: 8px;
+    line-height: 225%;
+}
+
+.sp_2 h1 {
+    text-align: center;
+    line-height: 200%;
+}
+/* button aplly page single project student seulement  */
+
+
+.sp_3 button {
+    height: 8%;
+    width: 20%;
+    border: 1px solid;
+    border-radius: 20px;
+    font-size: medium;
+    border-color: #0081C2;
+    background-color: #0081C2;
+    color: aliceblue;
+    cursor: pointer;
+    position: flex;
+    justify-content: center;
+    margin-top: 5px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+/*-------------box--------------*/
+.sp_3 {
+   
+    flex-basis: 43%;
+    padding-right:74px;
+    padding-top: 9px;
+    margin: 5px;
+    line-height: 220%;
+}
+
+.sp_3 h1 {
+    text-align: center;
+    line-height: 120%;
+}
+
+.paragraph{
+    line-height: 27px;
+}
+
+
+
+
+
+/*-----------box comments----------*/
+
+.sp-1 {
+    width: 80%;
+    margin: 3% auto;
+    padding-right: 10px;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0 0 5pt 1pt rgb(226 225 225);
+    margin-right: 10%;
+    margin-left: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 9px;
+    padding-bottom: 20px;
+}
+
+.sp-2 {
+    width: 80%;
+    margin: 3% auto;
+    padding-right: 10px;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0 0 5pt 1pt rgb(226 225 225);
+    margin-right: 10%;
+    margin-left: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 29px;
+}
+
+.sp-3 {
+    width: 80%;
+    margin: 3% auto;
+    padding-right: 10px;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0 0 5pt 1pt rgb(226 225 225);
+    margin-right: 10%;
+    margin-left: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 29px;
+}
+
+/*-------------titre comment------------*/
+.sp-1 .titre {
+    padding-left: 29px;
+    line-height: 40px;
+
+}
+
+.titre-2 {
+    margin-left: 15px;
+    line-height: 25px;
+}
+
+/*----------------input comment --------*/
+input[type="text"] {
+    border-radius: 10px;
+    padding-bottom: 10px;
+    width: 704%;
+    padding-left: 7px;
+}
