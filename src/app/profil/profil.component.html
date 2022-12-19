@@ -158,7 +158,7 @@
 
                   <div class="row ">
                     <div class="col-sm-12 px-sm-4 py-sm-1">
-                      <button class="edit" [routerLink]="['/EditProfil',users.user_id]"><i class="fa-solid fa-user"></i>
+                      <button class="edit" *ngIf="loggeduser['id'] == id" [routerLink]="['/EditProfil',users.user_id]"><i class="fa-solid fa-user"></i>
                         Edit Profile</button>
                     </div>
                   </div>
@@ -280,7 +280,7 @@
 
         </div>
       </div>
-      <div class="row">
+      <div class="row" *ngIf="loggeduser['id'] == id">
         <div class="col-sm-12">
           <div class="card">
             <div class="card-body">
@@ -298,7 +298,7 @@
 <br>
 
 
-      <div class="row">
+      <div class="row" *ngIf="loggeduser['id'] == id">
         <div class="col-sm-12">
           <div class="card">
             <div class="card-body">
@@ -310,9 +310,9 @@
 
               <div class="rpbox1" *ngIf="role=='1'">
                 <div class="container bootstrap snippets bootdey " *ngFor="let a of applications">
-                  <div class="col-md-12">
+                  <div class="col-md-12" >
                     <div class="profile-container">
-                      <div class="profile-header row">
+                      <div class="profile-header row" >
                         <div class="col-md-4 col-sm-12 text-center">
                           <img [src]="imgpath+a.img" alt="" class="header-avatar">
                         </div>
@@ -322,7 +322,9 @@
                           <br>
 
                           <div class="header-information"><i class="fas fa-envelope mr-2"></i>
-                            {{a.email}} </div> <br>
+                            {{a.email}} </div> 
+                            <div class="header-information"><i class="fas fa-envelope mr-2"></i>
+                              {{a.number}} </div> 
 
 
                         </div>

@@ -143,6 +143,24 @@ body {
   }
   /* end part 2 */
   
+  .btn-delete{
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 7px;
+    border: 1px solid;
+    border-radius: 10px;
+    border-color:red;
+    background:white;
+    color: red;
+    margin-top: 20px;
+    cursor: pointer;
+}
+.btn-delete:hover{
+  background-color: red;
+  color: white;
+}
+
   .btn {
     padding-left: 20px;
     padding-right: 20px;

@@ -28,7 +28,7 @@ export class EditWorkComponent implements OnInit {
      auth : any;
      id:any;
      proj:any={};
-     app:any;
+     app:any={};
      filename:string | undefined;
      imgpath:any ='http://127.0.0.1:8000/storage/post/'//image path laravel
 
@@ -72,6 +72,7 @@ export class EditWorkComponent implements OnInit {
     this.id=this.route.snapshot.params['id'];
     this.StudentDataService.GetApplicationByID(this.id).subscribe(res=>{
        this.app=res;
+       console.log(this.app)
 
     })
  

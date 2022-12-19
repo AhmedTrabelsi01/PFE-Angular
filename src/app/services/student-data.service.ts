@@ -17,7 +17,7 @@ export class StudentDataService {
   }
 
   GetApplicationByID(id: any) {
-    return this.httpClient.get('http://127.0.0.1:8000/api/postulation/'+id);
+    return this.httpClient.get('http://127.0.0.1:8000/api/posbyid/'+id);
   }
 
   updateApplication(id:any,data:any){

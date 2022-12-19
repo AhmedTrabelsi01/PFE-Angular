@@ -256,18 +256,11 @@ visibility: visible;
   top: 45px;
   right: 40px;
   color: green;
-  background-color: white;
   padding: 5px;
 }
 
-.profile-container .profile-header .profile-info .btn-follow:hover {
- 
-  color: white;
-  background-color:green;
 
-}
 .btn-palegreen, .btn-palegreen:focus {
-  border-color: green;
   color: #fff;
 }
 .profile-container .profile-header .profile-info .header-fullname {
