@@ -53,7 +53,7 @@ this.user=this.userForm.value
 this.PublicDataService.insertMentor(this.user).subscribe(res=>{
   this.errors=res;
   if(this.errors==null){
-    this.toastr.success('Account created !');
+    this.toastr.success('Account created');
       setTimeout(() => {this.route1.navigateByUrl('/login')  }, 1000);
     
   }else{

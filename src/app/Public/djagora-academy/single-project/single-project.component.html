@@ -52,14 +52,13 @@
               <img class="postcard__img" [src]="imgpath+SingleProject.img" alt="Image Title" />
             </a>
             <div class="postcard__text t-dark">
-              <h1 class="postcard__title yellow"><a href="#"><b>{{SingleProject.name}}</b></a></h1>
+              <h1 class="postcard__title yellow"><a href="#"><b>{{SingleProject.title}}</b></a></h1>
 
               <div class="postcard__bar"></div>
               <div class="postcard__preview-txt">{{SingleProject.description}}</div>
               <br>
               <ul class="postcard__tagbox" style="list-style: none;">
                 <li class="tag__item"><i class="fas fa-user mr-2"></i>{{SingleProject.owner}}</li>
-                <li class="tag__item"><i class="fas fa-calendar-alt mr-2"></i>{{SingleProject.estimated_date}}</li>
                 <li class="tag__item" *ngIf="SingleProject.projectState==0"><i
                     class="fa-solid fa-person-circle-check"></i>Pending
                 <li>
@@ -68,12 +67,14 @@
                   Approuved </li>
                 <li class="tag__item" *ngIf="SingleProject.projectState==-1"><i
                     class="fa-solid fa-person-circle-check"></i>Denied</li>
-
+                    <li class="tag__item"><i class="fas fa-code mr-2"></i>{{SingleProject.technologies}}</li>
+                    <li class="tag__item"><i class="fas fa-users mr-2"></i>{{SingleProject.nb_stagaires}}</li>
+                    <li class="tag__item"><i class="fas fa-diagram-project mr-2"></i>{{SingleProject.domain}}</li>
 
               </ul>
-              <p class="read-more">
-                <a [routerLink]="['/Postulation',SingleProject.id]"
-                  *ngIf="countOwnedApp==0 && role=='1' && SingleProject.finishState==0">Apply</a>
+              <p class="read-more" (click)="onApply()">
+                <a 
+                  *ngIf="countOwnedApp==0 && role=='1' && SingleProject.finishState==0"  >Apply</a>
               </p>
               <p class="read-more">
                 <a [routerLink]="['/team',SingleProject.id]" *ngIf=" SingleProject.finishState==1">Team</a>

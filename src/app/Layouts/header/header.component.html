@@ -1,138 +1,3 @@
-<!--
-<div class="header" *ngIf="auth!='true'">
-    <div class="logo">
-
-        <img src="assets/img/djagora_bg.png" width="100px" alt="">
-
-        <button type="button" routerLink="login/signup" class="signup">SIGN UP</button>
-        <button type="button" routerLink="login" class="login">LOG IN</button>
-
-
-
-
-        <div class="navbar">
-            <nav>
-                <ul>
-                    <li><a routerLink="">Home</a></li>
-                    <li>
-                        <div class="dropdown">
-                            <button class="dropbtn">Projects 
-                              <i class="fa fa-caret-down"></i>
-                            </button>
-                            <div class="dropdown-content">
-                              <a routerLink="/djagoraacadimy">Djagora Academy</a>
-                              <a routerLink="/notfound">Djagora Fablab</a>
-                            </div>
-                          </div> 
-                    </li>
-                    <li><a routerLink="contact">contact</a></li>
-                    <li><a routerLink="aboutus">about</a></li>
-                </ul>
-            </nav>
-        </div>
-    </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-<header *ngIf="auth=='true'">
-    <div class="header">
-        <div class="logo">
-            <div class="top">
-                <img src="assets/img/djagora_bg.png" width="100px" alt="">
-
-                <div class="topright">
-                    <div (click)="setOldnotifs()" class="notif-btn">
-                        <i class="far fa-bell"  onclick="toggleNotifi()" aria-hidden="true"></i>
-                        <span id="NotificationBadge" *ngIf="notiCount!=0" >+{{notiCount}}</span>
-                        
-                    </div>
-
-                    
-                    <div class="notifi-box" id="box">
-                        <h2>New Notifications <span>{{notiCount}}</span></h2>
-
-                        <div class="notifi-item" *ngFor="let n of notifications" >
-                            <img src="assets/img/user.png" alt="img">
-                            <div class="text">
-                                <h5>Admin :<i  (click)="onDelete(n.id)" class="fa-solid fa-xmark" style="margin-left: 170px;opacity: 50%;"  aria-hidden="true" ></i>
-                                </h5>
-                                <p>{{n.name}} : {{n.content}}</p>
-
-                            </div>
-                        </div>
-                    </div>
-                    
-
-                   <img [src]="imgpath+profil.img" class="profileimg">
-
-
-                    <h4>{{profil.name}}</h4>
-
-
-
-                    <div class="action">
-                        <div class="arrow">
-                            <img src="assets/img/down-arrow.png" onclick="menuToggle();" class="arrow" id="arrowImg">
-                        </div>
-                        <div class="menu" id="dropDown">
-                            <ul>
-                                <li><img src="assets/img/user.png"><a
-                                        [routerLink]="['/profil',loggeduser.id]">Profile</a></li>
-                                <li *ngIf=" role!='1' " ><img src="assets/img/project.png"><a [routerLink]="['/ownedwork']"   >My Projects</a></li>
-                                <li *ngIf=" role=='1' "><img src="assets/img/project.png"><a [routerLink]="['/ownedwork']"  >My Applications</a></li>
-                                <li (click)="onLogout()"><img src="assets/img/switch.png" ><a href ="">Logout</a></li>
-                            </ul>
-                        </div>
-
-                    </div>
-                </div>
-
-
-
-
-            </div>
-
-
-
-
-
-
-
-
-            <div class="navbar">
-                <nav>
-                    <ul>
-                        <li><a routerLink="">Home</a></li>
-                        <li>
-                            <div class="dropdown">
-                                <button class="dropbtn">Projects 
-                                  <i class="fa fa-caret-down"></i>
-                                </button>
-                                <div class="dropdown-content">
-                                  <a routerLink="/djagoraacadimy">Djagora Academy</a>
-                                  <a routerLink="/notfound">Djagora Fablab</a>
-                                </div>
-                              </div> 
-                        </li>
-                        <li><a routerLink="contact">contact</a></li>
-                        <li><a routerLink="aboutus">about</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </div>
-
-
-</header>
--->
 
 <header class="sticky">
     <nav class="navbar    navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
@@ -210,10 +75,10 @@
                 </div>
 
                 <div *ngIf="auth=='true'">
-                    <img [src]="imgpath+profil.img" class="profileimg" >
+                 <!--<img [src]="imgpath+profil.img" class="profileimg" >-->   
 
 
-
+                    
                     <div (click)="setOldnotifs()" class="notif-btn">
                         <i class="far fa-bell " style="cursor: pointer;" onclick="toggleNotifi()"  aria-hidden="true"></i>
                         <span id="NotificationBadge" *ngIf="notiCount!=0">+{{notiCount}}</span>
@@ -238,6 +103,19 @@
 
                     </div>
 
+                   
+                    <div class="d-flex">
+
+                    <div class="dropdown me-5 rounded">
+                        
+                        <img [src]="imgpath+profil.img" class="profileimg " type="button" id="dropdownMenuOffset" data-bs-toggle="dropdown"  data-bs-offset="10,20" aria-expanded="false" />
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+                            <li class="mx-4"><img src="assets/img/user.png"><a class="mx-1" [routerLink]="['/profil',loggeduser.id]">Profile</a></li>
+                            <hr  ><li class="mx-4" (click)="onLogout()"><img src="assets/img/switch.png"><a class="mx-1" href="">Logout</a></li>
+                        </ul>
+                      </div>
+
+                      </div>
 
                     <a class=" dropdown active">
 
@@ -251,8 +129,7 @@
                                 </ul>
                             </div>
                             <div class="arrow ">
-                                <img src="assets/img/down-arrow.png" onclick="menuToggle();" class="arrow  "
-                                    id="arrowImg">
+                              
                             </div>
                         </div>
                     </a>

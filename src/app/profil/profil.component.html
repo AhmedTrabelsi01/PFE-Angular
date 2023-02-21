@@ -27,7 +27,7 @@
     <div class="course">
       <div class="course-info ">
         <h6 class="mb-4">Voting Event</h6>
-        <h2 class="mb-5">Project name</h2>
+        <h2 class="mb-5">{{ votes }}</h2>
       </div>
       <div class="course-progress ">
 
@@ -104,44 +104,6 @@
 
 
 
-
-
-<!--
-
-
-<div class="box">
-  <div class="profile-img">
-    <img [src]="imgpath+users.img">
-  </div>
-  <div class="block1">
-    <h3>Name</h3>
-    <p>{{users.name}}</p>
-    <h3>Age</h3>
-    <p>{{users.age}}</p>
-    <h3>Location</h3>
-    <p>{{users.location}}</p>
-    <h3>Linkedin</h3>
-
-    <div class="SM-image">
-      <a><img class="img2" src="assets/img/linkedin logo_icon.svg"></a>
-    </div>
-  </div>
-
-  <div class="block2">
-    <h3>Email</h3>
-    <p>{{users.email}}</p>
-    <h3>Profession</h3>
-    <p>{{users.profession}}</p>
-    <h3>Domain</h3>
-    <p>{{users.domain}}</p>
-
-  </div>
-  <div class="btn_edit">
-    <button [routerLink]="['/EditProfil',users.user_id]">Edit</button>
-  </div>
-
-</div>
--->
 <div class="rpbox">
   <div class="container">
     <div class="main-body">
@@ -162,8 +124,7 @@
                         Edit Profile</button>
                     </div>
                   </div>
-                  <!-- <button class="edit" routerLink="/calendar"><i class="fa-solid fa-calendar-days"></i> check
-                    calendar</button>-->
+                
 
                 </div>
               </div>
@@ -272,6 +233,15 @@
                   {{users.profession}}
                 </div>
               </div>
+              <hr>
+              <div class="row">
+                <div class="col-sm-3 px-sm-4 py-sm-3">
+                  <h6 class="mb-0">Cv</h6>
+                </div>
+                <div class="col-sm-9 text-secondary px-sm-4 py-sm-3">
+                   <a target="_blank" href="http://127.0.0.1:8000/storage/post/{{users.cv}}" download>Download</a> 
+                </div>
+              </div>
             </div>
           </div>
 
@@ -284,13 +254,16 @@
         <div class="col-sm-12">
           <div class="card">
             <div class="card-body">
-              <ejs-schedule  width='100%' height='550px' [selectedDate]="selectedDate" [eventSettings]="eventSettings">
-                <e-views>
-                  <e-view option="Week" startHour="07:00" endHour="15:00"></e-view>
-                  <e-view option="WorkWeek" startHour="10:00" endHour="18:00"></e-view>
-                  <e-view option="Month" [showWeekend]="showWeekend"></e-view>
-                </e-views>
-              </ejs-schedule>`
+              <ejs-schedule [selectedDate]="setDate" [currentView]="setView" #scheduleObj [eventSettings]="eventSettings"
+              [readonly]="true">
+              <e-views>
+                <e-view option="Day"></e-view>
+                <e-view option="Week"></e-view>
+                <e-view option="WorkWeek"></e-view>
+                <e-view option="Month"></e-view>
+              </e-views>
+            </ejs-schedule>
+
             </div>
           </div>
         </div>
@@ -322,9 +295,9 @@
                           <br>
 
                           <div class="header-information"><i class="fas fa-envelope mr-2"></i>
-                            {{a.email}} </div> 
+                            {{a.email}} </div>
                             <div class="header-information"><i class="fas fa-envelope mr-2"></i>
-                              {{a.number}} </div> 
+                              {{a.number}} </div>
 
 
                         </div>
@@ -450,7 +423,7 @@
 
 
 
-    
+
 
     <div class="startup">
       <button class="pre-btn" *ngIf="counthis!=0"><img src="assets/img/arrow2.png" alt=""></button>
@@ -467,7 +440,7 @@
             <div class="avatar-preview">
               <img [src]="imgpath+h.img" alt="">
             </div>
-    
+
         </div>
             <h3>{{h.name}}</h3>
             <p>{{h.description}}</p>
@@ -517,7 +490,7 @@
             <div class="avatar-preview">
               <img [src]="imgpath+s.img" alt="">
             </div>
-    
+
         </div>
             <h3>{{s.name}}</h3>
             <p>{{s.description}}</p>

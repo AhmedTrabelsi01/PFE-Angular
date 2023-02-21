@@ -13,7 +13,7 @@ export class PublicDataService {
   constructor(private httpClient: HttpClient) { }
 
   //---- header
-  
+
   createHeader() {
     const token = localStorage.getItem('token');
     if (token) {
@@ -147,7 +147,7 @@ export class PublicDataService {
   GetTeam() {
     return this.httpClient.get('http://127.0.0.1:8000/api/contacts');
   }
-  //profiels  
+  //profiels
   getUserById(id: any) {
     return this.httpClient.get('http://127.0.0.1:8000/api/profil/' + id, { headers: this.createHeader() });
 
@@ -236,7 +236,7 @@ export class PublicDataService {
 
   }
   getPendingApps(id:any) {
-    return this.httpClient.get('http://127.0.0.1:8000/api/getpenappbyproj/'+id);
+    return this.httpClient.get('http://127.0.0.1:8000/api/postulations/'+id);
 
   }
 
@@ -250,7 +250,13 @@ export class PublicDataService {
     return this.httpClient.post('http://127.0.0.1:8000/api/getownedvote',data);
 
   }
+
   
+  checkAud(data:any){
+    return this.httpClient.post('http://127.0.0.1:8000/api/checkvoteability',data);
+
+  }
+
   upVote(id:any,data:any){
     return this.httpClient.post('http://127.0.0.1:8000/api/upvote/'+id,data);
 
@@ -267,7 +273,7 @@ export class PublicDataService {
   }
 
   date = new Date();
-  
+
   getDate() {
     return interval(1000).pipe(map(_ => this.getDateTime()));
   }

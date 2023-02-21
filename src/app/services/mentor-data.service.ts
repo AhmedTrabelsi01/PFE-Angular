@@ -94,4 +94,12 @@ export class MentorDataService {
   }
 
 
+  //---------------meets
+  addFreeTime(data: any) {
+    return this.httpClient.post('http://127.0.0.1:8000/api/addfreetime', data, { headers: this.createHeader() });
+
+  }
+
+
+
 }

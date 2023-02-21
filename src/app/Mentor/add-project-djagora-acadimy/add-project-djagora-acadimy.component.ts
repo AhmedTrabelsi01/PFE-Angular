@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 import { PublicDataService } from 'src/app/services/public-data.service';
 import { MentorDataService } from 'src/app/services/mentor-data.service';
 import { ToastrService } from 'ngx-toastr';
+import { Observable, of } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-add-project-djagora-acadimy',
   templateUrl: './add-project-djagora-acadimy.component.html',
@@ -11,7 +14,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AddProjectDjagoraAcadimyComponent implements OnInit {
    //les constructeurs
-   constructor(private toastr: ToastrService,private route:Router,private MentorDataService : MentorDataService,private PublicDataService: PublicDataService) { }
+   constructor(private toastr: ToastrService,private route:Router,private MentorDataService : MentorDataService,private PublicDataService: PublicDataService,private http:HttpClient) { }
   //les declarations
   project:any= {};
   loggeduser: any={};
@@ -25,25 +28,16 @@ export class AddProjectDjagoraAcadimyComponent implements OnInit {
   counterr:any=0;
  
   projectForm = new FormGroup({
-    name: new FormControl("",Validators.required),
+    title: new FormControl("",Validators.required),
     description:new FormControl("",Validators.required),
-    estimated_date:new FormControl("",Validators.required),
+    technologies:new FormControl("",Validators.required),
+    nb_stagaires:new FormControl("",Validators.required),
+    domain:new FormControl("",Validators.required),
     img:new FormControl("",Validators.required),
 
    
 }); 
-get name(){
-  return this.projectForm.get('name');
-}
-get description(){
-  return this.projectForm.get('Description');
-}
-get img(){
-  return this.projectForm.get('img');
-}
-get estimated_date(){
-  return this.projectForm.get('estimated_date');
-}
+
   ngOnInit(): void {
     this.token = this.PublicDataService.getToken();
     this.loggeduser = this.PublicDataService.getUser(this.token);
@@ -56,11 +50,13 @@ get estimated_date(){
    this.project=this.projectForm.value
    let formdata = new FormData();
    formdata.append('user_id',this.loggeduser['id'])
-   formdata.append('name',this.project.name);
+   formdata.append('title',this.project.title);
+   formdata.append('technologies',this.project.technologies);
+   formdata.append('domain',this.project.domain);
+   formdata.append('nb_stagaires',this.project.nb_stagaires);
    formdata.append('description',this.project.description);
-   formdata.append('estimated_date',new Date(this.project.estimated_date).toDateString());
    formdata.append('img',this.file);
-
+   //console.log(this.project)
   this.MentorDataService.AddProject(formdata).subscribe(res=>{
     this.error=res;
     if(this.error==null){
@@ -78,4 +74,32 @@ get estimated_date(){
  onChange(event: any) {
   this.file = event.target.files[0];
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// defined the array of data
+    public data: Object[] = ['angular', 'laravel', 'machine learning', 'artificial intelligence'];
+    // set placeholder text to MultiSelect input element
+    public text: string = 'Select a technology';
+
+
+
+
+
+
+
+
+
+
 } 

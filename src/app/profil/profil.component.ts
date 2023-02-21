@@ -3,7 +3,7 @@ import { PublicDataService } from '../services/public-data.service';
 import { MentorDataService } from '../services/mentor-data.service';
 import { ActivatedRoute } from '@angular/router';
 import { DayService, WeekService, WorkWeekService, MonthService, AgendaService, View, EventSettingsModel } from '@syncfusion/ej2-angular-schedule';
-
+import { DataManager, UrlAdaptor, Query, ODataV4Adaptor } from '@syncfusion/ej2-data';
 import { EMPTY, empty, Observable } from 'rxjs';
 declare function popup(): any;
 
@@ -34,34 +34,20 @@ export class ProfilComponent implements OnInit {
   loggeduser: any;
   token: any;
   role: any;
+  votetest:any;
   users: any = {};
   id: any;
   projects: any = [];
   applications: any = [];
   imgpath: any = 'http://127.0.0.1:8000/storage/post/'//image path laravel
+ //variable calender
+ public url: any = "http://127.0.0.1:8000/api/getMeetByUser/ "+ this.route.snapshot.params['id'] ;
+ public currentDate!: Date;
+ public setView: View = 'Month';
+ title = 'Calendar';
+ public setDate: Date = new Date();
+ //end variable calender
 
-  public showWeekend: boolean = false;
-
-
-  public data: object[] = [{
-    id: 2,
-    eventName: 'Meeting',
-    startTime: new Date(2018, 1, 15, 10, 0),
-    endTime: new Date(2018, 1, 15, 12, 30),
-    isAllDay: false
-  }];
-  public selectedDate: Date = new Date(2018, 1, 15);
-  public eventSettings: EventSettingsModel = {
-    dataSource: this.data,
-    fields: {
-      id: 'id',
-      subject: { name: 'eventName' },
-      isAllDay: { name: 'isAllDay' },
-      startTime: { name: 'startTime' },
-      endTime: { name: 'endTime' },
-    }
-  };
-  public currentView: View = 'Month';
 
 
 
@@ -86,7 +72,7 @@ export class ProfilComponent implements OnInit {
 
         this.GetOwnedProjects();
       }
-    
+
 
     popup()
 
@@ -99,14 +85,29 @@ export class ProfilComponent implements OnInit {
     formdata.append('user_id', this.users.id);
     formdata.append('vote_id', this.test.id);
 
+
+    let formdata1 = new FormData();
+    formdata1.append('user_id', this.users.user_id);
+    formdata1.append('meet_id', this.test.meet_id);
+
+    
+    this.PublicDataService.checkAud(formdata1).subscribe(res => {
+      this.votetest = res;
+
+
+    }
+    )
+
+
     this.PublicDataService.checkVote(formdata).subscribe(res => {
       this.ownedVote = res;
       this.countOwnedVote = this.ownedVote.length;
 
       if (this.countOwnedVote == 0) {
 
-        if (Object.keys(this.test).length != 0) {
+        if (Object.keys(this.test).length != 0 && this.votetest.result==true) {
           this.votes = this.test;
+
         }
       }
     }
@@ -117,16 +118,30 @@ export class ProfilComponent implements OnInit {
     this.PublicDataService.getVotes().subscribe(res => {
       this.test = res;
 
+
     }
     )
   }
+//function calender
+private dataManager: DataManager = new DataManager({
+  url: this.url,
+  adaptor: new UrlAdaptor,
+  crossDomain: true,
 
+});
+public eventSettings: EventSettingsModel = {
+  dataSource: this.dataManager
+
+};
+//end function calaender
 
 
 
   GetProfielById() {
     this.PublicDataService.getUserById(this.id).subscribe(res => {
       this.users = res;
+      console.log(this.users)
+      this.users.domain=JSON.parse(this.users.domain)
       this.checkVoteAbility();
 
     }

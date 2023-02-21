@@ -1,79 +1,116 @@
 <div id="banner-area" class="banner-area"
-    style="background-image:url(assets/img/contact.jpg);margin-top: 8%;margin-bottom: 3%;">
-    <div class="banner-text">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="banner-heading">
-                        <h1 class="banner-title">Djagora academy/Add Project</h1>
-                    </div>
-                </div><!-- Col end -->
-            </div><!-- Row end -->
-        </div><!-- Container end -->
-    </div><!-- Banner text end -->
+  style="background-image:url(assets/img/contact.jpg);margin-top: 8%;margin-bottom: 3%;">
+  <div class="banner-text">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="banner-heading">
+            <h1 class="banner-title">Djagora academy/Add Project</h1>
+          </div>
+        </div><!-- Col end -->
+      </div><!-- Row end -->
+    </div><!-- Container end -->
+  </div><!-- Banner text end -->
 </div><!-- Banner area end -->
 
 <div class="rpbox">
-    <div class="boxarchive container">
-        <div class="btn_retour">
-            <button  routerLink="/djagoraacadimy"><a>🢀 Back</a></button>
-        </div>
-        <div class="part1">
-            <div class="box-1 boxarchive container ">
+  <div class="boxarchive container">
+    <div class="btn_retour">
+      <button routerLink="/djagoraacadimy"><a>🢀 Back</a></button>
+    </div>
+    <div class="part1">
+      <div class="box-1 boxarchive container ">
 
 
-                    <form class="mx-5" [formGroup]="projectForm" >
-                        
-                            <div class="row justify-content-md-center">
-                              <div class="col-md-5 mb-4 mx-4">
-                                <label for="validationServer01">Name</label>
-                                <input formControlName="name" type="text" class="form-control p-3" id="validationServer01" placeholder="First name" >
-                                
-                              </div>
-                              <div class="col-md-5 mb-4 mx-4 ">
-                                <label for="validationServer02">Estimated date</label>
-                                <input type="date"  formControlName="estimated_date" class="form-control p-3" id="validationServer02" placeholder="Last name" value="Otto" required>
-                               
-                              </div>
-                           
-                            </div>
-                            <div class="row justify-content-md-center">
-                              
-                              <div class="col-md-5 mb-4 mx-4">
-                                <label for="validationServer04">Image</label>
-                                <input (change)="onChange($event)" formControlName="img" type="file" class="form-control p-1" id="validationServer04" placeholder="State" required>
-                                
-                              </div>
-    
-                              <div class="col-md-5 mb-4 mx-4">
-                                <label for="validationServer03">Description</label>
-                                <textarea type="text" formControlName="description" class="form-control " id="validationServer03" placeholder="City"  ></textarea>
-                                
-                              </div>
-                           
-                            </div>
+        <form class="mx-5" [formGroup]="projectForm">
 
-                            <div class="justify-content-md-center"  *ngIf="counterr!=0">
-                                <br> <small class="error">{{error.name}}</small>
-                                <br><small class="error">{{error.img}}</small>
-                                <br><small class="error">{{error.description}}</small>
-                                <br><small class="error" *ngIf="project.estimated_date=='' ">Estimated date filed is required.</small>
-
-                
-                            </div>
-                          <div class="row justify-content-md-center">
-                           
-                
-                            <button (click)="onSubmit()" class="btn btn-primary col-md-2"  type="submit">Submit</button>
-
-                          </div>
-                          
-                       </form>
-
-
-
+          <div class="row justify-content-md-center">
+            <div class="col-md-5 mb-4 mx-4">
+              <label for="validationServer01">Title</label>
+              <input formControlName="title" type="text" class="form-control p-3" id="validationServer01"
+                placeholder="Project title">
 
             </div>
-        </div>
+            <div class="col-md-5 mb-4 mx-4 ">
+              <label for="validationServer02">Domain</label>
+              <input type="text" formControlName="domain" class="form-control p-3" placeholder="Domain" required>
+
+            </div>
+
+          </div>
+          <div class="row justify-content-md-center">
+
+            <div class="col-md-5 mb-4 mx-4">
+              <label for="validationServer04">Image</label>
+              <input (change)="onChange($event)" formControlName="img" type="file" class="form-control p-1" required>
+
+            </div>
+
+            <div class="col-md-5 mb-4 mx-4">
+              <label for="validationServer03">Nombre de stagaires</label>
+              <input type="number" formControlName="nb_stagaires" class="form-control p-3"
+                placeholder="Nombre de stagaires..." required>
+
+            </div>
+
+          </div>
+          <div class="row justify-content-md-center">
+
+
+            <div class="col-md-5 mb-4 mx-4">
+
+              <label for="validationServer03">Technologies</label>
+
+              <ejs-multiselect id='multiselectelement' [dataSource]='data' formControlName="technologies" placeholder='Find a item'>
+                <ng-template #noRecordsTemplate>
+                  <span class='norecord'> NO DATA AVAILABLE</span>
+                </ng-template>
+              </ejs-multiselect>`
+            </div>
+
+            <div class="col-md-5 mb-4 mx-4">
+              <label for="validationServer03">Description</label>
+              <textarea type="text" formControlName="description" class="form-control "
+                placeholder="Description"></textarea>
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          </div>
+
+          <div class="justify-content-md-center" *ngIf="counterr!=0">
+            <br> <small class="error">{{error.name}}</small>
+            <br><small class="error">{{error.img}}</small>
+            <br><small class="error">{{error.description}}</small>
+            <br><small class="error" *ngIf="project.estimated_date=='' ">Estimated date filed is required.</small>
+
+
+          </div>
+          <div class="row justify-content-md-center">
+
+
+            <button (click)="onSubmit()" class="btn btn-primary col-md-2" type="submit">Submit</button>
+
+          </div>
+
+        </form>
+
+
+
+
+      </div>
     </div>
+  </div>
 </div>

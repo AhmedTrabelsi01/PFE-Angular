@@ -86,14 +86,15 @@
                     <img class="postcard__img" [src]="imgpath+p.img" alt="Image Title" />
                 </a>
                 <div class="postcard__text t-dark">
-                    <h1 class="postcard__title yellow"><a href="#"><b>{{p.name}}</b></a></h1>
+                    <h1 class="postcard__title yellow"><a href="#"><b>{{p.title}}</b></a></h1>
                     
                     <div class="postcard__bar"></div>
                     <div class="postcard__preview-txt">{{p.description}}</div>
                     <ul class="postcard__tagbox">
                         <li class="tag__item"><i class="fas fa-user mr-2"></i>{{p.owner}}</li>
-                        <li class="tag__item"><i class="fas fa-calendar-alt mr-2"></i>{{p.estimated_date}}</li>
-                       
+                        <li class="tag__item"><i class="fas fa-code mr-2"></i>{{p.technologies}}</li>
+                        <li class="tag__item"><i class="fas fa-diagram-project mr-2"></i>{{p.domain}}</li>
+
                     </ul>
                     <p class="read-more">
                         <a [routerLink]="['/SingleProject',p.id]" *ngIf="auth=='true' && acaState=='true' ">Read More</a>
@@ -116,15 +117,6 @@
 
 
 <div class="pag">
-    <nav aria-label="Page navigation example ">
-        <ul class="pagination">
-          <li class="page-item"><a class="page-link" href="#" style="border: none;"><i class="fa-solid fa-arrow-left"></i></a></li>
-          <li class="page-item"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item"><a class="page-link" href="#" style="border: none;"><i class="fa-solid fa-arrow-right"></i></a></li>
-        </ul>
-      </nav>
 
 </div>
    
@@ -180,7 +172,6 @@
                                             <div class="photo"><img [src]="imgpath+p3.img" alt=""></div>
                                             <ul class="details">
                                                 <li class="author">{{p3.owner}}</li>
-                                                <li class="date">{{p3.estimated_date}}</li>
     
                                             </ul>
                                         </div>

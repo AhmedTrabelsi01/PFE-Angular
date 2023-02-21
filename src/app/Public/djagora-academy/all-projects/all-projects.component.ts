@@ -9,18 +9,19 @@ declare function slide1():any;
   styleUrls: ['./all-projects.component.css']
 })
 export class AllProjectsComponent implements OnInit {
-  archive: any;
+  archive: any=[];
   countar: any;
   acaState: any;
   constructor(private route:ActivatedRoute,private PublicDataService:PublicDataService) { }
   st: string="";//filter button
-  projects:any;
-  projectss:any;
+  projects:any=[];
+  projectss:any=[];
+  links:any;
 
-  filteredprojects:any;
+  filteredprojects:any=[];
   searchTerm: string ="";//filter term
   auth :any;
-  loggeduser: any;
+  loggeduser: any={};
   token: any;
   role:any;
   countproj:any;
@@ -59,6 +60,10 @@ export class AllProjectsComponent implements OnInit {
   GetProject(){
     this.PublicDataService.GetProject().subscribe(res=>{
     this.projectss=res;
+    this.links=this.projectss.links;
+console.log(this.links)
+      this.projectss=this.projectss.data
+
       this.countproj=this.projectss.length;
 
     }

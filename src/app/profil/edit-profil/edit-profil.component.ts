@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { PublicDataService } from 'src/app/services/public-data.service';
+import { MentorDataService } from 'src/app/services/mentor-data.service';
 import { ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { DayService, WeekService, WorkWeekService, MonthService, AgendaService,View, EventSettingsModel  } from '@syncfusion/ej2-angular-schedule';
+import { DayService, WeekService, WorkWeekService, MonthService, AgendaService, View, EventSettingsModel } from '@syncfusion/ej2-angular-schedule';
+import { DataManager, UrlAdaptor, Query, ODataV4Adaptor } from '@syncfusion/ej2-data';
+declare function popup(): any;
 
 @Component({
   selector: 'app-edit-profil',
@@ -14,53 +17,45 @@ import { DayService, WeekService, WorkWeekService, MonthService, AgendaService,V
 export class EditProfilComponent implements OnInit {
   singleuser:any;
   file: any;
-  constructor(private PublicDataService:PublicDataService,private route1: ActivatedRoute) { }
+  cv:any
+  constructor(private PublicDataService:PublicDataService,private MentorDataService:MentorDataService,private route1: ActivatedRoute) { }
 data: any;
-user!:any;
+user:any={};
 id:any;
 auth: any;
-loggeduser: any;
+loggeduser: any={};
 token: any;
-projects:any;
-applications:any;
+projects:any=[];
+applications:any=[];
 role:any;
+meets:any=[];
+
 imgpath:any ='http://127.0.0.1:8000/storage/post/'//image path laravel
 
 
 
 
-public showWeekend: boolean = false;
+
+public url: any = "http://127.0.0.1:8000/api/getMeetByUser/ "+ this.route1.snapshot.params['id'] ;
+ public currentDate!: Date;
+ public setView: View = 'Month';
+ title = 'Calendar';
+ public setDate: Date = new Date();
+ //end variable calender
 
 
-public data1: object [] = [{
-  id: 2,
-  eventName: 'Meeting',
-  startTime: new Date(2018, 1, 15, 10, 0),
-  endTime: new Date(2018, 1, 15, 12, 30),
-  isAllDay: false
-    }];
-    public selectedDate: Date = new Date(2018, 1, 15);
-    public eventSettings: EventSettingsModel = {
-  dataSource: this.data1,
-  fields: {
-    id: 'id',
-    subject: { name: 'eventName' },
-    isAllDay: { name: 'isAllDay' },
-    startTime: { name: 'startTime' },
-    endTime: { name: 'endTime' },
-  }
-    };
-public currentView: View = 'Month';
+ //function calender
+private dataManager: DataManager = new DataManager({
+  url: this.url,
+  adaptor: new UrlAdaptor,
+  crossDomain: true,
 
+});
+public eventSettings: EventSettingsModel = {
+  dataSource: this.dataManager
 
-
-
-
-
-
-
-
-
+};
+//end function calaender
 
 
   ngOnInit(): void {
@@ -76,10 +71,10 @@ public currentView: View = 'Month';
   
         this.GetOwnedProjects();
       }
-  
+  popup();
   }
 
-
+//-----------form groups
   userForm = new FormGroup({
     name: new FormControl("",Validators.required),
     birth_date:new FormControl("",Validators.required),
@@ -88,15 +83,31 @@ public currentView: View = 'Month';
     location:new FormControl("",Validators.required),
     domain:new FormControl("",Validators.required),
     profession:new FormControl("",Validators.required),
+    phone:new FormControl("",Validators.required),
+
     linkedin:new FormControl("",Validators.required),   
+    cv:new FormControl("",Validators.required),   
+
 });
 
+
+
+meetgroup = new FormGroup({
+  StartTime: new FormControl("", Validators.required),
+  EndTime: new FormControl("", Validators.required),
+  description: new FormControl("", Validators.required),
+  //mentor: new FormControl("", Validators.required),
+  //student: new FormControl("", Validators.required),
+});
+
+datas1: any=[]
 
   getUserById(){
     this.PublicDataService.getUserById(this.id).subscribe(res=>{
       this.data=res;
       this.user=this.data
-  
+      this.datas1=this.user.domain;
+      this.datas1=JSON.parse(this.datas1) 
     })
   
   }
@@ -104,20 +115,25 @@ public currentView: View = 'Month';
   onChange(event: any) {
     this.file = event.target.files[0];
   }
+  onChangeCv(event: any) {
+    this.cv = event.target.files[0];
+  }
   
   onEdit(){
     this.singleuser=this.userForm.value
+
     let formdata = new FormData();
     formdata.append('img',this.file);
+    formdata.append('cv',this.cv);
     formdata.append('name',this.singleuser.name);
     formdata.append('email',this.singleuser.email);
-    formdata.append('domain',this.singleuser.domain);
+    formdata.append('domain',JSON.stringify(this.singleuser.domain) );
     formdata.append('profession',this.singleuser.profession);
     formdata.append('linkedin',this.singleuser.linkedin);
     formdata.append('location',this.singleuser.location);
     formdata.append('birth_date',new Date(this.singleuser.birth_date).toDateString());
-        
-      this.PublicDataService.updateProfilData(this.id,formdata).subscribe(res=>{  
+    console.log(JSON.stringify(this.singleuser.domain))
+     this.PublicDataService.updateProfilData(this.id,formdata).subscribe(res=>{  
         window.location.reload()
       })
   
@@ -131,11 +147,7 @@ public currentView: View = 'Month';
 
 
 
-
-
-
-
-  
+  //---------------handle activity
   GetOwnedProjects(){
     this.PublicDataService.GetOwnedProjects(this.id).subscribe(res=>{
       this.projects=res;
@@ -163,4 +175,11 @@ public currentView: View = 'Month';
     })
 
   }
+
+
+  // defined the array of data
+public datas: Object[] = ['angular', 'laravel', 'machine learning', 'artificial intelligence'];
+// set placeholder text to MultiSelect input element
+public text: string = 'Select a technology';
+
 }

@@ -162,7 +162,7 @@ p {
     font-size: medium;
     cursor: pointer;
     border: 1px solid #0081C2;
-    border-radius: 20px;
+    border-radius: 5px;
     border-color: #0081C2;
     background-color: #ffffff;
     color: #0081C2;
@@ -209,7 +209,7 @@ body {
     cursor: pointer;
     color: #0081C2;
     border: 1px solid #0081C2;
-    border-radius: 20px;
+    border-radius: 5px;
     transition: background 0.5s;
     font-size: medium;
 
@@ -234,7 +234,7 @@ body {
 /*end button retour*/
 /* start claas singel project parti 1 et 2*/
 .tout_singel {
-    padding-top: 90px;
+    padding-top: 10px;
 }
 
 .sp {

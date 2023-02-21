@@ -32,6 +32,7 @@ import { SingleProjectComponent } from './Public/djagora-academy/single-project/
 import { AllProjectsComponent } from './Public/djagora-academy/all-projects/all-projects.component';
 import { ScheduleModule } from '@syncfusion/ej2-angular-schedule';
 
+import { MultiSelectModule } from '@syncfusion/ej2-angular-dropdowns';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,6 +70,7 @@ import { ScheduleModule } from '@syncfusion/ej2-angular-schedule';
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(),
     ReactiveFormsModule,
+    MultiSelectModule,
 
   ],
   providers: [],

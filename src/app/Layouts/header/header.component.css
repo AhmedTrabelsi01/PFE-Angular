@@ -66,7 +66,7 @@ button.signup{
     width: 30px;
     border-radius: 50px;
    position: absolute;
-   right: 10.7%;
+   right: 30%;
    margin-top: -15px;
 }
 
@@ -124,11 +124,7 @@ margin-bottom: 5%;
 .navbar1{
   height: 85px;
 }
-  .arrow{
-    position: absolute;
-    margin-left: 2200%;
-    margin-top: -320%;
-  }
+ 
 .test1{
   width: 100%;
   padding-left: 20px;
@@ -306,38 +302,34 @@ visibility: visible;
 opacity: 1;
 
 }
-.action .menu ul li{
+ul li{
 list-style: none;
-margin-left: -10%;
 align-items: center;
 font-size: 14px;
 
 }
 
-.action .menu ul li img{
+ul li img{
 max-width: 20px;
-margin-right: 10px;
 opacity: 0.5;
 transition: 0.5s;
 
 }
-.action .menu ul li:hover img{
+ ul li:hover img{
 opacity: 1;
 
 }
-.action .menu ul li a{
+ ul li a{
 display: inline-block;
 text-decoration: none;
 color: #555;
 transition: 0.5;
 }
-.action .menu ul li:hover a{
+ ul li:hover a{
 color: #37C3A7;
 }
 
-.menu ul li a{
-margin-top: 15px;
-}
+
 
 
 
@@ -349,3 +341,14 @@ margin-top: 15px;
   
 
 /*# sourceMappingURL=bootstrap.min.css.map */
+
+
+
+
+
+
+
+
+
+
+
