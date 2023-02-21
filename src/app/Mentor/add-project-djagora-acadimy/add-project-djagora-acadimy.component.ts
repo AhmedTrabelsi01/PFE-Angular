@@ -62,11 +62,13 @@ export class AddProjectDjagoraAcadimyComponent implements OnInit {
     if(this.error==null){
       this.toastr.success('Project Added!');
       setTimeout(() => {this.route.navigate(['/djagoraacadimy'])  }, 1000);
-      } 
+      }
+     if(this.error.message){
+      this.toastr.error(this.error.message);
+     }  
 
      if(this.error!=null){
       this.counterr=this.error.length;
-
      } 
    
  })}
