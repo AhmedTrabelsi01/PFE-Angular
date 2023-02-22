@@ -60,7 +60,7 @@ export class AddProjectDjagoraAcadimyComponent implements OnInit {
   this.MentorDataService.AddProject(formdata).subscribe(res=>{
     this.error=res;
     if(this.error==null){
-      this.toastr.success('Project Added!');
+      this.toastr.success('Project Added');
       setTimeout(() => {this.route.navigate(['/djagoraacadimy'])  }, 1000);
       }
      if(this.error.message){

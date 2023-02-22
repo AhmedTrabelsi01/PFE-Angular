@@ -40,10 +40,7 @@ export class HomeComponent implements OnInit {
         this.user = res;
       })
     }
-    sponsor()
-
-    slide()
-    currentSlide(1)
+   this.updateEdition()
   }
 
 
@@ -58,6 +55,13 @@ export class HomeComponent implements OnInit {
       }
     }
     )
+  }
+
+  //----------check for edition date
+  updateEdition(){
+    let data
+    this.PublicDataService.updateEdition(data).subscribe(res=>{
+     })
   }
 
   onPreRegisterACA() {

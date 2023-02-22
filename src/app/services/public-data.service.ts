@@ -269,6 +269,15 @@ export class PublicDataService {
     return this.httpClient.get('http://127.0.0.1:8000/api/testedition/'+id);
   }
 
+  getactiveedition(){
+    return this.httpClient.get('http://127.0.0.1:8000/api/activeedition');
+  }
+
+  updateEdition(data:any){
+    return this.httpClient.post('http://127.0.0.1:8000/api/updateedition',data);
+
+  }
+
   getClock() : Observable<Date> {
     return interval(1000).pipe(
       mergeMap(() => of(new Date()))

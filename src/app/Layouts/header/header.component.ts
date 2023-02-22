@@ -43,7 +43,7 @@ export class HeaderComponent implements OnInit {
     }
 
   }
-
+ 
   onLogout() {
     this.PublicDataService.setToken(""); 
     this.PublicDataService.setLoginStateFalse();

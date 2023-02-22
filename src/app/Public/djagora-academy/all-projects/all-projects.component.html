@@ -58,8 +58,8 @@
                 </div>
 
             </div>
-            <div class="input-box2"  *ngIf="auth=='true' && role!='1' && acaState=='true' ">
-                <div routerLink="/AddProject" class="addproject">
+            <div (click)="checkEdition()" class="input-box2"  *ngIf="auth=='true' && role!='1' && acaState=='true' ">
+                <div  class="addproject">
                     <button>Add Project</button>
                     <i class="far fa-edit" aria-hidden="true"></i>
                 </div>

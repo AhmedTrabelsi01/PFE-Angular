@@ -2,6 +2,9 @@ import { DatePipe, formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PublicDataService } from 'src/app/services/public-data.service';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
+
 declare function slide1():any;
 @Component({
   selector: 'app-all-projects',
@@ -12,7 +15,7 @@ export class AllProjectsComponent implements OnInit {
   archive: any=[];
   countar: any;
   acaState: any;
-  constructor(private route:ActivatedRoute,private PublicDataService:PublicDataService) { }
+  constructor(private toastr:ToastrService,private route1:Router,private route:ActivatedRoute,private PublicDataService:PublicDataService) { }
   st: string="";//filter button
   projects:any=[];
   projectss:any=[];
@@ -24,6 +27,7 @@ export class AllProjectsComponent implements OnInit {
   loggeduser: any={};
   token: any;
   role:any;
+  edition:any={}
   countproj:any;
   currentDate = formatDate(new Date(), 'yyyy-MM-dd', 'en');
 
@@ -34,6 +38,7 @@ export class AllProjectsComponent implements OnInit {
 
     this.GetProject();
     this.GetArchive() ;
+    this.getEdition();
     
     this.auth=this.PublicDataService.getLoginState();
     this.role=this.PublicDataService.getRole();
@@ -53,15 +58,26 @@ export class AllProjectsComponent implements OnInit {
 
   }
 
-  
- 
+  getEdition() {
+    this.PublicDataService.getactiveedition().subscribe(res => {
+      this.edition = res;
+      console.log(this.edition)
+    })
+  }
+ checkEdition(){
+  if(this.edition.state!=0){
+    this.toastr.error("project is closed")
+  }else{
+    this.route1.navigate(['/AddProject'])
+  }
+ }
   
   
   GetProject(){
     this.PublicDataService.GetProject().subscribe(res=>{
     this.projectss=res;
     this.links=this.projectss.links;
-console.log(this.links)
+    //console.log(this.links)
       this.projectss=this.projectss.data
 
       this.countproj=this.projectss.length;

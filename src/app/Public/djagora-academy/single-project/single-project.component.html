@@ -74,7 +74,7 @@
               </ul>
               <p class="read-more" (click)="onApply()">
                 <a 
-                  *ngIf="countOwnedApp==0 && role=='1' && SingleProject.finishState==0 && edition.state==1"  >Apply</a>
+                  *ngIf="countOwnedApp==0 && role=='1' && SingleProject.finishState==0 "  >Apply</a>
               </p>
               <p class="read-more">
                 <a [routerLink]="['/team',SingleProject.id]" *ngIf=" SingleProject.finishState==1">Team</a>
