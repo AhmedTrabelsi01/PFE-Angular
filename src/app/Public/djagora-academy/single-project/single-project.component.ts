@@ -19,6 +19,7 @@ export class SingleProjectComponent implements OnInit {
   ProjectOwner: any = [];
   auth:any;
   role:any;
+  edition:any={}
   loggeduser: any={};
   token: any;
   applications:any=[];
@@ -106,6 +107,7 @@ export class SingleProjectComponent implements OnInit {
       if(this.role=='1'){
         this.getOwnedApp();
       }
+      this.getEdition();
       this.getcommentsByProject();
       this.getAppPosByProject();
       this.getCountApps();
@@ -115,7 +117,11 @@ export class SingleProjectComponent implements OnInit {
     })
 
   }
-
+getEdition(){
+  this.PublicDataService.getedition(this.SingleProject.edition_id).subscribe(res=>{
+    this.edition=res;
+    })
+}
 
   getCountApps(){
     this.PublicDataService.getCountApps(this.SingleProject.id).subscribe(res=>{
