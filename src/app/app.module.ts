@@ -31,8 +31,11 @@ import { ApplicationComponent } from './student/application/application.componen
 import { SingleProjectComponent } from './Public/djagora-academy/single-project/single-project.component';
 import { AllProjectsComponent } from './Public/djagora-academy/all-projects/all-projects.component';
 import { ScheduleModule } from '@syncfusion/ej2-angular-schedule';
-
 import { MultiSelectModule } from '@syncfusion/ej2-angular-dropdowns';
+//new
+import { AuthentificationModule } from './Authentification/Authentification.module';
+import { ProfilModule } from './profil/profil.module';
+import { ProjectModule } from './Public/djagora-academy/project.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,6 +74,9 @@ import { MultiSelectModule } from '@syncfusion/ej2-angular-dropdowns';
     ToastrModule.forRoot(),
     ReactiveFormsModule,
     MultiSelectModule,
+    AuthentificationModule,
+    ProfilModule,
+    ProjectModule,
 
   ],
   providers: [],
