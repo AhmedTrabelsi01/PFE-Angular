@@ -26,7 +26,7 @@ counterr=0
     confirmation:new FormControl("",Validators.required),
    });
 
- 
+
  get name(){
    return this.userForm.get('name');
  }
@@ -45,7 +45,7 @@ get gender(){
  get confirmation(){
    return this.userForm.get('confirmation');
  }
- 
+
 
  onSubmit(){
 this.user=this.userForm.value
@@ -54,8 +54,8 @@ this.PublicDataService.insertMentor(this.user).subscribe(res=>{
   this.errors=res;
   if(this.errors==null){
     this.toastr.success('Account created');
-      setTimeout(() => {this.route1.navigateByUrl('/login')  }, 1000);
-    
+      setTimeout(() => {this.route1.navigateByUrl('/Authentification')  }, 1000);
+
   }else{
     this.counterr=this.errors.length
 
@@ -66,7 +66,7 @@ this.PublicDataService.insertMentor(this.user).subscribe(res=>{
 
 
 }
- 
+
 
 
 }

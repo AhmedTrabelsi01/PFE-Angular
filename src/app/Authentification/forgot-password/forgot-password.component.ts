@@ -13,7 +13,7 @@ export class ForgotPasswordComponent implements OnInit {
   mail:any;
   state:any
   constructor(private route1:Router ,private PublicDataService : PublicDataService) { }
- 
+
   ngOnInit(): void {
   }
   resetForm = new FormGroup({
@@ -27,7 +27,7 @@ export class ForgotPasswordComponent implements OnInit {
     formdata.append('email',this.mail);
     this.PublicDataService.resPassword(formdata).subscribe(res=>{
       this.state=res
-      this.route1.navigateByUrl('/login');
+      this.route1.navigateByUrl('/Authentification');
    })
 
   }

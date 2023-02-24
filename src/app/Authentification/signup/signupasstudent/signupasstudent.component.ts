@@ -31,7 +31,7 @@ export class SignupasstudentComponent implements OnInit {
    {
        return this.userForm.controls;
    }
-   
+
  get name(){
    return this.userForm.get('name');
  }
@@ -49,22 +49,22 @@ export class SignupasstudentComponent implements OnInit {
  }
 
  onSubmit(){
-  
+
  this.PublicDataService.insertStudent(this.userForm.value).subscribe(res=>{
   this.errors=res;
   if(this.errors==null){
     this.toastr.success('Account created !');
-      setTimeout(() => {this.route1.navigateByUrl('/login')  }, 1000);
-    
+      setTimeout(() => {this.route1.navigateByUrl('/Authentification')  }, 1000);
+
   }else{
     this.counterr=this.errors.length
 
-  } 
+  }
 })
 
 
 }
- 
+
 
 
 }
