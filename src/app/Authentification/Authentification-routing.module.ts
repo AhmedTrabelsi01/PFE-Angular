@@ -4,15 +4,12 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { NgModule } from '@angular/core';
 
 const routes: Routes = [
-  //authentification
-  { path: 'login', component: LoginComponent },
-  { path: 'login/forgot', component: ForgotPasswordComponent },
-  //signup
+  { path: '', component: LoginComponent },
+  { path: 'forgot', component: ForgotPasswordComponent },
   {
     path: "signup",
     loadChildren: () =>
-      import("./signup/signup.module").then((m) => m.signupModule),
-
+      import("./signup/signup.module").then((m) => m.SignupModule),
   },
 ];
 

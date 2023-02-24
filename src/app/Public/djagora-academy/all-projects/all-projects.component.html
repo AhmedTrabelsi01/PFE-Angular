@@ -11,7 +11,7 @@
           </div><!-- Row end -->
       </div><!-- Container end -->
     </div><!-- Banner text end -->
-  </div><!-- Banner area end --> 
+  </div><!-- Banner area end -->
 <!-------------------------------------------------------------------->
 
 
@@ -80,14 +80,14 @@
 
 
         <div class="container py-4 "  *ngFor="let p of projectss | filter:st ">
-            
+
             <article class="postcard light yellow mx-5">
                 <a class="postcard__img_link" href="#">
                     <img class="postcard__img" [src]="imgpath+p.img" alt="Image Title" />
                 </a>
                 <div class="postcard__text t-dark">
                     <h1 class="postcard__title yellow"><a href="#"><b>{{p.title}}</b></a></h1>
-                    
+
                     <div class="postcard__bar"></div>
                     <div class="postcard__preview-txt">{{p.description}}</div>
                     <ul class="postcard__tagbox">
@@ -119,7 +119,7 @@
 <div class="pag">
 
 </div>
-   
+
 
 
 
@@ -150,21 +150,21 @@
             <div class="titre">
                 <h1 name="1">ARCHIVE</h1>
             </div>
-    
+
             <div class="searchbar ">
-    
-                
-    
+
+
+
             </div>
         </div>
-    
-    
+
+
         <!------------------part6:project archive----------------------->
         <div class="part6">
            <h1 *ngIf="countar==0" style="margin-left: 40%; margin-bottom: 6%; color: gray;">No archive added yet</h1>
-    
+
             <div class=" sdep" >
-                
+
                             <div class="  col-md-8 col-lg-4 order-lg-last mx-3  "  *ngFor="let p3 of archive">
                                 <div class="body ">
                                     <div class="blog-card ">
@@ -172,7 +172,7 @@
                                             <div class="photo"><img [src]="imgpath+p3.img" alt=""></div>
                                             <ul class="details">
                                                 <li class="author">{{p3.owner}}</li>
-    
+
                                             </ul>
                                         </div>
                                         <div class="description">
@@ -184,9 +184,9 @@
                                     </div>
                                 </div>
                             </div>
-                         
-                    
-            
+
+
+
             </div>
         </div>
     </div>

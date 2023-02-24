@@ -1,12 +1,12 @@
 
-<div *ngIf="router.url !== '/login' && router.url !== '/login/forgot' && router.url !== '/notfound' && router.url !== '/login/signup' && router.url !== '/login/signup/signupstudent' && router.url !== '/login/signup/signupmentor' " >
+<div *ngIf="router.url !== '/Authentification' && router.url !== '/Authentification/forgot' && router.url !== '/notfound' && router.url !== '/Authentification/signup' && router.url !== '/Authentification/signup/signupstudent' && router.url !== '/Authentification/signup/signupmentor' " >
     <app-header ></app-header>
 </div>
 <router-outlet></router-outlet>
 
-<div *ngIf="router.url !== '/login/forgot' && router.url !== '/login' && router.url !== '/notfound' && router.url !== '/login/signup' && router.url !== '/login/signup/signupstudent' && router.url !== '/login/signup/signupmentor' " >
+<div *ngIf="router.url !== '/Authentification/forgot' && router.url !== '/Authentification' && router.url !== '/notfound' && router.url !== '/Authentification/signup' && router.url !== '/Authentification/signup/signupstudent' && router.url !== '/Authentification/signup/signupmentor' " >
    <app-footer></app-footer>
-</div>  
+</div>
  <!--
 <form [formGroup]="genderForm">
     <input type="text" formControlName="name">
@@ -14,8 +14,8 @@
     <button (click)="onsubmit()" >stbr </button>
 </form>
 
- 
-  
+
+
 todo list
 
 

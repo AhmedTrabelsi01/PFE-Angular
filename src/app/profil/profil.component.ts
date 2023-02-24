@@ -34,19 +34,19 @@ export class ProfilComponent implements OnInit {
   loggeduser: any;
   token: any;
   role: any;
-  votetest:any;
+  votetest: any;
   users: any = {};
   id: any;
   projects: any = [];
   applications: any = [];
   imgpath: any = 'http://127.0.0.1:8000/storage/post/'//image path laravel
- //variable calender
- public url: any = "http://127.0.0.1:8000/api/getMeetByUser/ "+ this.route.snapshot.params['id'] ;
- public currentDate!: Date;
- public setView: View = 'Month';
- title = 'Calendar';
- public setDate: Date = new Date();
- //end variable calender
+  //variable calender
+  public url: any = "http://127.0.0.1:8000/api/getMeetByUser/ " + this.route.snapshot.params['id'];
+  public currentDate!: Date;
+  public setView: View = 'Month';
+  title = 'Calendar';
+  public setDate: Date = new Date();
+  //end variable calender
 
 
 
@@ -61,91 +61,65 @@ export class ProfilComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
     this.auth = this.PublicDataService.getLoginState();
     this.role = this.PublicDataService.getRole();
-      this.getVotingEvent();
-      this.GetProfielById();
-      //this.getOwnedStartup();
-      //this.getOwnedHistory();
-      if (this.role == '1') {
-        this.GetOwnedApplications();
-      }
-      if (this.role != '1') {
+    this.getVotingEvent();
+    this.GetProfielById();
+    //this.getOwnedStartup();
+    //this.getOwnedHistory();
+    if (this.role == '1') {
+      this.GetOwnedApplications();
+    }
+    if (this.role != '1') {
 
-        this.GetOwnedProjects();
-      }
-
-
-    popup()
-
-
-
+      this.GetOwnedProjects();
+    }
   }
 
   checkVoteAbility() {
     let formdata = new FormData();
-    formdata.append('user_id', this.users.id);
+    formdata.append('user_id', this.users.user_id);
     formdata.append('vote_id', this.test.id);
-
-
-    let formdata1 = new FormData();
-    formdata1.append('user_id', this.users.user_id);
-    formdata1.append('meet_id', this.test.meet_id);
-
-    
-    this.PublicDataService.checkAud(formdata1).subscribe(res => {
-      this.votetest = res;
-
-
-    }
-    )
-
-
-    this.PublicDataService.checkVote(formdata).subscribe(res => {
-      this.ownedVote = res;
-      this.countOwnedVote = this.ownedVote.length;
-
-      if (this.countOwnedVote == 0) {
-
-        if (Object.keys(this.test).length != 0 && this.votetest.result==true) {
-          this.votes = this.test;
-
-        }
+    formdata.append('meet_id', this.test.meet_id);
+    this.PublicDataService.checkAud(formdata).subscribe(res => {
+      this.votetest = res
+      if (this.votetest.result == true) {
+        this.votes = this.test;
       }
     }
     )
   }
-
+  //get active voting event for the day
   getVotingEvent() {
     this.PublicDataService.getVotes().subscribe(res => {
       this.test = res;
-
-
     }
     )
   }
-//function calender
-private dataManager: DataManager = new DataManager({
-  url: this.url,
-  adaptor: new UrlAdaptor,
-  crossDomain: true,
 
-});
-public eventSettings: EventSettingsModel = {
-  dataSource: this.dataManager
+  //function calender
 
-};
-//end function calaender
+  private dataManager: DataManager = new DataManager({
+    url: this.url,
+    adaptor: new UrlAdaptor,
+    crossDomain: true,
+
+  });
+  public eventSettings: EventSettingsModel = {
+    dataSource: this.dataManager
+
+  };
 
 
+  //get profile by id
 
   GetProfielById() {
     this.PublicDataService.getUserById(this.id).subscribe(res => {
       this.users = res;
-      console.log(this.users)
-      this.users.domain=JSON.parse(this.users.domain)
+      //console.log(this.users)
+      this.users.domain = JSON.parse(this.users.domain)
       this.checkVoteAbility();
-
     }
     )
+
   }
 
 
@@ -186,7 +160,7 @@ public eventSettings: EventSettingsModel = {
 
   upVote(id: any) {
     let formdata = new FormData();
-    formdata.append('user_id', this.users.id);
+    formdata.append('user_id', this.id);
     this.PublicDataService.upVote(id, formdata).subscribe(res => {
       window.location.reload();
 
@@ -195,7 +169,7 @@ public eventSettings: EventSettingsModel = {
   }
   donwVote(id: any) {
     let formdata = new FormData();
-    formdata.append('user_id', this.users.id);
+    formdata.append('user_id', this.id);
     this.PublicDataService.downVote(id, formdata).subscribe(res => {
       window.location.reload();
     }
@@ -203,7 +177,7 @@ public eventSettings: EventSettingsModel = {
   }
 
 
-  onDeleteApp(idapp: any) {
+  /*onDeleteApp(idapp: any) {
     this.PublicDataService.deleteApplication(idapp).subscribe(res => {
     }
     )
@@ -214,7 +188,7 @@ public eventSettings: EventSettingsModel = {
     this.PublicDataService.deleteProject(idproj).subscribe(res => {
     })
 
-  }
+  }*/
 
 
 }

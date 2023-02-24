@@ -10,7 +10,7 @@ import { AddHistoryComponent } from './history/add-history/add-history.component
 
 const routes: Routes = [
   //profil
-  { path: 'profil/:id', component: ProfilComponent },
+  { path: 'myProfil/:id', component: ProfilComponent },
   { path: 'EditProfil/:id', component: EditProfilComponent },
   { path: 'Editwork/:id', component: EditWorkComponent },
   { path: 'edithistory/:id', component: EditHistoryComponent },

@@ -3,7 +3,7 @@
     <div class="sign_box_student">
 
         <div class="btn_retour">
-            <button routerLink="/login/signup">🢀 Back</button>
+            <button routerLink="/Authentification/signup">🢀 Back</button>
         </div>
 
         <h1>SIGN UP</h1>
@@ -18,7 +18,7 @@
                     <option value="" disabled selected hidden>Gender </option>
                     <option value="men">Men</option>
                     <option value="women">Women</option>
-                
+
                 </select>
 
             </div>
@@ -26,8 +26,8 @@
             <input type="password" formControlName="password" placeholder="Password">
 
             <input type="password" formControlName="confirmation" placeholder="Confirm Password">
-            
-            
+
+
            <div  *ngIf="counterr!=0">
             <br> <small class="error">{{errors.name}}</small>
             <br><small class="error">{{errors.email}}</small>
@@ -39,9 +39,9 @@
         <button class="lo" (click)="onSubmit()">Sign Up</button>
         </form>
         <h5>You have an account ?</h5>
-        <a  class="anow" style="color: rgb(80, 130, 177);cursor: pointer;" routerLink="/login">Login now</a>
+        <a  class="anow" style="color: rgb(80, 130, 177);cursor: pointer;" routerLink="/Authentification/../">Login now</a>
 
-       
+
 
     </div>
 </section>

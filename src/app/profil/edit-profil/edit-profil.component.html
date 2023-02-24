@@ -20,7 +20,7 @@
 <div class="container">
 
 
-    <button [routerLink]="['/profil',user.user_id]" class="btn--new">
+    <button [routerLink]="['/myProfil',user.user_id]" class="btn--new">
         <i class="fa fa-arrow-left" aria-hidden="true"></i>
         <span> Back</span>
     </button>
@@ -142,7 +142,7 @@
                                 <div class="col-sm-3">
                                     <h6 class="mb-0">Domain</h6>
                                 </div>
-                                
+
                                 <ejs-multiselect id='multiselectelement'  class="col-sm-9 text-secondary" [ngModel]="datas1"  [dataSource]='datas' formControlName="domain" placeholder='Find a item'>
                                     <ng-template #noRecordsTemplate>
                                       <span class='norecord'> NO DATA AVAILABLE</span>
@@ -176,7 +176,7 @@
         </div>
 
 
-       
+
 
     <!--<div id="myModal" class="modal">
 
@@ -224,8 +224,8 @@
 
     </div>
 
-  </div>-->    
-  
+  </div>-->
+
         <br>
 
 

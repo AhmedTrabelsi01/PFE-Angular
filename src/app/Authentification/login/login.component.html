@@ -1,45 +1,41 @@
-
-
-
-
 <section>
-    <img class="photo_grand" src="assets/img/a.jpg">
-    <div class="sign_box_montor">
-
-       
-        <h2 style="margin-top: 40%;" >LOGIN</h2>
-
-        <form [formGroup]="LoginForm">
+  <img class="photo_grand " src="assets/img/undraw_secure_login_pdn4.png">
+  <div class="sign_box_montor">
 
 
-            <input type="email" placeholder="Email" formControlName="email">
-    
-            <input type="password" placeholder="Password" id="myInput" formControlName="password">
-    
-    
-    
-    
-    
-            <span class="eye" onclick="myFunction()">
-                <i id="hide1" class="fa fa-eye"></i>
-                <i id="hide2" class="fa fa-eye-slash"></i>
-            </span>
-            <div *ngIf="counterr==1">
-                <small class="error">{{token.message}}</small> <br>
-    
-            </div>
-            <br>
-    
-            <button class="lo" (click)="onLogin()">login</button>
-            <br>
-            <a routerLink="forgot" class="forgot">Forgot your password ?</a>
-            <p>Don't have an account ?</p>
-            <a class="anow" routerLink="signup">Register now</a>
-    
-        </form>
+      <h2 style="margin-top: 40%;" >LOGIN</h2>
+
+      <form [formGroup]="LoginForm">
+
+
+          <input type="email" placeholder="Email" formControlName="email">
+
+          <input type="password" placeholder="Password" id="myInput" formControlName="password">
 
 
 
-    </div>
+
+
+          <span class="eye" onclick="myFunction()">
+              <i id="hide1" class="fa fa-eye"></i>
+              <i id="hide2" class="fa fa-eye-slash"></i>
+          </span>
+          <div *ngIf="counterr==1">
+              <small class="error">{{token.message}}</small> <br>
+
+          </div>
+          <br>
+
+          <button class="lo" (click)="onLogin()">login</button>
+          <br>
+          <a routerLink="forgot" class="forgot">Forgot your password ?</a>
+          <p>Don't have an account ?</p>
+          <a class="anow" routerLink="signup">Register now</a>
+
+      </form>
+
+
+
+  </div>
 
 </section>

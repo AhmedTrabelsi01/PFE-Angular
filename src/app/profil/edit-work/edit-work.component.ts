@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-
 import { Router } from '@angular/router';
 import { PublicDataService } from 'src/app/services/public-data.service';
 import { StudentDataService } from 'src/app/services/student-data.service';
@@ -39,17 +38,17 @@ export class EditWorkComponent implements OnInit {
       email: new FormControl("", Validators.required),
       number: new FormControl("", Validators.required),
       cv: new FormControl("", Validators.required),
-  
+
     })
-    
+
      projectForm = new FormGroup({
        name: new FormControl("",Validators.required),
        description:new FormControl("",Validators.required),
        img:new FormControl("",Validators.required),
        date:new FormControl("",Validators.required),
-   
-      
-   }); 
+
+
+   });
 
 
   ngOnInit(): void {
@@ -66,7 +65,7 @@ export class EditWorkComponent implements OnInit {
   }
 
 
-  
+
 
   GetOwnedApplicationsByID(){
     this.id=this.route.snapshot.params['id'];
@@ -75,7 +74,7 @@ export class EditWorkComponent implements OnInit {
        console.log(this.app)
 
     })
- 
+
 
   }
 
@@ -101,21 +100,21 @@ export class EditWorkComponent implements OnInit {
     formdata.append('name',this.project.name);
     formdata.append('description',this.project.description);
     formdata.append('estimated_date',new Date(this.project.date).toDateString());
-    
- 
+
+
    this.MentorDataService.updateProj(projid,formdata).subscribe(res=>{
      this.error=res;
      window.location.reload()
 
-  
-      
+
+
   })
 
 }
 onSubmitApp(appid:any) {
   this.postulation = this.PostulationtForm.value
   let formdata = new FormData();
- 
+
   formdata.append('cv',this.file);
   formdata.append('name',this.postulation.name);
   formdata.append('email',this.postulation.email);

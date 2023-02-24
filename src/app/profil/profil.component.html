@@ -27,7 +27,7 @@
     <div class="course">
       <div class="course-info ">
         <h6 class="mb-4">Voting Event</h6>
-        <h2 class="mb-5">{{ votes }}</h2>
+        <h2 class="mb-5">{{ votetest.title }}</h2>
       </div>
       <div class="course-progress ">
 
@@ -124,7 +124,7 @@
                         Edit Profile</button>
                     </div>
                   </div>
-                
+
 
                 </div>
               </div>
@@ -239,7 +239,7 @@
                   <h6 class="mb-0">Cv</h6>
                 </div>
                 <div class="col-sm-9 text-secondary px-sm-4 py-sm-3">
-                   <a target="_blank" href="http://127.0.0.1:8000/storage/post/{{users.cv}}" download>Download</a> 
+                   <a target="_blank" href="http://127.0.0.1:8000/storage/post/{{users.cv}}" download>Download</a>
                 </div>
               </div>
             </div>
@@ -404,116 +404,4 @@
   <div class="title">
     <h2>HISTORY</h2>
   </div>
-
-
-  <div class="projectbox">
-    <div class="sous-title">
-      <h2>Projects</h2>
-    </div>
-    <h1  *ngIf="counthis==0" style="margin-left: 40%; color: gray;" >No projects added yet</h1>
-
-    <div class="input-box2">
-      <div class="addproject">
-        <button routerLink="/addhistory">Add Project</button>
-        <i class="far fa-edit" aria-hidden="true"></i>
-      </div>
-    </div>
-
-
-
-
-
-
-
-    <div class="startup">
-      <button class="pre-btn" *ngIf="counthis!=0"><img src="assets/img/arrow2.png" alt=""></button>
-      <button class="nxt-btn" *ngIf="counthis!=0"><img src="assets/img/arrow2.png" alt=""></button>
-
-      <div class="sdep">
-
-        <div class="sous_dep"  *ngFor="let h of histories">
-          <div class="avatar-upload">
-            <div  [routerLink]="['/edithistory',h.id]" class="avatar-edit">
-                <input id="imageUpload"   />
-                <label  for="imageUpload"></label>
-            </div>
-            <div class="avatar-preview">
-              <img [src]="imgpath+h.img" alt="">
-            </div>
-
-        </div>
-            <h3>{{h.name}}</h3>
-            <p>{{h.description}}</p>
-
-        </div>
-      </div>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class="sous-title">
-      <h2>Startup</h2>
-    </div>
-
-
-    <h1  *ngIf="countstar==0" style="margin-left: 40%; color: gray;" >No startups added yet</h1>
-
-
-    <div class="input-box2">
-      <div class="addproject">
-        <button routerLink="/addstartup">Add Startup</button>
-        <i class="far fa-edit" aria-hidden="true"></i>
-      </div>
-    </div>
-
-    <div class="startup">
-      <button class="pre-btn" *ngIf="countstar!=0"><img src="assets/img/arrow2.png" alt=""></button>
-      <button class="nxt-btn" *ngIf="countstar!=0"><img src="assets/img/arrow2.png" alt=""></button>
-
-      <div class="sdep">
-
-        <div class="sous_dep" *ngFor="let s of startups">
-          <div class="avatar-upload">
-            <div [routerLink]="['/editstartup',s.id]" class="avatar-edit">
-                <input  id="imageUpload"   />
-                <label  for="imageUpload"></label>
-            </div>
-            <div class="avatar-preview">
-              <img [src]="imgpath+s.img" alt="">
-            </div>
-
-        </div>
-            <h3>{{s.name}}</h3>
-            <p>{{s.description}}</p>
-
-        </div>
-      </div>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  </div>
-</div>-->
+-->

@@ -68,7 +68,7 @@
 
 <!----------------------------------------->
 
-    
+
 
 <!------------------part2:departement boxs----------------------->
 
@@ -78,15 +78,15 @@
         <h3 name="1" class="titre">DEPARTMENTS</h3>
     </div>
     <div class="sdep container offset-md-1 px-4">
-   
-        <div class="row " >
+
+        <div class="row " routerLink="/djagoraacadimy">
             <div class="sous_dep  p-sm-5 row-cols-1 my-4 mx-5">
-                <div class="pos">
-                    
+                <div class="pos" >
+
                     <i class="fa-solid fa-right-to-bracket goin " *ngIf="user.djACA==0">Guest mode</i>
                     <i class="fa-solid fa-right-to-bracket goin " style="opacity:0;" *ngIf="user.djACA==1"> Guest mode</i>
 
-                    <a routerLink="/djagoraacadimy">
+                    <a>
                         <img style="height: 72PX; width: 193PX;" src="assets/img/academy.png" alt="">
                     </a>
 
@@ -135,7 +135,7 @@
                 </div>
             </div>
         </div>
-        <div class="row" style="  margin-left: 20%;">
+        <div class="row" style="  margin-left: 20%;" routerLink="/notfound">
 
             <div class=" sous_dep p-sm-5 row-cols-1 my-4 mx-1 ">
                 <div class="pos">
@@ -143,7 +143,7 @@
                     <i class="fa-solid fa-right-to-bracket goin " style="opacity:0;" *ngIf="user.djMD==1">Guest mode</i>
 
 
-                    <a routerLink="/notfound">
+                    <a >
                         <img style=" height: 72PX; width: 193PX;" src="assets/img/Djagora M.png">
 
                     </a>
@@ -347,13 +347,13 @@
         <div class="container mt-5">
             <h2 class="title mt-5 ">PARTNERS</h2>
         </div>
-        
-        
-        
+
+
+
         <div class="demo-row">
             <div class="container" id="id-sponsors">
-             
-            <div id="sponsor-carousel" class="carousel slide" data-ride="carousel"> 
+
+            <div id="sponsor-carousel" class="carousel slide" data-ride="carousel">
               <!-- Indicators -->
               <ol class="carousel-indicators">
                 <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
