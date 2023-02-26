@@ -167,7 +167,9 @@ export class SingleProjectComponent implements OnInit {
   appPos(appId: any) {
     let data: any
     this.StudentDataService.appPos(appId, data).subscribe(res => {
+      this.toastr.success("Application approuved")
       this.getPendingApps()
+      this.getAppPosByProject()
     })
 
   }

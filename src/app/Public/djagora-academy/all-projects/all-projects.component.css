@@ -117,6 +117,12 @@
     padding: 50px;
   
   }
+  @media (max-width:1150px){
+    .rpsbox {
+  
+      flex-direction: column;
+    }
+  }
   
   .rpsbox img {
   

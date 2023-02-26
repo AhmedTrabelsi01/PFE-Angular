@@ -186,7 +186,7 @@
                   </div>
                   <div class="col-md-8 col-sm-12 profile-info">
                     <div class="header-fullname"><i class="fas fa-user mr-2"></i> {{a.name}}</div>
-                    <a *ngIf="ProjectOwner.user_id==loggeduser['id'] && a.viewState==0 " (click)="appPos(a.id)"  class="btn btn-palegreen btn-sm  btn-follow">
+                    <a *ngIf="ProjectOwner.user_id==loggeduser['id'] && a.appState==0 " (click)="appPos(a.id)"  class="btn btn-palegreen btn-sm  btn-follow">
                       <i class="fa fa-check"></i>
                       Approuve
             
@@ -199,17 +199,17 @@
                       <div class="col-md-4 col-sm-4 col-xs-12 stats-col">
                         <div class="stats-value " style="color: #0081c2 ;"> <i
                           class="fa-solid fa-person-circle-check"></i> Mentor</div>
-                        <div class="stats-title " style="color: orange;" *ngIf="a.viewState==0" >Pending</div>
-                        <div class="stats-title " style="color: green;" *ngIf="a.viewState==1">Approuved</div>
-                        <div class="stats-title " style="color: red;" *ngIf="a.viewState==-1">Denied</div>
+                        <div class="stats-title " style="color: orange;" *ngIf="a.appState==0" >Pending</div>
+                        <div class="stats-title " style="color: green;" *ngIf="a.appState==1">Approuved</div>
+                        <div class="stats-title " style="color: red;" *ngIf="a.appState==-1">Denied</div>
       
                       </div>
                       <div class="col-md-4 col-sm-4 col-xs-12 stats-col">
                         <div class="stats-value " style="color: #0081c2 ;"><i
                           class="fa-solid fa-person-circle-check"></i> Admin</div>
-                          <div class="stats-title " style="color: orange;" *ngIf="a.appState==0" >Pending</div>
-                          <div class="stats-title " style="color: green;" *ngIf="a.appState==1">Approuved</div>
-                          <div class="stats-title " style="color: red;" *ngIf="a.appState==-1">Denied</div>                </div>
+                          <div class="stats-title " style="color: orange;" *ngIf="a.viewState==0" >Pending</div>
+                          <div class="stats-title " style="color: green;" *ngIf="a.viewState==1">Approuved</div>
+                          <div class="stats-title " style="color: red;" *ngIf="a.viewState==-1">Denied</div>                </div>
                       <div class="col-md-4 col-sm-4 col-xs-12 stats-col">
                         <div class="stats-value " style="color: #0081c2 ;"><i
                           class="fa-solid fa-download"></i> CV</div>
@@ -287,17 +287,17 @@
                       <div class="col-md-4 col-sm-4 col-xs-12 stats-col">
                         <div class="stats-value " style="color: #0081c2 ;"> <i
                           class="fa-solid fa-person-circle-check"></i> Mentor</div>
-                        <div class="stats-title " style="color: orange;" *ngIf="ownedApp.viewState==0" >Pending</div>
-                        <div class="stats-title " style="color: green;" *ngIf="ownedApp.viewState==1">Approuved</div>
-                        <div class="stats-title " style="color: red;" *ngIf="ownedApp.viewState==-1">Denied</div>
+                        <div class="stats-title " style="color: orange;" *ngIf="ownedApp.appState==0" >Pending</div>
+                        <div class="stats-title " style="color: green;" *ngIf="ownedApp.appState==1">Approuved</div>
+                        <div class="stats-title " style="color: red;" *ngIf="ownedApp.appState==-1">Denied</div>
       
                       </div>
                       <div class="col-md-4 col-sm-4 col-xs-12 stats-col">
                         <div class="stats-value " style="color: #0081c2 ;"><i
                           class="fa-solid fa-person-circle-check"></i> Admin</div>
-                          <div class="stats-title " style="color: orange;" *ngIf="ownedApp.appState==0" >Pending</div>
-                          <div class="stats-title " style="color: green;" *ngIf="ownedApp.appState==1">Approuved</div>
-                          <div class="stats-title " style="color: red;" *ngIf="ownedApp.appState==-1">Denied</div>                </div>
+                          <div class="stats-title " style="color: orange;" *ngIf="ownedApp.viewState==0" >Pending</div>
+                          <div class="stats-title " style="color: green;" *ngIf="ownedApp.viewState==1">Approuved</div>
+                          <div class="stats-title " style="color: red;" *ngIf="ownedApp.viewState==-1">Denied</div>                </div>
                       <div class="col-md-4 col-sm-4 col-xs-12 stats-col">
                         <div class="stats-value " style="color: #0081c2 ;"><i
                           class="fa-solid fa-download"></i> CV</div>
@@ -355,30 +355,28 @@
             </div>
             <div class="col-md-8 col-sm-12 profile-info">
               <div class="header-fullname"><i class="fas fa-user mr-2"></i> {{a.name}}</div>
-              <a *ngIf="ProjectOwner.user_id==loggeduser['id'] && a.appState==0 " (click)="appPos(a.id)"  class="btn btn-palegreen btn-sm  btn-follow">
-                <i class="fa fa-check"></i>
-                <a >Approuve</a>
-      
-              </a>
+             
+              
               <div class="header-information"><i  class="fas fa-envelope mr-2"></i> 
                 {{a.email}} </div>
             </div>
+
             <div class="col-md-12 col-sm-12 col-xs-12 profile-stats">
               <div class="row">
                 <div class="col-md-4 col-sm-4 col-xs-12 stats-col">
                   <div class="stats-value " style="color: #0081c2 ;"> <i
                     class="fa-solid fa-person-circle-check"></i> Mentor</div>
-                  <div class="stats-title " style="color: orange;" *ngIf="a.viewState==0" >Pending</div>
-                  <div class="stats-title " style="color: green;" *ngIf="a.viewState==1">Approuved</div>
-                  <div class="stats-title " style="color: red;" *ngIf="a.viewState==-1">Denied</div>
+                  <div class="stats-title " style="color: orange;" *ngIf="a.appState==0" >Pending</div>
+                  <div class="stats-title " style="color: green;" *ngIf="a.appState==1">Approuved</div>
+                  <div class="stats-title " style="color: red;" *ngIf="a.appState==-1">Denied</div>
 
                 </div>
                 <div class="col-md-4 col-sm-4 col-xs-12 stats-col">
                   <div class="stats-value " style="color: #0081c2 ;"><i
                     class="fa-solid fa-person-circle-check"></i> Admin</div>
-                    <div class="stats-title " style="color: orange;" *ngIf="a.appState==0" >Pending</div>
-                    <div class="stats-title " style="color: green;" *ngIf="a.appState==1">Approuved</div>
-                    <div class="stats-title " style="color: red;" *ngIf="a.appState==-1">Denied</div>                </div>
+                    <div class="stats-title " style="color: orange;" *ngIf="a.viewState==0" >Pending</div>
+                    <div class="stats-title " style="color: green;" *ngIf="a.viewState==1">Approuved</div>
+                    <div class="stats-title " style="color: red;" *ngIf="a.viewState==-1">Denied</div>                </div>
                 <div class="col-md-4 col-sm-4 col-xs-12 stats-col">
                   <div class="stats-value " style="color: #0081c2 ;"><i
                     class="fa-solid fa-download"></i> CV</div>
