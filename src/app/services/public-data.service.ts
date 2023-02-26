@@ -303,7 +303,9 @@ export class PublicDataService {
   }
 
 
-
+  getPageByURL(link:any) {
+    return this.httpClient.get(link);
+  }
 
 
 

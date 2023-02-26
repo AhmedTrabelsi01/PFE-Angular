@@ -796,6 +796,10 @@
     border-radius: 15px;
   }
 
+  .page-item:hover{
+    color: white;
+    background-color: #0081C2;
+  }
 
 
 

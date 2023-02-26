@@ -19,8 +19,8 @@ export class AllProjectsComponent implements OnInit {
   st: string="";//filter button
   projects:any=[];
   projectss:any=[];
-  links:any;
-
+  next:any;
+  prev:any;
   filteredprojects:any=[];
   searchTerm: string ="";//filter term
   auth :any;
@@ -76,12 +76,10 @@ export class AllProjectsComponent implements OnInit {
   GetProject(){
     this.PublicDataService.GetProject().subscribe(res=>{
     this.projectss=res;
-    this.links=this.projectss.links;
-    //console.log(this.links)
-      this.projectss=this.projectss.data
-
-      this.countproj=this.projectss.length;
-
+    this.next=this.projectss.next_page_url
+    this.prev=this.projectss.prev_page_url
+    this.projectss=this.projectss.data
+    this.countproj=this.projectss.length;
     }
       )
   }
@@ -100,6 +98,24 @@ export class AllProjectsComponent implements OnInit {
   }
   
 
+  nextPage(link:any) { 
+    this.PublicDataService.getPageByURL(link).subscribe(res=>{
+    this.projectss=res;
+    this.next=this.projectss.next_page_url
+    this.prev=this.projectss.prev_page_url
+    this.projectss=this.projectss.data
+    })    
 
+  }
+
+  prevPage(link:any) {
+    this.PublicDataService.getPageByURL(link).subscribe(res=>{
+      this.projectss=res;
+      this.next=this.projectss.next_page_url
+      this.prev=this.projectss.prev_page_url
+      this.projectss=this.projectss.data
+      })    
+
+  }
 
 }
