@@ -95,27 +95,46 @@ export class ProfilComponent implements OnInit {
     )
   }
 
-  //function calender
+  
 
-  private dataManager: DataManager = new DataManager({
-    url: this.url,
-    adaptor: new UrlAdaptor,
-    crossDomain: true,
-
-  });
-  public eventSettings: EventSettingsModel = {
-    dataSource: this.dataManager
-
-  };
+  
+  public url1:any
+  private dataManager1: DataManager =new DataManager();
+  public eventSettings1:EventSettingsModel={};
 
   getMentorMeets(){
-    this.MentorDataService.getMentorsMeet(this.id).subscribe(res => {
-    });
+
+      this.url1 = "http://127.0.0.1:8000/api/memeets/" +this.id;
+      this.dataManager1 = new DataManager({
+    
+        url: this.url1,
+        adaptor: new UrlAdaptor,
+        crossDomain: true,
+    
+      });
+    
+      this.eventSettings1 = {
+        dataSource: this.dataManager1
+    
+      };
+    
   }
 
   getStudentMeets(){
-    this.StudentDataService.getStudentsMeet(this.id).subscribe(res => {
-    });
+    this.url1 = "http://127.0.0.1:8000/api/stmeets/" +this.id;
+      this.dataManager1 = new DataManager({
+    
+        url: this.url1,
+        adaptor: new UrlAdaptor,
+        crossDomain: true,
+    
+      });
+    
+      this.eventSettings1 = {
+        dataSource: this.dataManager1
+    
+      };
+    
   }
 
 
@@ -126,7 +145,7 @@ export class ProfilComponent implements OnInit {
       this.users = res;
       //console.log(this.users)
       this.users.domain = JSON.parse(this.users.domain)
-      if(this.test){
+      if(this.test.length!=undefined){
         this.checkVoteAbility();
       }
       if (this.role == '1') {
