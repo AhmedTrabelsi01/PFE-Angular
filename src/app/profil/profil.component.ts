@@ -1,16 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { PublicDataService } from '../services/public-data.service';
 import { MentorDataService } from '../services/mentor-data.service';
+import { StudentDataService } from '../services/student-data.service';
 import { ActivatedRoute } from '@angular/router';
 import { DayService, WeekService, WorkWeekService, MonthService, AgendaService, View, EventSettingsModel } from '@syncfusion/ej2-angular-schedule';
 import { DataManager, UrlAdaptor, Query, ODataV4Adaptor } from '@syncfusion/ej2-data';
 import { EMPTY, empty, Observable } from 'rxjs';
+
 declare function popup(): any;
 
 @Component({
   selector: 'app-profil',
   providers: [DayService, WeekService, WorkWeekService, MonthService, AgendaService],
-
   templateUrl: './profil.component.html',
   styleUrls: ['./profil.component.css']
 })
@@ -27,7 +28,7 @@ export class ProfilComponent implements OnInit {
   ownedVote: any;
   countOwnedVote = 0;
 
-  constructor(private MentorDataService: MentorDataService, private PublicDataService: PublicDataService, private route: ActivatedRoute) {
+  constructor(private StudentDataService:StudentDataService,private MentorDataService: MentorDataService, private PublicDataService: PublicDataService, private route: ActivatedRoute) {
     this.time$ = this.PublicDataService.getDate();
   }
   auth: any;
@@ -69,7 +70,6 @@ export class ProfilComponent implements OnInit {
       this.GetOwnedApplications();
     }
     if (this.role != '1') {
-
       this.GetOwnedProjects();
     }
   }
@@ -108,6 +108,16 @@ export class ProfilComponent implements OnInit {
 
   };
 
+  getMentorMeets(){
+    this.MentorDataService.getMentorsMeet(this.id).subscribe(res => {
+    });
+  }
+
+  getStudentMeets(){
+    this.StudentDataService.getStudentsMeet(this.id).subscribe(res => {
+    });
+  }
+
 
   //get profile by id
 
@@ -116,7 +126,15 @@ export class ProfilComponent implements OnInit {
       this.users = res;
       //console.log(this.users)
       this.users.domain = JSON.parse(this.users.domain)
-      this.checkVoteAbility();
+      if(this.test){
+        this.checkVoteAbility();
+      }
+      if (this.role == '1') {
+        this.getStudentMeets();
+      }
+      if (this.role != '1') {
+        this.getMentorMeets();
+      }
     }
     )
 
