@@ -218,7 +218,7 @@ export class SingleProjectComponent implements OnInit {
         formdata.append('cv', this.user.cv);
         if (!this.user.cv) {
           this.toastr.error('CV required');
-          setTimeout(() => { this.route1.navigate(['/profil', this.user.user_id]) }, 500);
+          setTimeout(() => { this.route1.navigate(['/myProfil', this.user.user_id]) }, 500);
 
         } else {
 
