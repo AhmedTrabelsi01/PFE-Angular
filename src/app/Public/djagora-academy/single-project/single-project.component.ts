@@ -202,11 +202,10 @@ export class SingleProjectComponent implements OnInit {
 
   onApply() {
 
-    if (this.edition.state == 0) {
-      this.toastr.error("application will oppen on ", this.edition.deadlineOP)
-      console.log(this.edition)
+    if (this.edition.stateRS == 0) {
+      this.toastr.error("application will oppen on ", this.edition.StartRS)
     } else {
-      if (this.edition.state > 1) {
+      if (this.edition.stateRS == -1) {
         this.toastr.error("application is closed")
       } else {
         let formdata = new FormData();

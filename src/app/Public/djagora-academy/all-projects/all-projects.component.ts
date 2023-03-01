@@ -34,24 +34,24 @@ export class AllProjectsComponent implements OnInit {
   imgpath:any ='http://127.0.0.1:8000/storage/post/'//image path laravel
 
   ngOnInit(): void {
-    
+
 
     this.GetProject();
     this.GetArchive() ;
     this.getEdition();
-    
+
     this.auth=this.PublicDataService.getLoginState();
     this.role=this.PublicDataService.getRole();
     this.acaState=localStorage.getItem('authACA');
     this.route.params.subscribe(params=>{
-      const k =params['searchTerm'];  
+      const k =params['searchTerm'];
       if(k){
         this.st=k;
         this.filteredprojects=this.projectss.filter((project: { name: string; })=>project.name.toLowerCase().includes(k.toLowerCase()));
-      
+
       }
       else{
-        this.filteredprojects=this.projectss;  
+        this.filteredprojects=this.projectss;
 
       }
     })
@@ -65,14 +65,14 @@ export class AllProjectsComponent implements OnInit {
     })
   }
  checkEdition(){
-  if(this.edition.state!=0){
+  if(this.edition.stateOP!=1){
     this.toastr.error("project is closed")
   }else{
     this.route1.navigate(['/AddProject'])
   }
  }
-  
-  
+
+
   GetProject(){
     this.PublicDataService.GetProject().subscribe(res=>{
     this.projectss=res;
@@ -85,7 +85,7 @@ export class AllProjectsComponent implements OnInit {
   }
 
   GetArchive(){
-    
+
     this.PublicDataService.getArchive().subscribe(res=>{
       this.archive=res;
       this.countar=this.archive.length;
@@ -96,15 +96,15 @@ export class AllProjectsComponent implements OnInit {
       )
 
   }
-  
 
-  nextPage(link:any) { 
+
+  nextPage(link:any) {
     this.PublicDataService.getPageByURL(link).subscribe(res=>{
     this.projectss=res;
     this.next=this.projectss.next_page_url
     this.prev=this.projectss.prev_page_url
     this.projectss=this.projectss.data
-    })    
+    })
 
   }
 
@@ -114,7 +114,7 @@ export class AllProjectsComponent implements OnInit {
       this.next=this.projectss.next_page_url
       this.prev=this.projectss.prev_page_url
       this.projectss=this.projectss.data
-      })    
+      })
 
   }
 
