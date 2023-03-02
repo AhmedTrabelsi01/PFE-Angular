@@ -116,8 +116,8 @@ margin-bottom: 5%;
   margin-right: 45%;
 }
 .profileimg{
-  margin-right: 14%;
-  margin-top: 1.5%;
+  position:absolute;
+  
 
 }
 
@@ -141,6 +141,15 @@ margin-bottom: 5%;
   background-color: inherit;
 }
 
+
+@media(max-width: 990px) {
+.notifi-box{
+  position:absolute;
+  margin-top: 27%;
+  margin-right: -10%;
+}
+
+}
 
 
 .dropdown-content {

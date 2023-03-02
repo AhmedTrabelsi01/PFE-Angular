@@ -103,5 +103,9 @@ export class MentorDataService {
     return this.httpClient.get('http://127.0.0.1:8000/api/memeets/' + id, { headers: this.createHeader() });
   }
 
-
+  //----------pagination
+  
+  getPageByURL(link:any) {
+    return this.httpClient.get(link);
+  }
 }

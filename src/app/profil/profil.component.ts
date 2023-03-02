@@ -31,6 +31,8 @@ export class ProfilComponent implements OnInit {
   constructor(private StudentDataService:StudentDataService,private MentorDataService: MentorDataService, private PublicDataService: PublicDataService, private route: ActivatedRoute) {
     this.time$ = this.PublicDataService.getDate();
   }
+  next:any;
+  prev:any;
   auth: any;
   loggeduser: any;
   token: any;
@@ -183,6 +185,9 @@ export class ProfilComponent implements OnInit {
   GetOwnedProjects() {
     this.PublicDataService.GetOwnedProjects(this.id).subscribe(res => {
       this.projects = res;
+      this.next=this.projects.next_page_url
+      this.prev=this.projects.prev_page_url
+      this.projects=this.projects.data
     }
     )
   }
@@ -190,6 +195,9 @@ export class ProfilComponent implements OnInit {
   GetOwnedApplications() {
     this.PublicDataService.GetOwnedApplications(this.id).subscribe(res => {
       this.applications = res;
+      this.next=this.applications.next_page_url
+      this.prev=this.applications.prev_page_url
+      this.applications=this.applications.data
     }
     )
   }
@@ -226,5 +234,47 @@ export class ProfilComponent implements OnInit {
 
   }*/
 
+  //---------pagination
+
+  nextPage(link:any) {
+
+    if (this.role == '1') {
+      this.StudentDataService.getPageByURL(link).subscribe(res=>{
+        this.applications=res;
+        this.next=this.applications.next_page_url
+        this.prev=this.applications.prev_page_url
+        this.applications=this.applications.data
+        })
+    }
+    if (this.role != '1') {
+      this.PublicDataService.getPageByURL(link).subscribe(res=>{
+        this.projects=res;
+        this.next=this.projects.next_page_url
+        this.prev=this.projects.prev_page_url
+        this.projects=this.projects.data
+        })
+    }
+  }
+
+  prevPage(link:any) {
+    
+      if (this.role == '1') {
+        this.StudentDataService.getPageByURL(link).subscribe(res=>{
+          this.applications=res;
+          this.next=this.applications.next_page_url
+          this.prev=this.applications.prev_page_url
+          this.applications=this.applications.data
+          })
+      }
+      if (this.role != '1') {
+        this.MentorDataService.getPageByURL(link).subscribe(res=>{
+          this.projects=res;
+          this.next=this.projects.next_page_url
+          this.prev=this.projects.prev_page_url
+          this.projects=this.projects.data
+          })
+      }
+
+  }
 
 }

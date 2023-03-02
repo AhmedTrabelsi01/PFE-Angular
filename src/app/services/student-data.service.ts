@@ -47,7 +47,11 @@ export class StudentDataService {
 
   }
 
+//---------pagination
 
+  getPageByURL(link:any) {
+    return this.httpClient.get(link);
+  }
  
   
  

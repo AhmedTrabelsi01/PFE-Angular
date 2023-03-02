@@ -61,7 +61,6 @@ export class AllProjectsComponent implements OnInit {
   getEdition() {
     this.PublicDataService.getactiveedition().subscribe(res => {
       this.edition = res;
-      console.log(this.edition)
     })
   }
  checkEdition(){

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PublicDataService } from 'src/app/services/public-data.service';
 import { MentorDataService } from 'src/app/services/mentor-data.service';
 import { ActivatedRoute } from '@angular/router';
+import { StudentDataService } from 'src/app/services/student-data.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DayService, WeekService, WorkWeekService, MonthService, AgendaService, View, EventSettingsModel } from '@syncfusion/ej2-angular-schedule';
 import { DataManager, UrlAdaptor, Query, ODataV4Adaptor } from '@syncfusion/ej2-data';
@@ -20,11 +21,13 @@ export class EditProfilComponent implements OnInit {
   singleuser: any;
   file: any;
   cv: any
-  constructor(private toastr: ToastrService, private PublicDataService: PublicDataService, private MentorDataService: MentorDataService, private route1: ActivatedRoute) { }
+  constructor(private StudentDataService:StudentDataService, private toastr: ToastrService, private PublicDataService: PublicDataService, private MentorDataService: MentorDataService, private route1: ActivatedRoute) { }
   data: any;
   user: any = {};
   id: any;
   auth: any;
+  next:any;
+  prev:any;
   error: any = []
   loggeduser: any = {};
   token: any;
@@ -161,6 +164,9 @@ export class EditProfilComponent implements OnInit {
   GetOwnedProjects() {
     this.PublicDataService.GetOwnedProjects(this.id).subscribe(res => {
       this.projects = res;
+      this.next=this.projects.next_page_url
+      this.prev=this.projects.prev_page_url
+      this.projects=this.projects.data
     }
     )
   }
@@ -168,6 +174,9 @@ export class EditProfilComponent implements OnInit {
   GetOwnedApplications() {
     this.PublicDataService.GetOwnedApplications(this.id).subscribe(res => {
       this.applications = res;
+      this.next=this.applications.next_page_url
+      this.prev=this.applications.prev_page_url
+      this.applications=this.applications.data
     }
     )
   }
@@ -191,5 +200,50 @@ export class EditProfilComponent implements OnInit {
   public datas: Object[] = ['angular', 'laravel', 'machine learning', 'artificial intelligence'];
   // set placeholder text to MultiSelect input element
   public text: string = 'Select a technology';
+
+
+
+  //---------pagination
+
+  nextPage(link:any) {
+
+    if (this.role == '1') {
+      this.StudentDataService.getPageByURL(link).subscribe(res=>{
+        this.applications=res;
+        this.next=this.applications.next_page_url
+        this.prev=this.applications.prev_page_url
+        this.applications=this.applications.data
+        })
+    }
+    if (this.role != '1') {
+      this.PublicDataService.getPageByURL(link).subscribe(res=>{
+        this.projects=res;
+        this.next=this.projects.next_page_url
+        this.prev=this.projects.prev_page_url
+        this.projects=this.projects.data
+        })
+    }
+  }
+
+  prevPage(link:any) {
+    
+      if (this.role == '1') {
+        this.StudentDataService.getPageByURL(link).subscribe(res=>{
+          this.applications=res;
+          this.next=this.applications.next_page_url
+          this.prev=this.applications.prev_page_url
+          this.applications=this.applications.data
+          })
+      }
+      if (this.role != '1') {
+        this.MentorDataService.getPageByURL(link).subscribe(res=>{
+          this.projects=res;
+          this.next=this.projects.next_page_url
+          this.prev=this.projects.prev_page_url
+          this.projects=this.projects.data
+          })
+      }
+
+  }
 
 }
