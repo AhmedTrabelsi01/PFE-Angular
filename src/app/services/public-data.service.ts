@@ -30,19 +30,19 @@ export class PublicDataService {
 
   //------pre regsitration for departements
   preRegisterACA(id:any,data:any) {
-    return this.httpClient.post('http://127.0.0.1:8000/api/preregACA/'+id,data);
+    return this.httpClient.post('http://127.0.0.1:8000/api/preregACA/'+id,data,{ headers: this.createHeader() });
   }
   preRegisterOUT(id:any,data:any) {
-    return this.httpClient.post('http://127.0.0.1:8000/api/preregOUT/'+id,data);
+    return this.httpClient.post('http://127.0.0.1:8000/api/preregOUT/'+id,data,{ headers: this.createHeader() });
   }
   preRegisterFAB(id:any,data:any) {
-    return this.httpClient.post('http://127.0.0.1:8000/api/preregFAB/'+id,data);
+    return this.httpClient.post('http://127.0.0.1:8000/api/preregFAB/'+id,data,{ headers: this.createHeader() });
   }
   preRegisterJU(id:any,data:any) {
-    return this.httpClient.post('http://127.0.0.1:8000/api/preregJU/'+id,data);
+    return this.httpClient.post('http://127.0.0.1:8000/api/preregJU/'+id,data,{ headers: this.createHeader() });
   }
   preRegisterMD(id:any,data:any) {
-    return this.httpClient.post('http://127.0.0.1:8000/api/preregMD/'+id,data);
+    return this.httpClient.post('http://127.0.0.1:8000/api/preregMD/'+id,data,{ headers: this.createHeader() });
   }
 
 

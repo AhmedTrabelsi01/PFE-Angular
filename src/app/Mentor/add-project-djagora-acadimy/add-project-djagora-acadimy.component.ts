@@ -51,7 +51,7 @@ export class AddProjectDjagoraAcadimyComponent implements OnInit {
    let formdata = new FormData();
    formdata.append('user_id',this.loggeduser['id'])
    formdata.append('title',this.project.title);
-   formdata.append('technologies',this.project.technologies);
+   formdata.append('technologies',JSON.stringify(this.project.technologies) );
    formdata.append('domain',this.project.domain);
    formdata.append('nb_stagaires',this.project.nb_stagaires);
    formdata.append('description',this.project.description);

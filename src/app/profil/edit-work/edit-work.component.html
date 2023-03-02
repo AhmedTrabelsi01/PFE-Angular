@@ -24,7 +24,8 @@
             <div class="box-1 boxarchive container ">
 
 
-                <form class="mx-5" [formGroup]="projectForm" >
+                <form class="mx-5" [formGroup]="projectForm">
+
                     <div class="me-sm-4">
                         <div class="row justify-content-md-center mb-5 me-sm-5">
                             <div class="avatar-upload me-sm-5">
@@ -33,7 +34,7 @@
                                     <input type='file' id="imageUpload" (change)="onChange($event)" formControlName="img"
                                         accept=".png, .jpg, .jpeg" />
                                     <label for="imageUpload"></label>
-                                    <span class="tooltiptext">Edit project pàicture</span>
+                                    <span class="tooltiptext">Edit picture</span>
                                 </div>
                                 <div class="avatar-preview ">
                                     <img [src]="imgpath+proj.img">
@@ -42,45 +43,66 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="row justify-content-md-center">
+                      <div class="col-md-5 mb-4 mx-4">
+                        <label for="validationServer01">Title</label>
+                        <input formControlName="title" type="text" [(ngModel)]="proj.title" class="form-control p-3" id="validationServer01"
+                          placeholder="Project title">
+          
+                      </div>
+                      <div class="col-md-5 mb-4 mx-4 ">
+                        <label for="validationServer02">Domain</label>
+                        <input [(ngModel)]="proj.domain" type="text" formControlName="domain" class="form-control p-3" placeholder="Domain" required>
+          
+                      </div>
+          
+                    </div>
+                    <div class="row justify-content-md-center">
+          
                     
-                    
-                    <div class="row justify-content-md-center">
-                        <div class="col-md-5 mb-4 mx-4">
-                            <label for="validationServer01">Name</label>
-                            <input formControlName="name"  [(ngModel)]="proj.name" type="text" class="form-control p-3" id="validationServer01"
-                                placeholder="First name">
-
-                        </div>
-                        <div class="col-md-5 mb-4 mx-4 ">
-                            <label for="validationServer02">Estimated date</label>
-                            <input type="date" formControlName="estimated_date" class="form-control p-3"
-                                [ngModel] ="proj.estimated_date | date:'yyyy-MM-dd'" >
-
-                        </div>
-
+          
+                      <div class="col-md-5 mb-4 mx-4">
+                        <label for="validationServer03">Nombre de stagaires</label>
+                        <input [(ngModel)]="proj.nb_stagaires" type="number" formControlName="nb_stagaires" class="form-control p-3"
+                          placeholder="Nombre de stagaires..." required>
+          
+                      </div>
+          
                     </div>
                     <div class="row justify-content-md-center">
-
-                        
-
-                        <div class="col-md-5 mb-4 mx-4">
-                            <label for="validationServer03">Description</label>
-                            <textarea type="text" formControlName="description" [(ngModel)]="proj.description" class="form-control "
-                                id="validationServer03" placeholder="City"></textarea>
-
-                        </div>
-
+          
+          
+                      <div class="col-md-5 mb-4 mx-4">
+          
+                        <label for="validationServer03">Technologies</label>
+          
+                        <ejs-multiselect id='multiselectelement' [dataSource]='datas' [ngModel]="datas1" formControlName="technologies" placeholder='Find a item'>
+                          <ng-template #noRecordsTemplate>
+                            <span class='norecord'> NO DATA AVAILABLE</span>
+                          </ng-template>
+                        </ejs-multiselect>`
+                      </div>
+          
+                      <div class="col-md-5 mb-4 mx-4">
+                        <label for="validationServer03">Description</label>
+                        <textarea type="text" [(ngModel)]="proj.description" formControlName="description" class="form-control "
+                          placeholder="Description"></textarea>
+          
+                      </div>
+        
+          
                     </div>
-
+          
+                 
                     <div class="row justify-content-md-center">
-                        <button class="btn-delete col-md-2 mx-4" (click)="onDeletepro(proj.id)" >Delete</button>
-
-
-                        <button class="btn btn-primary col-md-2 mx-4" (click)="onSubmitProject(proj.id)" type="submit">Submit</button>
-
+          
+          
+                      <button (click)="onSubmitProject()" class="btn btn-primary col-md-2" type="submit">Submit</button>
+          
                     </div>
-
-                </form>
+          
+                  </form>
 
 
 

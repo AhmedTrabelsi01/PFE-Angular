@@ -18,6 +18,7 @@ export class EditWorkComponent implements OnInit {
      project:any={};
      loggeduser: any={};
      postulation: any={};
+     datas1:any=[]
      token: any;
      role:any;
      file!: File  ; // Variable to store file
@@ -42,10 +43,12 @@ export class EditWorkComponent implements OnInit {
     })
 
      projectForm = new FormGroup({
-       name: new FormControl("",Validators.required),
-       description:new FormControl("",Validators.required),
+       title: new FormControl("",Validators.required),
+       technologies:new FormControl("",Validators.required),
        img:new FormControl("",Validators.required),
-       date:new FormControl("",Validators.required),
+       nb_stagaires:new FormControl("",Validators.required),
+       description:new FormControl("",Validators.required),
+       domain:new FormControl("",Validators.required),
 
 
    });
@@ -71,7 +74,6 @@ export class EditWorkComponent implements OnInit {
     this.id=this.route.snapshot.params['id'];
     this.StudentDataService.GetApplicationByID(this.id).subscribe(res=>{
        this.app=res;
-       console.log(this.app)
 
     })
 
@@ -82,7 +84,8 @@ export class EditWorkComponent implements OnInit {
     this.id=this.route.snapshot.params['id'];
     this.MentorDataService.GetProjectByID(this.id).subscribe(res=>{
       this.proj=res;
-
+      this.datas1 = this.proj.technologies;
+      this.datas1 = JSON.parse(this.datas1)
    })
 
   }
@@ -93,21 +96,20 @@ export class EditWorkComponent implements OnInit {
 
 
 
-  onSubmitProject(projid:any){
+  onSubmitProject(){
     this.project=this.projectForm.value
     let formdata = new FormData();
     formdata.append('img',this.file);
-    formdata.append('name',this.project.name);
+    formdata.append('title',this.project.title);
     formdata.append('description',this.project.description);
-    formdata.append('estimated_date',new Date(this.project.date).toDateString());
-
-
-   this.MentorDataService.updateProj(projid,formdata).subscribe(res=>{
+    formdata.append('nb_stagaires',this.project.nb_stagaires);
+    formdata.append('domain',this.project.domain);
+    formdata.append('technologies',JSON.stringify(this.project.technologies));
+   this.MentorDataService.updateProj(this.id,formdata).subscribe(res=>{
      this.error=res;
-     window.location.reload()
-
-
-
+    if(this.error==null){
+      this.toastr.success("Project updated")
+    }
   })
 
 }
@@ -116,17 +118,19 @@ onSubmitApp(appid:any) {
   let formdata = new FormData();
 
   formdata.append('cv',this.file);
-  formdata.append('name',this.postulation.name);
   formdata.append('email',this.postulation.email);
-  formdata.append('family_name',this.postulation.family_name);
   formdata.append('number',this.postulation.number);
+  formdata.append('user_id',this.loggeduser['id']);
 
 
 
- this.StudentDataService.updateApplication(appid,formdata).subscribe(res => {
+
+ this.StudentDataService.updateApplication(this.id,formdata).subscribe(res => {
     this.error = res;
-    window.location.reload()
-
+    
+    if(this.error==null){
+      this.toastr.success("Application updated")
+    }
 
 
   })
@@ -145,6 +149,13 @@ this.PublicDataService.deleteProject(idproj).subscribe(res=>{
 })
 
 }
+
+
+
+  // defined the array of data
+  public datas: Object[] = ['angular', 'laravel', 'machine learning', 'artificial intelligence'];
+  // set placeholder text to MultiSelect input element
+  public text: string = 'Select a technology';
 
 
 
