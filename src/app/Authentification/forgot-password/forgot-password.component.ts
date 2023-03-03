@@ -8,27 +8,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./forgot-password.component.css']
 })
 export class ForgotPasswordComponent implements OnInit {
-  loggeduser:any;
-  id:any
-  mail:any;
-  state:any
-  constructor(private route1:Router ,private PublicDataService : PublicDataService) { }
-
+  loggeduser: any;
+  id: any
+  mail: any;
+  state: any
+  constructor(private route1: Router, private PublicDataService: PublicDataService) { }
   ngOnInit(): void {
   }
   resetForm = new FormGroup({
-    email: new FormControl("",Validators.required),
-   });
-
-
-   onVerif(){
-     this.mail=this.resetForm.value.email
+    email: new FormControl("", Validators.required),
+  });
+  onVerif() {
+    this.mail = this.resetForm.value.email
     let formdata = new FormData();
-    formdata.append('email',this.mail);
-    this.PublicDataService.resPassword(formdata).subscribe(res=>{
-      this.state=res
+    formdata.append('email', this.mail);
+    this.PublicDataService.resPassword(formdata).subscribe(res => {
+      this.state = res
       this.route1.navigateByUrl('/Authentification');
-   })
+    })
 
   }
 

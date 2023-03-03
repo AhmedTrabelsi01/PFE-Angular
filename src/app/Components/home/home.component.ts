@@ -27,17 +27,18 @@ export class HomeComponent implements OnInit {
   p3: any={}
   auth: any;
   imgpath: any = 'http://127.0.0.1:8000/storage/post/'//image path laravel
-
+  loader:any=true
   ngOnInit(): void {
 
     this.getRecentProject();
-    
+
     this.token = this.PublicDataService.getToken();
     if (this.token) {
       this.loggeduser = this.PublicDataService.getUser(this.token);
       this.auth = this.PublicDataService.getLoginState();
       this.PublicDataService.getUserById(this.loggeduser['id']).subscribe(res => {
         this.user = res;
+
       })
     }
    this.updateEdition()
@@ -53,6 +54,9 @@ export class HomeComponent implements OnInit {
         this.p3 = this.projects[this.projects.length - 3];
 
       }
+      if(this.projects){
+        this.loader=false
+       }
     }
     )
   }

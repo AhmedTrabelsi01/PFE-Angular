@@ -8,20 +8,17 @@ import { ContactComponent } from './Components/contact/contact.component';
 import { HomeComponent } from './Components/home/home.component';
 import { HeaderComponent } from './Layouts/header/header.component';
 import { FooterComponent } from './Layouts/footer/footer.component';
-import { AddProjectDjagoraAcadimyComponent } from './Mentor/add-project-djagora-acadimy/add-project-djagora-acadimy.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { ApplicationComponent } from './student/application/application.component';
 import { ScheduleModule } from '@syncfusion/ej2-angular-schedule';
 import { MultiSelectModule } from '@syncfusion/ej2-angular-dropdowns';
-//new
 import { AuthentificationModule } from './Authentification/Authentification.module';
 import { ProfilModule } from './profil/profil.module';
-import { ProjectModule } from './Public/djagora-academy/project.module';
+import { ProjectModule } from './pages/djagora-academy/project.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,9 +27,7 @@ import { ProjectModule } from './Public/djagora-academy/project.module';
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    AddProjectDjagoraAcadimyComponent,
     NotFoundComponent,
-    ApplicationComponent,
 
   ],
   imports: [

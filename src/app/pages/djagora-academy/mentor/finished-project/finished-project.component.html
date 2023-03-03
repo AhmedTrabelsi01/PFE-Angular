@@ -1,0 +1,153 @@
+<div id="banner-area" class="banner-area"
+  style="background-image:url(assets/img/contact.jpg);margin-top: 8%;margin-bottom: 3%;">
+  <div class="banner-text">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="banner-heading">
+            <h1 class="banner-title">Djagora academy / {{SingleProject.name}}</h1>
+          </div>
+        </div><!-- Col end -->
+      </div><!-- Row end -->
+    </div><!-- Container end -->
+  </div><!-- Banner text end -->
+</div>
+
+<div class="col-md-12" *ngIf="loader==true">
+  <div class="loader20">Loading...</div>
+</div>
+<div class="tout_singel" *ngIf="loader==false">
+  <div class="mb-md-5">
+    <!-- button back-->
+    <div class="d-flex flex-row mx-5 ">
+      <button class="btn_retour ms-5  "  [routerLink]="['/SingleProject',id]"><a>🢀 Back</a></button>
+    </div>
+  </div>
+  <div class="singel_project  ">
+    <!-- partie project-->
+    <div class="rpbox ">
+      <div class="boxarchive">
+        <div class=" container py-4 ">
+          <article class="postcard light yellow mt-md-4 ">
+            <a class="postcard__img_link" href="#">
+              <img class="postcard__img" [src]="imgpath+SingleProject.img" alt="Image Title" />
+            </a>
+            <div class="postcard__text t-dark">
+              <h1 class="postcard__title yellow"><a href="#"><b>{{SingleProject.title}}</b></a></h1>
+
+              <div class="postcard__bar"></div>
+              <div class="postcard__preview-txt">{{SingleProject.description}}</div>
+              <br>
+              <ul class="postcard__tagbox" style="list-style: none;">
+                <li class="tag__item"><i class="fas fa-user mr-2"></i>{{SingleProject.owner}}</li>
+                <li class="tag__item" *ngIf="SingleProject.projectState==0"><i
+                    class="fa-solid fa-person-circle-check"></i>Pending
+                <li>
+                <li class="tag__item" *ngIf="SingleProject.projectState==1"><i
+                    class="fa-solid fa-person-circle-check"></i>
+                  Approuved </li>
+                <li class="tag__item" *ngIf="SingleProject.projectState==-1"><i
+                    class="fa-solid fa-person-circle-check"></i>Denied</li>
+                <li class="tag__item"><i class="fas fa-code mr-2"></i>{{SingleProject.technologies}}</li>
+                <li class="tag__item"><i class="fas fa-users mr-2"></i>{{SingleProject.nb_stagaires}}</li>
+                <li class="tag__item"><i class="fas fa-diagram-project mr-2"></i>{{SingleProject.domain}}</li>
+
+              </ul>
+            </div>
+          </article>
+        </div>
+
+      </div>
+    </div>
+    <!--team junior-->
+    <div class="container bootstrap snippets bootdey" *ngIf="loader==false">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="blog-comment">
+            <h3 class="text-success">Team junior</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h1 *ngIf="countapprouvedApps==0 &&loader==false" style="margin-left: 35%; color: gray; margin-top: 3%;margin-bottom: 3%;">
+      No team junior yet</h1>
+    <div class="rpbox" *ngIf="loader==false">
+      <div class="container bootstrap snippets bootdey " *ngFor="let a of AppApplications">
+        <div class="col-md-12">
+          <div class="profile-container">
+            <div class="profile-header row">
+
+              <div class="col-md-4 col-sm-12 text-center">
+                <img [src]="imgpath+a.img" alt="" class="header-avatar">
+              </div>
+              <div class="col-md-8 col-sm-12 profile-info">
+                <div class="header-fullname"><i class="fas fa-user mr-2"></i> {{a.name}}</div>
+
+
+                <div class="header-information"><i class="fas fa-envelope mr-2"></i>
+                  {{a.email}} </div>
+              </div>
+              <div class="col-md-12 col-sm-12 col-xs-12 profile-stats">
+                <div class="row">
+                  <div class="col-md-4 col-sm-4 col-xs-12 stats-col">
+                    <div class="stats-value " style="color: #0081c2 ;"><i class="fa-solid fa-download"></i> CV</div>
+                    <div class="stats-title"><a style="text-decoration: none;"
+                        href="http://127.0.0.1:8000/storage/post/{{a.cv}}" download>
+                        Download</a></div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+ <!--team senior-->
+ <div class="container bootstrap snippets bootdey" *ngIf="loader==false">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="blog-comment">
+        <h3 class="text-success">Team senior</h3>
+      </div>
+    </div>
+  </div>
+</div>
+<h1 *ngIf="countgetSenior==0 &&loader==false" style="margin-left: 35%; color: gray; margin-top: 3%;margin-bottom: 3%;">
+  No team senior yet</h1>
+<div class="rpbox" *ngIf="loader==false">
+  <div class="container bootstrap snippets bootdey " *ngFor="let a of senior">
+    <div class="col-md-12">
+      <div class="profile-container">
+        <div class="profile-header row">
+
+          <div class="col-md-4 col-sm-12 text-center">
+            <img [src]="imgpath+a.img" alt="" class="header-avatar">
+          </div>
+          <div class="col-md-8 col-sm-12 profile-info">
+            <div class="header-fullname"><i class="fas fa-user mr-2"></i> {{a.user_id}}</div>
+
+
+            <div class="header-information"><i class="fas fa-envelope mr-2"></i>
+              {{a.email}} </div>
+          </div>
+          <div class="col-md-12 col-sm-12 col-xs-12 profile-stats">
+            <div class="row">
+              <div class="col-md-4 col-sm-4 col-xs-12 stats-col">
+                <div class="stats-value " style="color: #0081c2 ;"><i class="fa-solid fa-download"></i> CV</div>
+                <div class="stats-title"><a style="text-decoration: none;"
+                    href="http://127.0.0.1:8000/storage/post/{{a.cv}}" download>
+                    Download</a></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>

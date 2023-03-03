@@ -28,6 +28,7 @@ export class AllProjectsComponent implements OnInit {
   token: any;
   role:any;
   edition:any={}
+  loader:any=true
   countproj:any;
   currentDate = formatDate(new Date(), 'yyyy-MM-dd', 'en');
 
@@ -61,6 +62,9 @@ export class AllProjectsComponent implements OnInit {
   getEdition() {
     this.PublicDataService.getactiveedition().subscribe(res => {
       this.edition = res;
+      if(this.archive){
+        this.loader=false
+       }
     })
   }
  checkEdition(){
@@ -75,6 +79,9 @@ export class AllProjectsComponent implements OnInit {
   GetProject(){
     this.PublicDataService.GetProject().subscribe(res=>{
     this.projectss=res;
+    if(this.archive){
+      this.loader=false
+     }
     this.next=this.projectss.next_page_url
     this.prev=this.projectss.prev_page_url
     this.projectss=this.projectss.data
@@ -87,6 +94,9 @@ export class AllProjectsComponent implements OnInit {
 
     this.PublicDataService.getArchive().subscribe(res=>{
       this.archive=res;
+      if(this.archive){
+        this.loader=false
+       }
       this.countar=this.archive.length;
       slide1()
 

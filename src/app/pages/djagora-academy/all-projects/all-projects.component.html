@@ -12,7 +12,6 @@
       </div><!-- Container end -->
     </div><!-- Banner text end -->
   </div><!-- Banner area end -->
-<!-------------------------------------------------------------------->
 
 
 <!------------------part2:who_we_are----------------------->
@@ -40,6 +39,9 @@
 
 
 
+<div class="col-md-12" *ngIf="loader==true">
+  <div class="loader20">Loading...</div>
+</div>
 
 <!------------------part3:search bar----------------------->
 <div class="rpbox">
@@ -49,7 +51,7 @@
             <h1 name="1">PROJECTS</h1>
         </div>
 
-        <div class="searchbar" >
+        <div class="searchbar" *ngIf="loader==false">
 
             <div class="input-box">
                 <div class="search2">
@@ -66,7 +68,6 @@
             </div>
 
         </div>
-
     <!-------------------------------------------------------------------->
 
     <!------------------part4:projects----------------------->
@@ -75,13 +76,9 @@
 
 
     <h1 *ngIf="countproj==0" style="margin-left: 40%; color: gray;">No projects added yet</h1>
+        <div class="container py-4 "  *ngFor="let p of projectss | filter:st " >
 
-
-
-
-        <div class="container py-4 "  *ngFor="let p of projectss | filter:st ">
-
-            <article class="postcard light yellow mx-5">
+            <article class="postcard light yellow mx-5"  *ngIf="loader==false">
                 <a class="postcard__img_link" href="#">
                     <img class="postcard__img" [src]="imgpath+p.img" alt="Image Title" />
                 </a>
@@ -102,37 +99,18 @@
                 </div>
             </article>
         </div>
-
         <nav aria-label="Page navigation example">
-            
           </nav>
-
-
-<div class="pag">
+<div class="pag"  *ngIf="loader==false">
     <ul class="pagination">
         <li class="page-item mx-2" style="cursor: pointer;" ><a class="page-link px-3 py-2" (click)="prevPage(prev)">         <span aria-hidden="true">&laquo;</span>
 
             Previous</a></li>
-       
+
         <li class="page-item mx-2 " style="cursor: pointer;"><a class="px-3 page-link py-2" (click)="nextPage(next)">Next        <span aria-hidden="true">&raquo;</span>
         </a></li>
       </ul>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div>
 </div>
 
@@ -143,7 +121,7 @@
 
 
 <!------------------part5:search archive----------------------->
-<div class="rpbox">
+<div class="rpbox"  *ngIf="loader==false">
     <div class="boxarchive container">
         <div class="part5 container">
             <div class="titre">

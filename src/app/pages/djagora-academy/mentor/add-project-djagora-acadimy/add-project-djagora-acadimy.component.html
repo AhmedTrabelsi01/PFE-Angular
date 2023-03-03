@@ -11,7 +11,7 @@
       </div><!-- Row end -->
     </div><!-- Container end -->
   </div><!-- Banner text end -->
-</div><!-- Banner area end -->
+</div>
 
 <div class="rpbox">
   <div class="boxarchive container">
@@ -20,96 +20,55 @@
     </div>
     <div class="part1">
       <div class="box-1 boxarchive container ">
-
-
         <form class="mx-5" [formGroup]="projectForm">
-
           <div class="row justify-content-md-center">
             <div class="col-md-5 mb-4 mx-4">
               <label for="validationServer01">Title</label>
               <input formControlName="title" type="text" class="form-control p-3" id="validationServer01"
                 placeholder="Project title">
-
             </div>
             <div class="col-md-5 mb-4 mx-4 ">
               <label for="validationServer02">Domain</label>
               <input type="text" formControlName="domain" class="form-control p-3" placeholder="Domain" required>
-
             </div>
-
           </div>
           <div class="row justify-content-md-center">
-
             <div class="col-md-5 mb-4 mx-4">
               <label for="validationServer04">Image</label>
-              <input (change)="onChange($event)" formControlName="img" type="file" class="form-control p-1" required>
-
+              <input (change)="onChange($event)" formControlName="img" type="file" class="form-control p-1" id="validationServer04" required>
             </div>
-
             <div class="col-md-5 mb-4 mx-4">
               <label for="validationServer03">Nombre de stagaires</label>
               <input type="number" formControlName="nb_stagaires" class="form-control p-3"
                 placeholder="Nombre de stagaires..." required>
-
             </div>
-
           </div>
           <div class="row justify-content-md-center">
-
-
             <div class="col-md-5 mb-4 mx-4">
-
               <label for="validationServer03">Technologies</label>
-
-              <ejs-multiselect id='multiselectelement' [dataSource]='data' formControlName="technologies" placeholder='Find a item'>
+              <ejs-multiselect id='multiselectelement' [dataSource]='data' formControlName="technologies"
+                placeholder='Find a item'>
                 <ng-template #noRecordsTemplate>
                   <span class='norecord'> NO DATA AVAILABLE</span>
                 </ng-template>
               </ejs-multiselect>`
             </div>
-
             <div class="col-md-5 mb-4 mx-4">
               <label for="validationServer03">Description</label>
               <textarea type="text" formControlName="description" class="form-control "
                 placeholder="Description"></textarea>
-
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
           </div>
-
           <div class="justify-content-md-center" *ngIf="counterr!=0">
             <br> <small class="error">{{error.name}}</small>
             <br><small class="error">{{error.img}}</small>
             <br><small class="error">{{error.description}}</small>
             <br><small class="error" *ngIf="project.estimated_date=='' ">Estimated date filed is required.</small>
-
-
           </div>
           <div class="row justify-content-md-center">
-
-
             <button (click)="onSubmit()" class="btn btn-primary col-md-2" type="submit">Submit</button>
-
           </div>
-
         </form>
-
-
-
-
       </div>
     </div>
   </div>

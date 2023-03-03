@@ -1,5 +1,5 @@
 import { SingleProjectComponent } from './single-project/single-project.component';
-import { FinishedProjectComponent } from './finished-project/finished-project.component';
+import { FinishedProjectComponent } from './mentor/finished-project/finished-project.component';
 import { AllProjectsComponent } from './all-projects/all-projects.component';
 import { NgModule } from '@angular/core';
 import { projectRoutingModule } from './project-routing.module.routing';
@@ -10,11 +10,13 @@ import { ScheduleModule } from '@syncfusion/ej2-angular-schedule';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
+import { AddProjectDjagoraAcadimyComponent } from './mentor/add-project-djagora-acadimy/add-project-djagora-acadimy.component';
 @NgModule({
   declarations: [
-AllProjectsComponent,
-FinishedProjectComponent,
-SingleProjectComponent
+    AllProjectsComponent,
+    FinishedProjectComponent,
+    SingleProjectComponent,
+    AddProjectDjagoraAcadimyComponent
   ],
   imports: [
     projectRoutingModule,

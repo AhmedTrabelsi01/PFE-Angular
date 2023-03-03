@@ -1,6 +1,6 @@
+import { MyProfilComponent } from './my-profil/my-profil.component';
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { ProfilComponent } from './profil.component';
 import { EditProfilComponent } from './edit-profil/edit-profil.component';
 import { EditWorkComponent } from './edit-work/edit-work.component';
 import { EditHistoryComponent } from './history/edit-history/edit-history.component';
@@ -10,7 +10,7 @@ import { AddHistoryComponent } from './history/add-history/add-history.component
 
 const routes: Routes = [
   //profil
-  { path: 'myProfil/:id', component: ProfilComponent },
+  { path: 'myProfil/:id', component: MyProfilComponent },
   { path: 'EditProfil/:id', component: EditProfilComponent },
   { path: 'Editwork/:id', component: EditWorkComponent },
   { path: 'edithistory/:id', component: EditHistoryComponent },

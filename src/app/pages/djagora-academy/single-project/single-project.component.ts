@@ -35,9 +35,8 @@ export class SingleProjectComponent implements OnInit {
   penApps: any = [];
   error: any = [];
   postulation: any = {}
-
   countOwnedApp: any;
-
+  loader:any=true
   CommentGroup = new FormGroup({
     username: new FormControl("", Validators.required),
     user_id: new FormControl("", Validators.required),
@@ -79,7 +78,9 @@ export class SingleProjectComponent implements OnInit {
 
     this.StudentDataService.getOwnedApp(formdata).subscribe(res => {
       this.ownedApp = res
-      //console.log("this.ownedApp",this.ownedApp);
+      if(this.ownedApp){
+        this.loader=false
+       }
       this.countOwnedApp = this.ownedApp.length;
       if (this.countOwnedApp > 0) {
         this.ownedApp = this.ownedApp[0];
@@ -97,6 +98,9 @@ export class SingleProjectComponent implements OnInit {
     this.PublicDataService.getProjectById(this.id).subscribe(res => {
       this.data = res;
       this.SingleProject = this.data;
+      if(this.SingleProject){
+        this.loader=false
+       }
       this.PublicDataService.getUserById(this.SingleProject.user_id).subscribe(res => {
         this.data = res;
         this.ProjectOwner = this.data;
@@ -120,12 +124,18 @@ export class SingleProjectComponent implements OnInit {
   getEdition() {
     this.PublicDataService.getedition(this.SingleProject.edition_id).subscribe(res => {
       this.edition = res;
+       if(this.edition){
+        this.loader=false
+       }
     })
   }
 
   getCountApps() {
     this.PublicDataService.getCountApps(this.SingleProject.id).subscribe(res => {
       this.countapp = res;
+      if(this.countapp){
+        this.loader=false
+       }
     })
   }
 
@@ -135,6 +145,9 @@ export class SingleProjectComponent implements OnInit {
   getAppPosByProject() {
     this.PublicDataService.getAppApplication(this.SingleProject.id).subscribe(res => {
       this.approuvedApps = res;
+      if(this.approuvedApps){
+        this.loader=false
+       }
       this.countapprouvedApps = this.approuvedApps.length;
     })
 
@@ -145,8 +158,10 @@ export class SingleProjectComponent implements OnInit {
   getPendingApps() {
     this.PublicDataService.getPendingApps(this.SingleProject.id).subscribe(res => {
       this.penApps = res;
+      if(this.penApps){
+        this.loader=false
+       }
       this.countPenApps = this.penApps.length;
-      //console.log(this.penApps)
     })
   }
 
@@ -158,6 +173,9 @@ export class SingleProjectComponent implements OnInit {
   getcommentsByProject() {
     this.PublicDataService.getComments(this.SingleProject.id).subscribe(res => {
       this.commentss = res;
+      if(this.commentss){
+        this.loader=false
+       }
       this.countcom = this.commentss.length;
 
     })

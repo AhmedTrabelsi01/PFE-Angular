@@ -26,7 +26,7 @@ export class AddProjectDjagoraAcadimyComponent implements OnInit {
   error:any="";
   auth : any;
   counterr:any=0;
- 
+  loader:any=true
   projectForm = new FormGroup({
     title: new FormControl("",Validators.required),
     description:new FormControl("",Validators.required),
@@ -35,19 +35,21 @@ export class AddProjectDjagoraAcadimyComponent implements OnInit {
     domain:new FormControl("",Validators.required),
     img:new FormControl("",Validators.required),
 
-   
-}); 
+
+});
 
   ngOnInit(): void {
     this.token = this.PublicDataService.getToken();
     this.loggeduser = this.PublicDataService.getUser(this.token);
     this.role=this.PublicDataService.getRole();
     this.auth=this.PublicDataService.getLoginState();
+
   }
-  
- 
+
+
   onSubmit(){
    this.project=this.projectForm.value
+
    let formdata = new FormData();
    formdata.append('user_id',this.loggeduser['id'])
    formdata.append('title',this.project.title);
@@ -56,21 +58,21 @@ export class AddProjectDjagoraAcadimyComponent implements OnInit {
    formdata.append('nb_stagaires',this.project.nb_stagaires);
    formdata.append('description',this.project.description);
    formdata.append('img',this.file);
-   //console.log(this.project)
   this.MentorDataService.AddProject(formdata).subscribe(res=>{
     this.error=res;
     if(this.error==null){
       this.toastr.success('Project Added');
       setTimeout(() => {this.route.navigate(['/djagoraacadimy'])  }, 1000);
+     
       }
      if(this.error.message){
       this.toastr.error(this.error.message);
-     }  
+     }
 
      if(this.error!=null){
       this.counterr=this.error.length;
-     } 
-   
+     }
+
  })}
 
  onChange(event: any) {
@@ -104,4 +106,4 @@ export class AddProjectDjagoraAcadimyComponent implements OnInit {
 
 
 
-} 
+}

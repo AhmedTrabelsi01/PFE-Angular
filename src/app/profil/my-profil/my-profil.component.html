@@ -1,10 +1,3 @@
-<!--<div class="part1">
-  <div class="topimg img"><img src="assets/img/image home.jpg">
-    <div class="text"><strong>{{users.name}}</strong></div>
-    <div class="text2">profiles/{{users.name}}</div>
-  </div>
-</div>-->
-
 <div id="banner-area" class="banner-area"
   style="background-image:url(assets/img/contact.jpg);margin-top: 8%;margin-bottom: 3%;">
   <div class="banner-text">
@@ -19,19 +12,18 @@
     </div><!-- Container end -->
   </div><!-- Banner text end -->
 </div><!-- Banner area end -->
-
-
-
-<div *ngIf="role!='1' &&   votes!= undefined ">
+<div class="col-md-12" *ngIf="loader==true">
+  <div class="loader20">Loading...</div>
+</div>
+<div *ngIf="role!='1' &&   votes!= undefined && loader==false">
   <div class="rpbox2">
     <div class="course">
-      <div class="course-info ">
+      <div class="course-info " *ngIf="loader==false">
         <h6 class="mb-4">Voting Event</h6>
         <h2 class="mb-5">{{ votetest.title }}</h2>
       </div>
       <div class="course-progress ">
-
-        <div class="container">
+        <div class="container" *ngIf="loader==false">
           <div class="row">
             <h3>{{ clock | async | date:'yyyy-MM-dd'}} | {{ clock | async | date:'HH:mm:ss'}} </h3>
 
@@ -40,14 +32,11 @@
           </div>
 
         </div>
-
-
-        <button class="btn " id="myBtn" onclick="popup()">
+        <button class="btn " id="myBtn" onclick="popup()" *ngIf="loader==false">
           <p class="read-more">
             <a style="color: white;">Vote now</a>
           </p>
         </button>
-
         <div id="myModal" class="modal">
 
           <!-- Modal content -->
@@ -90,9 +79,6 @@
           </div>
 
         </div>
-
-
-
       </div>
     </div>
   </div>
@@ -109,7 +95,7 @@
     <div class="main-body">
 
 
-      <div class="row gutters-sm">
+      <div class="row gutters-sm" *ngIf="loader==false">
         <div class="col-md-4 mb-3">
           <div class="card">
             <div class="card-body">
@@ -120,7 +106,8 @@
 
                   <div class="row ">
                     <div class="col-sm-12 px-sm-4 py-sm-1">
-                      <button class="edit" *ngIf="loggeduser['id'] == id" [routerLink]="['/EditProfil',users.user_id]"><i class="fa-solid fa-user"></i>
+                      <button class="edit" *ngIf="loggeduser['id'] == id"
+                        [routerLink]="['/EditProfil',users.user_id]"><i class="fa-solid fa-user"></i>
                         Edit Profile</button>
                     </div>
                   </div>
@@ -239,7 +226,7 @@
                   <h6 class="mb-0">Cv</h6>
                 </div>
                 <div class="col-sm-9 text-secondary px-sm-4 py-sm-3">
-                   <a target="_blank" href="http://127.0.0.1:8000/storage/post/{{users.cv}}" download>Download</a>
+                  <a target="_blank" href="http://127.0.0.1:8000/storage/post/{{users.cv}}" download>Download</a>
                 </div>
               </div>
             </div>
@@ -251,30 +238,30 @@
         </div>
       </div>
       <div class="row" *ngIf="loggeduser['id'] == id">
-        <div class="col-sm-12">
+        <div class="col-sm-12" *ngIf="loader==false">
           <div class="card">
             <div class="card-body">
-              <ejs-schedule [selectedDate]="setDate" [currentView]="setView" #scheduleObj [eventSettings]="eventSettings1"
-              [readonly]="true">
-              <e-views>
-                <e-view option="Day"></e-view>
-                <e-view option="Week"></e-view>
-                <e-view option="WorkWeek"></e-view>
-                <e-view option="Month"></e-view>
-              </e-views>
-            </ejs-schedule>
+              <ejs-schedule [selectedDate]="setDate" [currentView]="setView" #scheduleObj
+                [eventSettings]="eventSettings1" [readonly]="true">
+                <e-views>
+                  <e-view option="Day"></e-view>
+                  <e-view option="Week"></e-view>
+                  <e-view option="WorkWeek"></e-view>
+                  <e-view option="Month"></e-view>
+                </e-views>
+              </ejs-schedule>
 
             </div>
           </div>
         </div>
       </div>
-<br>
+      <br>
 
 
       <div class="row" *ngIf="loggeduser['id'] == id">
         <div class="col-sm-12">
           <div class="card">
-            <div class="card-body">
+            <div class="card-body" *ngIf="loader==false">
               <h5 class="d-flex align-items-center mb-3">Activity</h5>
 
 
@@ -283,9 +270,9 @@
 
               <div class="rpbox1" *ngIf="role=='1'">
                 <div class="container bootstrap snippets bootdey " *ngFor="let a of applications">
-                  <div class="col-md-12" >
+                  <div class="col-md-12">
                     <div class="profile-container">
-                      <div class="profile-header row" >
+                      <div class="profile-header row">
                         <div class="col-md-4 col-sm-12 text-center">
                           <img [src]="imgpath+a.img" alt="" class="header-avatar">
                         </div>
@@ -296,8 +283,8 @@
 
                           <div class="header-information"><i class="fas fa-envelope mr-2"></i>
                             {{a.email}} </div>
-                            <div class="header-information"><i class="fas fa-envelope mr-2"></i>
-                              {{a.number}} </div>
+                          <div class="header-information"><i class="fas fa-envelope mr-2"></i>
+                            {{a.number}} </div>
 
 
                         </div>
@@ -360,7 +347,7 @@
                           <li class="tag__item"><i class="fas fa-code mr-2"></i>{{SingleProject.technologies}}</li>
                           <li class="tag__item"><i class="fas fa-users mr-2"></i>{{SingleProject.nb_stagaires}}</li>
                           <li class="tag__item"><i class="fas fa-diagram-project mr-2"></i>{{SingleProject.domain}}</li>
-      
+
                           <li class="tag__item" *ngIf="SingleProject.projectState==0"><i
                               class="fa-solid fa-person-circle-check"></i>Pending
                           <li>
@@ -373,7 +360,7 @@
 
                         </ul>
                         <p class="read-more">
-                          <a [routerLink]="['/Postulation',SingleProject.id]">read more</a>
+                          <a [routerLink]="['/SingleProject',SingleProject.id]">read more</a>
                         </p>
 
 
@@ -385,14 +372,16 @@
               </div>
               <div class="pag">
                 <ul class="pagination">
-                    <li class="page-item mx-2" style="cursor: pointer;" ><a class="page-link px-3 py-2" (click)="prevPage(prev)">         <span aria-hidden="true">&laquo;</span>
-            
-                        Previous</a></li>
-                   
-                    <li class="page-item mx-2 " style="cursor: pointer;"><a class="px-3 page-link py-2" (click)="nextPage(next)">Next        <span aria-hidden="true">&raquo;</span>
+                  <li class="page-item mx-2" style="cursor: pointer;"><a class="page-link px-3 py-2"
+                      (click)="prevPage(prev)"> <span aria-hidden="true">&laquo;</span>
+
+                      Previous</a></li>
+
+                  <li class="page-item mx-2 " style="cursor: pointer;"><a class="px-3 page-link py-2"
+                      (click)="nextPage(next)">Next <span aria-hidden="true">&raquo;</span>
                     </a></li>
-                  </ul>
-            </div>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -401,20 +390,3 @@
     </div>
   </div>
 </div>
-
-
-
-
-<!--
-
-
-
-
-
-
-<div *ngIf="role==4">
-
-  <div class="title">
-    <h2>HISTORY</h2>
-  </div>
--->
