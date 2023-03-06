@@ -53,7 +53,7 @@ export class HomeComponent implements OnInit {
         this.p3 = this.projects[this.projects.length - 3];
 
       }
-    
+
     }
     )
   }
