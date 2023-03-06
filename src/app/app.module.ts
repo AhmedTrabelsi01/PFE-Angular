@@ -48,7 +48,7 @@ import { ProjectModule } from './pages/djagora-academy/project.module';
 
 
   ],
-  providers: [],
+  providers: [AgendaService, DayService, WeekService, WorkWeekService, MonthService, DragAndDropService, ResizeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
