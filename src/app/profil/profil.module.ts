@@ -8,10 +8,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { MultiSelectModule } from '@syncfusion/ej2-angular-dropdowns';
-import { ScheduleModule } from '@syncfusion/ej2-angular-schedule';
+import { ScheduleModule, AgendaService, DayService, WeekService, WorkWeekService, MonthService, DragAndDropService, ResizeService } from '@syncfusion/ej2-angular-schedule';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ToastrModule } from 'ngx-toastr';
 import { MyProfilComponent } from './my-profil/my-profil.component';
+
 @NgModule({
   declarations: [
     EditProfilComponent,

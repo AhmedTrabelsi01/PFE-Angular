@@ -31,7 +31,7 @@ export class MyProfilComponent implements OnInit {
   id: any;
   projects: any = [];
   applications: any = [];
-  loader:any=true
+  loader: any = true
   imgpath: any = 'http://127.0.0.1:8000/storage/post/'//image path laravel
   //variable calender
   public url: any = "http://127.0.0.1:8000/api/getMeetByUser/ " + this.route.snapshot.params['id'];
@@ -68,9 +68,9 @@ export class MyProfilComponent implements OnInit {
     formdata.append('meet_id', this.test.meet_id);
     this.PublicDataService.checkAud(formdata).subscribe(res => {
       this.votetest = res
-      if(this.votetest){
-        this.loader=false
-       }
+      if (this.votetest) {
+        this.loader = false
+      }
       if (this.votetest.result == true) {
         this.votes = this.test;
       }
@@ -81,9 +81,9 @@ export class MyProfilComponent implements OnInit {
   getVotingEvent() {
     this.PublicDataService.getVotes().subscribe(res => {
       this.test = res;
-      if(this.test){
-        this.loader=false
-       }
+      if (this.test) {
+        this.loader = false
+      }
     }
     )
   }
@@ -136,9 +136,9 @@ export class MyProfilComponent implements OnInit {
   GetProfielById() {
     this.PublicDataService.getUserById(this.id).subscribe(res => {
       this.users = res;
-      if(this.users){
-        this.loader=false
-       }
+      if (this.users) {
+        this.loader = false
+      }
       //console.log(this.users)
       this.users.domain = JSON.parse(this.users.domain)
       this.checkVoteAbility();
@@ -156,25 +156,6 @@ export class MyProfilComponent implements OnInit {
 
 
 
-  /*getOwnedStartup(){
-    this.MentorDataService.getOwnedStartup(this.id).subscribe(res=>{
-      this.startups=res;
-      this.countstar=this.startups.length;
-      }
-      )
-  }
-
-  getOwnedHistory(){
-    this.MentorDataService.getOwnedHistory(this.id).subscribe(res=>{
-      this.histories=res;
-      this.counthis=this.histories.length;
-
-    }
-      )
-  }*/
-
-
-
 
   GetOwnedProjects() {
     this.PublicDataService.GetOwnedProjects(this.id).subscribe(res => {
@@ -182,9 +163,9 @@ export class MyProfilComponent implements OnInit {
       this.next = this.projects.next_page_url
       this.prev = this.projects.prev_page_url
       this.projects = this.projects.data
-      if(this.projects){
-        this.loader=false
-       }
+      if (this.projects) {
+        this.loader = false
+      }
     }
     )
   }
@@ -195,9 +176,9 @@ export class MyProfilComponent implements OnInit {
       this.next = this.applications.next_page_url
       this.prev = this.applications.prev_page_url
       this.applications = this.applications.data
-      if(this.applications){
-        this.loader=false
-       }
+      if (this.applications) {
+        this.loader = false
+      }
     }
     )
   }
@@ -233,6 +214,26 @@ export class MyProfilComponent implements OnInit {
     })
 
   }*/
+
+
+  /*getOwnedStartup(){
+    this.MentorDataService.getOwnedStartup(this.id).subscribe(res=>{
+      this.startups=res;
+      this.countstar=this.startups.length;
+      }
+      )
+  }
+
+  getOwnedHistory(){
+    this.MentorDataService.getOwnedHistory(this.id).subscribe(res=>{
+      this.histories=res;
+      this.counthis=this.histories.length;
+
+    }
+      )
+  }*/
+
+
 
   //---------pagination
 

@@ -11,12 +11,14 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
 import { AddProjectDjagoraAcadimyComponent } from './mentor/add-project-djagora-acadimy/add-project-djagora-acadimy.component';
+import { FormationsComponent } from './formations/formations.component';
 @NgModule({
   declarations: [
     AllProjectsComponent,
     FinishedProjectComponent,
     SingleProjectComponent,
-    AddProjectDjagoraAcadimyComponent
+    AddProjectDjagoraAcadimyComponent,
+    FormationsComponent
   ],
   imports: [
     projectRoutingModule,

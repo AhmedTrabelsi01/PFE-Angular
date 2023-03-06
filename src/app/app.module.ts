@@ -14,7 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { ScheduleModule } from '@syncfusion/ej2-angular-schedule';
+import { ScheduleModule, AgendaService, DayService, WeekService, WorkWeekService, MonthService, DragAndDropService, ResizeService } from '@syncfusion/ej2-angular-schedule';
 import { MultiSelectModule } from '@syncfusion/ej2-angular-dropdowns';
 import { AuthentificationModule } from './Authentification/Authentification.module';
 import { ProfilModule } from './profil/profil.module';

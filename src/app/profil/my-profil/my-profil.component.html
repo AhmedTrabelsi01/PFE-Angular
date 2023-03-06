@@ -15,6 +15,7 @@
 <div class="col-md-12" *ngIf="loader==true">
   <div class="loader20">Loading...</div>
 </div>
+<!-- ************************voteeeeees-->
 <div *ngIf="role!='1' &&   votes!= undefined && loader==false">
   <div class="rpbox2">
     <div class="course">
@@ -22,7 +23,9 @@
         <h6 class="mb-4">Voting Event</h6>
         <h2 class="mb-5">{{ votetest.title }}</h2>
       </div>
+      <!--*************************************votes-->
       <div class="course-progress ">
+        <!-- time to votes-->
         <div class="container" *ngIf="loader==false">
           <div class="row">
             <h3>{{ clock | async | date:'yyyy-MM-dd'}} | {{ clock | async | date:'HH:mm:ss'}} </h3>
@@ -32,11 +35,13 @@
           </div>
 
         </div>
+        <!-- button popup for votes-->
         <button class="btn " id="myBtn" onclick="popup()" *ngIf="loader==false">
           <p class="read-more">
             <a style="color: white;">Vote now</a>
           </p>
         </button>
+        <!--  popup for votes-->
         <div id="myModal" class="modal">
 
           <!-- Modal content -->
@@ -83,18 +88,11 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
+<!--************************profils-->
 <div class="rpbox">
   <div class="container">
     <div class="main-body">
-
-
+      <!--********************************* information profil-->
       <div class="row gutters-sm" *ngIf="loader==false">
         <div class="col-md-4 mb-3">
           <div class="card">
@@ -231,14 +229,11 @@
               </div>
             </div>
           </div>
-
-
-
-
         </div>
       </div>
+      <!--********************************* calander profil-->
       <div class="row" *ngIf="loggeduser['id'] == id">
-        <div class="col-sm-12" *ngIf="loader==false">
+        <div class="col-sm-12">
           <div class="card">
             <div class="card-body">
               <ejs-schedule [selectedDate]="setDate" [currentView]="setView" #scheduleObj
@@ -256,18 +251,13 @@
         </div>
       </div>
       <br>
-
-
+      <!--********************************* activity profil-->
       <div class="row" *ngIf="loggeduser['id'] == id">
         <div class="col-sm-12">
           <div class="card">
             <div class="card-body" *ngIf="loader==false">
               <h5 class="d-flex align-items-center mb-3">Activity</h5>
-
-
-
-
-
+              <!--********************************* activity student-->
               <div class="rpbox1" *ngIf="role=='1'">
                 <div class="container bootstrap snippets bootdey " *ngFor="let a of applications">
                   <div class="col-md-12">
@@ -320,19 +310,10 @@
                   </div>
                 </div>
               </div>
-
-
-
-
-
-
-
-
-
+              <!--********************************* activity mentor-->
               <div class="rpbox " *ngIf="role!='1'">
                 <div class="boxarchive ">
                   <div class=" container py-4  ">
-
                     <article class="postcard light yellow mt-md-4  " *ngFor="let SingleProject of projects">
                       <a class="postcard__img_link" href="#">
                         <img class="postcard__img" [src]="imgpath+SingleProject.img" alt="Image Title" />
@@ -368,6 +349,26 @@
                     </article>
                   </div>
 
+                </div>
+              </div>
+              <!--********************************* activity mentor and student-->
+              <div class="who_we_are ">
+                <div class="rpbox ">
+                  <div class="titre">
+
+                    <h1 name="1">FORMATION</h1>
+                  </div>
+                  <div class="rpsbox container">
+                    <img class="card-img-top" src="assets/img/a.jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                        additional content.
+                        This content is a little bit longer.</p>
+                      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="pag">
