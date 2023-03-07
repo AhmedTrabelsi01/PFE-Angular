@@ -283,17 +283,17 @@
                             <div class="col-md-4 col-sm-4 col-xs-12 stats-col">
                               <div class="stats-value " style="color: #0081c2 ;"> <i
                                   class="fa-solid fa-person-circle-check"></i> Mentor</div>
-                              <div class="stats-title " style="color: orange;" *ngIf="a.viewState==0">Pending</div>
-                              <div class="stats-title " style="color: green;" *ngIf="a.viewState==1">Approuved</div>
-                              <div class="stats-title " style="color: red;" *ngIf="a.viewState==-1">Denied</div>
+                              <div class="stats-title " style="color: orange;" *ngIf="a.appState==0">Pending</div>
+                              <div class="stats-title " style="color: green;" *ngIf="a.appState==1">Approuved</div>
+                              <div class="stats-title " style="color: red;" *ngIf="a.appState==-1">Denied</div>
 
                             </div>
                             <div class="col-md-4 col-sm-4 col-xs-12 stats-col">
                               <div class="stats-value " style="color: #0081c2 ;"><i
                                   class="fa-solid fa-person-circle-check"></i> Admin</div>
-                              <div class="stats-title " style="color: orange;" *ngIf="a.appState==0">Pending</div>
-                              <div class="stats-title " style="color: green;" *ngIf="a.appState==1">Approuved</div>
-                              <div class="stats-title " style="color: red;" *ngIf="a.appState==-1">Denied</div>
+                              <div class="stats-title " style="color: orange;" *ngIf="a.viewState==0">Pending</div>
+                              <div class="stats-title " style="color: green;" *ngIf="a.viewState==1">Approuved</div>
+                              <div class="stats-title " style="color: red;" *ngIf="a.viewState==-1">Denied</div>
                             </div>
                             <div class="col-md-4 col-sm-4 col-xs-12 stats-col">
                               <div class="stats-value " style="color: #0081c2 ;"><i class="fa-solid fa-download"></i> CV
