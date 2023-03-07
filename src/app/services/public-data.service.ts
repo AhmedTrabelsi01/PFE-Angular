@@ -251,7 +251,7 @@ export class PublicDataService {
 
   }
 
-  
+
   checkAud(data:any){
     return this.httpClient.post('http://127.0.0.1:8000/api/checkvoteability',data);
 
@@ -306,7 +306,10 @@ export class PublicDataService {
   getPageByURL(link:any) {
     return this.httpClient.get(link);
   }
+  getFormations(){
+    return this.httpClient.get('http://127.0.0.1:8000/api/getFormations');
 
+  }
 
 
 }
