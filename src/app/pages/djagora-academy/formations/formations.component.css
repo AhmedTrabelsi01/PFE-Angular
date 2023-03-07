@@ -137,7 +137,7 @@
 
   /*-----------------------------------------------------------------------------------------*/
 
-  
+
   /* FontAwesome for working BootSnippet :> */
 
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
@@ -259,7 +259,7 @@ section .section-title {
 
 .frontside .card .card-title,
 .backside .card .card-title {
-    color: #007b5e !important;
+    color: #0081c2 !important;
 }
 
 .frontside .card .card-body img {
