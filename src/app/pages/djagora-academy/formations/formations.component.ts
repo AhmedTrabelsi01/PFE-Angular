@@ -20,25 +20,14 @@ export class FormationsComponent implements OnInit {
   getFormations() {
     this.PublicDataService.getFormations().subscribe(res => {
       this.formations = res;
-      /// let numberValue: any
-      for (let index = 0; index < this.formations.length; index++) {
-        console.log(typeof(this.formations[index]))
-        // for (let a = 0; a < this.formations[index].formateur.length; a++) {
-        /*  numberValue = Number(this.formations[index].formateur);
-          console.log(numberValue)*/
-        /* console.log(this.formations[index].formateur[a]);
-        this.getUserById(this.formations[index].formateur[a])
-        console.log(this.getUserById(this.formations[index].formateur[a]));*/
-        //  console.log( this.getUserById(this.formations[index].formateur))
-        // }
-      }
-
-
+      console.log(this.formations)
       if (this.formations) {
         this.loader = false
       }
     })
   }
+
+
   getUserById(id: any) {
     this.PublicDataService.getUserById(id).subscribe(res => {
       this.user = res;
