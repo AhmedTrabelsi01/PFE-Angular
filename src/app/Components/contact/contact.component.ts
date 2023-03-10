@@ -32,7 +32,6 @@ export class ContactComponent implements OnInit {
 
  
 onSubmit(){
-
   this.PublicDataService.insertContact(this.contactForm.value).subscribe(res=>{
     this.errors=res;
 

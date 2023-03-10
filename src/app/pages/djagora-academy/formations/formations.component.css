@@ -1,3 +1,68 @@
+.wrapper1 {
+  margin-left: 1em;
+  margin-right: 1em;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: repeat(3, 1fr);
+  grid-row-gap: 1em;
+  grid-column-gap: 1em;
+}
+@media (max-width: 767px) {
+  .wrapper1 {
+    margin-left: 1em;
+    margin-right: 1em;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(1, 1fr);
+    grid-row-gap: 1em;
+    grid-column-gap: 1em;
+  }
+}
+
+@media (max-width: 900px) {
+  .wrapper1 {
+    margin-left: 1em;
+    margin-right: 1em;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: 1em;
+    grid-column-gap: 1em;
+  }
+}
+
+
+
+  .read-more {
+    text-align: right;
+  }
+
+  .read-more a {
+    text-decoration: none;
+    color: #0081c2;
+    display: inline-block;
+    position: relative;
+  }
+
+  .read-more a:after {
+    content: "\f061";
+    font-family: FontAwesome;
+    margin-left: -10px;
+    opacity: 0;
+    vertical-align: middle;
+    transition: margin 0.3s, opacity 0.3s;
+  }
+
+  .read-more a:hover:after {
+    margin-left: 5px;
+    opacity: 1;
+  }
+
+
+
+
+
+
 
   /*-- Banner --*/
   .banner-area {
@@ -100,9 +165,9 @@
     }
   }
 
-  .rpsbox img {
-
-    width: 400px;
+  
+  .imgWhoWeAre{
+width: 400px;
     height: 300px;
     border-radius: 15px;
   }
@@ -134,4 +199,35 @@
     left: 50%;
     transform: translateX(-50%);
   }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   

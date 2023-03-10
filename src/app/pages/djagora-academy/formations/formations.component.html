@@ -20,7 +20,7 @@
 
   <div class="rpbox ">
     <div class="rpsbox container">
-      <img src="assets/img/singel.jpg" alt="">
+      <img src="assets/img/singel.jpg" class="imgWhoWeAre" alt="">
       <div class="content">
         <h2>Who We Are</h2>
         <p>Nice to meet you! We are a tech-driven online retailer located near Salt Lake
@@ -41,17 +41,59 @@
       <h1 name="1">FORMATION</h1>
     </div>
 
-    <div class="rpsbox container" *ngFor="let p of formations">
-      <img class="card-img-top" [src]="imgpath+p.img" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">{{ p.name }}</h5>
-        <p class="card-text">{{p.description}}</p>
-        <p class="card-text" ><small class="text-muted">{{p.formateur}}</small></p>
+    <div class="rpsbox container ">
+
+      <div class="wrapper1" >
+
+      <!-- Card -->
+      <div class="card ovf-hidden mx-1 " style="    box-shadow: 0 0 5pt 2pt hsla(0, 2%, 88%, 0.308);border: 0px;
+      " *ngFor="let p of formations ">
+
+        <!-- Card image -->
+
+
+            <div class="view overlay" >
+              <img class="card-img-top" [src]="imgpath+p.img"  alt="Card image cap">
+
+            </div>
+
+            <!-- Card content -->
+            <div class="card-body">
+
+              <!-- Social shares button -->
+              <!-- Title -->
+              <h4 class="card-title">{{ p.name }}</h4>
+              <hr>
+              <!-- Text -->
+              <p class="card-text">{{p.formateur}}</p>
+              <hr>
+              <p class="card-text">{{p.description}}</p>
+
+              <p class="read-more">
+                <a [routerLink]="['/SingleProject',p.id]">Read more</a>
+              </p>
+
+            </div>
+
+
+
+
+        </div>
+        <br>
+
+
+        <!-- Card reveal -->
+
+        <!-- Card reveal -->
 
       </div>
+      <!-- Card -->
     </div>
+
 
 
 
   </div><br> <br><br>
 </div>
+
+
