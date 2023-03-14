@@ -34,66 +34,164 @@
     </div>
   </div>
 </div>
-<div class="who_we_are ">
-  <div class="rpbox ">
-    <div class="titre">
+<div class="titre">
 
-      <h1 name="1">FORMATION</h1>
-    </div>
-
-    <div class="rpsbox container ">
-
-      <div class="wrapper1" >
-
-      <!-- Card -->
-      <div class="card ovf-hidden mx-1 " style="    box-shadow: 0 0 5pt 2pt hsla(0, 2%, 88%, 0.308);border: 0px;
-      " *ngFor="let p of formations ">
-
-        <!-- Card image -->
+  <h1 name="1">Trainings</h1>
+</div>
+<div class="rpbox ">
 
 
-            <div class="view overlay" >
-              <img class="card-img-top" [src]="imgpath+p.img"  alt="Card image cap">
+  <div class="rpsbox container ">
 
-            </div>
+  
 
-            <!-- Card content -->
-            <div class="card-body">
+        <div class=" container py-4  ">
+          <article class="postcard light yellow mt-md-4  " *ngFor="let Singleformation of formations">
+            <a class="postcard__img_link" href="#">
+              <img class="postcard__img" [src]="imgpath+Singleformation.img" alt="Image Title" />
+            </a>
+            <div class="postcard__text t-dark">
+              <h1 class="postcard__title yellow"><a href="#"><b>{{Singleformation.name}}</b></a></h1>
 
-              <!-- Social shares button -->
-              <!-- Title -->
-              <h4 class="card-title">{{ p.name }}</h4>
-              <hr>
-              <!-- Text -->
-              <p class="card-text">{{p.formateur}}</p>
-              <hr>
-              <p class="card-text">{{p.description}}</p>
+              <div class="postcard__bar"></div>
+              <div class="postcard__preview-txt">{{Singleformation.description}}</div>
+              <br>
+              <ul class="postcard__tagbox" style="list-style: none;">
+                <li class="tag__item"><i class="fas fa-user mr-2"></i>{{Singleformation.formateur}}</li>
+                <li class="tag__item"><i class="fas fa-diagram-project mr-2"></i>{{Singleformation.domain}}</li>
 
+               
+              </ul>
               <p class="read-more">
-                <a [routerLink]="['/SingleProject',p.id]">Read more</a>
+                <a [routerLink]="['/SingleProject',Singleformation.id]">read more</a>
               </p>
 
-            </div>
 
+            </div>
+          </article>
+        </div>
+
+
+      </div>
+      <br>
+
+
+      <!-- Card reveal -->
+
+      <!-- Card reveal -->
+
+ 
+
+
+  <div class="pag" style="margin-top: 5%;">
+    <ul class="pagination">
+      <li class="page-item mx-2" style="cursor: pointer;"><a class="page-link px-3 py-2" (click)="prevPage(prev)"> <span
+            aria-hidden="true">&laquo;</span>
+
+          Previous</a></li>
+
+      <li class="page-item mx-2 " style="cursor: pointer;"><a class="px-3 page-link py-2" (click)="nextPage(next)">Next
+          <span aria-hidden="true">&raquo;</span>
+        </a></li>
+    </ul>
+  </div>
+
+</div>
+
+<!----------------------------------------------------------------------------->
+
+
+
+<div class="titre">
+  <h1 name="1">ARCHIVE</h1>
+
+</div>
+<div class="  container">
+
+
+  <div class="searchbar ">
+
+
+
+  </div>
+</div>
+<!------------------part5:search archive----------------------->
+<div class="rpbox" *ngIf="loader==false">
+
+
+
+  <!------------------part6:project archive----------------------->
+
+  <div class="rpsbox container ">
+
+    <!-- <h1 *ngIf="countar==0" style="margin-left: 40%; margin-bottom: 6%; color: gray;">No archive added yet</h1>
+-->
+    <div class="wrapper1">
+
+      <!-- Card -->
+      <div class="card ovf-hidden mx-1 " style="      border: 2px solid #edf2f4;
+;box-shadow: 0 0 5pt 1pt hsla(0, 2%, 88%, 0.308);
+" *ngFor="let p of formations ">
+
+
+        <div style="      border: 2px solid #edf2f4;
+;box-shadow: 0 0 5pt 1pt hsla(0, 2%, 88%, 0.308);
+" class="view overlay">
+          <img class="card-img-top" [src]="imgpath+p.img" alt="Card image cap">
+
+        </div>
+
+        <!-- Card content -->
+        <div class="card-body">
+
+          <!-- Social shares button -->
+          <!-- Title -->
+          <div class="row">
+            <h4 class="card-title">{{ p.name }}</h4>
+           
+          </div>
+          <hr>
+          <!-- Text -->
+          <p class="card-text">{{p.formateur}}</p>
+
+          <hr>
+
+          <p class="card-text">{{p.description}}</p>
 
 
 
         </div>
-        <br>
 
 
-        <!-- Card reveal -->
 
-        <!-- Card reveal -->
+        <!-- Card image -->
+
+
+
+
+
 
       </div>
-      <!-- Card -->
+      <br>
+
+
+      <!-- Card reveal -->
+
+      <!-- Card reveal -->
+
     </div>
 
+  </div>
+  <div class="pag" *ngIf="loader==false">
+    <ul class="pagination">
+      <li class="page-item mx-2" style="cursor: pointer;"><a class="page-link px-3 py-2" (click)="prevPage(prev)"> <span
+            aria-hidden="true">&laquo;</span>
 
+          Previous</a></li>
 
-
-  </div><br> <br><br>
+      <li class="page-item mx-2 " style="cursor: pointer;"><a class="px-3 page-link py-2" (click)="nextPage(next)">Next
+          <span aria-hidden="true">&raquo;</span>
+        </a></li>
+    </ul>
+  </div>
 </div>
-
-

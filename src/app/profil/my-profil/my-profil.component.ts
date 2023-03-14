@@ -7,7 +7,6 @@ import { DayService, WeekService, WorkWeekService, MonthService, AgendaService, 
 import { DataManager, UrlAdaptor, Query, ODataV4Adaptor } from '@syncfusion/ej2-data';
 import { EMPTY, empty, Observable } from 'rxjs';
 
-declare function popup(): any;
 @Component({
   selector: 'app-my-profil',
   templateUrl: './my-profil.component.html',

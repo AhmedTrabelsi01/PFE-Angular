@@ -13,6 +13,8 @@ export class FormationsComponent implements OnInit {
   loader: any = true
   user: any
   len: any
+  next:any;
+  prev:any;
 
   ngOnInit(): void {
     this.getFormations();
@@ -36,5 +38,34 @@ export class FormationsComponent implements OnInit {
         this.loader = false
       }
     })
+  }
+
+
+
+
+
+
+
+
+
+
+  nextPage(link:any) {
+    this.PublicDataService.getPageByURL(link).subscribe(res=>{
+    this.formations=res;
+    this.next=this.formations.next_page_url
+    this.prev=this.formations.prev_page_url
+    this.formations=this.formations.data
+    })
+
+  }
+
+  prevPage(link:any) {
+    this.PublicDataService.getPageByURL(link).subscribe(res=>{
+      this.formations=res;
+      this.next=this.formations.next_page_url
+      this.prev=this.formations.prev_page_url
+      this.formations=this.formations.data
+      })
+
   }
 }

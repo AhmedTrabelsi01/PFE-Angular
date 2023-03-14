@@ -1,17 +1,18 @@
 <!------------------part1:image after header----------------------->
-<div id="banner-area" class="banner-area" style="background-image:url(assets/img/contact.jpg);margin-top: 8%;margin-bottom: 3%;">
+<div id="banner-area" class="banner-area"
+    style="background-image:url(assets/img/contact.jpg);margin-top: 8%;margin-bottom: 3%;">
     <div class="banner-text">
-      <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="banner-heading">
-                <h1 class="banner-title">Djagora academy</h1>
-              </div>
-            </div><!-- Col end -->
-          </div><!-- Row end -->
-      </div><!-- Container end -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="banner-heading">
+                        <h1 class="banner-title">Djagora academy</h1>
+                    </div>
+                </div><!-- Col end -->
+            </div><!-- Row end -->
+        </div><!-- Container end -->
     </div><!-- Banner text end -->
-  </div><!-- Banner area end -->
+</div><!-- Banner area end -->
 
 
 <!------------------part2:who_we_are----------------------->
@@ -40,18 +41,19 @@
 
 
 <div class="col-md-12" *ngIf="loader==true">
-  <div class="loader20">Loading...</div>
+    <div class="loader20">Loading...</div>
 </div>
+<div class="titre">
+
+    <h1 name="1">PROJECTS</h1>
+</div>
+
 
 <!------------------part3:search bar----------------------->
 <div class="rpbox">
-    <div class="boxarchive container ">
-        <div class="titre">
-
-            <h1 name="1">PROJECTS</h1>
-        </div>
-
-        <div class="searchbar" *ngIf="loader==false">
+    <div class="boxarchive container " >
+       
+        <div class="searchbar" *ngIf="loader==false" style="margin-top: 2%;">
 
             <div class="input-box">
                 <div class="search2">
@@ -60,25 +62,25 @@
                 </div>
 
             </div>
-            <div (click)="checkEdition()" class="input-box2"  *ngIf="auth=='true' && role!='1' && acaState=='true' ">
-                <div  class="addproject">
+            <div (click)="checkEdition()" class="input-box2" *ngIf="auth=='true' && role!='1' && acaState=='true' ">
+                <div class="addproject">
                     <button>Add Project</button>
                     <i class="far fa-edit" aria-hidden="true"></i>
                 </div>
             </div>
 
         </div>
-    <!-------------------------------------------------------------------->
+        <!-------------------------------------------------------------------->
 
-    <!------------------part4:projects----------------------->
-
-
+        <!------------------part4:projects----------------------->
 
 
-    <h1 *ngIf="countproj==0" style="margin-left: 40%; color: gray;">No projects added yet</h1>
-        <div class="container py-4 "  *ngFor="let p of projectss | filter:st " >
 
-            <article class="postcard light yellow mx-5"  *ngIf="loader==false">
+
+        <h1 *ngIf="countproj==0" style="margin-left: 40%; color: gray;">No projects added yet</h1>
+        <div class="container py-4 " *ngFor="let p of projectss | filter:st ">
+
+            <article class="postcard light yellow mx-5" *ngIf="loader==false">
                 <a class="postcard__img_link" href="#">
                     <img class="postcard__img" [src]="imgpath+p.img" alt="Image Title" />
                 </a>
@@ -94,82 +96,106 @@
 
                     </ul>
                     <p class="read-more">
-                        <a [routerLink]="['/SingleProject',p.id]" *ngIf="auth=='true' && acaState=='true' ">Read More</a>
+                        <a [routerLink]="['/SingleProject',p.id]" *ngIf="auth=='true' && acaState=='true' ">Read
+                            More</a>
                     </p>
                 </div>
             </article>
         </div>
         <nav aria-label="Page navigation example">
-          </nav>
-<div class="pag"  *ngIf="loader==false">
-    <ul class="pagination">
-        <li class="page-item mx-2" style="cursor: pointer;" ><a class="page-link px-3 py-2" (click)="prevPage(prev)">         <span aria-hidden="true">&laquo;</span>
+        </nav>
+       
+    </div>
+    <div class="pag" *ngIf="loader==false">
+        <ul class="pagination">
+            <li class="page-item mx-2" style="cursor: pointer;"><a class="page-link px-3 py-2"
+                    (click)="prevPage(prev)"> <span aria-hidden="true">&laquo;</span>
 
-            Previous</a></li>
+                    Previous</a></li>
 
-        <li class="page-item mx-2 " style="cursor: pointer;"><a class="px-3 page-link py-2" (click)="nextPage(next)">Next        <span aria-hidden="true">&raquo;</span>
-        </a></li>
-      </ul>
-</div>
-</div>
+            <li class="page-item mx-2 " style="cursor: pointer;"><a class="px-3 page-link py-2"
+                    (click)="nextPage(next)">Next <span aria-hidden="true">&raquo;</span>
+                </a></li>
+        </ul>
+    </div>
 </div>
 
 <!----------------------------------------------------------------------------->
 
 
 
+<div class="titre">
+    <h1 name="1">ARCHIVE</h1>
+
+</div>
+<div class="  container">
+        
+
+    <div class="searchbar ">
 
 
+
+    </div>
+</div>
 <!------------------part5:search archive----------------------->
-<div class="rpbox"  *ngIf="loader==false">
-    <div class="boxarchive container">
-        <div class="part5 container">
-            <div class="titre">
-                <h1 name="1">ARCHIVE</h1>
-            </div>
-
-            <div class="searchbar ">
-
-
-
-            </div>
-        </div>
+<div class="rpbox" *ngIf="loader==false">
+      
 
 
         <!------------------part6:project archive----------------------->
-        <div class="part6">
-           <h1 *ngIf="countar==0" style="margin-left: 40%; margin-bottom: 6%; color: gray;">No archive added yet</h1>
 
-            <div class=" sdep" >
+        <div class="rpsbox container ">
 
-                            <div class="  col-md-8 col-lg-4 order-lg-last mx-3  "  *ngFor="let p3 of archive">
-                                <div class="body ">
-                                    <div class="blog-card ">
-                                        <div class="meta">
-                                            <div class="photo"><img [src]="imgpath+p3.img" alt=""></div>
-                                            <ul class="details">
-                                                <li class="author">{{p3.owner}}</li>
+            <h1 *ngIf="countar==0" style="margin-left: 40%; margin-bottom: 6%; color: gray;">No archive added yet</h1>
 
-                                            </ul>
-                                        </div>
-                                        <div class="description">
-                                            <p> {{p3.description}}</p>
-                                            <p class="read-more">
-                                                <a href="#">Read More</a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+            <div class="wrapper1 ">
 
-
+                <div class="card ovf-hidden mx-1 " style="      border: 2px solid #edf2f4;
+                ;box-shadow: 0 0 5pt 1pt hsla(0, 2%, 88%, 0.308);
+                " *ngFor="let p3 of archive">
+                    <div style="      border: 2px solid #edf2f4;
+                    ;box-shadow: 0 0 5pt 1pt hsla(0, 2%, 88%, 0.308);
+                    " class="view overlay">
+                    <img class="card-img-top" [src]="imgpath+p3.img" alt="Card image cap">
+        
+                  </div>
+        
+                  <!-- Card content -->
+                  <div class="card-body">
+        
+                    <!-- Social shares button -->
+                    <!-- Title -->
+                    <div class="row" >
+                      <h4 class="card-title">{{ p3.title }}</h4>
+                     
+                    </div>
+                    <hr>
+                    <!-- Text -->
+                    <p class="card-text">{{p3.formateur}}</p>
+                   
+                    <hr>
+                    
+                    <p class="card-text">{{p3.description}}</p>
+        
+                   
+        
+                  </div>
+        
 
             </div>
         </div>
+        
+    </div>
+    <div class="pag" *ngIf="loader==false">
+        <ul class="pagination">
+            <li class="page-item mx-2" style="cursor: pointer;"><a class="page-link px-3 py-2"
+                    (click)="prevPage(prev)"> <span aria-hidden="true">&laquo;</span>
+
+                    Previous</a></li>
+
+            <li class="page-item mx-2 " style="cursor: pointer;"><a class="px-3 page-link py-2"
+                    (click)="nextPage(next)">Next <span aria-hidden="true">&raquo;</span>
+                </a></li>
+        </ul>
     </div>
 </div>
-
-
-
-
-

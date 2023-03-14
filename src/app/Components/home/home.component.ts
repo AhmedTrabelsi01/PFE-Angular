@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   constructor(private toastr: ToastrService, private route: Router, private PublicDataService: PublicDataService) {
   }
   token: any;
-  projects: any;
+  projects: any=[];
   error: any
   user: any={};
   data: any;
@@ -47,13 +47,12 @@ export class HomeComponent implements OnInit {
   getRecentProject() {
     this.PublicDataService.GetProject().subscribe(res => {
       this.projects = res;
+      this.projects=this.projects.data;
       for (let index = 0; index < this.projects.length; index++) {
-        this.p1 = this.projects[this.projects.length - 1];
-        this.p2 = this.projects[this.projects.length - 2];
-        this.p3 = this.projects[this.projects.length - 3];
-
+        if(this.projects[this.projects.length - 1]) this.p1 = this.projects[this.projects.length - 1];
+        if(this.projects[this.projects.length - 2]) this.p2 = this.projects[this.projects.length - 2];
+        if(this.projects[this.projects.length - 3]) this.p3 = this.projects[this.projects.length - 3];
       }
-
     }
     )
   }
