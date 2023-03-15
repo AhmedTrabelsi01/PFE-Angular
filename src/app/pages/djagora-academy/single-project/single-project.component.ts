@@ -64,9 +64,6 @@ export class SingleProjectComponent implements OnInit {
       })
     }
     this.getProjectById();
-
-
-
   }
 
 

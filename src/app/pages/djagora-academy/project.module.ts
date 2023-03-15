@@ -12,13 +12,15 @@ import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
 import { AddProjectDjagoraAcadimyComponent } from './mentor/add-project-djagora-acadimy/add-project-djagora-acadimy.component';
 import { FormationsComponent } from './formations/formations.component';
+import { SingleTrainingComponent } from './single-training/single-training.component';
 @NgModule({
   declarations: [
     AllProjectsComponent,
     FinishedProjectComponent,
     SingleProjectComponent,
     AddProjectDjagoraAcadimyComponent,
-    FormationsComponent
+    FormationsComponent,
+    SingleTrainingComponent
   ],
   imports: [
     projectRoutingModule,
