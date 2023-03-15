@@ -13,6 +13,9 @@ import { CommonModule } from '@angular/common';
 import { AddProjectDjagoraAcadimyComponent } from './mentor/add-project-djagora-acadimy/add-project-djagora-acadimy.component';
 import { FormationsComponent } from './formations/formations.component';
 import { SingleTrainingComponent } from './single-training/single-training.component';
+import { SprintsComponent } from './scrum/sprints/sprints.component';
+import { BoardsComponent } from './scrum/boards/boards.component';
+
 @NgModule({
   declarations: [
     AllProjectsComponent,
@@ -20,7 +23,9 @@ import { SingleTrainingComponent } from './single-training/single-training.compo
     SingleProjectComponent,
     AddProjectDjagoraAcadimyComponent,
     FormationsComponent,
-    SingleTrainingComponent
+    SingleTrainingComponent,
+    SprintsComponent,
+    BoardsComponent
   ],
   imports: [
     projectRoutingModule,
