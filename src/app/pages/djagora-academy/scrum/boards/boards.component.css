@@ -1,4 +1,24 @@
+.titre {
+  justify-content: center;
+  margin: 50px auto 50px;
 
+  text-align: center;
+  position: relative;
+  line-height: 60px;
+  color: #555;
+}
+
+.titre::after {
+  content: '';
+  background: #0081c2;
+  width: 80px;
+  height: 5px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
 .main-container .border-left {
     margin-bottom: 30px;
@@ -55,19 +75,10 @@
 
 
 
-  @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,500,600,700&subset=latin,latin-ext);
-  @import "jquery/jquery-ui.min.css";
+ 
   @import "bootstrap/bootstrap.min.css";
   @import "fontawesome/font-awesome.min.css";
-  @import "summernote/summernote.css";
-  @import "codemirror/codemirror.css";
-  @import "nvd3/nv.d3.css";
-  @import "mcustomscrollbar/jquery.mCustomScrollbar.css";
-  @import "fullcalendar/fullcalendar.css";
-  @import "blueimp/blueimp-gallery.min.css";
-  @import "rickshaw/rickshaw.css";
-  @import "dropzone/dropzone.css";
-  @import "animate/animate.min.css";
+
   
   
   /* PREDEFINED CLASSES */
