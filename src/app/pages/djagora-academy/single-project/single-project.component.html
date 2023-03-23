@@ -43,8 +43,13 @@
             <a class="postcard__img_link" href="#">
               <img class="postcard__img" [src]="imgpath+SingleProject.img" alt="Image Title" />
             </a>
+            
             <div class="postcard__text t-dark">
-              <h1 class="postcard__title yellow"><a href="#"><b>{{SingleProject.title}}</b></a></h1>
+              <p class=" d-flex flex-row-reverse read-more" style="margin-bottom: -4%;" >
+                <a routerLink="/backlog" >Backlog</a>
+              </p>
+                <h1 class="postcard__title yellow"><a href="#"><b>{{SingleProject.title}}</b></a></h1>
+               
 
               <div class="postcard__bar"></div>
               <div class="postcard__preview-txt">{{SingleProject.description}}</div>
