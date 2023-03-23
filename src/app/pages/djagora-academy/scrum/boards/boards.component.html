@@ -43,8 +43,9 @@ style="background-image:url(assets/img/contact.jpg);margin-top: 8%;margin-bottom
             <div class="content-frame-left">
                 <div>
                         <!-- Split button -->
+                          <h3 class="p-2" style="color: white;background-color:black;">User Story</h3>
 
-                    <h3>User Story</h3>
+
                     
                     <div class="tasks" id="tasks">
                         
@@ -100,9 +101,9 @@ style="background-image:url(assets/img/contact.jpg);margin-top: 8%;margin-bottom
             <div class="content-frame-body">
                                         
                 <div class="row push-up-10">
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         
-                        <h3>To-do List</h3>
+                        <h3 class="p-2" style="color: white; background-color:#0081c2" >To-do List</h3>
                         
                         <div class="tasks" id="tasks">
 
@@ -213,8 +214,8 @@ style="background-image:url(assets/img/contact.jpg);margin-top: 8%;margin-bottom
                         </div>                            
 
                     </div>
-                    <div class="col-md-4">
-                        <h3>In Progress</h3>
+                    <div class="col-md-3">
+                        <h3 class="p-2" style="color: white; background-color:rgb(255, 149, 0)">In Progress</h3>
                         <div class="tasks" id="tasks_progreess">
 
                             <div class="task-item task-warning">
@@ -243,9 +244,39 @@ style="background-image:url(assets/img/contact.jpg);margin-top: 8%;margin-bottom
                             
                         </div>
                     </div>
+                    <div class="col-md-3">
+                      <h3 class="p-2" style="color: white; background-color:yellowgreen">In review</h3>
+                      <div class="tasks" id="tasks_progreess">
+
+                          <div class="task-item task-warning">
+                              <div class="d-flex">
+
+                                  <div class="dropdown me-5 rounded">
+                              
+                                    <button  class="btn " style="background-color: yellowgreen;" type="button" id="dropdownMenuOffset"
+                                      data-bs-toggle="dropdown" data-bs-offset="10,20" aria-expanded="false" >In review  <i class="fa-solid fa-chevron-right"></i> </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+                                      <li class=" dropdown-item mx-2">mark as in progress</li>
+                                      <li class="dropdown-item mx-2" >mark as completed</li>
+                                    </ul>
+                                  </div>
+                              
+                                </div>   
+                              <div class="task-text">In mauris nunc, blandit a turpis in, vehicula viverra metus. Quisque dictum purus lorem, in rhoncus justo dapibus eget. Aenean pretium non mauris et porttitor.</div>
+                              <div class="task-footer">
+                                  <div class="pull-left"><span class="fa fa-clock-o"></span> 2h 55min</div>
+                                  <div class="pull-right"><span class="fa fa-pause"></span> 4:51</div>
+                              </div> 
+                              <button class="btn " style="width: 100%;background-color: yellowgreen;" ><i class="fa-solid fa-circle-plus"></i> Add in review task </button>
+                                 
+                          </div>                            
+                          
+                          
+                      </div>
+                  </div>
                     
-                    <div class="col-md-4">
-                        <h3>Completed</h3>
+                    <div class="col-md-3"  >
+                        <h3 class="p-2" style="color: white; background-color:rgb(1, 170, 139)" >Completed</h3>
                         <div class="tasks" id="tasks_completed">
                             <div class="task-item task-danger task-complete">      
                                 <div class="d-flex">

@@ -15,6 +15,7 @@ import { FormationsComponent } from './formations/formations.component';
 import { SingleTrainingComponent } from './single-training/single-training.component';
 import { SprintsComponent } from './scrum/sprints/sprints.component';
 import { BoardsComponent } from './scrum/boards/boards.component';
+import { BacklogComponent } from './scrum/backlog/backlog.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { BoardsComponent } from './scrum/boards/boards.component';
     FormationsComponent,
     SingleTrainingComponent,
     SprintsComponent,
-    BoardsComponent
+    BoardsComponent,
+    BacklogComponent
   ],
   imports: [
     projectRoutingModule,

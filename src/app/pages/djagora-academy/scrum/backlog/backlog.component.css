@@ -1,0 +1,218 @@
+.titre {
+    justify-content: center;
+    margin: 50px auto 50px;
+  
+    text-align: center;
+    position: relative;
+    line-height: 60px;
+    color: #555;
+  }
+  
+  .titre::after {
+    content: '';
+    background: #0081c2;
+    width: 80px;
+    height: 5px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .main-container .border-left {
+      margin-bottom: 30px;
+    }
+    
+    /*-- Banner --*/
+    .banner-area {
+      position: relative;
+      min-height: 300px;
+    
+      color: #fff;
+      background-position: 50% 50%;
+      background-size: cover;
+    
+    }
+    
+    .banner-title {
+      color: #fff;
+      text-transform: uppercase;
+      font-size: 58px;
+      font-weight: 900;
+    }
+    
+    @media (max-width: 767px) {
+      .banner-title {
+        font-size: 48px;
+      }
+    }
+    
+    @media (max-width: 575px) {
+      .banner-title {
+        font-size: 32px;
+      }
+    }
+    
+    .banner-text {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      max-width: 1170px;
+      margin: 0 auto;
+      width: 100%;
+      z-index: 1;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+    
+    .banner-heading {
+      text-align: center;
+    }
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+    .navbar-nav{
+        width: 100%;
+    }
+    
+    @media(min-width:568px){
+        .end{
+            margin-left: auto;
+        }
+    }
+    
+    @media(max-width:768px){
+        #post{
+            width: 100%;
+        }
+    }
+    #clicked{
+        padding-top: 1px;
+        padding-bottom: 1px;
+        text-align: center;
+        width: 100%;
+        background-color: #ecb21f;
+        border-color: #a88734 #9c7e31 #846a29;
+        color: black;
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 5px; 
+    }
+    
+    #profile{
+        background-color: unset;
+        
+    } 
+    
+    #post{
+        margin: 10px;
+        padding: 6px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        text-align: center;
+        background-color: #0081c2;
+        color: rgb(255, 255, 255);
+        border-width: 1px;
+        border-style: solid;
+        border-radius: 5px;
+        padding: 2%;
+        width: 20%;
+    }
+    
+    body{
+        background-color: black;
+    }
+    
+    #nav-items li a,#profile{
+        text-decoration: none;
+        color: rgb(224, 219, 219);
+        background-color: black;
+    }
+    
+    
+    .comments{
+        margin-top: 5%;
+        margin-left: 20px;
+    }
+    
+    .darker{
+        box-shadow: 0 0 5pt 5pt rgb(226, 225, 225, 0.308);
+
+        border: 1px solid rgb(226, 225, 225, 0.308);
+                background-color: rgb(255, 255, 255);
+        float: right;
+        border-radius: 5px;
+        padding-left: 40px;
+        padding-right: 30px;
+        padding-top: 10px;
+    }
+    
+    .comment{
+        box-shadow: 0 0 5pt 5pt rgb(226, 225, 225, 0.308);
+
+        border: 1px solid rgb(226, 225, 225, 0.308);
+                background-color: rgba(255, 255, 255, 0.973);
+        float: left;
+        border-radius: 5px;
+        padding-left: 40px;
+        padding-right: 30px;
+        padding-top: 10px;
+        
+    }
+    .comment h4,.comment span,.darker h4,.darker span{
+        display: inline;
+    }
+    
+    .comment p,.comment span,.darker p,.darker span{
+        color: rgb(184, 183, 183);
+    }
+    
+   
+    label{
+        color: rgb(0, 0, 0);
+    }
+    
+    #align-form{
+        margin-top: 20px;
+    }
+    .form-group p a{
+        color: white;
+    }
+    
+    #checkbx{
+        background-color: black;
+    }
+    
+    #darker img{
+        margin-right: 15px;
+        position: static;
+        
+    }
+    
+    .form-group input,.form-group textarea{
+        background-color: white;
+        border: 1px solid rgba(104, 104, 104, 0.308);
+        border-radius: 5px;
+    }
+    
+    form{
+        box-shadow: 0 0 5pt 5pt rgb(226, 225, 225, 0.308);
+
+        border: 1px solid rgb(226, 225, 225, 0.308);
+        background-color: rgba(255, 255, 255, 0.973);
+        border-radius: 5px;
+        padding: 20px;
+     }

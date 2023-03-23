@@ -8,6 +8,8 @@ import { FormationsComponent } from './formations/formations.component';
 import { SingleTrainingComponent } from './single-training/single-training.component';
 import { SprintsComponent } from './scrum/sprints/sprints.component';
 import { BoardsComponent } from './scrum/boards/boards.component';
+import { BacklogComponent } from './scrum/backlog/backlog.component';
+
 const routes: Routes = [
   //project
   { path: '', component: AllProjectsComponent },
@@ -17,6 +19,7 @@ const routes: Routes = [
   { path: 'formations', component: FormationsComponent },
   { path: 'sprint', component: SprintsComponent },
   { path: 'boards', component:BoardsComponent },
+  { path: 'backlog', component:BacklogComponent },
   { path: 'singletraining/:id', component: SingleTrainingComponent },
 
 ];
