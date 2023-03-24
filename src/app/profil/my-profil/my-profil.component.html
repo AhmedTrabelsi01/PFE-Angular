@@ -12,8 +12,12 @@
     </div><!-- Container end -->
   </div><!-- Banner text end -->
 </div><!-- Banner area end -->
-<div class="col-md-12" *ngIf="loader==true">
-  <div class="loader20">Loading...</div>
+>
+
+<div *ngIf="loader==true">
+  <div class="loader-overlay">
+    <div *ngIf="loader==true" class="loader"></div>
+  </div>
 </div>
 <!-- ************************voteeeeees-->
 <div *ngIf="role!='1' &&   votes!= undefined && loader==false">

@@ -40,9 +40,11 @@
 
 
 
-<div class="col-md-12" *ngIf="loader==true">
-    <div class="loader20">Loading...</div>
-</div>
+<div *ngIf="loader==true">
+    <div class="loader-overlay">
+      <div *ngIf="loader==true" class="loader"></div>
+    </div>
+  </div>
 <div class="titre">
 
     <h1 name="1">PROJECTS</h1>
