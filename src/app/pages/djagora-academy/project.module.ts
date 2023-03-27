@@ -16,7 +16,9 @@ import { SingleTrainingComponent } from './single-training/single-training.compo
 import { SprintsComponent } from './scrum/sprints/sprints.component';
 import { BoardsComponent } from './scrum/boards/boards.component';
 import { BacklogComponent } from './scrum/backlog/backlog.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
+import {MatDialogModule} from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AllProjectsComponent,
@@ -41,9 +43,10 @@ import { BacklogComponent } from './scrum/backlog/backlog.component';
     CommonModule,
     HttpClientModule,
     FormsModule,
+    DragDropModule,
     ReactiveFormsModule,
-    ToastrModule.forRoot(),
-
+        ToastrModule.forRoot(),
+        MatDialogModule
   ],
   providers: []
 })
