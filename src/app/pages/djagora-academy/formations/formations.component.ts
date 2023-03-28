@@ -10,13 +10,15 @@ export class FormationsComponent implements OnInit {
   constructor(private PublicDataService: PublicDataService) { }
   imgpath: any = 'http://127.0.0.1:8000/storage/post/'//image path laravel
   formations: any = {};
-  loader: any = true
+  loader= true
   user: any
   len: any
   next:any;
   prev:any;
 
   ngOnInit(): void {
+    window.scrollTo(0,0)
+
     this.getFormations();
   }
   getFormations() {

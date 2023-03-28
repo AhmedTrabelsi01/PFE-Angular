@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
   error: any
   user: any={};
   data: any;
+  loader=true;
   loggeduser: any;
   p1: any={}
   p2: any={}
@@ -28,16 +29,15 @@ export class HomeComponent implements OnInit {
   auth: any;
   imgpath: any = 'http://127.0.0.1:8000/storage/post/'//image path laravel
   ngOnInit(): void {
-
+    window.scrollTo(0,0)
     this.getRecentProject();
-
     this.token = this.PublicDataService.getToken();
     if (this.token) {
       this.loggeduser = this.PublicDataService.getUser(this.token);
       this.auth = this.PublicDataService.getLoginState();
       this.PublicDataService.getUserById(this.loggeduser['id']).subscribe(res => {
         this.user = res;
-
+        this.loader=false
       })
     }
    this.updateEdition()

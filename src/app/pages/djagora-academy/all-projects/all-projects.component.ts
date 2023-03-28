@@ -36,6 +36,7 @@ export class AllProjectsComponent implements OnInit {
 
   ngOnInit(): void {
 
+    window.scrollTo(0,0)
 
     this.GetProject();
     this.GetArchive() ;

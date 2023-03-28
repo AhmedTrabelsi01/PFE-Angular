@@ -28,6 +28,7 @@ export class FinishedProjectComponent implements OnInit {
   constructor(private route: ActivatedRoute, private PublicDataService: PublicDataService, private StudentDataService: StudentDataService) { }
 
   ngOnInit(): void {
+    window.scrollTo(0,0)
     this.id = this.route.snapshot.params['id'];
     this.auth = this.PublicDataService.getLoginState();
     this.role = this.PublicDataService.getRole();

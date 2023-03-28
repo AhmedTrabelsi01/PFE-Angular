@@ -42,9 +42,9 @@
 
 <div *ngIf="loader==true">
     <div class="loader-overlay">
-      <div *ngIf="loader==true" class="loader"></div>
+        <div *ngIf="loader==true" class="loader"></div>
     </div>
-  </div>
+</div>
 <div class="titre">
 
     <h1 name="1">PROJECTS</h1>
@@ -53,8 +53,8 @@
 
 <!------------------part3:search bar----------------------->
 <div class="rpbox">
-    <div class="boxarchive container " >
-       
+    <div class="boxarchive container ">
+
         <div class="searchbar" *ngIf="loader==false" style="margin-top: 2%;">
 
             <div class="input-box">
@@ -106,12 +106,12 @@
         </div>
         <nav aria-label="Page navigation example">
         </nav>
-       
+
     </div>
     <div class="pag" *ngIf="loader==false">
         <ul class="pagination">
-            <li class="page-item mx-2" style="cursor: pointer;"><a class="page-link px-3 py-2"
-                    (click)="prevPage(prev)"> <span aria-hidden="true">&laquo;</span>
+            <li class="page-item mx-2" style="cursor: pointer;"><a class="page-link px-3 py-2" (click)="prevPage(prev)">
+                    <span aria-hidden="true">&laquo;</span>
 
                     Previous</a></li>
 
@@ -131,7 +131,7 @@
 
 </div>
 <div class="  container">
-        
+
 
     <div class="searchbar ">
 
@@ -141,57 +141,57 @@
 </div>
 <!------------------part5:search archive----------------------->
 <div class="rpbox" *ngIf="loader==false">
-      
 
 
-        <!------------------part6:project archive----------------------->
 
-        <div class="rpsbox container ">
+    <!------------------part6:project archive----------------------->
 
-            <h1 *ngIf="countar==0" style="margin-left: 40%; margin-bottom: 6%; color: gray;">No archive added yet</h1>
+    <div class="rpsbox container ">
 
-            <div class="wrapper1 ">
+        <h1 *ngIf="countar==0" style="margin-left: 40%; margin-bottom: 6%; color: gray;">No archive added yet</h1>
 
-                <div class="card ovf-hidden mx-1 " style="      border: 2px solid #edf2f4;
+        <div class="wrapper1 ">
+
+            <div class="card ovf-hidden mx-1 " style="      border: 2px solid #edf2f4;
                 ;box-shadow: 0 0 5pt 1pt hsla(0, 2%, 88%, 0.308);
                 " *ngFor="let p3 of archive">
-                    <div style="      border: 2px solid #edf2f4;
+                <div style="      border: 2px solid #edf2f4;
                     ;box-shadow: 0 0 5pt 1pt hsla(0, 2%, 88%, 0.308);
                     " class="view overlay">
                     <img class="card-img-top" [src]="imgpath+p3.img" alt="Card image cap">
-        
-                  </div>
-        
-                  <!-- Card content -->
-                  <div class="card-body">
-        
+
+                </div>
+
+                <!-- Card content -->
+                <div class="card-body">
+
                     <!-- Social shares button -->
                     <!-- Title -->
-                    <div class="row" >
-                      <h4 class="card-title">{{ p3.title }}</h4>
-                     
+                    <div class="row">
+                        <h4 class="card-title">{{ p3.title }}</h4>
+
                     </div>
                     <hr>
                     <!-- Text -->
                     <p class="card-text">{{p3.formateur}}</p>
-                   
+
                     <hr>
-                    
+
                     <p class="card-text">{{p3.description}}</p>
-        
-                   
-        
-                  </div>
-        
+
+
+
+                </div>
+
 
             </div>
         </div>
-        
+
     </div>
     <div class="pag" *ngIf="loader==false">
         <ul class="pagination">
-            <li class="page-item mx-2" style="cursor: pointer;"><a class="page-link px-3 py-2"
-                    (click)="prevPage(prev)"> <span aria-hidden="true">&laquo;</span>
+            <li class="page-item mx-2" style="cursor: pointer;"><a class="page-link px-3 py-2" (click)="prevPage(prev)">
+                    <span aria-hidden="true">&laquo;</span>
 
                     Previous</a></li>
 

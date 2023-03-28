@@ -9,6 +9,7 @@ export class AboutUsComponent implements OnInit {
   teams:any;
   constructor(private PublicDataService:PublicDataService) { }
   ngOnInit(): void {
+    window.scrollTo(0,0)
  //   this.getTeam();
   }
 

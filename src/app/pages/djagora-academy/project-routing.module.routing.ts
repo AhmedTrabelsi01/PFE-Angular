@@ -9,7 +9,7 @@ import { SingleTrainingComponent } from './single-training/single-training.compo
 import { SprintsComponent } from './scrum/sprints/sprints.component';
 import { BoardsComponent } from './scrum/boards/boards.component';
 import { BacklogComponent } from './scrum/backlog/backlog.component';
-
+import { EditSprintComponent } from './scrum/edit-sprint/edit-sprint.component';
 const routes: Routes = [
   //project
   { path: '', component: AllProjectsComponent },
@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: 'team/:id', component: FinishedProjectComponent },
   { path: 'AddProject', component: AddProjectDjagoraAcadimyComponent },
   { path: 'formations', component: FormationsComponent },
+  { path: 'editsprint', component: EditSprintComponent },
   { path: 'sprint', component: SprintsComponent },
   { path: 'boards', component:BoardsComponent },
   { path: 'backlog', component:BacklogComponent },

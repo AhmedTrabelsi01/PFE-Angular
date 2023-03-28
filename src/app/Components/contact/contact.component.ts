@@ -18,6 +18,8 @@ export class ContactComponent implements OnInit {
 
 
   ngOnInit(): void {
+    window.scrollTo(0,0)
+
   }
 
 

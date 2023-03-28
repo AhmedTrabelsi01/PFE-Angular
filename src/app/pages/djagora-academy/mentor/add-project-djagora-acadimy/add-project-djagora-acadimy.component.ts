@@ -39,6 +39,7 @@ export class AddProjectDjagoraAcadimyComponent implements OnInit {
 });
 
   ngOnInit(): void {
+    window.scroll(0,0)
     this.token = this.PublicDataService.getToken();
     this.loggeduser = this.PublicDataService.getUser(this.token);
     this.role=this.PublicDataService.getRole();

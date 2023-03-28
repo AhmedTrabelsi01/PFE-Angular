@@ -21,8 +21,9 @@ export class SingleTrainingComponent implements OnInit {
 Singleformation:any={};
 
   constructor(private MentorDataService: MentorDataService, private route1: Router, private toastr: ToastrService, private route: ActivatedRoute, private PublicDataService: PublicDataService, private StudentDataService: StudentDataService) { }
-
+loader=true
   ngOnInit(): void {
+    window.scrollTo(0,0)
     this.id = this.route.snapshot.params['id'];
     this.auth = this.PublicDataService.getLoginState();
     this.role = this.PublicDataService.getRole();
@@ -44,8 +45,7 @@ getFormationById(){
         this.Singleformation = res
         this.Singleformation=this.Singleformation.formation
         this.date=this.Singleformation.date
-        console.log(this.Singleformation)
-
+        this.loader=false
       })
 }
 

@@ -44,6 +44,7 @@ export class MyProfilComponent implements OnInit {
     this.time$ = this.PublicDataService.getDate();
   }
   ngOnInit(): void {
+    window.scrollTo(0,0);
     this.clock = this.PublicDataService.getClock();
     this.token = this.PublicDataService.getToken();
     this.loggeduser = this.PublicDataService.getUser(this.token);

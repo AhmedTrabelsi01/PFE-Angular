@@ -19,6 +19,7 @@ import { BacklogComponent } from './scrum/backlog/backlog.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 
 import {MatDialogModule} from '@angular/material/dialog';
+import { EditSprintComponent } from './scrum/edit-sprint/edit-sprint.component';
 @NgModule({
   declarations: [
     AllProjectsComponent,
@@ -29,7 +30,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     SingleTrainingComponent,
     SprintsComponent,
     BoardsComponent,
-    BacklogComponent
+    BacklogComponent,
+    EditSprintComponent
   ],
   imports: [
     projectRoutingModule,

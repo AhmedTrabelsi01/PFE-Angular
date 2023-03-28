@@ -12,8 +12,22 @@
     </div><!-- Container end -->
   </div><!-- Banner text end -->
 </div>
+<div *ngIf="loader==true">
+    <div class="loader-overlay">
+        <div *ngIf="loader==true" class="loader"></div>
+    </div>
+</div>
 
-<div class="rpsbox container ">
+
+
+
+
+
+
+
+
+
+<div class="rpsbox container " *ngIf="loader==false">
 	<div class="d-flex flex-row  ">
 
 		<button class="btn_retour ms-3  " routerLink="/formations"><a>🢀 Back</a></button>

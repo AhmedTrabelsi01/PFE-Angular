@@ -12,10 +12,12 @@
     </div><!-- Container end -->
   </div><!-- Banner text end -->
 </div>
-<div class="col-md-12" *ngIf="loader==true">
-  <div class="loader20">Loading...</div>
-</div>
 
+<div *ngIf="loader==true">
+  <div class="loader-overlay">
+    <div *ngIf="loader==true" class="loader"></div>
+  </div>
+</div>
 
 <div class="tout_singel" *ngIf="loader==false">
   <div class="mb-md-5">

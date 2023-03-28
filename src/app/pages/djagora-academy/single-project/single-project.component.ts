@@ -52,7 +52,7 @@ export class SingleProjectComponent implements OnInit {
   constructor(private MentorDataService: MentorDataService, private route1: Router, private toastr: ToastrService, private route: ActivatedRoute, private PublicDataService: PublicDataService, private StudentDataService: StudentDataService) { }
 
   ngOnInit(): void {
-
+    window.scrollTo(0,0);
     this.id = this.route.snapshot.params['id'];
     this.auth = this.PublicDataService.getLoginState();
     this.role = this.PublicDataService.getRole();
@@ -95,9 +95,7 @@ export class SingleProjectComponent implements OnInit {
     this.PublicDataService.getProjectById(this.id).subscribe(res => {
       this.data = res;
       this.SingleProject = this.data;
-      if(this.SingleProject){
-        this.loader=false
-       }
+     
       this.PublicDataService.getUserById(this.SingleProject.user_id).subscribe(res => {
         this.data = res;
         this.ProjectOwner = this.data;
@@ -121,9 +119,7 @@ export class SingleProjectComponent implements OnInit {
   getEdition() {
     this.PublicDataService.getedition(this.SingleProject.edition_id).subscribe(res => {
       this.edition = res;
-       if(this.edition){
-        this.loader=false
-       }
+     
     })
   }
 
