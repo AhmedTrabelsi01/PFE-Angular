@@ -58,12 +58,17 @@ export class StudentDataService {
 
   }
 
+  GetAccStud(id:any){
+    return this.httpClient.get('http://127.0.0.1:8000/api/getaccstud/'+id,{ headers: this.createHeader() });
+
+  }
+
 //---------pagination
 
   getPageByURL(link:any) {
     return this.httpClient.get(link);
   }
  
-  
+
  
 }

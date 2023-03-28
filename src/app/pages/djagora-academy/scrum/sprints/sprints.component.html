@@ -22,13 +22,11 @@ style="background-image:url(assets/img/contact.jpg);margin-top: 8%;margin-bottom
 
 
 <div class="container">
-    <button class="btn btn-primary mb-3"  >+ Add sprint</button>
 
     <div class="row justify-content-center">
         <div class="col-lg-6">
-            <div class="card card-margin">
+            <div class="card card-margin" *ngFor="let sprint of sprints">
                 <div class="card-header no-border">
-                    <h5 class="card-title">Sprint</h5>
                 </div>
                 <div class="card-body pt-0">
                     <div class="widget-49">
@@ -37,8 +35,7 @@ style="background-image:url(assets/img/contact.jpg);margin-top: 8%;margin-bottom
                                 <span class="widget-49-date-day">1</span>
                             </div>
                             <div class="widget-49-meeting-info">
-                                <span class="widget-49-pro-title">PRO-08235 DeskOpe. Website</span>
-                                <span class="widget-49-meeting-time">12:00 to 13.30 Hrs</span>
+                                <h4 >{{sprint.name}}</h4>
                             </div>
                             
                         </div>
@@ -48,105 +45,14 @@ style="background-image:url(assets/img/contact.jpg);margin-top: 8%;margin-bottom
                             <li class="widget-49-meeting-item"><span>Session timeout increase to 30 minutes</span></li>
                         </ol>
                         <div class="widget-49-meeting-action">
-                            <button class="btn btn-warning">edit </button>
+                            <button class="btn btn-warning" [routerLink]='["/editsprint",sprint.id]'>edit </button>
                             <button  class="btn btn-dark ml-2 btn-flash-border-primary" routerLink="/boards">Check board</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-6">
-            <div class="card card-margin">
-                <div class="card-header no-border">
-                    <h5 class="card-title">Sprint</h5>
-                </div>
-                <div class="card-body pt-0">
-                    <div class="widget-49">
-                        <div class="widget-49-title-wrapper">
-                            <div class="widget-49-date-warning">
-                                <span class="widget-49-date-day">2</span>
-                            </div>
-                            <div class="widget-49-meeting-info">
-                                <span class="widget-49-pro-title">PRO-08235 Lexa Corp.</span>
-                                <span class="widget-49-meeting-time">12:00 to 13.30 Hrs</span>
-                            </div>
-                        </div>
-                        <ol class="widget-49-meeting-points">
-                            <li class="widget-49-meeting-item"><span>Scheming module is removed</span></li>
-                            <li class="widget-49-meeting-item"><span>App design contract confirmed</span></li>
-                            <li class="widget-49-meeting-item"><span>Client request to send invoice</span></li>
-                        </ol>
-                        <div class="widget-49-meeting-action">
-                            <button class="btn btn-warning">edit </button>
-                            <button  class="btn btn-dark ml-2 btn-flash-border-primary" routerLink="/boards">Check board</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-    </div>
-    <div class="row justify-content-center" >
-        <div class="col-lg-6">
-            <div class="card card-margin">
-                <div class="card-header no-border">
-                    <h5 class="card-title">Sprint</h5>
-                </div>
-                <div class="card-body pt-0">
-                    <div class="widget-49">
-                        <div class="widget-49-title-wrapper">
-                            <div class="widget-49-date-primary">
-                                <span class="widget-49-date-day">3</span>
-                                <span class="widget-49-date-month">apr</span>
-                            </div>
-                            <div class="widget-49-meeting-info">
-                                <span class="widget-49-pro-title">PRO-08235 DeskOpe. Website</span>
-                                <span class="widget-49-meeting-time">12:00 to 13.30 Hrs</span>
-                            </div>
-                        </div>
-                        <ol class="widget-49-meeting-points">
-                            <li class="widget-49-meeting-item"><span>Expand module is removed</span></li>
-                            <li class="widget-49-meeting-item"><span>Data migration is in scope</span></li>
-                            <li class="widget-49-meeting-item"><span>Session timeout increase to 30 minutes</span></li>
-                        </ol>
-                        <div class="widget-49-meeting-action">
-                            <button class="btn btn-warning">edit </button>
-                            <button  class="btn btn-dark ml-2 btn-flash-border-primary" routerLink="/boards">Check board</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-6">
-            <div class="card card-margin">
-                <div class="card-header no-border">
-                    <h5 class="card-title">Sprint</h5>
-                </div>
-                <div class="card-body pt-0">
-                    <div class="widget-49">
-                        <div class="widget-49-title-wrapper">
-                            <div class="widget-49-date-warning">
-                                <span class="widget-49-date-day">4</span>
-                            </div>
-                            <div class="widget-49-meeting-info">
-                                <span class="widget-49-pro-title">PRO-08235 Lexa Corp.</span>
-                                <span class="widget-49-meeting-time">12:00 to 13.30 Hrs</span>
-                            </div>
-                        </div>
-                        <ol class="widget-49-meeting-points">
-                            <li class="widget-49-meeting-item"><span>Scheming module is removed</span></li>
-                            <li class="widget-49-meeting-item"><span>App design contract confirmed</span></li>
-                            <li class="widget-49-meeting-item"><span>Client request to send invoice</span></li>
-                        </ol>
-                        <div class="widget-49-meeting-action">
-                            <button class="btn btn-warning" routerLink="/editsprint">edit </button>
-                            <button  class="btn btn-dark ml-2 btn-flash-border-primary" routerLink="/boards">Check board</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+       
     </div>
 
 

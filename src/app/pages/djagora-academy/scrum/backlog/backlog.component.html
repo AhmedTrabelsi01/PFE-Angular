@@ -1,16 +1,16 @@
 <div id="banner-area" class="banner-area"
-style="background-image:url(assets/img/contact.jpg);margin-top: 8%;margin-bottom: 3%;">
-<div class="banner-text">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="banner-heading">
-          <h1 class="banner-title">Backlog</h1>
-        </div>
-      </div><!-- Col end -->
-    </div><!-- Row end -->
-  </div><!-- Container end -->
-</div><!-- Banner text end -->
+  style="background-image:url(assets/img/contact.jpg);margin-top: 8%;margin-bottom: 3%;">
+  <div class="banner-text">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="banner-heading">
+            <h1 class="banner-title">Backlog</h1>
+          </div>
+        </div><!-- Col end -->
+      </div><!-- Row end -->
+    </div><!-- Container end -->
+  </div><!-- Banner text end -->
 </div><!-- Banner area end -->
 
 <div class="titre">
@@ -18,94 +18,75 @@ style="background-image:url(assets/img/contact.jpg);margin-top: 8%;margin-bottom
   <h1 name="1">User stories</h1>
 </div>
 
-<div class="example-container">
-    <h2>To do</h2>
-  
-    <div
-      cdkDropList
-      #todoList="cdkDropList"
-      [cdkDropListData]="todo"
-      [cdkDropListConnectedTo]="[doneList]"
-      class="example-list"
-      (cdkDropListDropped)="drop($event)">
-      <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
-    </div>
-  </div>
-  
-  <div class="example-container">
-    <h2>Done</h2>
-  
-    <div
-      cdkDropList
-      #doneList="cdkDropList"
-      [cdkDropListData]="done"
-      [cdkDropListConnectedTo]="[todoList]"
-      class="example-list"
-      (cdkDropListDropped)="drop($event)">
-      <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
-    </div>
-  </div>
-  
-  
-  
+
+
 
 <!-- Main Body -->
 <section>
-    <div class="container">
-        <button routerLink="/sprint" class="btn btn-primary" >Sprints</button>
+  <div class="container">
+    <button [routerLink]='["/sprint",id]' class="btn btn-primary col-md-1  ">Sprints</button>
+    <p style="background-color: rgb(213, 211, 211); border-radius: 5px;" class="col-md-2 py-1 my-2">scrm master</p>
 
-        <div class="row">
-            
-            <div class="col-sm-5 col-md-7 col-12 pb-4">
-                <div class="comment mt-4 text-justify float-left">
-                        <h4 style="color: #0081c2;" >Jhon Doe</h4>
-                        <span> | 20 October, 2018</span>
-                   
-                    <br>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
-                </div>
-                <div class="text-justify darker mt-4 float-right">
-                    <h4 style="color: #0081c2;">Rob Simpson</h4>
-                    <span> | 20 October, 2018</span>
-                    <br>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
-                </div>
-                <div class="comment mt-4 text-justify">
-                    <h4 style="color: #0081c2;"> Jhon Doe</h4>
-                    <span> | 20 October, 2018</span>
-                    <br>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
-                </div>
-                <div class="darker mt-4 text-justify">
-                    <h4 style="color: #0081c2;">Rob Simpson</h4>
-                    <span> | 20 October, 2018</span>
-                    <br>
-                    <p >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">
-                <form id="algin-form">
-                    <div class="form-group">
-                        <h4>Add user story</h4>
-                        <label for="name">Name</label>
-                        <input type="text" name="name" id="fullname" class="form-control">
-                    
-                        </div>
-                        <div class="form-group">
-                            <label for="name">Deadline</label>
-                            <input type="date" name="name" id="fullname" class="form-control">
-                        
-                            </div>
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea name="msg" id=""msg cols="30" rows="5" class="form-control" ></textarea>
-                    </div>
-              
-                    <div class="form-group">
-                        <button type="button" id="post" class="btn ">Submit</button>
-                    </div>
-                </form>
-            </div>
+
+
+
+    <div class="row">
+
+      <div class="col-sm-5 col-md-7 col-12 pb-4">
+        <div class="comment  mt-4 col-md-12 text-justify float-left" *ngFor="let story of userStories" >
+          <h4 style="color: #0081c2;">{{story.name}}</h4>
+          <span> | {{story.estimated_date}}</span>
+
+          <br>
+          <p>{{story.description}}</p>
         </div>
+      
+      </div>
+      <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">
+
+        <form id="algin-form" [formGroup]="userStoryForm">
+          <div class="form-group">
+            <h4>Add user story</h4>
+            <label for="name">Title</label>
+            <input type="text" name="name" id="fullname" formControlName="name" class="form-control" placeholder="Title...">
+
+          </div>
+          <div class="form-group">
+            <label for="name">Estimated date</label>
+            <input type="date" name="name" id="fullname" formControlName="estimated_date" class="form-control" placeholder="date...">
+
+          </div>
+          <div class="form-group">
+            <label for="name">Priority</label>
+            <input type="number" max="10" name="name" id="fullname" formControlName="priority" class="form-control">
+
+          </div>
+
+          <div class="form-group">
+            <label for="name" >Ressource</label>
+            <select name="" id="" class="form-control" formControlName="ressource">
+              <option  *ngFor="let stud of students" value="{{stud.id}}">{{stud.name}}</option>
+             
+
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="name">Actor</label>
+            <input type="text" name="name" formControlName="actor" id="fullname" class="form-control" placeholder="Actor...">
+
+          </div>
+
+          <div class="form-group">
+            <label for="message">Description</label>
+            <textarea name="msg" id="" msg cols="30" formControlName="description" rows="5" class="form-control" placeholder="Description..."></textarea>
+          </div>
+
+          <div class="form-group">
+            <button type="button" id="post" class="btn " (click)="onSubmit()">Submit</button>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
 </section>

@@ -48,7 +48,7 @@
             
             <div class="postcard__text t-dark">
               <p class=" d-flex flex-row-reverse read-more" style="margin-bottom: -4%;" >
-                <a routerLink="/backlog" >Backlog</a>
+                <a [routerLink]='["/backlog",SingleProject.id]'>Backlog</a>
               </p>
                 <h1 class="postcard__title yellow"><a href="#"><b>{{SingleProject.title}}</b></a></h1>
                

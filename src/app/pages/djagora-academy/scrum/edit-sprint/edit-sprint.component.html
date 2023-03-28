@@ -23,6 +23,24 @@ style="background-image:url(assets/img/contact.jpg);margin-top: 8%;margin-bottom
 
 
 
+<div class="example-container">
+  <h2>To do</h2>
+
+  <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="todo" [cdkDropListConnectedTo]="[doneList]"
+    class="example-list" (cdkDropListDropped)="drop($event)">
+    <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
+  </div>
+</div>
+
+<div class="example-container">
+  <h2>Done</h2>
+
+  <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="done" [cdkDropListConnectedTo]="[todoList]"
+    class="example-list" (cdkDropListDropped)="drop($event)">
+    <div class="example-box" *ngFor="let item of done" cdkDrag>{{item}}</div>
+  </div>
+</div>
+
 
 
 
@@ -42,22 +60,22 @@ style="background-image:url(assets/img/contact.jpg);margin-top: 8%;margin-bottom
               <div class="row justify-content-center">
                 <div class="col-md-4 mb-4 mx-4">
                   <label for="validationServer01">Title</label>
-                  <input formControlName="title" type="text" class="form-control p-3" id="validationServer01"
+                  <input  type="text" class="form-control p-3" id="validationServer01"
                     placeholder="Project title">
                 </div>
                 <div class="col-md-4     mb-4 mx-4 ">
                   <label for="validationServer02">Domain</label>
-                  <input type="text" formControlName="domain" class="form-control p-3" placeholder="Domain" required>
+                  <input type="text"  class="form-control p-3" placeholder="Domain" required>
                 </div>
               </div>
               <div class="row justify-content-center">
                 <div class="col-md-4 mb-4 mx-4">
                   <label for="validationServer04">Image</label>
-                  <input  formControlName="img" type="file" class="form-control p-1" id="validationServer04" required>
+                  <input   type="file" class="form-control p-1" id="validationServer04" required>
                 </div>
                 <div class="col-md-4 mb-4 mx-4">
                   <label for="validationServer03">Nombre de stagaires</label>
-                  <input type="number" formControlName="nb_stagaires" class="form-control p-3"
+                  <input type="number"  class="form-control p-3"
                     placeholder="Nombre de stagaires..." required>
                 </div>
               </div>
@@ -69,67 +87,47 @@ style="background-image:url(assets/img/contact.jpg);margin-top: 8%;margin-bottom
             </form>
           </div>
         <div class="row">
-            
-            <div class="col-sm-5 col-md-6 col-12 pb-4">
-                <div class="comment mt-4 text-justify float-left">
-                        <h4 style="color: #0081c2;" >Jhon Doe</h4>
-                        <span> | 20 October, 2018</span>
-                   
-                    <br>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
-                </div>
-                <div class="text-justify darker mt-4 float-right">
-                    <h4 style="color: #0081c2;">Rob Simpson</h4>
-                    <span> | 20 October, 2018</span>
-                    <br>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
-                </div>
-                <div class="comment mt-4 text-justify">
-                    <h4 style="color: #0081c2;"> Jhon Doe</h4>
-                    <span> | 20 October, 2018</span>
-                    <br>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
-                </div>
-                <div class="darker mt-4 text-justify">
-                    <h4 style="color: #0081c2;">Rob Simpson</h4>
-                    <span> | 20 October, 2018</span>
-                    <br>
-                    <p >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus numquam assumenda hic aliquam vero sequi velit molestias doloremque molestiae dicta?</p>
-                </div>
+          <div class="col-sm-5 col-md-6 col-12 pb-4">
+            <div class="comment  mt-4 col-md-12 text-justify float-left" *ngFor="let story of userStories" >
+              <h4 style="color: #0081c2;">{{story.name}}</h4>
+              <span> | {{story.estimated_date}}</span>
+    
+              <br>
+              <p>{{story.description}}</p>
             </div>
+          
+          </div>
             <div class="col-lg-6 col-md-5 col-sm-4  col-12 mt-4">
                 <div class="">
 
                     <div class="row  ">
                         <div class="">
-                            <div class="card card-margin">
-                                <div class="card-header no-border">
-                                    <h5 class="card-title">Sprint</h5>
-                                </div>
-                                <div class="card-body pt-0">
-                                    <div class="widget-49">
-                                        <div class="widget-49-title-wrapper">
-                                            <div class="widget-49-date-primary">
-                                                <span class="widget-49-date-day">1</span>
-                                            </div>
-                                            <div class="widget-49-meeting-info">
-                                                <span class="widget-49-pro-title">PRO-08235 DeskOpe. Website</span>
-                                                <span class="widget-49-meeting-time">12:00 to 13.30 Hrs</span>
-                                            </div>
-                                            
+                          <div class="card card-margin" >
+                            <div class="card-header no-border">
+                            </div>
+                            <div class="card-body pt-0">
+                                <div class="widget-49">
+                                    <div class="widget-49-title-wrapper">
+                                        <div class="widget-49-date-primary">
+                                            <span class="widget-49-date-day">1</span>
                                         </div>
-                                        <ol class="widget-49-meeting-points">
-                                            <li class="widget-49-meeting-item"><span>Expand module is removed</span></li>
-                                            <li class="widget-49-meeting-item"><span>Data migration is in scope</span></li>
-                                            <li class="widget-49-meeting-item"><span>Session timeout increase to 30 minutes</span></li>
-                                        </ol>
-                                        <div class="widget-49-meeting-action">
-                                            <button class="btn btn-warning">edit </button>
-                                            <button  class="btn btn-dark ml-2 btn-flash-border-primary" routerLink="/boards">Check board</button>
+                                        <div class="widget-49-meeting-info">
+                                            <h4 >{{sprint.name}}</h4>
                                         </div>
+                                        
+                                    </div>
+                                    <ol class="widget-49-meeting-points">
+                                        <li class="widget-49-meeting-item"><span>Expand module is removed</span></li>
+                                        <li class="widget-49-meeting-item"><span>Data migration is in scope</span></li>
+                                        <li class="widget-49-meeting-item"><span>Session timeout increase to 30 minutes</span></li>
+                                    </ol>
+                                    <div class="widget-49-meeting-action">
+                                        <button class="btn btn-warning" [routerLink]='["/editsprint",sprint.id]'>edit </button>
+                                        <button  class="btn btn-dark ml-2 btn-flash-border-primary" routerLink="/boards">Check board</button>
                                     </div>
                                 </div>
                             </div>
+                        </div>
                         </div>
                       
                         

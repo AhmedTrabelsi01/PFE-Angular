@@ -17,10 +17,10 @@ const routes: Routes = [
   { path: 'team/:id', component: FinishedProjectComponent },
   { path: 'AddProject', component: AddProjectDjagoraAcadimyComponent },
   { path: 'formations', component: FormationsComponent },
-  { path: 'editsprint', component: EditSprintComponent },
-  { path: 'sprint', component: SprintsComponent },
+  { path: 'editsprint/:id', component: EditSprintComponent },
+  { path: 'sprint/:id', component: SprintsComponent },
   { path: 'boards', component:BoardsComponent },
-  { path: 'backlog', component:BacklogComponent },
+  { path: 'backlog/:id', component:BacklogComponent },
   { path: 'singletraining/:id', component: SingleTrainingComponent },
 
 ];

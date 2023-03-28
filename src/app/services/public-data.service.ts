@@ -278,6 +278,8 @@ export class PublicDataService {
 
   }
 
+  
+
   getClock() : Observable<Date> {
     return interval(1000).pipe(
       mergeMap(() => of(new Date()))
@@ -317,4 +319,23 @@ export class PublicDataService {
   }
 
 
+/***********user stories */
+
+  addUserStory(data:any){
+    return this.httpClient.post('http://127.0.0.1:8000/api/addUserStory',data);
+
+  }
+
+  getUserStories(id:any){
+    return this.httpClient.get('http://127.0.0.1:8000/api/getAllUserStoriesByProj/' + id, { headers: this.createHeader() });
+  }
+
+  /*****************sprints */
+
+  getSprints(id:any){
+    return this.httpClient.get('http://127.0.0.1:8000/api/getSprintByProject/' + id, { headers: this.createHeader() });
+  }
+  getSprintByID(id:any){
+    return this.httpClient.get('http://127.0.0.1:8000/api/getSprintByid/' + id, { headers: this.createHeader() });
+  }
 }
