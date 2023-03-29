@@ -49,12 +49,11 @@ students:any=[];
   getAcceptedStudents(){
     this.StudentDataService.GetAccStud(this.id).subscribe(res=>{
       this.students=res;
-      this.loader=false;
    })
   }
 
   getUserStories(){
-    this.PublicDataService.getUserStories(this.id).subscribe(res=>{
+    this.PublicDataService.getUserStoriesByProj(this.id).subscribe(res=>{
       this.userStories=res;
       this.loader=false
    })

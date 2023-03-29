@@ -22,35 +22,41 @@ style="background-image:url(assets/img/contact.jpg);margin-top: 8%;margin-bottom
 
 
 <div class="container">
-
-    <div class="row justify-content-center">
-        <div class="col-lg-6">
-            <div class="card card-margin" *ngFor="let sprint of sprints">
-                <div class="card-header no-border">
-                </div>
-                <div class="card-body pt-0">
-                    <div class="widget-49">
-                        <div class="widget-49-title-wrapper">
-                            <div class="widget-49-date-primary">
-                                <span class="widget-49-date-day">1</span>
+    <div class="btn_retour mb-3">
+        <button [routerLink]='["/backlog",id]'><a>🢀 Back</a></button>
+      </div>
+    <div class="row ">
+       
+        <div class="col-lg-12">
+            <div class="wrapper1" >
+                <div class="card card-margin col-lg-12" *ngFor="let sprint of sprints">
+                    <div class="card-header no-border">
+                    </div>
+                    <div class="card-body pt-0">
+                        <div class="widget-49">
+                            <div class="widget-49-title-wrapper">
+                                <div class="widget-49-date-primary">
+                                    <span class="widget-49-date-day">1</span>
+                                </div>
+                                <div class="widget-49-meeting-info">
+                                    <h4 >{{sprint.name}}</h4>
+                                </div>
+                                
                             </div>
-                            <div class="widget-49-meeting-info">
-                                <h4 >{{sprint.name}}</h4>
+                            <ol class="widget-49-meeting-points">
+                                <li class="widget-49-meeting-item"><span>Expand module is removed</span></li>
+                                <li class="widget-49-meeting-item"><span>Data migration is in scope</span></li>
+                                <li class="widget-49-meeting-item"><span>Session timeout increase to 30 minutes</span></li>
+                            </ol>
+                            <div class="widget-49-meeting-action">
+                                <button class="btn btn-warning" [routerLink]='["/editsprint",sprint.id]'>edit </button>
+                                <button  class="btn btn-dark ml-2 btn-flash-border-primary" routerLink="/boards">Check board</button>
                             </div>
-                            
-                        </div>
-                        <ol class="widget-49-meeting-points">
-                            <li class="widget-49-meeting-item"><span>Expand module is removed</span></li>
-                            <li class="widget-49-meeting-item"><span>Data migration is in scope</span></li>
-                            <li class="widget-49-meeting-item"><span>Session timeout increase to 30 minutes</span></li>
-                        </ol>
-                        <div class="widget-49-meeting-action">
-                            <button class="btn btn-warning" [routerLink]='["/editsprint",sprint.id]'>edit </button>
-                            <button  class="btn btn-dark ml-2 btn-flash-border-primary" routerLink="/boards">Check board</button>
                         </div>
                     </div>
                 </div>
             </div>
+           
         </div>
        
     </div>

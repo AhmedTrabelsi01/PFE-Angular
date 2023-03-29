@@ -327,7 +327,14 @@ export class PublicDataService {
   }
 
   getUserStories(id:any){
+    return this.httpClient.get('http://127.0.0.1:8000/api/getnoneaffUserStories/' + id, { headers: this.createHeader() });
+  }
+  getUserStoriesByProj(id:any){
     return this.httpClient.get('http://127.0.0.1:8000/api/getAllUserStoriesByProj/' + id, { headers: this.createHeader() });
+  }
+
+  getAffUserStories(id:any){
+    return this.httpClient.get('http://127.0.0.1:8000/api/getafflUserStories/' + id, { headers: this.createHeader() });
   }
 
   /*****************sprints */
@@ -337,5 +344,11 @@ export class PublicDataService {
   }
   getSprintByID(id:any){
     return this.httpClient.get('http://127.0.0.1:8000/api/getSprintByid/' + id, { headers: this.createHeader() });
+  }
+  updateSprint(data:any){
+    return this.httpClient.post('http://127.0.0.1:8000/api/editsprint',data, { headers: this.createHeader() });
+  }
+  updateData(data:any){
+    return this.httpClient.post('http://127.0.0.1:8000/api/updatearrays',data, { headers: this.createHeader() });
   }
 }

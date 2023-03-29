@@ -31,7 +31,6 @@ sprints:any=[];
   getSprints(){
     this.PublicDataService.getSprints(this.id).subscribe(res=>{
       this.sprints=res;
-      console.log(this.sprints)
       this.loader=false;
    })
   }
