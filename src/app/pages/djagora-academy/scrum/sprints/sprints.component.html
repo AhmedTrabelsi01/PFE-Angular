@@ -19,7 +19,11 @@ style="background-image:url(assets/img/contact.jpg);margin-top: 8%;margin-bottom
     <h1 name="1">project name</h1>
 </div>
 
-
+<div *ngIf="loader==true">
+    <div class="loader-overlay">
+        <div *ngIf="loader==true" class="loader"></div>
+    </div>
+  </div>
 
 <div class="container">
     <div class="btn_retour mb-3">
@@ -29,14 +33,14 @@ style="background-image:url(assets/img/contact.jpg);margin-top: 8%;margin-bottom
        
         <div class="col-lg-12">
             <div class="wrapper1" >
-                <div class="card card-margin col-lg-12" *ngFor="let sprint of sprints">
+                <div class="card card-margin col-lg-12" *ngFor="let sprint of sprints ;let i=index">
                     <div class="card-header no-border">
                     </div>
                     <div class="card-body pt-0">
                         <div class="widget-49">
                             <div class="widget-49-title-wrapper">
                                 <div class="widget-49-date-primary">
-                                    <span class="widget-49-date-day">1</span>
+                                    <span class="widget-49-date-day">{{i}}</span>
                                 </div>
                                 <div class="widget-49-meeting-info">
                                     <h4 >{{sprint.name}}</h4>
@@ -44,9 +48,10 @@ style="background-image:url(assets/img/contact.jpg);margin-top: 8%;margin-bottom
                                 
                             </div>
                             <ol class="widget-49-meeting-points">
-                                <li class="widget-49-meeting-item"><span>Expand module is removed</span></li>
-                                <li class="widget-49-meeting-item"><span>Data migration is in scope</span></li>
-                                <li class="widget-49-meeting-item"><span>Session timeout increase to 30 minutes</span></li>
+                                <li *ngIf="sprint.startDate" class="widget-49-meeting-item"><span>Start date: {{sprint.startDate}} </span></li>
+                                <li *ngIf="sprint.endDate" class="widget-49-meeting-item"><span>End date: {{sprint.endDate}} </span></li>
+                                <li *ngIf="!sprint.startDate" class="widget-49-meeting-item"><span>No start date yet</span></li>
+                                <li *ngIf="!sprint.endDate" class="widget-49-meeting-item"><span>No end date yet </span></li>
                             </ol>
                             <div class="widget-49-meeting-action">
                                 <button class="btn btn-warning" [routerLink]='["/editsprint",sprint.id]'>edit </button>

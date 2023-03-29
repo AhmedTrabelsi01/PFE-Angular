@@ -70,7 +70,7 @@ style="background-image:url(assets/img/contact.jpg);margin-top: 8%;margin-bottom
           (cdkDropListDropped)="drop($event)">
           <h2 class="my-4" style="color: #0081c2;" >Pending user stories</h2>
          
-            <div class="comment   col-md-12 text-justify float-left" *ngFor="let story of userStories" cdkDrag>
+            <div class="comment   col-md-12 text-justify float-left mb-4" *ngFor="let story of userStories" cdkDrag>
               <h4 style="color: #0081c2;">{{story.name}}</h4>
               <span> | {{story.estimated_date}}</span>
     
@@ -111,9 +111,10 @@ style="background-image:url(assets/img/contact.jpg);margin-top: 8%;margin-bottom
                                         
                                     </div>
                                     <ol class="widget-49-meeting-points">
-                                        <li class="widget-49-meeting-item"><span>Expand module is removed</span></li>
-                                        <li class="widget-49-meeting-item"><span>Data migration is in scope</span></li>
-                                        <li class="widget-49-meeting-item"><span>Session timeout increase to 30 minutes</span></li>
+                                      <li *ngIf="sprint.startDate" class="widget-49-meeting-item"><span>Start date: {{sprint.startDate}} </span></li>
+                                      <li *ngIf="sprint.endDate" class="widget-49-meeting-item"><span>End date: {{sprint.endDate}} </span></li>
+                                      <li *ngIf="!sprint.startDate" class="widget-49-meeting-item"><span>No start date yet</span></li>
+                                      <li *ngIf="!sprint.endDate" class="widget-49-meeting-item"><span>No end date yet </span></li>
                                     </ol>
                                     <div class="widget-49-meeting-action">
                                         <button  class="btn btn-dark ml-2 btn-flash-border-primary" routerLink="/boards">Check board</button>
