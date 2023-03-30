@@ -30,21 +30,22 @@
   <div class="container">
     <button [routerLink]='["/sprint",id]' class="btn  col-md-1  "
       style="color: white;background-color:#0081c2;">Sprints</button>
-    <span *ngIf="scrumMaster!=null" class="badge badge-dark" style="margin-left: 70%;">
+
+    <span *ngIf="scrumMaster!=null" class="badge badge-while" style="margin-left: 50%;">
       <div class="row" >
-        <img [src]="imgpath+scrumMaster.img" alt="">
-        <h6  >{{scrumMaster.name}}</h6>
+        <img [src]="imgpath+scrumMaster.img" alt="" style="border-radius: 100%; width:30%;"  >
+        <h6  style="color: black;">Scrum Master: <b>{{scrumMaster.name}}</b></h6>
       </div>
-     
+
 
     </span>
     <span *ngIf="scrumMaster==null" class="badge badge-dark" style="margin-left: 70%;">
       <h6  >No scrum master yet</h6>
 
     </span>
+    <button class="btn mx-1  " style=" margin-left: 70%;" id="myBtn" onclick="popup()"
+    style="color: white;background-color: #0081c2;">+</button>
 
-    <button class="btn mx-1 mt-1 " id="myBtn" onclick="popup()"
-      style="color: white;background-color: #0081c2;">+</button>
 
     <div id="myModal" class="modal">
 
@@ -74,7 +75,7 @@
 
 
               </form>
-              
+
             </div>
           </div>
           <div style="margin-left:83%;" class="my-2" ><button class="btn btn-primary " (click)="updateScrumMaster()">submit</button></div>
