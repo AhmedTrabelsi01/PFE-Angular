@@ -10,6 +10,7 @@ import { SprintsComponent } from './scrum/sprints/sprints.component';
 import { BoardsComponent } from './scrum/boards/boards.component';
 import { BacklogComponent } from './scrum/backlog/backlog.component';
 import { EditSprintComponent } from './scrum/edit-sprint/edit-sprint.component';
+import { EditBacklogComponent } from './scrum/backlog/edit-backlog/edit-backlog.component';
 const routes: Routes = [
   //project
   { path: '', component: AllProjectsComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'boards', component:BoardsComponent },
   { path: 'backlog/:id', component:BacklogComponent },
   { path: 'singletraining/:id', component: SingleTrainingComponent },
+  { path: 'editBacklog/:id', component:EditBacklogComponent},
 
 ];
 
