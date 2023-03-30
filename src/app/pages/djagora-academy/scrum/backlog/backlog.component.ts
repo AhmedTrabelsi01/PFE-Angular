@@ -4,6 +4,8 @@ import { PublicDataService } from 'src/app/services/public-data.service';
 import { ActivatedRoute } from '@angular/router';
 import { StudentDataService } from 'src/app/services/student-data.service';
 import { ToastrService } from 'ngx-toastr';
+declare function popup():any ;
+
 @Component({
   selector: 'app-backlog',
   templateUrl: './backlog.component.html',
@@ -16,8 +18,11 @@ loggeduser:any={};
 auth:any;
 role:any;
 error:any;
+imgpath: any = 'http://127.0.0.1:8000/storage/post/'//image path laravel
 id:any;
+scrumMaster:any={};
 loader=true
+form_value:any;
 userStories:any=[];
 students:any=[];
   constructor( private toastr:ToastrService, private StudentDataService:StudentDataService,private route:ActivatedRoute,private PublicDataService:PublicDataService) { }
@@ -32,6 +37,9 @@ students:any=[];
 
 
 });
+scrumForm = new FormGroup({
+  etudiant: new FormControl("",Validators.required),
+  });
 
   ngOnInit(): void {
     window.scrollTo(0,0)
@@ -43,6 +51,8 @@ students:any=[];
     this.auth=this.PublicDataService.getLoginState();
     this.getAcceptedStudents();
     this.getUserStories();
+    this.getScrumMaster();
+    popup()
   }
   
 
@@ -79,5 +89,24 @@ students:any=[];
      }
      this.getUserStories()
   })
+}
+
+updateScrumMaster(){
+  this.form_value=this.scrumForm.value
+  
+  let formdata = new FormData();
+  formdata.append('master',this.form_value.etudiant)
+  formdata.append('project_id',this.id)
+
+  this.PublicDataService.updateScrumMaster(formdata).subscribe(res=>{
+    window.location.reload()
+ })
+}
+
+getScrumMaster(){
+  
+  this.PublicDataService.getScrumMaster(this.id).subscribe(res=>{
+    this.scrumMaster=res;
+ })
 }
 }

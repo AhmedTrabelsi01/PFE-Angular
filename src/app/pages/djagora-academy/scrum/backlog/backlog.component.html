@@ -21,43 +21,98 @@
 
 <div *ngIf="loader==true">
   <div class="loader-overlay">
-      <div *ngIf="loader==true" class="loader"></div>
+    <div *ngIf="loader==true" class="loader"></div>
   </div>
 </div>
 
 <!-- Main Body -->
 <section>
   <div class="container">
-    <button [routerLink]='["/sprint",id]' class="btn btn-primary col-md-1  ">Sprints</button>
-    <p style="background-color: rgb(213, 211, 211); border-radius: 5px;" class="col-md-2 py-1 my-2">scrm master</p>
+    <button [routerLink]='["/sprint",id]' class="btn  col-md-1  "
+      style="color: white;background-color:#0081c2;">Sprints</button>
+    <span *ngIf="scrumMaster!=null" class="badge badge-dark" style="margin-left: 70%;">
+      <div class="row" >
+        <img [src]="imgpath+scrumMaster.img" alt="">
+        <h6  >{{scrumMaster.name}}</h6>
+      </div>
+     
+
+    </span>
+    <span *ngIf="scrumMaster==null" class="badge badge-dark" style="margin-left: 70%;">
+      <h6  >No scrum master yet</h6>
+
+    </span>
+
+    <button class="btn mx-1 mt-1 " id="myBtn" onclick="popup()"
+      style="color: white;background-color: #0081c2;">+</button>
+
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="modal-body mb-0 pb-0 mt-0">
+          <div class="container ">
+            <!-- custom radio button -->
+            <div class="holder">
+              <div class="row mb-1 ">
+                <div class="col ">
+                  <h3 style="color: #0081c2;">Select Scrum master</h3>
+                </div>
+              </div>
+              <form class="customRadio customCheckbox m-0 p-0 my-4" [formGroup]="scrumForm">
+                <div class="row mb-0">
+                  <div class=" justify-content-center">
+                        <select  name="" id="" class="custom-select" formControlName="etudiant">
+                          <option *ngFor="let stud of students" value="{{stud.id}}">{{stud.name}}</option>
 
 
+                        </select>
 
+                  </div>
+                </div>
+
+
+              </form>
+              
+            </div>
+          </div>
+          <div style="margin-left:83%;" class="my-2" ><button class="btn btn-primary " (click)="updateScrumMaster()">submit</button></div>
+
+        </div>
+
+        <!-- Modal footer -->
+
+      </div>
+
+    </div>
 
     <div class="row">
 
       <div class="col-sm-5 col-md-7 col-12 pb-4">
-        <div class="comment  mt-4 col-md-12 text-justify float-left" *ngFor="let story of userStories" >
+        <div class="comment  mt-4 col-md-12 text-justify float-left" *ngFor="let story of userStories">
           <h4 style="color: #0081c2;">{{story.name}}</h4>
           <span> | {{story.estimated_date}}</span>
 
           <br>
           <p>{{story.description}}</p>
         </div>
-      
+
       </div>
       <div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">
 
         <form id="algin-form" [formGroup]="userStoryForm">
           <div class="form-group">
-            <h4>Add user story</h4>
+            <h4 style="color: #0081c2;" >Add user story</h4>
             <label for="name">Title</label>
-            <input type="text" name="name" id="fullname" formControlName="name" class="form-control" placeholder="Title...">
+            <input type="text" name="name" id="fullname" formControlName="name" class="form-control"
+              placeholder="Title...">
 
           </div>
           <div class="form-group">
             <label for="name">Estimated date</label>
-            <input type="date" name="name" id="fullname" formControlName="estimated_date" class="form-control" placeholder="date...">
+            <input type="date" name="name" id="fullname" formControlName="estimated_date" class="form-control"
+              placeholder="date...">
 
           </div>
           <div class="form-group">
@@ -67,23 +122,25 @@
           </div>
 
           <div class="form-group">
-            <label for="name" >Ressource</label>
-            <select name="" id="" class="form-control" formControlName="ressource">
-              <option  *ngFor="let stud of students" value="{{stud.id}}">{{stud.name}}</option>
-             
+            <label for="name">Ressource</label>
+            <select name="" id="" class="custom-select" formControlName="ressource">
+              <option *ngFor="let stud of students" value="{{stud.id}}">{{stud.name}}</option>
+
 
             </select>
           </div>
 
           <div class="form-group">
             <label for="name">Actor</label>
-            <input type="text" name="name" formControlName="actor" id="fullname" class="form-control" placeholder="Actor...">
+            <input type="text" name="name" formControlName="actor" id="fullname" class="form-control"
+              placeholder="Actor...">
 
           </div>
 
           <div class="form-group">
             <label for="message">Description</label>
-            <textarea name="msg" id="" msg cols="30" formControlName="description" rows="5" class="form-control" placeholder="Description..."></textarea>
+            <textarea name="msg" id="" msg cols="30" formControlName="description" rows="5" class="form-control"
+              placeholder="Description..."></textarea>
           </div>
 
           <div class="form-group">

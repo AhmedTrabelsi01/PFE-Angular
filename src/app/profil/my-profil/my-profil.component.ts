@@ -6,7 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { DayService, WeekService, WorkWeekService, MonthService, AgendaService, View, EventSettingsModel } from '@syncfusion/ej2-angular-schedule';
 import { DataManager, UrlAdaptor, Query, ODataV4Adaptor } from '@syncfusion/ej2-data';
 import { EMPTY, empty, Observable } from 'rxjs';
-
+declare function popup():any ;
 @Component({
   selector: 'app-my-profil',
   templateUrl: './my-profil.component.html',
@@ -59,6 +59,7 @@ export class MyProfilComponent implements OnInit {
     if (this.role != '1') {
       this.GetOwnedProjects();
     }
+    popup()
   }
 
   checkVoteAbility() {
