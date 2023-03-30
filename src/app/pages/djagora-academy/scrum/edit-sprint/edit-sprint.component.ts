@@ -106,7 +106,6 @@ newUserStories:any=[];
     formdata.append('end_date',this.newSprint.end_date)
     formdata.append('start_date',this.newSprint.start_date)
     formdata.append('name',this.newSprint.name);
-
     this.PublicDataService.updateSprint(formdata).subscribe(res=>{
     this.error=res;
     if(this.error.code==200){

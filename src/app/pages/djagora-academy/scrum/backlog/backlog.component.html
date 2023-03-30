@@ -28,31 +28,29 @@
 <!-- Main Body -->
 <section>
   <div class="container">
-  
-    <div class="row" >
-     
+
+    <div class="row">
+
       <button [routerLink]='["/sprint",id]' class="btn ml-3  col-md-auto  "
-      style="color: white;background-color:#0081c2;">Sprints</button>
-    <span *ngIf="scrumMaster!=null" class="badge  badge-dark col-md-auto" style="margin-left: 70%;" >
-      <div class="row "  >
-        <img [src]="imgpath+scrumMaster.img" alt="" style="width: 30%;border-radius:100%;" >
-        <h6 style="margin-top: -15%;" >{{scrumMaster.name}}</h6>
-      </div>
+        style="color: white;background-color:#0081c2;">Sprints</button>
+      <span *ngIf="scrumMaster!=null" class="badge  badge-dark col-md-auto ml-1"   >
+        <div class="row ">
+          <img [src]="imgpath+scrumMaster.img" alt="" style="width: 30%;border-radius:100%;">
+          <h6 style="margin-top: -15%;">{{scrumMaster.name}}</h6>
+        </div>
 
 
-    </span>
-    <span *ngIf="scrumMaster==null" class="badge badge-dark col-md-auto" style="margin-left: 80%;">
-      <h6  >No scrum master yet</h6>
+      </span>
+      <span *ngIf="scrumMaster==null" class="badge badge-dark col-md-auto" style="margin-left: 80%;">
+        <h6>No scrum master yet</h6>
 
-    </span>
-    <button class="btn mx-1  " style=" margin-left: 70%;" id="myBtn" onclick="popup()"
-    style="color: white;background-color: #0081c2;">+</button>
+      </span>
 
-    <button class="btn mx-1  col-md-auto w-20 "  id="myBtn" onclick="popup()"
-      style="color: white;background-color: #0081c2;">+</button>
+      <button class="btn mx-1  col-md-auto w-20 " id="myBtn" onclick="popup()"
+        style="color: white;background-color: #0081c2;">+</button>
 
     </div>
-    
+
     <div id="myModal" class="modal">
 
       <!-- Modal content -->
@@ -70,11 +68,11 @@
               <form class="customRadio customCheckbox m-0 p-0 my-4" [formGroup]="scrumForm">
                 <div class="row mb-0">
                   <div class=" justify-content-center">
-                        <select  name="" id="" class="custom-select" formControlName="etudiant">
-                          <option *ngFor="let stud of students" value="{{stud.id}}">{{stud.name}}</option>
+                    <select name="" id="" class="custom-select" formControlName="etudiant">
+                      <option *ngFor="let stud of students" value="{{stud.id}}">{{stud.name}}</option>
 
 
-                        </select>
+                    </select>
 
                   </div>
                 </div>
@@ -84,7 +82,8 @@
 
             </div>
           </div>
-          <div style="margin-left:83%;" class="my-2" ><button class="btn btn-primary " (click)="updateScrumMaster()">submit</button></div>
+          <div style="margin-left:83%;" class="my-2"><button class="btn btn-primary "
+              (click)="updateScrumMaster()">submit</button></div>
 
         </div>
 
@@ -98,14 +97,21 @@
 
       <div class="col-sm-5 col-md-7 col-12 pb-4">
         <div class="comment  mt-4 col-md-12 text-justify float-left" *ngFor="let story of userStories">
+          <button class="btn me-1" style="color: #0081c2;" [routerLink]="['/editBacklog',story.id]">
+            <i class="fas fa-edit"></i>
+          </button>
           <h4 style="color: #0081c2;">{{story.name}}</h4>
-          <span> | {{story.estimated_date}}</span>
+          <span> | {{story.estimated_date}} | </span>
+          <span class="badge badge-danger " *ngIf="story.priority<3" style="color: white;">Critical</span>
+          <span class="badge badge-warning" *ngIf="story.priority>3 && story.priority<6"
+            style="color: white;">Medium</span>
+          <span class="badge badge-info" *ngIf="story.priority>6" style="color: white;">Easy</span>
+
+       
 
           <br>
           <p>{{story.description}}</p>
-          <button class="btn me-1" style="color: white;background-color:orange;"[routerLink]="['/editBacklog',story.id]">
-            <i class="bi bi-pencil">EDIT</i>
-          </button>
+
         </div>
 
       </div>
@@ -113,7 +119,7 @@
 
         <form id="algin-form" [formGroup]="userStoryForm">
           <div class="form-group">
-            <h4 style="color: #0081c2;" >Add user story</h4>
+            <h4 style="color: #0081c2;">Add user story</h4>
             <label for="name">Title</label>
             <input type="text" name="name" id="fullname" formControlName="name" class="form-control"
               placeholder="Title...">

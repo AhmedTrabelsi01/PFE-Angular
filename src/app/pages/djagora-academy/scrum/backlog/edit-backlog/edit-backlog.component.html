@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="banner-heading">
-            <h1 class="banner-title">Edit UserStory : {{userStory.id_userstory}}</h1>
+            <h1 class="banner-title">Edit UserStory : {{userStory.project_id}}</h1>
           </div>
         </div><!-- Col end -->
       </div><!-- Row end -->
@@ -23,54 +23,80 @@
     <h1 name="1">{{userStory.name}}</h1>
 </div>
 
-<div class="col-lg-4 col-md-5 col-sm-4 offset-md-1 offset-sm-1 col-12 mt-4">
+<div class="container">
     <div class="btn_retour mb-3">
         <button [routerLink]='["/backlog",userStory.project_id]'><a>🢀 Back</a></button>
     </div>
-    <form id="algin-form" [formGroup]="userStoryForm">
-      <div class="form-group">
+    <div class=" ">
+      <form  [formGroup]="userStoryForm">
         <h4 style="color: #0081c2;" >Edit user story</h4>
-        <label for="name">Title</label>
-        <input type="text" name="name" id="fullname" formControlName="name" class="form-control" [(ngModel)]="userStory.name"
+
+        <div class="row justify-content-center">
+          <div class="col-md-4 mb-4 mx-4">
+            <label for="validationServer01">Title</label>
+            <input type="text" name="name" id="fullname" formControlName="name" class="form-control" [(ngModel)]="userStory.name"
           placeholder="Title...">
+          </div>
 
-      </div>
-      <div class="form-group">
-        <label for="name">Estimated date</label>
-        <input type="date" name="name" id="fullname" formControlName="estimated_date" class="form-control" [(ngModel)]="userStory.estimated_date"
-          placeholder="date...">
-
-      </div>
-      <div class="form-group">
-        <label for="name">Priority</label>
-        <input type="number" max="10" min="0" name="name" id="fullname" formControlName="priority" class="form-control" [(ngModel)]="userStory.priority">
-
-      </div>
-
-      <div class="form-group">
-        <label for="name">Ressource</label>
-        <select name="" id="" class="custom-select" formControlName="ressource" [(ngModel)]="userStory.ressource">
-          <option *ngFor="let stud of students" value="{{stud.id}}">{{stud.name}}</option>
-
-
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="name">Actor</label>
-        <input type="text" name="name" formControlName="actor" id="fullname" class="form-control" [(ngModel)]="userStory.actor"
+          <div class="col-md-4 mb-4 mx-4">
+            <label for="validationServer01">Actor</label>
+            <input type="text" name="name" formControlName="actor" id="fullname" class="form-control" [(ngModel)]="userStory.actor"
           placeholder="Actor...">
+          </div>
+        
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-4 mb-4 mx-4">
+            <label for="name">Estimated date</label>
+            <input type="date" name="name" id="fullname" formControlName="estimated_date" class="form-control" [(ngModel)]="userStory.estimated_date"
+              placeholder="date...">
+    
+          </div>
+          <div class="col-md-4 mb-4 mx-4">
+            <label for="name">Relized date</label>
+            <input type="date" name="name" id="fullname" formControlName="realized_date" class="form-control" [(ngModel)]="userStory.realized_date"
+              placeholder="date...">
+    
+          </div>
 
-      </div>
+          
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-4 mb-4 mx-4">
+            <label for="name">Priority</label>
+            <input type="number" max="10" min="0" name="name" id="fullname" formControlName="priority" class="form-control" [(ngModel)]="userStory.priority">
 
-      <div class="form-group">
-        <label for="message">Description</label>
-        <textarea name="msg" id="" msg cols="30" formControlName="description" rows="5" class="form-control" [(ngModel)]="userStory.description"
-          placeholder="Description..."></textarea>
-      </div>
+    
+          </div>
+          <div class="col-md-4 mb-4 mx-4">
+            <label for="name">Ressouce</label>
+            <select name="" id="" class="custom-select" formControlName="resource" [ngModel]="userStory.resource">
+              <option *ngFor="let stud of students" value="{{stud.id}}">{{stud.name}}</option>
+    
+    
+            </select>
+    
+          </div>
 
-      <div class="form-group">
-        <button type="button" id="post" class="btn btn-primary" (click)="editUserStory()">Edit</button>
-      </div>
-    </form>
+          
+        </div>
+
+
+        <div class="row justify-content-center">
+         
+          <div class="col-md-9 mb-4 mx-4">
+            <label for="name">Description</label>
+            <textarea name="msg" id="" msg cols="30" formControlName="description" rows="5" class="form-control" [(ngModel)]="userStory.description"
+            placeholder="Description..."></textarea>
+          </div>
+
+          
+        </div>
+      
+      
+        <div class="row justify-content-center">
+          <button class="btn  col-md-2" style="background-color: #0081c2;color:white;" type="submit" (click)="editUserStory()">Save changes</button>
+        </div>
+      </form>
+    </div>
   </div>

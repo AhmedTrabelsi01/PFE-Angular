@@ -327,7 +327,7 @@ export class PublicDataService {
   }
 
   updateUserStory(data:any){
-    return this.httpClient.post('http://127.0.0.1:8000/api/addUserStory/updateUserStory', data ,{ headers: this.createHeader() });
+    return this.httpClient.post('http://127.0.0.1:8000/api/updateUserStory', data ,{ headers: this.createHeader() });
   }
 
   getUserStories(id:any){
