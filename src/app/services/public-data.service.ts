@@ -326,6 +326,10 @@ export class PublicDataService {
 
   }
 
+  updateUserStory(data:any){
+    return this.httpClient.post('http://127.0.0.1:8000/api/addUserStory/updateUserStory', data ,{ headers: this.createHeader() });
+  }
+
   getUserStories(id:any){
     return this.httpClient.get('http://127.0.0.1:8000/api/getnoneaffUserStories/' + id, { headers: this.createHeader() });
   }
@@ -335,6 +339,10 @@ export class PublicDataService {
 
   getAffUserStories(id:any){
     return this.httpClient.get('http://127.0.0.1:8000/api/getafflUserStories/' + id, { headers: this.createHeader() });
+  }
+
+  getUserStoryById(id:any){
+    return this.httpClient.get('http://127.0.0.1:8000/api/getUserStoryById/' + id, { headers: this.createHeader() } )
   }
 
   /*****************sprints */
