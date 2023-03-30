@@ -28,24 +28,29 @@
 <!-- Main Body -->
 <section>
   <div class="container">
-    <button [routerLink]='["/sprint",id]' class="btn  col-md-1  "
+  
+    <div class="row" >
+     
+      <button [routerLink]='["/sprint",id]' class="btn ml-3  col-md-auto  "
       style="color: white;background-color:#0081c2;">Sprints</button>
-    <span *ngIf="scrumMaster!=null" class="badge badge-dark" style="margin-left: 70%;">
-      <div class="row" >
-        <img [src]="imgpath+scrumMaster.img" alt="">
-        <h6  >{{scrumMaster.name}}</h6>
+    <span *ngIf="scrumMaster!=null" class="badge  badge-dark col-md-auto" style="margin-left: 70%;" >
+      <div class="row "  >
+        <img [src]="imgpath+scrumMaster.img" alt="" style="width: 30%;border-radius:100%;" >
+        <h6 style="margin-top: -15%;" >{{scrumMaster.name}}</h6>
       </div>
      
 
     </span>
-    <span *ngIf="scrumMaster==null" class="badge badge-dark" style="margin-left: 70%;">
+    <span *ngIf="scrumMaster==null" class="badge badge-dark col-md-auto" style="margin-left: 80%;">
       <h6  >No scrum master yet</h6>
 
     </span>
 
-    <button class="btn mx-1 mt-1 " id="myBtn" onclick="popup()"
+    <button class="btn mx-1  col-md-auto w-20 "  id="myBtn" onclick="popup()"
       style="color: white;background-color: #0081c2;">+</button>
 
+    </div>
+    
     <div id="myModal" class="modal">
 
       <!-- Modal content -->
