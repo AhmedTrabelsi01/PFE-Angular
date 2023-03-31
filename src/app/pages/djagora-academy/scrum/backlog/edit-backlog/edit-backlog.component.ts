@@ -20,6 +20,7 @@ export class EditBacklogComponent implements OnInit {
   students:any;
   data:any;
   loader=true;
+  projID:any;
 
   constructor(private toastr:ToastrService, private StudentDataService:StudentDataService,private route:ActivatedRoute,
     private router: Router,private PublicDataService:PublicDataService) { }
@@ -45,13 +46,13 @@ export class EditBacklogComponent implements OnInit {
     this.PublicDataService.getUserStoryById(this.id).subscribe(res => {
       this.data=res;
       this.userStory=this.data;
+      this.projID=this.userStory.project_id
       this.loader=false;
       this.getAcceptedStudents();
 
     });
   }
   editUserStory(){
-    let projID=this.userStory.project_id
     this.userStory=this.userStoryForm.value;
     let formdata = new FormData;
     formdata.append('id',this.id);
@@ -63,10 +64,9 @@ export class EditBacklogComponent implements OnInit {
     formdata.append('description',this.userStory.description);
     formdata.append('resource',this.userStory.resource);
     formdata.append('actor',this.userStory.actor);
-    console.log(this.userStory);
     this.PublicDataService.updateUserStory(formdata).subscribe(res => {
       this.toastr.success("User story updated with success")
-      this.router.navigateByUrl('/backlog/'+projID);
+      this.router.navigateByUrl('/backlog/'+this.projID);
     })
   }
 
