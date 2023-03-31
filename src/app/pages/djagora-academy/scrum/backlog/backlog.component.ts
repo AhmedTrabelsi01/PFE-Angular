@@ -26,7 +26,7 @@ form_value:any;
 userStories:any=[];
 students:any=[];
   constructor( private toastr:ToastrService, private StudentDataService:StudentDataService,private route:ActivatedRoute,private PublicDataService:PublicDataService) { }
-  
+
   userStoryForm = new FormGroup({
     name: new FormControl("",Validators.required),
     description:new FormControl("",Validators.required),
@@ -44,7 +44,6 @@ scrumForm = new FormGroup({
   ngOnInit(): void {
     window.scrollTo(0,0)
     this.id = this.route.snapshot.params['id'];
-
     this.token = this.PublicDataService.getToken();
     this.loggeduser = this.PublicDataService.getUser(this.token);
     this.role=this.PublicDataService.getRole();
@@ -54,7 +53,7 @@ scrumForm = new FormGroup({
     this.getScrumMaster();
     popup()
   }
-  
+
 
   getAcceptedStudents(){
     this.StudentDataService.GetAccStud(this.id).subscribe(res=>{
@@ -71,7 +70,7 @@ scrumForm = new FormGroup({
 
   onSubmit(){
     this.userStory=this.userStoryForm.value
- 
+
     let formdata = new FormData();
     formdata.append('user_id',this.loggeduser['id'])
     formdata.append('project_id',this.id)
@@ -93,7 +92,7 @@ scrumForm = new FormGroup({
 
 updateScrumMaster(){
   this.form_value=this.scrumForm.value
-  
+
   let formdata = new FormData();
   formdata.append('master',this.form_value.etudiant)
   formdata.append('project_id',this.id)
@@ -104,7 +103,7 @@ updateScrumMaster(){
 }
 
 getScrumMaster(){
-  
+
   this.PublicDataService.getScrumMaster(this.id).subscribe(res=>{
     this.scrumMaster=res;
  })

@@ -6,11 +6,6 @@ import { FinishedProjectComponent } from './mentor/finished-project/finished-pro
 import { AddProjectDjagoraAcadimyComponent } from './mentor/add-project-djagora-acadimy/add-project-djagora-acadimy.component';
 import { FormationsComponent } from './formations/formations.component';
 import { SingleTrainingComponent } from './single-training/single-training.component';
-import { SprintsComponent } from './scrum/sprints/sprints.component';
-import { BoardsComponent } from './scrum/boards/boards.component';
-import { BacklogComponent } from './scrum/backlog/backlog.component';
-import { EditSprintComponent } from './scrum/edit-sprint/edit-sprint.component';
-import { EditBacklogComponent } from './scrum/backlog/edit-backlog/edit-backlog.component';
 const routes: Routes = [
   //project
   { path: '', component: AllProjectsComponent },
@@ -18,12 +13,8 @@ const routes: Routes = [
   { path: 'team/:id', component: FinishedProjectComponent },
   { path: 'AddProject', component: AddProjectDjagoraAcadimyComponent },
   { path: 'formations', component: FormationsComponent },
-  { path: 'editsprint/:id', component: EditSprintComponent },
-  { path: 'sprint/:id', component: SprintsComponent },
-  { path: 'boards', component:BoardsComponent },
-  { path: 'backlog/:id', component:BacklogComponent },
   { path: 'singletraining/:id', component: SingleTrainingComponent },
-  { path: 'editBacklog/:id', component:EditBacklogComponent},
+  { path: 'backlog/:id', loadChildren: () => import('./scrum/scrum.module').then(m => m.ScrumModule) },
 
 ];
 

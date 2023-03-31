@@ -1,3 +1,4 @@
+import { ScrumModule } from './scrum/scrum.module';
 import { SingleProjectComponent } from './single-project/single-project.component';
 import { FinishedProjectComponent } from './mentor/finished-project/finished-project.component';
 import { AllProjectsComponent } from './all-projects/all-projects.component';
@@ -13,14 +14,9 @@ import { CommonModule } from '@angular/common';
 import { AddProjectDjagoraAcadimyComponent } from './mentor/add-project-djagora-acadimy/add-project-djagora-acadimy.component';
 import { FormationsComponent } from './formations/formations.component';
 import { SingleTrainingComponent } from './single-training/single-training.component';
-import { SprintsComponent } from './scrum/sprints/sprints.component';
-import { BoardsComponent } from './scrum/boards/boards.component';
-import { BacklogComponent } from './scrum/backlog/backlog.component';
-import {DragDropModule} from '@angular/cdk/drag-drop';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatDialogModule } from '@angular/material/dialog';
 
-import {MatDialogModule} from '@angular/material/dialog';
-import { EditSprintComponent } from './scrum/edit-sprint/edit-sprint.component';
-import { EditBacklogComponent } from './scrum/backlog/edit-backlog/edit-backlog.component';
 @NgModule({
   declarations: [
     AllProjectsComponent,
@@ -29,28 +25,22 @@ import { EditBacklogComponent } from './scrum/backlog/edit-backlog/edit-backlog.
     AddProjectDjagoraAcadimyComponent,
     FormationsComponent,
     SingleTrainingComponent,
-    SprintsComponent,
-    BoardsComponent,
-    BacklogComponent,
-    EditSprintComponent,
-    EditBacklogComponent
+
   ],
   imports: [
     projectRoutingModule,
-    FormsModule,
     Ng2SearchPipeModule,
-    HttpClientModule,
     ScheduleModule,
-    ToastrModule.forRoot(),
-    ReactiveFormsModule,
     MultiSelectModule,
     CommonModule,
     HttpClientModule,
     FormsModule,
     DragDropModule,
     ReactiveFormsModule,
-        ToastrModule.forRoot(),
-        MatDialogModule
+    ToastrModule.forRoot(),
+    MatDialogModule,
+    ScrumModule
+
   ],
   providers: []
 })
