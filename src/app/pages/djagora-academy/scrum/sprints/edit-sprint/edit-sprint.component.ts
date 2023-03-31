@@ -13,8 +13,14 @@ export class EditSprintComponent implements OnInit {
   userStories:any=[];
   id:any
 loader=true
+token:any;
+loggeduser:any={};
+auth:any;
+role:any;
 sprint:any={}
 newSprint:any={}
+imgpath: any = 'http://127.0.0.1:8000/storage/post/'//image path laravel
+scrumMaster:any={};
 error:any=[];
 newAffectedData:any=[];
 newUserStories:any=[];
@@ -68,6 +74,10 @@ newUserStories:any=[];
   ngOnInit(): void {
     window.scrollTo(0,0)
     this.id = this.route.snapshot.params['id'];
+    this.token = this.PublicDataService.getToken();
+    this.loggeduser = this.PublicDataService.getUser(this.token);
+    this.role=this.PublicDataService.getRole();
+    this.auth=this.PublicDataService.getLoginState();
     this.getSprintById();
 
   }
@@ -76,6 +86,7 @@ newUserStories:any=[];
   getSprintById(){
     this.PublicDataService.getSprintByID(this.id).subscribe(res=>{
       this.sprint=res;
+      this.getScrumMaster();
       this.getUserStories();
       this.getAffectedUserStories();
 
@@ -111,6 +122,13 @@ newUserStories:any=[];
     if(this.error.code==200){
       this.toastr.success("Sprint updated with success")
     }
+   })
+  }
+
+  getScrumMaster(){
+
+    this.PublicDataService.getSprintScrumMaster(this.id).subscribe(res=>{
+      this.scrumMaster=res;
    })
   }
 

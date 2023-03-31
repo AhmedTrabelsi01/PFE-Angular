@@ -1,5 +1,28 @@
 
 
+.btn_retour {
+  width: 110px;
+
+  color: #0081C2;
+  border: 1px solid #0081C2;
+  border-radius: 5px;
+
+
+  padding: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+
+}
+
+
+
+
+.btn_retour:hover {
+  color: white;
+  background: #0081c2;
+  border-color: #0081c2;
+}
 
 
 

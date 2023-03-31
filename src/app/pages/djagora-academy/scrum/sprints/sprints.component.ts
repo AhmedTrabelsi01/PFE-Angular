@@ -27,6 +27,7 @@ sprints:any=[];
     this.role=this.PublicDataService.getRole();
     this.auth=this.PublicDataService.getLoginState();
     this.  getSprints()
+    this.updateSprintAuto();
   }
   getSprints(){
     this.PublicDataService.getSprints(this.id).subscribe(res=>{
@@ -34,5 +35,12 @@ sprints:any=[];
       this.loader=false;
    })
   }
+
+  updateSprintAuto(){
+    this.PublicDataService.updateSprintAuto(this.id).subscribe(res=>{
+   })
+  }
+
+  
 
 }

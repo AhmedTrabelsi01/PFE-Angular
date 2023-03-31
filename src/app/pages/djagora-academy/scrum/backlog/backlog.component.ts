@@ -17,6 +17,7 @@ token:any;
 loggeduser:any={};
 auth:any;
 role:any;
+SingleProject:any={};
 error:any;
 imgpath: any = 'http://127.0.0.1:8000/storage/post/'//image path laravel
 id:any;
@@ -48,10 +49,17 @@ scrumForm = new FormGroup({
     this.loggeduser = this.PublicDataService.getUser(this.token);
     this.role=this.PublicDataService.getRole();
     this.auth=this.PublicDataService.getLoginState();
-    this.getAcceptedStudents();
     this.getUserStories();
     this.getScrumMaster();
+    this.getProjectByID();
+    this.getAcceptedStudents();
     popup()
+  }
+
+  getProjectByID(){
+    this.PublicDataService.getProjectById(this.id).subscribe(res => {
+      this.SingleProject = res;
+      })
   }
 
 
@@ -60,6 +68,7 @@ scrumForm = new FormGroup({
       this.students=res;
    })
   }
+
 
   getUserStories(){
     this.PublicDataService.getUserStoriesByProj(this.id).subscribe(res=>{

@@ -366,4 +366,12 @@ export class PublicDataService {
   getScrumMaster(id:any){
     return this.httpClient.get('http://127.0.0.1:8000/api/getscrummaster/'+id, { headers: this.createHeader() });
   }
+  getSprintScrumMaster(id:any){
+    return this.httpClient.get('http://127.0.0.1:8000/api/getsprintscrummaster/'+id, { headers: this.createHeader() });
+  }
+
+  updateSprintAuto(id:any){
+    return this.httpClient.post('http://127.0.0.1:8000/api/updatesprintauto/'+id, { headers: this.createHeader() });
+  }
+  
 }
