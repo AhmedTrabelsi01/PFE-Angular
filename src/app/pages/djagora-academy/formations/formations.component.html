@@ -51,7 +51,8 @@
 
   <div class="rpsbox container ">
 
-  
+    <h1 *ngIf="formations.code!=200" style="margin-left: 40%; margin-bottom: 6%; color: gray;">No archive added yet</h1>
+
 
         <div class=" container py-4  ">
           <article class="postcard light yellow mt-md-4  " *ngFor="let Singleformation of formations">
@@ -132,8 +133,8 @@
 
   <div class="rpsbox container ">
 
-    <!-- <h1 *ngIf="countar==0" style="margin-left: 40%; margin-bottom: 6%; color: gray;">No archive added yet</h1>
--->
+    <h1 *ngIf="formations.code!=200" style="margin-left: 40%; margin-bottom: 6%; color: gray;">No archive added yet</h1>
+
     <div class="wrapper1">
 
       <!-- Card -->
@@ -190,7 +191,7 @@
     </div>
 
   </div>
-  <div class="pag" *ngIf="loader==false">
+  <div class="pag mt-5" *ngIf="loader==false">
     <ul class="pagination">
       <li class="page-item mx-2" style="cursor: pointer;"><a class="page-link px-3 py-2" (click)="prevPage(prev)"> <span
             aria-hidden="true">&laquo;</span>

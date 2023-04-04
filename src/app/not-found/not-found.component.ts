@@ -12,7 +12,6 @@ export class NotFoundComponent implements OnInit {
 
   ngOnInit(): void {
 
-      this.loader=false
      }
   }
 

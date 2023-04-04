@@ -24,6 +24,7 @@ scrumMaster:any={};
 error:any=[];
 newAffectedData:any=[];
 newUserStories:any=[];
+affected:any = [];
 
   constructor(private toastr:ToastrService, private route:ActivatedRoute, private PublicDataService:PublicDataService) { }
   SprintForm = new FormGroup({
@@ -34,7 +35,6 @@ newUserStories:any=[];
 
 });
 
-  affected:any = [];
 
   drop(event: CdkDragDrop<string[]>) {
   
@@ -97,7 +97,6 @@ newUserStories:any=[];
   getUserStories(){
     this.PublicDataService.getUserStories(this.sprint.project_id).subscribe(res=>{
       this.userStories=res;
-      this.loader=false
    })
   }
 

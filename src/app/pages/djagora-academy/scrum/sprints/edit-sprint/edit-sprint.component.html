@@ -24,7 +24,7 @@
 
 
 <!-- Main Body -->
-<section>
+<section *ngIf="loader==false">
   <div class="container">
     <div class="btn_retour mb-3">
       <button [routerLink]='["/sprint",sprint.project_id]'><a>🢀 Back</a></button>
@@ -73,11 +73,11 @@
 
         <div class="comment   col-md-12 text-justify float-left mb-4" *ngFor="let story of userStories" cdkDrag>
           <h4 style="color: #0081c2;">{{story.name}}</h4>
-          <span> | {{story.estimated_date}} | </span>
-          <span class="badge badge-danger " *ngIf="story.priority<3" style="color: white;">Critical</span>
+          <span> | {{story.hours}} Hours</span>
+          <span class="badge badge-danger " *ngIf="story.priority<3" style="color: white;float: right;">Critical</span>
           <span class="badge badge-warning" *ngIf="story.priority>=3 && story.priority<=6"
-            style="color: white;">Medium</span>
-          <span class="badge badge-info" *ngIf="story.priority>6" style="color: white;">Easy</span>
+            style="color: white;float: right;">Medium</span>
+          <span class="badge badge-info" *ngIf="story.priority>6" style="color: white;float: right;">Easy</span>
 
 
           <br>
@@ -171,7 +171,7 @@
               </div>
               <div class="comment  mt-4 col-md-12 text-justify float-left" *ngFor="let story of affected" cdkDrag>
                 <h4 style="color: #0081c2;">{{story.name}}</h4>
-                <span> | {{story.estimated_date}} | </span>
+                <span> | {{story.hours}} Hours| </span>
                 <span class="badge badge-danger " *ngIf="story.priority<3" style="color: white;">Critical</span>
                 <span class="badge badge-warning" *ngIf="story.priority>=3 && story.priority<=6"
                   style="color: white;">Medium</span>

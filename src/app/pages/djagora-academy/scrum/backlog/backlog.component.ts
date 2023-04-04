@@ -31,8 +31,8 @@ students:any=[];
   userStoryForm = new FormGroup({
     name: new FormControl("",Validators.required),
     description:new FormControl("",Validators.required),
-    estimated_date:new FormControl("",Validators.required),
-    ressource:new FormControl("",Validators.required),
+    hours:new FormControl("",Validators.required),
+    resource:new FormControl("",Validators.required),
     actor:new FormControl("",Validators.required),
     priority:new FormControl("",Validators.required),
 
@@ -84,10 +84,10 @@ scrumForm = new FormGroup({
     formdata.append('user_id',this.loggeduser['id'])
     formdata.append('project_id',this.id)
     formdata.append('name',this.userStory.name);
-    formdata.append('estimated_date',this.userStory.estimated_date);
+    formdata.append('hours',this.userStory.hours);
     formdata.append('priority',this.userStory.priority);
     formdata.append('description',this.userStory.description);
-    formdata.append('ressource',this.userStory.ressource);
+    formdata.append('resource',this.userStory.resource);
     formdata.append('actor',this.userStory.actor);
 
   this.PublicDataService.addUserStory(formdata).subscribe(res=>{

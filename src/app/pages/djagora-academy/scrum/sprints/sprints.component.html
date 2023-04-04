@@ -40,7 +40,7 @@ style="background-image:url(assets/img/contact.jpg);margin-top: 8%;margin-bottom
                         <div class="widget-49">
                             <div class="widget-49-title-wrapper">
                                 <div class="widget-49-date-primary">
-                                    <span class="widget-49-date-day">{{i}}</span>
+                                    <span class="widget-49-date-day">{{i+1}}</span>
                                 </div>
                                 <div class="widget-49-meeting-info">
                                     <h4 >{{sprint.name}}</h4>
@@ -55,7 +55,6 @@ style="background-image:url(assets/img/contact.jpg);margin-top: 8%;margin-bottom
                             </ol>
                             <div class="widget-49-meeting-action">
                                 <button class="btn " [routerLink]='["/editsprint",sprint.id]' style="color: white;background-color:#0081c2;">Details </button>
-                                <button  class="btn btn-dark ml-2 btn-flash-border-primary" routerLink="/boards">Check board</button>
                             </div>
                         </div>
                     </div>

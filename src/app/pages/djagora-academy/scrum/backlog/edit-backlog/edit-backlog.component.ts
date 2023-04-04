@@ -28,7 +28,7 @@ export class EditBacklogComponent implements OnInit {
   userStoryForm = new FormGroup({
     name: new FormControl("",Validators.required),
     description:new FormControl("",Validators.required),
-    estimated_date:new FormControl("",Validators.required),
+    hours:new FormControl("",Validators.required),
     realized_date:new FormControl("",Validators.required),
     resource:new FormControl("",Validators.required),
     actor:new FormControl("",Validators.required),
@@ -58,7 +58,7 @@ export class EditBacklogComponent implements OnInit {
     formdata.append('id',this.id);
     formdata.append('user_id',this.loggeduser['id'])
     formdata.append('name',this.userStory.name);
-    formdata.append('estimated_date',this.userStory.estimated_date);
+    formdata.append('hours',this.userStory.hours);
     formdata.append('realized_date',this.userStory.realized_date);
     formdata.append('priority',this.userStory.priority);
     formdata.append('description',this.userStory.description);
