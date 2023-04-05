@@ -51,7 +51,7 @@
 
   <div class="rpsbox container ">
 
-    <h1 *ngIf="formations.code!=200" style="margin-left: 40%; margin-bottom: 6%; color: gray;">No archive added yet</h1>
+    <h1 *ngIf="formations.length==0" style="margin-left: 40%; margin-bottom: 6%; color: gray;">No trainings added yet</h1>
 
 
         <div class=" container py-4  ">
@@ -125,7 +125,7 @@
   </div>
 </div>
 <!------------------part5:search archive----------------------->
-<div class="rpbox" *ngIf="loader==false">
+<div class="rpbox" >
 
 
 
@@ -133,7 +133,7 @@
 
   <div class="rpsbox container ">
 
-    <h1 *ngIf="formations.code!=200" style="margin-left: 40%; margin-bottom: 6%; color: gray;">No archive added yet</h1>
+    <h1 *ngIf="archive.length==0" style="margin-left: 40%; margin-bottom: 6%; color: gray;">No archive added yet</h1>
 
     <div class="wrapper1">
 
@@ -170,23 +170,9 @@
 
 
         </div>
-
-
-
-        <!-- Card image -->
-
-
-
-
-
-
       </div>
       <br>
 
-
-      <!-- Card reveal -->
-
-      <!-- Card reveal -->
 
     </div>
 

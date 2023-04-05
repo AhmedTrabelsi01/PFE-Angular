@@ -308,8 +308,15 @@ export class PublicDataService {
   getPageByURL(link:any) {
     return this.httpClient.get(link);
   }
+  getPageByURL1(link:any) {
+    return this.httpClient.get(link);
+  }
   getFormations(){
     return this.httpClient.get('http://127.0.0.1:8000/api/getFormations');
+
+  }
+  getArchiveFormations(){
+    return this.httpClient.get('http://127.0.0.1:8000/api/getArchiveFormations');
 
   }
 

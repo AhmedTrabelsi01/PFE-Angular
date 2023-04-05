@@ -5,7 +5,6 @@ import { PublicDataService } from 'src/app/services/public-data.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 
-declare function slide1():any;
 @Component({
   selector: 'app-all-projects',
   templateUrl: './all-projects.component.html',
@@ -21,6 +20,8 @@ export class AllProjectsComponent implements OnInit {
   projectss:any=[];
   next:any;
   prev:any;
+  next1:any;
+  prev1:any;
   filteredprojects:any=[];
   searchTerm: string ="";//filter term
   auth :any;
@@ -76,7 +77,7 @@ export class AllProjectsComponent implements OnInit {
   }
  }
 
-
+/*********************projects */
   GetProject(){
     this.PublicDataService.GetProject().subscribe(res=>{
     this.projectss=res;
@@ -90,23 +91,6 @@ export class AllProjectsComponent implements OnInit {
     }
       )
   }
-
-  GetArchive(){
-
-    this.PublicDataService.getArchive().subscribe(res=>{
-      this.archive=res;
-      if(this.archive){
-        this.loader=false
-       }
-      this.countar=this.archive.length;
-      slide1()
-
-
-    }
-      )
-
-  }
-
 
   nextPage(link:any) {
     this.PublicDataService.getPageByURL(link).subscribe(res=>{
@@ -124,6 +108,47 @@ export class AllProjectsComponent implements OnInit {
       this.next=this.projectss.next_page_url
       this.prev=this.projectss.prev_page_url
       this.projectss=this.projectss.data
+      })
+
+  }
+
+
+
+/************************archive */
+GetArchive(){
+
+  this.PublicDataService.getArchive().subscribe(res=>{
+    this.archive=res;
+    if(this.archive){
+      this.loader=false
+     }
+    this.next1=this.archive.next_page_url
+    this.prev1=this.archive.prev_page_url
+    this.archive=this.archive.data
+    this.countar=this.archive.length;
+
+  }
+    )
+
+}
+
+
+  nextPage1(link:any) {
+    this.PublicDataService.getPageByURL1(link).subscribe(res=>{
+    this.archive=res;
+    this.next1=this.archive.next_page_url
+    this.prev1=this.archive.prev_page_url
+    this.archive=this.archive.data
+    })
+
+  }
+
+  prevPage1(link:any) {
+    this.PublicDataService.getPageByURL1(link).subscribe(res=>{
+      this.archive=res;
+      this.next1=this.archive.next_page_url
+      this.prev1=this.archive.prev_page_url
+      this.archive=this.archive.data
       })
 
   }
