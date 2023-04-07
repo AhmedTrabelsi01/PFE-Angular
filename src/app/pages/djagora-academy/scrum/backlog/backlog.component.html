@@ -34,8 +34,8 @@
       >🢀 Back</button>
       <button [routerLink]='["/sprint",id]' class="btn mx-3  col-md-auto  "
         style="color: white;background-color:#0081c2;">Sprints</button>
-     
-        <span *ngIf="scrumMaster!=null" class="badge  badge-dark col-md-auto ml-1"   >
+
+        <span *ngIf=" scrumBool==true " class="badge  badge-dark col-md-auto ml-1"   >
         <div class="row ">
           <img [src]="imgpath+scrumMaster.img" alt="" style="width: 30%;border-radius:100%;">
           <h6 style="margin-top: -15%;">{{scrumMaster.name}}</h6>
@@ -43,7 +43,7 @@
 
 
       </span>
-      <span *ngIf="scrumMaster==null" class="badge badge-dark col-md-auto" style="margin-left: 80%;">
+      <span *ngIf="scrumBool==false" class="badge badge-dark col-md-auto" style="margin-left: 80%;">
         <h6>No scrum master yet</h6>
 
       </span>
@@ -111,7 +111,7 @@
             style="color: white;float: right;">Medium</span>
           <span class="badge badge-info" *ngIf="story.priority>6" style="color: white;float: right;">Easy</span>
 
-       
+
 
           <br>
           <p>{{story.description}}</p>
@@ -164,7 +164,7 @@
           </div>
 
           <div class="form-group">
-            <button type="button" id="post" class="btn " (click)="onSubmit()" *ngIf="scrumMaster!=null && loggeduser['id']==scrumMaster.id || SingleProject.user_id==loggeduser['id']">Submit</button>
+            <button type="button" id="post" class="btn " (click)="onSubmit()" *ngIf=" loggeduser['id']==scrumMaster.id || SingleProject.user_id==loggeduser['id']">Submit</button>
             <p  *ngIf="loggeduser['id']!=scrumMaster.id && SingleProject.user_id!=loggeduser['id']" style="font-weight: bold;color:red;" >You have no access to add user story</p>
           </div>
         </form>

@@ -21,6 +21,7 @@ SingleProject:any={};
 error:any;
 imgpath: any = 'http://127.0.0.1:8000/storage/post/'//image path laravel
 id:any;
+scrumBool=false;
 scrumMaster:any={};
 loader=true
 form_value:any;
@@ -115,6 +116,12 @@ getScrumMaster(){
 
   this.PublicDataService.getScrumMaster(this.id).subscribe(res=>{
     this.scrumMaster=res;
+    if(this.scrumMaster==null){
+      this.scrumMaster={}
+      this.scrumBool=false;
+    }else{
+      this.scrumBool=true
+    }
  })
 }
 }
