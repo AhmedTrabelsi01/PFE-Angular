@@ -351,6 +351,9 @@ export class PublicDataService {
   getUserStoryById(id:any){
     return this.httpClient.get('http://127.0.0.1:8000/api/getUserStoryById/' + id, { headers: this.createHeader() } )
   }
+  getUserStoryByBoard(id:any){
+    return this.httpClient.get('http://127.0.0.1:8000/api/getuserstoriesbyboard/' + id, { headers: this.createHeader() } )
+  }
 
   /*****************sprints */
 
@@ -365,6 +368,9 @@ export class PublicDataService {
   }
   updateData(data:any){
     return this.httpClient.post('http://127.0.0.1:8000/api/updatearrays',data, { headers: this.createHeader() });
+  }
+  updateBoard(data:any){
+    return this.httpClient.post('http://127.0.0.1:8000/api/updateboard',data, { headers: this.createHeader() });
   }
   updateScrumMaster(data:any){
     return this.httpClient.post('http://127.0.0.1:8000/api/setscrummaster',data, { headers: this.createHeader() });

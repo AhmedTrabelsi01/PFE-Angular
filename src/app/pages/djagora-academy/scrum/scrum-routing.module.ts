@@ -9,7 +9,7 @@ import { SprintsComponent } from './sprints/sprints.component';
 const routes: Routes = [
   { path: 'editsprint/:id', component: EditSprintComponent },
   { path: 'sprint/:id', component: SprintsComponent },
-  { path: 'boards', component: BoardsComponent },
+  { path: 'boards/:id', component: BoardsComponent },
   { path: '', component: BacklogComponent },
   { path: 'editBacklog/:id', component: EditBacklogComponent },
 ]

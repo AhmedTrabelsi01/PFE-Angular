@@ -115,7 +115,7 @@
 
 
                   </span>
-                  <span *ngIf="scrumMaster==null" class="badge badge-light col-md-auto my-2 " >
+                  <span *ngIf="scrumMaster==null" class="badge badge-light col-md-auto my-2 ">
                     <h6 style="color: gray;">No scrum master yet</h6>
 
                   </span>
@@ -127,9 +127,9 @@
                         <span class="widget-49-date-day">1</span>
                       </div>
                       <div class="widget-49-meeting-info">
-                        
+
                         <h4>{{sprint.name}}</h4>
-                        
+
                       </div>
 
                     </div>
@@ -140,15 +140,16 @@
                         </span></li>
                       <li *ngIf="!sprint.startDate" class="widget-49-meeting-item"><span>No start date yet</span></li>
                       <li *ngIf="!sprint.endDate" class="widget-49-meeting-item"><span>No end date yet </span></li>
-                     
+
 
                     </ol>
-                    <div class="widget-49-meeting-action col-md-auto "> 
-                     
-                    
-                      <button class="btn  ml-2 btn-flash-border-primary col-md-auto " style="background-color: #0081c2;color:white;" routerLink="/boards">Check
+                    <div class="widget-49-meeting-action col-md-auto ">
+
+
+                      <button class="btn  ml-2 btn-flash-border-primary col-md-auto "
+                        style="background-color: #0081c2;color:white;" [routerLink]='["/boards",this.id]'>Check
                         board</button>
-                    
+
                     </div>
                   </div>
                 </div>
@@ -171,11 +172,12 @@
               </div>
               <div class="comment  mt-4 col-md-12 text-justify float-left" *ngFor="let story of affected" cdkDrag>
                 <h4 style="color: #0081c2;">{{story.name}}</h4>
-                <span> | {{story.hours}} Hours| </span>
-                <span class="badge badge-danger " *ngIf="story.priority<3" style="color: white;">Critical</span>
+                <span> | {{story.hours}} Hours</span>
+                <span class="badge badge-danger " *ngIf="story.priority<3"
+                  style="color: white;float: right;">Critical</span>
                 <span class="badge badge-warning" *ngIf="story.priority>=3 && story.priority<=6"
-                  style="color: white;">Medium</span>
-                <span class="badge badge-info" *ngIf="story.priority>6" style="color: white;">Easy</span>
+                  style="color: white;float: right;">Medium</span>
+                <span class="badge badge-info" *ngIf="story.priority>6" style="color: white;float: right;">Easy</span>
 
 
                 <br>

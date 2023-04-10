@@ -12,6 +12,11 @@
     </div><!-- Container end -->
   </div><!-- Banner text end -->
 </div><!-- Banner area end -->
+<div *ngIf="loader==true">
+  <div class="loader-overlay">
+    <div *ngIf="loader==true" class="loader"></div>
+  </div>
+</div>
 
 <div class="titre">
 
@@ -65,17 +70,17 @@
 </div>
 
 
-<div class="page-container page-navigation-toggled">
+<div class="page-container page-navigation-toggled" *ngIf="loader==false">
 
 
   <div class="page-content">
     <div class="my-3">
 
-      <button class="btn ml-1  col-md-auto btn_retour "
+      <button [routerLink]="['/editsprint',id]" class="btn ml-1  col-md-auto btn_retour "
         style="    font-size: 16px;border-radius: 5px; padding: 6px 0px 6px 0px; ">🢀 Back</button>
-      <button class="btn mx-3  col-md-auto  "
+     <!-- <button class="btn mx-3  col-md-auto  "
         style="color: white;background-color:#0081c2;font-size: 16px;border-radius: 5px;padding-top: 6px;padding-bottom: 6px; "
-        id="myBtn" onclick="popup()">+ task</button>
+        id="myBtn" onclick="popup()">+ task</button>-->
     </div>
 
 
@@ -89,54 +94,35 @@
 
           <div class="tasks" id="tasks">
 
-
-            <div class="task-item task-primary">
-              <div class="task-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris rutrum velit vel
-                erat fermentum, a dignissim dolor malesuada.</div>
+            <div class="" cdkDropList 
+            [cdkDropListData]="affected" 
+            #nada="cdkDropList"
+            class="example-list"
+            [cdkDropListConnectedTo]="[todo,completed,progress,inreview]"
+             (cdkDropListDropped)="drop($event)">
+             <div *ngIf="affected.length==0">
+              <h3  style="color: gray;"  >No userStories yet </h3>
+              <div class="drag-image">
+               <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+               <h6>Drag & Drop user stories</h6>
+             </div>
+             </div>
+            
+            <div class="task-item task-primary" *ngFor="let story of affected" cdkDrag>
+              <div class="task-text">{{story.description}}</div>
 
               <div class="task-footer">
-                <div class="pull-left"><span class="fa fa-clock-o"></span> 1h 30min</div>
+                <div class="pull-left"><span class="fa fa-clock-o"></span> {{story.hours}} hours</div>
+                <div class="pull-left ml-3"  ><span ><img style="border-radius: 100%;" height="25" [src]="imgpath+story.resource.img" alt=""></span> {{story.resource.name}}</div>
+
+                <span class="badge badge-danger " *ngIf="story.priority<3" style="color: white;float: right;">Critical</span>
+                <span class="badge badge-warning" *ngIf="story.priority>=3 && story.priority<=6"
+                  style="color: white;float: right;">Medium</span>
+                <span class="badge badge-info" *ngIf="story.priority>6" style="color: white;float: right;">Easy</span>
+      
               </div>
             </div>
 
-            <div class="task-item task-primary">
-              <div class="task-text">Suspendisse a tempor eros. Curabitur fringilla maximus lorem, eget congue lacus
-                ultrices eu. Nunc et molestie elit. Curabitur consectetur mollis ipsum, id hendrerit nunc molestie id.
-              </div>
-              <div class="task-footer">
-                <div class="pull-left"><span class="fa fa-clock-o"></span> 1h 45min</div>
-                <div class="pull-right"><a href="#"><span class="fa fa-chain"></span></a> <a href="#"><span
-                      class="fa fa-comments"></span></a></div>
-              </div>
-            </div>
-
-            <div class="task-item task-primary">
-              <div class="task-text">Donec lacus lacus, iaculis nec pharetra id, congue ut tortor. Donec tincidunt
-                luctus metus eget rhoncus.</div>
-              <div class="task-footer">
-                <div class="pull-left"><span class="fa fa-clock-o"></span> 1day ago</div>
-
-              </div>
-
-            </div>
-
-            <div class="task-item task-primary">
-              <div class="task-text">Pellentesque faucibus molestie lectus non efficitur. Vestibulum mattis dignissim
-                diam, eget dapibus urna rutrum vitae.</div>
-              <div class="task-footer">
-                <div class="pull-left"><span class="fa fa-clock-o"></span> 2days ago</div>
-                <div class="pull-right"><a href="#"><span class="fa fa-chain"></span></a> <a href="#"><span
-                      class="fa fa-comments"></span></a></div>
-              </div>
-            </div>
-
-            <div class="task-item task-primary">
-              <div class="task-text">Quisque quis ipsum quis magna bibendum laoreet.</div>
-              <div class="task-footer">
-                <div class="pull-left"><span class="fa fa-clock-o"></span> 3days ago</div>
-                <div class="pull-right"><a href="#"><span class="fa fa-chain"></span></a> <a href="#"><span
-                      class="fa fa-comments"></span></a></div>
-              </div>
             </div>
 
           </div>
@@ -147,9 +133,9 @@
       <!-- START CONTENT FRAME BODY -->
 
         <div class="content-frame-body">
+
       <div cdkDropListGroup>
 
-        
 
           <div class="row push-up-10">
             <div class="col-md-3">
@@ -162,17 +148,30 @@
                 [cdkDropListData]="list1" 
                 #todo="cdkDropList"
                 class="example-list"
-                [cdkDropListConnectedTo]="[completed,progress,inreview]"
+                [cdkDropListConnectedTo]="[completed,progress,inreview,nada]"
                  (cdkDropListDropped)="drop($event)">
-
+                 <div *ngIf="list1.length==0">
+                  <h3  style="color: gray;"  >No userStories yet </h3>
+                  <div class="drag-image">
+                   <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                   <h6>Drag & Drop user stories </h6>
+                 </div>
+                 </div>
                   <div class="comment example-box  text-justify float-left" *ngFor="let story of list1" cdkDrag>
                     
 
-                    <div class="task-item task-primary">
+                    <div class="task-item task-info">
+                      <div class="task-text">{{story.description}}</div>
 
-                      <div class="task-text">{{story}}</div>
                       <div class="task-footer">
-                        <div class="pull-left"><span class="fa fa-clock-o"></span> 1h 30min</div>
+                        <div class="pull-left"><span class="fa fa-clock-o"></span> {{story.hours}} hours</div>
+                        <div class="pull-left ml-3"  ><span ><img style="border-radius: 100%;" height="25" [src]="imgpath+story.resource.img" alt=""></span> {{story.resource.name}}</div>
+        
+                        <span class="badge badge-danger " *ngIf="story.priority<3" style="color: white;float: right;">Critical</span>
+                        <span class="badge badge-warning" *ngIf="story.priority>=3 && story.priority<=6"
+                          style="color: white;float: right;">Medium</span>
+                        <span class="badge badge-info" *ngIf="story.priority>6" style="color: white;float: right;">Easy</span>
+              
                       </div>
                     </div>
 
@@ -192,20 +191,32 @@
                 <div class=""  cdkDropList
                 [cdkDropListData]="list2"
                 #progress="cdkDropList"
-                [cdkDropListConnectedTo]="[completed,todo,inreview]"
+                [cdkDropListConnectedTo]="[completed,todo,inreview,nada]"
                      class="example-list"
                 (cdkDropListDropped)="drop($event)">
-
+                <div *ngIf="list2.length==0">
+                  <h3  style="color: gray;"  >No userStories yet </h3>
+                  <div class="drag-image">
+                   <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                   <h6>Drag & Drop user stories </h6>
+                 </div>
+                 </div>
                   <div class="comment  example-box text-justify float-left" *ngFor="let story of list2" cdkDrag>
 
 
                     <div class="task-item task-warning">
-                      <div class="task-text">{{story}}</div>
+                      <div class="task-text">{{story.description}}</div>
 
-                      <div class="task-footer">
-                        <div class="pull-left"><span class="fa fa-clock-o"></span> 2h 55min</div>
-                        <div class="pull-right"><span class="fa fa-pause"></span> 4:51</div>
-                      </div>
+              <div class="task-footer">
+                <div class="pull-left"><span class="fa fa-clock-o"></span> {{story.hours}} hours</div>
+                <div class="pull-left ml-3"  ><span ><img style="border-radius: 100%;" height="25" [src]="imgpath+story.resource.img" alt=""></span> {{story.resource.name}}</div>
+
+                <span class="badge badge-danger " *ngIf="story.priority<3" style="color: white;float: right;">Critical</span>
+                <span class="badge badge-warning" *ngIf="story.priority>=3 && story.priority<=6"
+                  style="color: white;float: right;">Medium</span>
+                <span class="badge badge-info" *ngIf="story.priority>6" style="color: white;float: right;">Easy</span>
+      
+              </div>
 
                     </div>
 
@@ -223,18 +234,30 @@
               <div class="tasks" id="tasks_progreess">
 
                 <div class="" cdkDropList #inreview="cdkDropList"                 class="example-list"
-                  [cdkDropListData]="list3"  [cdkDropListConnectedTo]="[completed,todo,progress]" (cdkDropListDropped)="drop($event)">
-
+                  [cdkDropListData]="list3"  [cdkDropListConnectedTo]="[completed,todo,progress,nada]" (cdkDropListDropped)="drop($event)">
+                  <div *ngIf="list3.length==0">
+                    <h3  style="color: gray;"  >No userStories yet </h3>
+                    <div class="drag-image">
+                     <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                     <h6>Drag & Drop user stories </h6>
+                   </div>
+                   </div>
                   <div class="comment example-box  text-justify float-left" *ngFor="let story of list3" cdkDrag>
 
 
-                    <div class="task-item task-warning">
+                    <div class="task-item task-success">
 
-                      <div class="task-text">{{story}}</div>
+                      <div class="task-text">{{story.description}}</div>
 
                       <div class="task-footer">
-                        <div class="pull-left"><span class="fa fa-clock-o"></span> 2h 55min</div>
-                        <div class="pull-right"><span class="fa fa-pause"></span> 4:51</div>
+                        <div class="pull-left"><span class="fa fa-clock-o"></span> {{story.hours}} hours</div>
+                        <div class="pull-left ml-3"  ><span ><img style="border-radius: 100%;" height="25" [src]="imgpath+story.resource.img" alt=""></span> {{story.resource.name}}</div>
+        
+                        <span class="badge badge-danger " *ngIf="story.priority<3" style="color: white;float: right;">Critical</span>
+                        <span class="badge badge-warning" *ngIf="story.priority>=3 && story.priority<=6"
+                          style="color: white;float: right;">Medium</span>
+                        <span class="badge badge-info" *ngIf="story.priority>6" style="color: white;float: right;">Easy</span>
+              
                       </div>
 
                     </div>
@@ -257,19 +280,32 @@
 
 
                 <div class="" cdkDropList #completed="cdkDropList"                 class="example-list" 
-                  [cdkDropListData]="list4" [cdkDropListConnectedTo]="[inreview,todo,progress]"
+                  [cdkDropListData]="list4" [cdkDropListConnectedTo]="[inreview,todo,progress,nada]"
                   (cdkDropListDropped)="drop($event)">
-
+                  <div *ngIf="list4.length==0">
+                    <h3  style="color: gray;"  >No userStories yet </h3>
+                    <div class="drag-image">
+                     <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                     <h6>Drag & Drop user stories</h6>
+                   </div>
+                   </div>
                   <div class="comment example-box text-justify float-left" *ngFor="let story of list4" cdkDrag>
 
 
 
-                    <div class="task-item task-danger task-complete">
+                    <div class="task-item task-info task-complete">
 
-                      <div class="task-text">{{story}}</div>
+                      <div class="task-text">{{story.description}}</div>
 
                       <div class="task-footer">
-                        <div class="pull-left"><span class="fa fa-clock-o"></span> 15min</div>
+                        <div class="pull-left"><span class="fa fa-clock-o"></span> {{story.hours}} hours</div>
+                        <div class="pull-left ml-3"  ><span ><img style="border-radius: 100%;" height="25" [src]="imgpath+story.resource.img" alt=""></span> {{story.resource.name}}</div>
+        
+                        <span class="badge badge-danger " *ngIf="story.priority<3" style="color: white;float: right;">Critical</span>
+                        <span class="badge badge-warning" *ngIf="story.priority>=3 && story.priority<=6"
+                          style="color: white;float: right;">Medium</span>
+                        <span class="badge badge-info" *ngIf="story.priority>6" style="color: white;float: right;">Easy</span>
+              
                       </div>
                     </div>
 
