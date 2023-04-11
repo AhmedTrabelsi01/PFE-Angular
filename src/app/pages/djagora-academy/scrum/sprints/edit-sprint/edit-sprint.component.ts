@@ -108,7 +108,7 @@ affected:any = [];
   }
 
 
-  editSprint(){
+  /* editSprint(){
     this.newSprint=this.SprintForm.value
  
     let formdata = new FormData();
@@ -122,7 +122,7 @@ affected:any = [];
       this.toastr.success("Sprint updated with success")
     }
    })
-  }
+  }*/
 
   getScrumMaster(){
 

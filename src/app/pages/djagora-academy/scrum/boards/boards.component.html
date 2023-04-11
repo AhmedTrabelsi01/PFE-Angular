@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="banner-heading">
-            <h1 class="banner-title">Board</h1>
+            <h1 class="banner-title">Backlog/Sprints/Edit Sprint/Board</h1>
           </div>
         </div><!-- Col end -->
       </div><!-- Row end -->
@@ -20,7 +20,7 @@
 
 <div class="titre">
 
-  <h1 name="1">sprint name</h1>
+  <h1 name="1">{{sprint.name}}</h1>
 </div>
 
 
@@ -70,7 +70,7 @@
 </div>
 
 
-<div class="page-container page-navigation-toggled" *ngIf="loader==false">
+<div class="page-container page-navigation-toggled mb-5 py-2" style="background-color: rgb(243, 243, 243);" *ngIf="loader==false">
 
 
   <div class="page-content">
@@ -88,7 +88,7 @@
 
       <div class="content-frame-left">
         <div>
-          <h3 class="p-2" style="color: white;background-color:black;">User Story</h3>
+          <h3 class="p-2" style="color: white;background-color:black;"><i class="fa-sharp fa-solid fa-pen-to-square"></i> User Story</h3>
 
 
 
@@ -101,7 +101,7 @@
             [cdkDropListConnectedTo]="[todo,completed,progress,inreview]"
              (cdkDropListDropped)="drop($event)">
              <div *ngIf="affected.length==0">
-              <h3  style="color: gray;"  >No userStories yet </h3>
+              <h3  style="color: gray;" class="ml-5 my-2"  >No userStories yet </h3>
               <div class="drag-image">
                <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
                <h6>Drag & Drop user stories</h6>
@@ -140,7 +140,7 @@
           <div class="row push-up-10">
             <div class="col-md-3">
 
-              <h3 class="p-2" style="color: white; background-color:#0081c2">To-do List</h3>
+              <h3 class="p-2" style="color: white; background-color:#0081c2"><i class="fa-solid fa-list"></i> To-do List</h3>
 
               <div class="tasks" id="tasks">
 
@@ -151,7 +151,7 @@
                 [cdkDropListConnectedTo]="[completed,progress,inreview,nada]"
                  (cdkDropListDropped)="drop($event)">
                  <div *ngIf="list1.length==0">
-                  <h3  style="color: gray;"  >No userStories yet </h3>
+                  <h3  style="color: gray;" class="ml-5 my-2" >No userStories yet </h3>
                   <div class="drag-image">
                    <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
                    <h6>Drag & Drop user stories </h6>
@@ -160,7 +160,7 @@
                   <div class="comment example-box  text-justify float-left" *ngFor="let story of list1" cdkDrag>
                     
 
-                    <div class="task-item task-info">
+                    <div class="task-item task-danger">
                       <div class="task-text">{{story.description}}</div>
 
                       <div class="task-footer">
@@ -185,7 +185,7 @@
 
             </div>
             <div class="col-md-3">
-              <h3 class="p-2" style="color: white; background-color:rgb(255, 149, 0)">In Progress</h3>
+              <h3 class="p-2" style="color: white; background-color:rgb(255, 149, 0)"><i class="fa-solid fa-bars-progress"></i> In Progress</h3>
               <div class="tasks" id="tasks_progreess">
 
                 <div class=""  cdkDropList
@@ -195,7 +195,7 @@
                      class="example-list"
                 (cdkDropListDropped)="drop($event)">
                 <div *ngIf="list2.length==0">
-                  <h3  style="color: gray;"  >No userStories yet </h3>
+                  <h3  style="color: gray;" class="ml-5 my-2" >No userStories yet </h3>
                   <div class="drag-image">
                    <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
                    <h6>Drag & Drop user stories </h6>
@@ -230,13 +230,13 @@
               </div>
             </div>
           <div class="col-md-3">
-              <h3 class="p-2" style="color: white; background-color:yellowgreen">In review</h3>
+              <h3 class="p-2" style="color: white; background-color:yellowgreen"><i class="fa-solid fa-magnifying-glass"></i> In review</h3>
               <div class="tasks" id="tasks_progreess">
 
                 <div class="" cdkDropList #inreview="cdkDropList"                 class="example-list"
                   [cdkDropListData]="list3"  [cdkDropListConnectedTo]="[completed,todo,progress,nada]" (cdkDropListDropped)="drop($event)">
                   <div *ngIf="list3.length==0">
-                    <h3  style="color: gray;"  >No userStories yet </h3>
+                    <h3  style="color: gray;" class="ml-5 my-2"  >No userStories yet </h3>
                     <div class="drag-image">
                      <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
                      <h6>Drag & Drop user stories </h6>
@@ -275,7 +275,7 @@
             </div>
 
             <div class="col-md-3">
-              <h3 class="p-2" style="color: white; background-color:rgb(1, 170, 139)">Completed</h3>
+              <h3 class="p-2" style="color: white; background-color:rgb(1, 170, 139)"><i class="fa-solid fa-square-check"></i>  Completed</h3>
               <div class="tasks" id="tasks_completed">
 
 
@@ -283,7 +283,7 @@
                   [cdkDropListData]="list4" [cdkDropListConnectedTo]="[inreview,todo,progress,nada]"
                   (cdkDropListDropped)="drop($event)">
                   <div *ngIf="list4.length==0">
-                    <h3  style="color: gray;"  >No userStories yet </h3>
+                    <h3  style="color: gray;" class="ml-5 my-2" >No userStories yet </h3>
                     <div class="drag-image">
                      <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
                      <h6>Drag & Drop user stories</h6>

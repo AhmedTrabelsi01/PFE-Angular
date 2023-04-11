@@ -259,7 +259,7 @@ margin-left: 97%;
   height: 5px;
   border-radius: 5px;
   position: absolute;
-  bottom: 0;
+  bottom: -5px;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -1429,24 +1429,20 @@ margin-left: 97%;
     border-radius: 3px;
     padding: 0px 8px;
   }
-  .label-primary,
-  .badge-primary {
+  .label-primary {
     background-color: #1b1e24;
   }
-  .label-success,
-  .badge-success {
+  .label-success {
     background-color: #95b75d;
   }
-  .label-info,
-  .badge-info {
+  .label-info {
     background-color: #1caf9a;
   }
-  .label-warning,
-  .badge-warning {
+  .label-warning{
     background-color: #1caf9a;
   }
-  .label-danger,
-  .badge-danger {
+  .label-danger
+   {
     background-color: #E04B4A;
   }
   /* EOF LABELS AND BADGES */
@@ -1960,11 +1956,12 @@ margin-left: 97%;
   .tasks .task-item.task-info {
     border-left-color: #1caf9a;
   }
+  
   .tasks .task-item.task-warning {
-    border-left-color: #1caf9a;
+    border-left-color: rgb(255, 149, 0);
   }
   .tasks .task-item.task-danger {
-    border-left-color: #E04B4A;
+    border-left-color: #0081c2;
   }
   .tasks .task-item .task-text {
     margin-bottom: 10px;

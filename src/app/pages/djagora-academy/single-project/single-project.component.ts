@@ -17,6 +17,7 @@ export class SingleProjectComponent implements OnInit {
   imgpath: any = 'http://127.0.0.1:8000/storage/post/'
   SingleProject: any = {};
   ProjectOwner: any = [];
+  senior: any = [];
   auth: any;
   role: any;
   test_backlog=false;
@@ -99,7 +100,6 @@ export class SingleProjectComponent implements OnInit {
       this.PublicDataService.getUserById(this.SingleProject.user_id).subscribe(res => {
         this.data = res;
         this.ProjectOwner = this.data;
-        //console.log('catched', this.ProjectOwner)
         if (this.ProjectOwner.user_id == this.loggeduser['id']) {
           this.getPendingApps();
         }
@@ -136,14 +136,24 @@ export class SingleProjectComponent implements OnInit {
   getAppPosByProject() {
     this.PublicDataService.getAppApplication(this.SingleProject.id).subscribe(res => {
       this.approuvedApps = res;
-      this.approuvedApps.forEach((element: any) => {
-       this.approuvedUser_byID.push(element.user_id);
-      });
-      if(this.loggeduser['id']==this.SingleProject.user_id || this.approuvedUser_byID.indexOf(this.loggeduser['id']) !== -1 ){
-        this.test_backlog=true;
-      }
-      this.loader=false
-      this.countapprouvedApps = this.approuvedApps.length;
+      this.PublicDataService.getAppSenior(this.SingleProject.id).subscribe(res => {
+        this.senior = res;
+        this.senior.forEach((element: any) => {
+          this.approuvedUser_byID.push(element.user_id);
+         });
+        this.approuvedApps.forEach((element: any) => {
+          this.approuvedUser_byID.push(element.user_id);
+         });
+   
+   
+         if(this.loggeduser['id']==this.SingleProject.user_id || this.approuvedUser_byID.indexOf(this.loggeduser['id']) !== -1 ){
+           this.test_backlog=true;
+         }
+         this.loader=false
+         this.countapprouvedApps = this.approuvedApps.length;
+      
+      })
+     
     })
 
   }

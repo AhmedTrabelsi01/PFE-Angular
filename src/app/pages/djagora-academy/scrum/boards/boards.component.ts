@@ -24,7 +24,7 @@ export class BoardsComponent implements OnInit {
   newList4: any = [];
 
 
-
+sprint:any={}
   id: any
   loader = true
   token: any;
@@ -42,6 +42,7 @@ export class BoardsComponent implements OnInit {
     this.role = this.PublicDataService.getRole();
     this.auth = this.PublicDataService.getLoginState();
     this.getBoardUserstories();
+    this.getSprintById()
     //popup()
   }
 
@@ -104,6 +105,11 @@ export class BoardsComponent implements OnInit {
     })
   }
 
-
+  getSprintById(){
+    this.PublicDataService.getSprintByID(this.id).subscribe(res=>{
+      this.sprint=res;
+    
+   })
+  }
 
 }
