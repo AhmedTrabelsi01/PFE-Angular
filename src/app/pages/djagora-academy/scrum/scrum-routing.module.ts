@@ -6,6 +6,7 @@ import { EditBacklogComponent } from './backlog/edit-backlog/edit-backlog.compon
 import { BacklogComponent } from './backlog/backlog.component';
 import { SprintsComponent } from './sprints/sprints.component';
 
+
 const routes: Routes = [
   { path: 'editsprint/:id', component: EditSprintComponent },
   { path: 'sprint/:id', component: SprintsComponent },

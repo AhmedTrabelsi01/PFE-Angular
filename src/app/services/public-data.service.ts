@@ -387,4 +387,14 @@ export class PublicDataService {
     return this.httpClient.post('http://127.0.0.1:8000/api/updatesprintauto/'+id, { headers: this.createHeader() });
   }
   
+  /******************* Ideas ******************/
+  addIdea(data:any){
+    return this.httpClient.post('http://127.0.0.1:8000/api/addIdea',data, { headers: this.createHeader() });
+  }
+  getIdeas(id:any){
+    return this.httpClient.get('http://127.0.0.1:8000/api/getIdeas/'+id, { headers: this.createHeader() });
+  }
+  deleteIdea(id:any){
+    return this.httpClient.delete('http://127.0.0.1:8000/api/deleteIdea/' + id, { headers: this.createHeader() });
+  }
 }

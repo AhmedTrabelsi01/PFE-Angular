@@ -22,7 +22,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     EditBacklogComponent,
     BoardsComponent,
     EditSprintComponent,
-    SprintsComponent
+    SprintsComponent,
 
   ],
   imports: [

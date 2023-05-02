@@ -2382,3 +2382,19 @@ margin-left: 97%;
     border-color: #1b1e24;
     color: #333;
   }
+  .col-12{
+    line-height: 1cm;
+  }
+
+
+  .wrapper1 {
+
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: repeat(4, 1fr);
+    grid-row-gap: 1em;
+    grid-column-gap: 1em;
+  }
+  .line {
+    line-height: 1cm;
+  }

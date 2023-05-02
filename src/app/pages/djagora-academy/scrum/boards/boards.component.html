@@ -23,53 +23,6 @@
   <h1 name="1">{{sprint.name}}</h1>
 </div>
 
-
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <div class="modal-body mb-0 pb-0 mt-0">
-      <div class="container ">
-        <!-- custom radio button -->
-        <div class="holder">
-          <div class="row mb-1 ">
-            <div class="col ">
-              <h3 style="color: #0081c2;">Add new task</h3>
-            </div>
-          </div>
-          <form class="customRadio customCheckbox m-0 p-0 my-4">
-            <div class="row mb-0">
-              <div class=" justify-content-center">
-                <label for="validationServer01">Title</label>
-
-                <input type="text" class="form-control p-3" id="validationServer01" placeholder="Project title">
-                <label for="validationServer01">State</label>
-
-                <input type="text" class="form-control p-3" id="validationServer01" placeholder="Project title">
-                <label for="validationServer01">Description</label>
-
-                <textarea type="text" class="form-control p-3" id="validationServer01" rows="5"></textarea>
-
-              </div>
-            </div>
-
-
-          </form>
-
-        </div>
-      </div>
-      <div style="margin-left:83%;" class="my-2"><button class="btn btn-primary ">submit</button></div>
-
-    </div>
-
-    <!-- Modal footer -->
-
-  </div>
-
-</div>
-
-
 <div class="page-container page-navigation-toggled mb-5 py-2" style="background-color: rgb(243, 243, 243);" *ngIf="loader==false">
 
 
@@ -77,21 +30,77 @@
     <div class="my-3">
 
       <button [routerLink]="['/editsprint',id]" class="btn ml-1  col-md-auto btn_retour "
-        style="    font-size: 16px;border-radius: 5px; padding: 6px 0px 6px 0px; ">🢀 Back</button>
+        style="    font-size: 14px;border-radius: 5px; padding: 6px 0px 6px 0px; ">🢀 Back</button>
      <!-- <button class="btn mx-3  col-md-auto  "
         style="color: white;background-color:#0081c2;font-size: 16px;border-radius: 5px;padding-top: 6px;padding-bottom: 6px; "
         id="myBtn" onclick="popup()">+ task</button>-->
+        <button class="btn ml-1  col-md-auto btn_retour"  style="font-size: 14px;border-radius: 5px; padding: 6px 0px 6px 0px; " id="myBtn" onclick="popup()">
+          <span class="fa fa-lightbulb-o" aria-hidden="true"></span> Add new idea
+        </button>
     </div>
 
+    <div class="card mb-3">
+      <div class="card-body" style="width: 100%">
+        <div class="container my-4">
+          <div>
+            
+            <div id="myModal" class="modal">
+              <!-- Modal content -->
+              <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="modal-body mb-0 pb-0 mt-0">
+                  <div class="container">
+                    <!-- custom radio button -->
+                    <div class="holder">
+                      <div class="row mb-1">
+                          <h2 class="text-center font-weight-bold">New Idea</h2>
+                      </div>
+                      <form class="customRadio customCheckbox m-0 p-0 my-4" [formGroup]="ideaForm">
+                        <div class="row mb-0">
+                          <div class="row justify-content-start">
+                            <div class="col-12">
+                              <div class="row my-2">
+                                <label for="name">Title for the idea</label>
+                                <input type="text" name="name" id="name"
+                                  formControlName="name" />
+                                <div *ngIf="this.error">
+                                  <div *ngIf="this.error.name">
+                                    <span style="color:darkred;">the name fields is required</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="row my-2">
+                                <label for="description">Description of the idea</label>
+                                <textarea type="text" name="description" id="description"
+                                formControlName="description" ></textarea>
+                                <div *ngIf="this.error">
+                                <div *ngIf="this.error.description">
+                                  <span style="color:darkred;">the description fields is required</span>
+                                </div>
+                              </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="text-center">
+                    <button type="button" class="btn btn-outline-primary" style="font-size: 16px;border-radius: 5px; padding: 6px 6px 6px 6px; " (click)="addIdea()">POST IDEA</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
     <div class="content-frame">
 
       <div class="content-frame-left">
         <div>
           <h3 class="p-2" style="color: white;background-color:black;"><i class="fa-sharp fa-solid fa-pen-to-square"></i> User Story</h3>
-
-
-
           <div class="tasks" id="tasks">
 
             <div class="" cdkDropList 
@@ -132,7 +141,7 @@
       </div>
       <!-- START CONTENT FRAME BODY -->
 
-        <div class="content-frame-body">
+    <div class="content-frame-body">
 
       <div cdkDropListGroup>
 
@@ -330,6 +339,41 @@
     </div>
     <!-- END PAGE CONTENT -->
   </div>
+</div>
+<h3 class="p-2 text-center" style="color: white; background-color:rgb(1, 170, 139)"><i class="fa fa-lightbulb-o" aria-hidden="true"></i>  Ideas</h3>
+ 
+<div class="col-md-3">
+  <div class="wrapper1" >
+    <div class="text-center" style="width:37cm" *ngIf="this.count===0">
+      <h3 style="color: gray;" >No ideas yet </h3>
+    </div>
+    <div class="tasks" id="tasks_completed" *ngFor="let idea of this.ideas">
+        <div class="container" >
+          <div class="row" >
+            <div class="comment example-box text-justify " style="width: 300px;" >
+              <div class="task-item task-info task-complete" style="background-color: white;">
+                <h3 class="p-2 text-center" style="color: white; background-color:rgb(1, 170, 139)">
+                  <i class="fa fa-lightbulb-o" aria-hidden="true"></i>  {{idea.name}}
+                </h3>
+      
+                <div class="task-text">{{idea.description}}</div>
+      
+                <div class="task-footer">
+                  <div class="line">
+                    <div class="pull-left"><span class="fa fa-calendar" aria-hidden="true"> </span> {{idea.realized_date}}</div>
+                    <div class="pull-left ml-3"  ><span ><img style="border-radius: 100%;" height="25" [src]="imgpath+idea.user_id.img" alt=""></span> {{idea.user_id.name}}</div>
+                    <div class="text-center"> <button class="btn ml-1  col-md-auto btn_retour" (click)="deleteIdea(idea.id)"  style="color: white;background-color:red; font-size: 14px;border-radius: 5px; padding: 6px 0px 6px 0px;">
+                      <i class="fa fa-trash-o" aria-hidden="true"></i>DELETE</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
 </div>
 
 

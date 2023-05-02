@@ -24,6 +24,7 @@
     "@syncfusion/ej2-angular-kanban": "^20.4.54",
     "@syncfusion/ej2-angular-schedule": "^20.3.58-ngcc",
     "@syncfusion/ej2-data": "^20.3.56",
+    "bootstrap-icons": "^1.10.4",
     "jwt-decode": "^3.1.2",
     "ng-multiselect-dropdown": "^0.3.9",
     "ng2-search-filter": "^0.5.1",

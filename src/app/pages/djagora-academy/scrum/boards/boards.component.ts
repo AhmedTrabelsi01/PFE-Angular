@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { PublicDataService } from 'src/app/services/public-data.service';
 import { ActivatedRoute } from '@angular/router';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-//declare function popup():any ;
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+declare function popup():any ;
 
 @Component({
   selector: 'app-boards',
@@ -32,7 +34,7 @@ sprint:any={}
   auth: any;
   imgpath: any = 'http://127.0.0.1:8000/storage/post/'
   role: any;
-  constructor(private PublicDataService: PublicDataService, private route: ActivatedRoute) { }
+  constructor(private PublicDataService: PublicDataService, private route: ActivatedRoute, private toastr:ToastrService) { }
 
   ngOnInit(): void {
     window.scrollTo(0, 0)
@@ -42,7 +44,8 @@ sprint:any={}
     this.role = this.PublicDataService.getRole();
     this.auth = this.PublicDataService.getLoginState();
     this.getBoardUserstories();
-    this.getSprintById()
+    this.getSprintById();
+    this.getIdeas();
     //popup()
   }
 
@@ -112,4 +115,44 @@ sprint:any={}
    })
   }
 
+  /********************** Idea functions and variables ***************************/
+  ideaForm = new FormGroup({
+    name: new FormControl('',Validators.required),
+    description: new FormControl('',Validators.required),
+  })
+  idea:any;
+  projectID:any;
+  error:any;
+  submitted=false;
+  ideas:any;
+  count=0;
+
+  getIdeas(){
+    this.PublicDataService.getIdeas(this.id).subscribe(res => {
+      this.ideas=res;
+      this.count = this.ideas.length;
+    });
+  }
+  addIdea(){
+    this.idea = this.ideaForm.value;
+    this.submitted=true;
+    
+    let formdata2 = new FormData();
+    formdata2.append('user_id',this.loggeduser['id']);
+    formdata2.append('name',this.idea.name);
+    formdata2.append('description',this.idea.description);
+    formdata2.append('actor',this.loggeduser['name']);
+    formdata2.append('sprint_id',this.id);
+    this.PublicDataService.addIdea(formdata2).subscribe(res=> {this.error=res
+      if(this.error.code==200){
+         this.toastr.success("Idea added with success");
+         this.getIdeas();
+      }
+   })
+  }
+  deleteIdea(id:any){
+    this.PublicDataService.deleteIdea(id).subscribe(res => {
+      this.getIdeas();
+    })
+  }
 }
