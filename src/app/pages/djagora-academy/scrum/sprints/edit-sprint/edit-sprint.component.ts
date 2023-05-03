@@ -31,13 +31,13 @@ affected:any = [];
     name: new FormControl("",Validators.required),
     start_date:new FormControl("",Validators.required),
     end_date:new FormControl("",Validators.required),
-   
+
 
 });
 
 
   drop(event: CdkDragDrop<string[]>) {
-  
+
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
@@ -65,10 +65,10 @@ affected:any = [];
 
       this.PublicDataService.updateData(formdata).subscribe(res=>{
      })
-        
+
     }
-    
-   
+
+
 
   }
   ngOnInit(): void {
@@ -86,12 +86,18 @@ affected:any = [];
   getSprintById(){
     this.PublicDataService.getSprintByID(this.id).subscribe(res=>{
       this.sprint=res;
+      this. getProjectById() ;
       this.getScrumMaster();
       this.getUserStories();
       this.getAffectedUserStories();
 
    })
   }
+  SingleProject:any
+  getProjectById() {
+    this.PublicDataService.getProjectById(this.sprint.project_id).subscribe(res => {
+      this.SingleProject = res;
+    })}
 
 
   getUserStories(){
@@ -110,7 +116,7 @@ affected:any = [];
 
   /* editSprint(){
     this.newSprint=this.SprintForm.value
- 
+
     let formdata = new FormData();
     formdata.append('id',this.sprint.id)
     formdata.append('end_date',this.newSprint.end_date)

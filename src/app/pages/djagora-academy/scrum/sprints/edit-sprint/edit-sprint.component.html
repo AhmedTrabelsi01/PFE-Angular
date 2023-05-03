@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="banner-heading">
-            <h1 class="banner-title">Backlog/Sprints/Edit Sprint</h1>
+            <h1 class="banner-title">Backlog/Sprints/{{sprint.name}}</h1>
           </div>
         </div><!-- Col end -->
       </div><!-- Row end -->
@@ -17,11 +17,6 @@
     <div *ngIf="loader==true" class="loader"></div>
   </div>
 </div>
-<div class="titre">
-
-  <h1 name="1">Edit Sprint</h1>
-</div>
-
 
 <!-- Main Body -->
 <section *ngIf="loader==false">
@@ -29,13 +24,329 @@
     <div class="btn_retour mb-3">
       <button [routerLink]='["/sprint",sprint.project_id]'><a>🢀 Back</a></button>
     </div>
-   
-    <div class="row">
+    <!--sprint1-->
+    <div class="card card-margin " *ngIf="sprint.name=='sprint 1' && sprint.project_id==SingleProject.id">
+      <h1 class="titre">Evaluation {{sprint.name}}</h1>
+      <h4 class="my-4 mx-4" style="color: #0081c2;">Nombre d'items total:</h4>
+      <h4 class="my-4 mx-4" style="color: #0081c2;">Les items réalisés :</h4>
+      <input type="number" style="width:30%;" class="mx-4">
 
+      <h4 class="my-4 mx-4" style="color: #0081c2;">Les heurs réaliseés :</h4>
+      <input type="number" style="width:30%;" class="mx-4">
+      <br>
+      <button type="button" class="btn mx-5"
+        style="width: 10%; background-color: #0081c2 ;    margin-left: 5px; ">submit</button>
+
+      <h4 class="my-4 mx-4" style="color: #0081c2;">Durée :</h4>
+
+    </div>
+
+    <!--sprint2-->
+    <div class="card card-margin " *ngIf="sprint.name=='sprint 2' && sprint.project_id==SingleProject.id">
+      <h1 class="titre">Evaluation {{sprint.name}}</h1>
+      <h4 class="my-4 mx-4" style="color: #0081c2;">Nombre total utilisateur :</h4>
+      <input type="number" style="width:30%;" class="mx-4">
+      <h4 class="my-4 mx-4" style="color: #0081c2;">Nombre d'early adopters :</h4>
+      <input type="number" style="width:30%;" class="mx-4">
+      <h4 class="my-4 mx-4" style="color: #0081c2;">Nombre de co-créateur : </h4>
+      <input type="number" style="width:30%;" class="mx-4">
+      <h4 class="my-4 mx-4" style="color: #0081c2;">Nombre d'hypothèses : </h4>
+      <input type="number" style="width:30%;" class="mx-4">
+      <br>
+      <button type="button" class="btn mx-5"
+        style="width: 10%; background-color: #0081c2 ;    margin-left: 5px; ">submit</button>
+
+    </div>
+    <!--sprint3-->
+    <div class="card card-margin " *ngIf="sprint.name=='sprint 3' && sprint.project_id==SingleProject.id">
+      <h1 class="titre">Evaluation {{sprint.name}}</h1>
+      <h2 class="my-4 mx-4" style="color: #0081c2;">Marché initial: Qui est votre client ?</h2>
+      <table class="table" style="border: 2px;">
+        <tr>
+          <th rowspan="5">Tête de pont</th>
+          <td>Le client cible a-t-il de l’argent ? </td>
+          <td> <select class="form-select" aria-label="Default select example">
+              <option value="1">Insuffisant</option>
+              <option value="2">En cours</option>
+              <option value="3">Acceptable</option>
+              <option value="4">Validé</option>
+
+            </select></td>
+          <td>70%</td>
+<td rowspan="5">15%</td>
+
+        </tr>
+        <tr>
+          <td>Vous avez identifié le plus grand défi pour votre start-up ?</td>
+          <td> <select class="form-select" aria-label="Default select example">
+              <option value="1">Insuffisant</option>
+              <option value="2">En cours</option>
+              <option value="3">Acceptable</option>
+              <option value="4">Validé</option>
+
+            </select></td>
+          <td>70%</td>
+        </tr>
+        <tr>
+          <td>Disposez vous d'un schéma de segmentation de votre marché.</td>
+          <td> <select class="form-select" aria-label="Default select example">
+              <option value="1">Insuffisant</option>
+              <option value="2">En cours</option>
+              <option value="3">Acceptable</option>
+              <option value="4">Validé</option>
+
+            </select></td>
+          <td>70%</td>
+        </tr>
+        <tr>
+          <td>Pouvez-vous lui fournir le produit complet?</td>
+          <td> <select class="form-select" aria-label="Default select example">
+              <option value="1">Insuffisant</option>
+              <option value="2">En cours</option>
+              <option value="3">Acceptable</option>
+              <option value="4">Validé</option>
+
+            </select></td>
+          <td>70%</td>
+        </tr>
+        <tr>
+          <td>Disposez vous des "ressources" suffisantes pour pénétrer d’autres marchés</td>
+          <td> <select class="form-select" aria-label="Default select example">
+              <option value="1">Insuffisant</option>
+              <option value="2">En cours</option>
+              <option value="3">Acceptable</option>
+              <option value="4">Validé</option>
+            </select></td>
+          <td>70%</td>
+        </tr>
+        <tr>
+          <th rowspan="4">Profil utilisateur final</th>
+          <td> Les utilisateurs finaux utilisent t-ils tous le même produit?
+
+          </td>
+          <td> <select class="form-select" aria-label="Default select example">
+              <option value="1">Insuffisant</option>
+              <option value="2">En cours</option>
+              <option value="3">Acceptable</option>
+              <option value="4">Validé</option>
+
+            </select></td>
+          <td>70%</td>
+          <td rowspan="4">15%</td>
+
+        </tr>
+        <tr>
+          <td>Les utilisateurs finaux ont t-ils exprimé leurs besoins?</td>
+          <td> <select class="form-select" aria-label="Default select example">
+              <option value="1">Insuffisant</option>
+              <option value="2">En cours</option>
+              <option value="3">Acceptable</option>
+              <option value="4">Validé</option>
+
+            </select></td>
+          <td>70%</td>
+        </tr>
+        <tr>
+          <td>A-t-il une bonne raison d’acheter votre produit ?</td>
+          <td>
+            <select class="form-select" aria-label="Default select example">
+              <option value="1">Insuffisant</option>
+              <option value="2">En cours</option>
+              <option value="3">Acceptable</option>
+              <option value="4">Validé</option>
+            </select>
+          </td>
+          <td>70%</td>
+        </tr>
+        <tr>
+          <td>L'équipe peut fournir une solution complète ?</td>
+          <td>
+            <select class="form-select" aria-label="Default select example">
+              <option value="1">Insuffisant</option>
+              <option value="2">En cours</option>
+              <option value="3">Acceptable</option>
+              <option value="4">Validé</option>
+            </select>
+          </td>
+          <td>70%</td>
+        </tr>
+        <tr>
+          <th rowspan="5">TAM : La taille potentielle de votre marché</th>
+          <td>Avez vous fixé des hypothèses :</td>
+          <td>
+            <div class="form-check-inline">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+              <label class="form-check-label" for="flexRadioDefault1">
+                <h6>Yes</h6>
+              </label>
+            </div>
+            <div class="form-check-inline">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+              <label class="form-check-label" for="flexRadioDefault2">
+                <h6>No</h6>
+              </label>
+            </div>
+          </td>
+          <td>70%</td>
+          <td rowspan="4">17%</td>
+
+        </tr>
+        <tr>
+          <td>Combien coûte chaque produit ?</td>
+          <td>
+            <input type="number">
+          </td>
+          <td>70%</td>
+
+        </tr>
+        <tr>
+          <td>Combien d’unités le client en achète pour l’utilisateur final ? </td>
+          <td>
+            <input type="number">
+          </td>
+          <td>70%</td>
+        </tr>
+        <tr>
+          <td>La durée de vie moyenne du produit avant qu’il soit remplacé ? </td>
+          <td>
+            <select class="form-select" aria-label="Default select example">
+              <option value="1">Insuffisant</option>
+              <option value="2">En cours</option>
+              <option value="3">Acceptable</option>
+              <option value="4">Validé</option>
+            </select>
+          </td>
+          <td>70%</td>
+        </tr>
+        <tr>
+          <td> Avez vous une idée sur le potentiel de votre marché? </td>
+          <td> <select class="form-select" aria-label="Default select example">
+              <option value="1">Insuffisant</option>
+              <option value="2">En cours</option>
+              <option value="3">Acceptable</option>
+              <option value="4">Validé</option>
+            </select>
+          </td>
+          <td>70%</td>
+        </tr>
+        <tr>
+          <td><button type="button" class="btn mx-5" style=" background-color: #0081c2 ;     ">submit</button></td>
+        </tr>
+      </table>
+    </div>
+    <!--sprint4-->
+    <div class="card card-margin " *ngIf="sprint.name=='sprint 4' && sprint.project_id==SingleProject.id">
+      <h1 class="titre">Evaluation {{sprint.name}}</h1>
+      <h2 class="my-4 mx-4" style="color: #0081c2;">Conception et fabrication: Comment fabriquez-vous votre produit ?
+      </h2>
+      <table class="table">
+        <tr>
+          <th>Identifier hypothèses clés</th>
+          <td>Décrire les principales hypothèses sur lesquelles repose votre projet de façon à pouvoir les tester avant
+            que le marché ne le fasse à votre place.</td>
+          <td>
+            <select class="form-select" aria-label="Default select example">
+              <option value="1">Insuffisant</option>
+              <option value="2">En cours</option>
+              <option value="3">Acceptable</option>
+              <option value="4">Validé</option>
+
+            </select>
+          </td>
+          <td>70%</td>
+          <td colspan="3">15%</td>
+        </tr>
+        <tr>
+          <th>Tester hypothèses clés</th>
+          <td>Organiser une série de petites expériences peu coûteuses pour tester chacune des hypothèses identifiées à
+            l’étape précédente. Faites preuve d’imagination !
+          </td>
+          <td> <select class="form-select" aria-label="Default select example">
+              <option value="1">Insuffisant</option>
+              <option value="2">En cours</option>
+              <option value="3">Acceptable</option>
+              <option value="4">Validé</option>
+            </select></td>
+          <td>70%</td>
+        </tr>
+        <tr>
+          <th>MVBP : le produit minimum business viable</th>
+          <td>Déterminer le produit minimum qui pourrait vous permettre de vérifier que votre utilisateur final tire de
+            la valeur de votre produit et que celui-ci vous sera payé.</td>
+          <td> <select class="form-select" aria-label="Default select example">
+              <option value="1">Insuffisant</option>
+              <option value="2">En cours</option>
+              <option value="3">Acceptable</option>
+              <option value="4">Validé</option>
+            </select></td>
+          <td>70%</td>
+        </tr>
+        <tr>
+          <td><button type="button" class="btn mx-5" style=" background-color: #0081c2 ;     ">submit</button></td>
+        </tr>
+      </table>
+    </div>
+
+    <!--sprint5-->
+    <div class="card card-margin " *ngIf="sprint.name=='sprint 5' && sprint.project_id==SingleProject.id">
+      <h1 class="titre">Evaluation {{sprint.name}}</h1>
+      <h2 class="my-4 mx-4" style="color: #0081c2;">Evaluation de L’expérience client
+      </h2>
+      <div *ngIf="sprint.state==0">
+        <h4 class="my-4 mx-4" style="color: #0081c2;">Le nombre de client par jour:</h4>
+        <input type="number" style="width: 50%;" class="mx-4">
+        <h4 class="my-4 mx-4" style="color: #0081c2;">Le nombre de client par mois:</h4>
+        <input type="number" style="width: 50%;" class="mx-4">
+        <h4 class="my-4 mx-4" style="color: #0081c2;">CONVERSIONS:</h4>
+        <input type="number" style="width: 50%;" class="mx-4">
+        <h4 class="my-4 mx-4" style="color: #0081c2;">NOMBRE D'INTERACTIONS PUBLICITAIRES :</h4>
+        <input type="number" style="width: 50%;" class="mx-4">
+        <br><br>
+        <button type="button" class="btn mx-5"
+          style="width: 10%; background-color: #0081c2 ;    margin-left: 5px; ">submit</button>
+
+      </div>
+
+      <div *ngIf="sprint.state==0">
+        <h4 class="my-4 mx-4" style="color: #0081c2;">TAUX DE CONVERSION : <h1 style="color: black;">10%</h1>
+        </h4>
+        <h4 class="my-4 mx-4" style="color: #0081c2;">DAU/MAU : <h1 style="color: black;">17%</h1>
+        </h4>
+      </div>
+
+    </div>
+    <!--sprint6-->
+    <div class="card card-margin " *ngIf="sprint.name=='sprint 6' && sprint.project_id==SingleProject.id">
+      <h1 class="titre">Evaluation {{sprint.name}}</h1>
+      <h2 class="my-4 mx-4" style="color: #0081c2;">Evaluation de L’expérience client
+      </h2>
+      <div *ngIf="sprint.state==0">
+        <h4 class="my-4 mx-4" style="color: #0081c2;">Durée de vie de client:</h4>
+        <input type="number" style="width: 50%;" class="mx-4">
+        <h4 class="my-4 mx-4" style="color: #0081c2;">Cotisation de la client:</h4>
+        <input type="number" style="width: 50%;" class="mx-4">
+        <br><br>
+        <button type="button" class="btn mx-5"
+          style="width: 10%; background-color: #0081c2 ;    margin-left: 5px; ">submit</button>
+
+      </div>
+
+      <div *ngIf="sprint.state==0">
+        <h4 class="my-4 mx-4" style="color: #0081c2;">Resulat : <h1 style="color: black;">10%</h1>
+        </h4>
+
+      </div>
+
+    </div>
+
+
+
+
+
+    <div class="row">
       <div class="col-sm-5 col-md-6 col-12 " cdkDropList #todoList="cdkDropList" [cdkDropListData]="userStories"
         [cdkDropListConnectedTo]="[doneList]" (cdkDropListDropped)="drop($event)">
         <h2 class="my-4" style="color: #0081c2;">Pending user stories</h2>
-
         <div class="comment   col-md-12 text-justify float-left mb-4" *ngFor="let story of userStories" cdkDrag>
           <h4 style="color: #0081c2;">{{story.name}}</h4>
           <span> | {{story.hours}} Hours</span>
@@ -51,26 +362,15 @@
         <h4 *ngIf="userStories.length==0" style="color: gray; margin-top: 3%;margin-bottom: 3%;">
           No pending user stories yet</h4>
       </div>
-
-
-
-
-
-
-
       <div class="col-lg-6 col-md-5 col-sm-4  col-12 ">
         <div class="row ">
           <h2 class="my-4" style="color: #0081c2;">Sprint user stories</h2>
 
         </div>
-
         <div class="">
-
           <div class="row  ">
-
             <div class="">
               <div class="card card-margin">
-
                 <div class="card-header no-border">
                   <span *ngIf="scrumMaster!=null" class="badge  badge-light col-md-auto my-2 ">
                     <div class="row ">
@@ -123,12 +423,9 @@
 
 
             </div>
-
-
             <div class="col-sm-5 col-md-12 col-12 pb-4" cdkDropList #doneList="cdkDropList" [cdkDropListData]="affected"
               [cdkDropListConnectedTo]="[todoList]" (cdkDropListDropped)="drop($event)">
               <h2 class="my-4" style="color: #0081c2;">Affected user stories</h2>
-
               <h4 *ngIf="affected.length==0" style="color: gray; margin-top: 3%;margin-bottom: 3%;">
                 No Affected user stories yet</h4>
               <div class="drag-image">
