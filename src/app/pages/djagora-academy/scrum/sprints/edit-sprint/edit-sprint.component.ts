@@ -82,6 +82,44 @@ affected:any = [];
 
   }
 
+  /***************************** Pour l'évaluation *********************************/
+  statForm = new FormGroup({
+    duree: new FormControl("",Validators.required),
+  });
+  valueSprint1:any;
+
+  statForm2= new FormGroup({
+    totalUsers: new FormControl("",Validators.required),
+    earlyAdopters: new FormControl("",Validators.required),
+    coCreator:  new FormControl("",Validators.required),
+    hypothesis: new FormControl("",Validators.required),
+  })
+  valueSprint2:any;
+  //---------Évaluation Sprint functions------------
+  //Function 1
+  submitSprint1(){
+    this.valueSprint1=this.statForm.value;
+    let formdata = new FormData();
+    formdata.append('duree',this.valueSprint1.duree );
+    this.PublicDataService.submitSprint1(formdata).subscribe(res=>{
+      
+    
+    });
+  }
+
+//Function 2
+submitSprint2(){
+  this.valueSprint2 = this.statForm2.value;
+  let formdata = new FormData();
+  formdata.append('totalUsers',this.valueSprint2.totalUsers);
+  formdata.append('earlyAdopters',this.valueSprint2.earlyAdopters);
+  formdata.append('coCreator',this.valueSprint2.coCreator);
+  formdata.append('hypothesis',this.valueSprint2.hypothesis);
+  this.PublicDataService.submitSprint2(formdata).subscribe(res =>{
+
+  });
+}
+  //---get sprint by id
 
   getSprintById(){
     this.PublicDataService.getSprintByID(this.id).subscribe(res=>{
@@ -137,4 +175,5 @@ affected:any = [];
    })
   }
 
+  
 }

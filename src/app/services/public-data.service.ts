@@ -397,4 +397,47 @@ export class PublicDataService {
   deleteIdea(id:any){
     return this.httpClient.delete('http://127.0.0.1:8000/api/deleteIdea/' + id, { headers: this.createHeader() });
   }
+
+  /******************* Évaluation des sprints  **************/
+  submitSprint1(data:any){
+    return this.httpClient.post('http://127.0.0.1:8000/api/submitSprint1',data, { headers: this.createHeader() });
+  }
+  evaluationSprint1(id:any){
+    return this.httpClient.get('http://127.0.0.1:8000/api/evaluationSprint1/'+id, { headers: this.createHeader() })
+  }
+
+  submitSprint2(data:any){
+    return this.httpClient.post('http://127.0.0.1:8000/api/submitSprint2',data, { headers: this.createHeader() });
+  }
+  evaluationSprint2(id:any){
+    return this.httpClient.get('http://127.0.0.1:8000/api/evaluationSprint2/'+id, { headers: this.createHeader() })
+  }
+
+  submitSprint3(data:any){
+    return this.httpClient.post('http://127.0.0.1:8000/api/submitSprint3',data, { headers: this.createHeader() });
+  }
+  evaluationSprint3(id:any){
+    return this.httpClient.get('http://127.0.0.1:8000/api/evaluationSprint3/'+id, { headers: this.createHeader() })
+  }
+
+  submitSprint4(data:any){
+    return this.httpClient.post('http://127.0.0.1:8000/api/submitSprint4',data, { headers: this.createHeader() });
+  }
+  evaluationSprint4(id:any){
+    return this.httpClient.get('http://127.0.0.1:8000/api/evaluationSprint4/'+id, { headers: this.createHeader() })
+  }
+
+  submitSprint5(data:any){
+    return this.httpClient.post('http://127.0.0.1:8000/api/submitSprint5',data, { headers: this.createHeader() });
+  }
+  evaluationSprint5(id:any){
+    return this.httpClient.get('http://127.0.0.1:8000/api/evaluationSprint5/'+id, { headers: this.createHeader() })
+  }
+
+  submitSprint6(data:any){
+    return this.httpClient.post('http://127.0.0.1:8000/api/submitSprint6',data, { headers: this.createHeader() });
+  }
+  evaluationSprint6(id:any){
+    return this.httpClient.get('http://127.0.0.1:8000/api/evaluationSprint6/'+id, { headers: this.createHeader() })
+  }
 }
