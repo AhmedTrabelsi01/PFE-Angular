@@ -5,6 +5,7 @@ import { BoardsComponent } from './boards/boards.component';
 import { EditBacklogComponent } from './backlog/edit-backlog/edit-backlog.component';
 import { BacklogComponent } from './backlog/backlog.component';
 import { SprintsComponent } from './sprints/sprints.component';
+import { EvaluationComponent } from './sprints/evaluation/evaluation.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,8 @@ const routes: Routes = [
   { path: 'boards/:id', component: BoardsComponent },
   { path: '', component: BacklogComponent },
   { path: 'editBacklog/:id', component: EditBacklogComponent },
+  { path: 'evaluation/:id', component: EvaluationComponent },
+
 ]
   ;
 @NgModule({

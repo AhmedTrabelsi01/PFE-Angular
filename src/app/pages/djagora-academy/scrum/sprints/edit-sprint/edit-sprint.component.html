@@ -19,221 +19,258 @@
 </div>
 
 <!-- Main Body -->
-<section *ngIf="loader==false">
+<section *ngIf="loader==false ">
   <div class="container">
-    <div class="btn_retour mb-3">
-      <button [routerLink]='["/sprint",sprint.project_id]'><a>🢀 Back</a></button>
-    </div>
+    <div class="row mb-3">
+      <button [routerLink]='["/sprint",sprint.project_id]' class=" ml-3  col-md-auto btn_retour px-2 "> 🢀 Back</button>
+      <button [routerLink]='["/evaluation",id]' class="btn mx-3  col-md-auto  "
+        style="color: white;background-color:#0081c2;">Evaluation</button>
+</div>
+
+
+
+
+ 
+  
+
     <!--sprint1-->
-    <div class="card card-margin " *ngIf="sprint.name=='sprint 1' && sprint.project_id==SingleProject.id">
+    <div class=" card-margin " *ngIf="sprint.name=='sprint 1' && sprint.project_id==SingleProject.id && sprint.state==1 ">
       <h1 class="titre">Evaluation {{sprint.name}}</h1>
-      <h4 class="my-4 mx-4" style="color: #0081c2;">Nombre d'items total:</h4>
-      <h4 class="my-4 mx-4" style="color: #0081c2;">Les items réalisés :</h4>
 
-      <h4 class="my-4 mx-4" style="color: #0081c2;">Les heurs réaliseés :</h4>
-      <input type="number" style="width:30%;" class="mx-4">
-      
+      <div class="container-fluid   ">
+        <section class="container">
 
-      <h4 class="my-4 mx-4" style="color: #0081c2;">Durée :</h4>
-      <button type="button" class="btn mx-5"
-        style="width: 10%; background-color: #0081c2 ; color: white; float: right;  margin-left: 5px; ">SUBMIT</button>
-    </div>
+          <div class="row ms-md-5 my-md-4 ">
+            <div class="col-xl-3 col-md-12  mb-4   ">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between p-md-1">
+                    <div class="d-flex flex-row">
+                      <div class="align-self-center">
+                        <i class="fa-solid fa-pen-to-square text-info fa-3x me-4"></i>
+                      </div>
+                      <div>
+                        <h4>Total </h4>
+                        <p class="mb-0">Userstories</p>
+                      </div>
+                    </div>
+                    <div class="align-self-center">
+                      <h2 class="h1 mb-0">{{evaluationSprint1.total}}</h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-12 mb-4   ">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between p-md-1">
+                    <div class="d-flex flex-row">
+                      <div class="align-self-center">
+                        <i class="fas fa-check  text-success fa-3x me-4"></i>
+                      </div>
+                      <div>
+                        <h4>Total </h4>
+                        <p class="mb-0">réalisés</p>
+                      </div>
+                    </div>
+                    <div class="align-self-center">
+                      <h2 class="h1 mb-0">{{evaluationSprint1.realise}}</h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-3 col-md-12 mb-4   ">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between p-md-1">
+                    <div class="d-flex flex-row">
+                      <div class="align-self-center">
+                        <i class="fa-regular fa-clock text-danger fa-3x me-4"></i>
+                      </div>
+                      <div>
+                        <h4>Total </h4>
+                        <p class="mb-0">duree</p>
+                      </div>
+                    </div>
+                    <div class="align-self-center">
+                      <h2 class="h1 mb-0">{{evaluationSprint1.duree}}</h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-xl-3 col-md-12 mb-4  ">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between p-md-1">
+                    <div class="d-flex flex-row">
+                      <div class="align-self-center">
+                        <i class="fa-regular fa-clock text-warning fa-3x me-4"></i>
+                      </div>
+                      <div>
+                        <h4>Total </h4>
+                        <p class="mb-0">diff duree</p>
+                      </div>
+                    </div>
+                    <div class="align-self-center">
+                      <h2 class="h1 mb-0">{{evaluationSprint1.diff_duree}}</h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </section>
+      </div>
+     
+
+    
+
+
+     </div>
 
     <!--sprint2-->
-    <div class="card card-margin " *ngIf="sprint.name=='sprint 2' && sprint.project_id==SingleProject.id">
+    <div class=" card-margin " *ngIf="sprint.name=='sprint 2' && sprint.project_id==SingleProject.id && sprint.state==1">
       <h1 class="titre">Evaluation {{sprint.name}}</h1>
-      <h4 class="my-4 mx-4" style="color: #0081c2;">Nombre total utilisateur :</h4>
-      <input type="number" style="width:30%;" class="mx-4">
-      <h4 class="my-4 mx-4" style="color: #0081c2;">Nombre d'early adopters :</h4>
-      <input type="number" style="width:30%;" class="mx-4">
-      <h4 class="my-4 mx-4" style="color: #0081c2;">Nombre de co-créateur : </h4>
-      <input type="number" style="width:30%;" class="mx-4">
-      <h4 class="my-4 mx-4" style="color: #0081c2;">Nombre d'hypothèses : </h4>
-      <input type="number" style="width:30%;" class="mx-4">
-      <br>
-      <button type="button" class="btn mx-5"
-        style="width: 10%; background-color: #0081c2 ;  color: white;  margin-left: 5px; ">submit</button>
+
+      <div class="container-fluid   ">
+        <section class="container">
+
+          <div class="row ms-md-6 my-md-4 justify-content-center ">
+            <div class="col-xl-5 col-md-12  mb-4   ">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between p-md-1">
+                    <div class="d-flex flex-row">
+                      <div class="align-self-center">
+                        <i class="fa-solid fa-users text-info fa-3x me-4"></i>
+                      </div>
+                      <div>
+                        <h4>Gap </h4>
+                        <p class="mb-0">Early adapters out of total users</p>
+                      </div>
+                    </div>
+                    <div class="align-self-center">
+                      <h2 class="h1 mb-0">{{evaluationSprint1.ecart}}%</h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           
+         
+
+
+           
+          </div>
+
+        </section>
+      </div>
+     
 
     </div>
     <!--sprint3-->
-    <div class="card card-margin " *ngIf="sprint.name=='sprint 3' && sprint.project_id==SingleProject.id">
+    <div class="card card-margin " *ngIf="sprint.name=='sprint 3' && sprint.project_id==SingleProject.id && sprint.state==1">
       <h1 class="titre">Evaluation {{sprint.name}}</h1>
       <h2 class="my-4 mx-4" style="color: #0081c2;">Marché initial: Qui est votre client ?</h2>
       <table class="table" style="border: 2px;">
         <tr>
           <th rowspan="5">Tête de pont</th>
           <td>Le client cible a-t-il de l’argent ? </td>
-          <td> <select class="form-select" aria-label="Default select example">
-              <option value="1">Insuffisant</option>
-              <option value="2">En cours</option>
-              <option value="3">Acceptable</option>
-              <option value="4">Validé</option>
-
-            </select></td>
-          <td>70%</td>
-<td rowspan="5">15%</td>
+          
+          <td>{{evaluationSprint1.tp1}}%</td>
+          <td rowspan="5">{{moy1}}%</td>
 
         </tr>
         <tr>
           <td>Vous avez identifié le plus grand défi pour votre start-up ?</td>
-          <td> <select class="form-select" aria-label="Default select example">
-              <option value="1">Insuffisant</option>
-              <option value="2">En cours</option>
-              <option value="3">Acceptable</option>
-              <option value="4">Validé</option>
-
-            </select></td>
-          <td>70%</td>
+          
+          <td>{{evaluationSprint1.tp2}}%</td>
         </tr>
         <tr>
           <td>Disposez vous d'un schéma de segmentation de votre marché.</td>
-          <td> <select class="form-select" aria-label="Default select example">
-              <option value="1">Insuffisant</option>
-              <option value="2">En cours</option>
-              <option value="3">Acceptable</option>
-              <option value="4">Validé</option>
-
-            </select></td>
-          <td>70%</td>
+        
+          <td>{{evaluationSprint1.tp3}}%</td>
         </tr>
         <tr>
           <td>Pouvez-vous lui fournir le produit complet?</td>
-          <td> <select class="form-select" aria-label="Default select example">
-              <option value="1">Insuffisant</option>
-              <option value="2">En cours</option>
-              <option value="3">Acceptable</option>
-              <option value="4">Validé</option>
-
-            </select></td>
-          <td>70%</td>
+         
+          <td>{{evaluationSprint1.tp4}}%</td>
         </tr>
         <tr>
           <td>Disposez vous des "ressources" suffisantes pour pénétrer d’autres marchés</td>
-          <td> <select class="form-select" aria-label="Default select example">
-              <option value="1">Insuffisant</option>
-              <option value="2">En cours</option>
-              <option value="3">Acceptable</option>
-              <option value="4">Validé</option>
-            </select></td>
-          <td>70%</td>
+         
+          <td>{{evaluationSprint1.tp5}}%</td>
         </tr>
         <tr>
           <th rowspan="4">Profil utilisateur final</th>
           <td> Les utilisateurs finaux utilisent t-ils tous le même produit?
 
           </td>
-          <td> <select class="form-select" aria-label="Default select example">
-              <option value="1">Insuffisant</option>
-              <option value="2">En cours</option>
-              <option value="3">Acceptable</option>
-              <option value="4">Validé</option>
-
-            </select></td>
-          <td>70%</td>
-          <td rowspan="4">15%</td>
+         
+          <td>{{evaluationSprint1.uf1}}%</td>
+          <td rowspan="4">{{moy2}}%</td>
 
         </tr>
         <tr>
           <td>Les utilisateurs finaux ont t-ils exprimé leurs besoins?</td>
-          <td> <select class="form-select" aria-label="Default select example">
-              <option value="1">Insuffisant</option>
-              <option value="2">En cours</option>
-              <option value="3">Acceptable</option>
-              <option value="4">Validé</option>
-
-            </select></td>
-          <td>70%</td>
+        
+          <td>{{evaluationSprint1.uf2}}%</td>
         </tr>
         <tr>
           <td>A-t-il une bonne raison d’acheter votre produit ?</td>
-          <td>
-            <select class="form-select" aria-label="Default select example">
-              <option value="1">Insuffisant</option>
-              <option value="2">En cours</option>
-              <option value="3">Acceptable</option>
-              <option value="4">Validé</option>
-            </select>
-          </td>
-          <td>70%</td>
+          
+          <td>{{evaluationSprint1.uf3}}%</td>
         </tr>
         <tr>
           <td>L'équipe peut fournir une solution complète ?</td>
-          <td>
-            <select class="form-select" aria-label="Default select example">
-              <option value="1">Insuffisant</option>
-              <option value="2">En cours</option>
-              <option value="3">Acceptable</option>
-              <option value="4">Validé</option>
-            </select>
-          </td>
-          <td>70%</td>
+         
+          <td>{{evaluationSprint1.uf4}}%</td>
         </tr>
         <tr>
           <th rowspan="5">TAM : La taille potentielle de votre marché</th>
           <td>Avez vous fixé des hypothèses :</td>
-          <td>
-            <div class="form-check-inline">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-              <label class="form-check-label" for="flexRadioDefault1">
-                <h6>Yes</h6>
-              </label>
-            </div>
-            <div class="form-check-inline">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-              <label class="form-check-label" for="flexRadioDefault2">
-                <h6>No</h6>
-              </label>
-            </div>
-          </td>
-          <td>70%</td>
-          <td rowspan="4">17%</td>
+        
+          <td *ngIf="evaluationSprint1.tam1==0" >No</td>
+          <td *ngIf="evaluationSprint1.tam1==1" >Yes</td>
+
+          <td rowspan="4">{{moy3}}%</td>
 
         </tr>
         <tr>
           <td>Combien coûte chaque produit ?</td>
-          <td>
-            <input type="number">
-          </td>
-          <td>70%</td>
+          
+          <td>{{evaluationSprint1.tam2}}</td>
 
         </tr>
         <tr>
           <td>Combien d’unités le client en achète pour l’utilisateur final ? </td>
-          <td>
-            <input type="number">
-          </td>
-          <td>70%</td>
+       
+          <td>{{evaluationSprint1.tam3}}</td>
         </tr>
         <tr>
           <td>La durée de vie moyenne du produit avant qu’il soit remplacé ? </td>
-          <td>
-            <select class="form-select" aria-label="Default select example">
-              <option value="1">Insuffisant</option>
-              <option value="2">En cours</option>
-              <option value="3">Acceptable</option>
-              <option value="4">Validé</option>
-            </select>
-          </td>
-          <td>70%</td>
+       
+          <td>{{evaluationSprint1.tam4}}%</td>
         </tr>
         <tr>
           <td> Avez vous une idée sur le potentiel de votre marché? </td>
-          <td> <select class="form-select" aria-label="Default select example">
-              <option value="1">Insuffisant</option>
-              <option value="2">En cours</option>
-              <option value="3">Acceptable</option>
-              <option value="4">Validé</option>
-            </select>
-          </td>
-          <td>70%</td>
+         
+          <td>{{evaluationSprint1.tam5}}%</td>
         </tr>
         <tr>
-          <td><button type="button" class="btn mx-5" style=" background-color: #0081c2 ; color: white;     ">submit</button></td>
+         
         </tr>
       </table>
     </div>
     <!--sprint4-->
-    <div class="card card-margin " *ngIf="sprint.name=='sprint 4' && sprint.project_id==SingleProject.id">
+    <div class="card card-margin " *ngIf="sprint.name=='sprint 4' && sprint.project_id==SingleProject.id && sprint.state==1">
       <h1 class="titre">Evaluation {{sprint.name}}</h1>
       <h2 class="my-4 mx-4" style="color: #0081c2;">Conception et fabrication: Comment fabriquez-vous votre produit ?
       </h2>
@@ -242,98 +279,134 @@
           <th>Identifier hypothèses clés</th>
           <td>Décrire les principales hypothèses sur lesquelles repose votre projet de façon à pouvoir les tester avant
             que le marché ne le fasse à votre place.</td>
-          <td>
-            <select class="form-select" aria-label="Default select example">
-              <option value="1">Insuffisant</option>
-              <option value="2">En cours</option>
-              <option value="3">Acceptable</option>
-              <option value="4">Validé</option>
-
-            </select>
-          </td>
-          <td>70%</td>
-          <td colspan="3">15%</td>
+        
+            <td>{{evaluationSprint1.q1}}%</td>
+            <td colspan="3">{{moy1}}%</td>
         </tr>
         <tr>
           <th>Tester hypothèses clés</th>
           <td>Organiser une série de petites expériences peu coûteuses pour tester chacune des hypothèses identifiées à
             l’étape précédente. Faites preuve d’imagination !
           </td>
-          <td> <select class="form-select" aria-label="Default select example">
-              <option value="1">Insuffisant</option>
-              <option value="2">En cours</option>
-              <option value="3">Acceptable</option>
-              <option value="4">Validé</option>
-            </select></td>
-          <td>70%</td>
+         
+          <td>{{evaluationSprint1.q2}}%</td>
         </tr>
         <tr>
           <th>MVBP : le produit minimum business viable</th>
           <td>Déterminer le produit minimum qui pourrait vous permettre de vérifier que votre utilisateur final tire de
             la valeur de votre produit et que celui-ci vous sera payé.</td>
-          <td> <select class="form-select" aria-label="Default select example">
-              <option value="1">Insuffisant</option>
-              <option value="2">En cours</option>
-              <option value="3">Acceptable</option>
-              <option value="4">Validé</option>
-            </select></td>
-          <td>70%</td>
+         
+            <td>{{evaluationSprint1.q3}}%</td>
         </tr>
         <tr>
-          <td><button type="button" class="btn mx-5" style=" background-color: #0081c2 ;  color: white;   ">submit</button></td>
+          <td><button type="button" class="btn mx-5"
+              style=" background-color: #0081c2 ;  color: white;   ">submit</button></td>
         </tr>
       </table>
     </div>
 
     <!--sprint5-->
-    <div class="card card-margin " *ngIf="sprint.name=='sprint 5' && sprint.project_id==SingleProject.id">
+    <div class=" card-margin " *ngIf="sprint.name=='sprint 5' && sprint.project_id==SingleProject.id && sprint.state==1">
       <h1 class="titre">Evaluation {{sprint.name}}</h1>
       <h2 class="my-4 mx-4" style="color: #0081c2;">Evaluation de L’expérience client
       </h2>
-      <div *ngIf="sprint.state==0">
-        <h4 class="my-4 mx-4" style="color: #0081c2;">Le nombre de client par jour:</h4>
-        <input type="number" style="width: 50%;" class="mx-4">
-        <h4 class="my-4 mx-4" style="color: #0081c2;">Le nombre de client par mois:</h4>
-        <input type="number" style="width: 50%;" class="mx-4">
-        <h4 class="my-4 mx-4" style="color: #0081c2;">CONVERSIONS:</h4>
-        <input type="number" style="width: 50%;" class="mx-4">
-        <h4 class="my-4 mx-4" style="color: #0081c2;">NOMBRE D'INTERACTIONS PUBLICITAIRES :</h4>
-        <input type="number" style="width: 50%;" class="mx-4">
-        <br><br>
-        <button type="button" class="btn mx-5"
-          style="width: 10%; background-color: #0081c2 ;  color: white;  margin-left: 5px; ">submit</button>
+      <div class="container-fluid   ">
+        <section class="container">
+          
 
+          <div class="row ms-md-6 my-md-4 justify-content-center ">
+            <div class="col-xl-5 col-md-12  mb-4   ">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between p-md-1">
+                    <div class="d-flex flex-row">
+                      <div class="align-self-center">
+                        <i class="fa-solid fa-users text-info fa-3x me-4"></i>
+                      </div>
+                      <div>
+                        <h4>Result </h4>
+                        <p class="mb-0">TAUX DE CONVERSION</p>
+                      </div>
+                    </div>
+                    <div class="align-self-center">
+                      <h2 class="h1 mb-0">{{evaluationSprint1.conversion}}%</h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-5 col-md-12  mb-4   ">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between p-md-1">
+                    <div class="d-flex flex-row">
+                      <div class="align-self-center">
+                        <i class="fa-solid fa-users text-info fa-3x me-4"></i>
+                      </div>
+                      <div>
+                        <h4>Result </h4>
+                        <p class="mb-0">DAU/MAU</p>
+                      </div>
+                    </div>
+                    <div class="align-self-center">
+                      <h2 class="h1 mb-0">{{evaluationSprint1.daumau}}%</h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+
+
+          
+
+        </section>
       </div>
 
-      <div *ngIf="sprint.state==0">
-        <h4 class="my-4 mx-4" style="color: #0081c2;">TAUX DE CONVERSION : <h1 style="color: black;">10%</h1>
-        </h4>
-        <h4 class="my-4 mx-4" style="color: #0081c2;">DAU/MAU : <h1 style="color: black;">17%</h1>
-        </h4>
-      </div>
+
+    
 
     </div>
     <!--sprint6-->
-    <div class="card card-margin " *ngIf="sprint.name=='sprint 6' && sprint.project_id==SingleProject.id">
+    <div class=" card-margin " *ngIf="sprint.name=='sprint 6' && sprint.project_id==SingleProject.id && sprint.state==1">
       <h1 class="titre">Evaluation {{sprint.name}}</h1>
-      <h2 class="my-4 mx-4" style="color: #0081c2;">Evaluation de L’expérience client
-      </h2>
-      <div *ngIf="sprint.state==0">
-        <h4 class="my-4 mx-4" style="color: #0081c2;">Durée de vie de client:</h4>
-        <input type="number" style="width: 50%;" class="mx-4">
-        <h4 class="my-4 mx-4" style="color: #0081c2;">Cotisation de la client:</h4>
-        <input type="number" style="width: 50%;" class="mx-4">
-        <br><br>
-        <button type="button" class="btn mx-5"
-          style="width: 10%; background-color: #0081c2 ; color: white;   margin-left: 5px; ">submit</button>
+      
+      <div class="container-fluid   ">
+        <section class="container">
 
+          <div class="row ms-md-6 my-md-4 justify-content-center ">
+            <div class="col-xl-5 col-md-12  mb-4   ">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between p-md-1">
+                    <div class="d-flex flex-row">
+                      <div class="align-self-center">
+                        <i class="fa-solid fa-users text-info fa-3x me-4"></i>
+                      </div>
+                      <div>
+                        <h4>Result </h4>
+                        <p class="mb-0">Early adapters out of total users</p>
+                      </div>
+                    </div>
+                    <div class="align-self-center">
+                      <h2 class="h1 mb-0">{{evaluationSprint1.resultat}}%</h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+           
+         
+
+
+           
+          </div>
+
+        </section>
       </div>
 
-      <div *ngIf="sprint.state==0">
-        <h4 class="my-4 mx-4" style="color: #0081c2;">Resulat : <h1 style="color: black;">10%</h1>
-        </h4>
-
-      </div>
 
     </div>
 

@@ -25,7 +25,7 @@ error:any=[];
 newAffectedData:any=[];
 newUserStories:any=[];
 affected:any = [];
-
+evaluationSprint1:any
   constructor(private toastr:ToastrService, private route:ActivatedRoute, private PublicDataService:PublicDataService) { }
   SprintForm = new FormGroup({
     name: new FormControl("",Validators.required),
@@ -83,47 +83,89 @@ affected:any = [];
   }
 
   /***************************** Pour l'évaluation *********************************/
-  statForm = new FormGroup({
-    duree: new FormControl("",Validators.required),
-  });
+ 
   valueSprint1:any;
 
-  statForm2= new FormGroup({
-    totalUsers: new FormControl("",Validators.required),
-    earlyAdopters: new FormControl("",Validators.required),
-    coCreator:  new FormControl("",Validators.required),
-    hypothesis: new FormControl("",Validators.required),
-  })
+  
   valueSprint2:any;
   //---------Évaluation Sprint functions------------
-  //Function 1
-  submitSprint1(){
-    this.valueSprint1=this.statForm.value;
-    let formdata = new FormData();
-    formdata.append('duree',this.valueSprint1.duree );
-    this.PublicDataService.submitSprint1(formdata).subscribe(res=>{
-      
-    
-    });
+
+  //---evalution 
+  evaluation1(){
+    this.PublicDataService.evaluationSprint1(this.id).subscribe(res => {
+      this.evaluationSprint1 = res;
+      this.loader=false
+
+    })
+  }
+  
+  evaluation2(){
+    this.PublicDataService.evaluationSprint2(this.id).subscribe(res => {
+      this.evaluationSprint1 = res;
+      this.loader=false
+
+    })
   }
 
-//Function 2
-submitSprint2(){
-  this.valueSprint2 = this.statForm2.value;
-  let formdata = new FormData();
-  formdata.append('totalUsers',this.valueSprint2.totalUsers);
-  formdata.append('earlyAdopters',this.valueSprint2.earlyAdopters);
-  formdata.append('coCreator',this.valueSprint2.coCreator);
-  formdata.append('hypothesis',this.valueSprint2.hypothesis);
-  this.PublicDataService.submitSprint2(formdata).subscribe(res =>{
+  evaluation3(){
+    this.PublicDataService.evaluationSprint3(this.id).subscribe(res => {
+      this.evaluationSprint1 = res;
+      this.moy1=this.evaluationSprint1.moy1
+      this.moy2=this.evaluationSprint1.moy2
+      this.moy3=this.evaluationSprint1.moy3
 
-  });
-}
+      this.evaluationSprint1=this.evaluationSprint1.evaluation
+      this.loader=false
+
+      
+    })
+  }
+  moy1:any
+  moy3:any
+  moy2:any;
+  evaluation4(){
+    this.PublicDataService.evaluationSprint4(this.id).subscribe(res => {
+      this.evaluationSprint1 = res;
+      this.moy1=this.evaluationSprint1.moy
+      this.evaluationSprint1=this.evaluationSprint1.evaluation
+      this.loader=false
+
+    })
+  }
+  
+  evaluation5(){
+    this.PublicDataService.evaluationSprint5(this.id).subscribe(res => {
+      this.evaluationSprint1 = res;
+      this.loader=false
+
+    })
+  }
+  
+  evaluation6(){
+    this.PublicDataService.evaluationSprint6(this.id).subscribe(res => {
+      this.evaluationSprint1 = res;
+      this.loader=false
+
+    })
+  }
+  
+
+
+ 
   //---get sprint by id
 
   getSprintById(){
     this.PublicDataService.getSprintByID(this.id).subscribe(res=>{
       this.sprint=res;
+      if(this.sprint.state==1){
+        if(this.sprint.name=='sprint 1'){this.evaluation1()}
+        if(this.sprint.name=='sprint 2'){this.evaluation2()}
+        if(this.sprint.name=='sprint 3'){this.evaluation3()}
+        if(this.sprint.name=='sprint 4'){this.evaluation4()}
+        if(this.sprint.name=='sprint 5'){this.evaluation5()}
+        if(this.sprint.name=='sprint 6'){this.evaluation6()}
+      }
+
       this. getProjectById() ;
       this.getScrumMaster();
       this.getUserStories();
@@ -147,7 +189,6 @@ submitSprint2(){
   getAffectedUserStories(){
     this.PublicDataService.getAffUserStories(this.sprint.id).subscribe(res=>{
       this.affected=res;
-      this.loader=false
    })
   }
 

@@ -14,6 +14,7 @@ import { ScheduleModule } from '@syncfusion/ej2-angular-schedule';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ToastrModule } from 'ngx-toastr';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { EvaluationComponent } from './sprints/evaluation/evaluation.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     BoardsComponent,
     EditSprintComponent,
     SprintsComponent,
+    EvaluationComponent,
 
   ],
   imports: [
