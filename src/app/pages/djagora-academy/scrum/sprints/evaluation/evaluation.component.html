@@ -18,315 +18,369 @@
     </div>
 </div>
 
-<h1 *ngIf="sprint.state==1" style="color: gray;margin-left:40%;margin-top: 10%;margin-bottom: 10%;">Already submitted...</h1>
+<h1 *ngIf="sprint.state==1" style="color: gray;margin-left:40%;margin-top: 10%;margin-bottom: 10%;">Already submitted...
+</h1>
 
-<section *ngIf="loader==false && sprint.state==0">
-
-
-
-<!--sprint1-->
-<div class=" container card-margin " *ngIf="sprint.name=='sprint 1' && sprint.project_id==SingleProject.id ">
-    <h1 class="titre">Evaluation {{sprint.name}}</h1>
-
-    <form [formGroup]="statForm">
-
-        <div class="row">
-            <h4 class="my-4 mx-4" style="color: #0081c2;">Nombre d'heurs dont le travail est réalisé :</h4>
-            <input type="number" formControlName="duree" style="width:30%;" class="mx-4 form-control">
-
-        </div>
+<section *ngIf="loader==false && sprint.state==0 ">
 
 
-        <button type="button" class="btn mx-5"
-            style="width: 10%; background-color: #0081c2 ; color: white; float: right;  margin-left: 5px; "
-            (click)="submitSprint1()">SUBMIT</button>
-    </form>
 
-</div>
+    <!--sprint1-->
+    <div class=" container card-margin " *ngIf="sprint.name=='sprint 1' && sprint.project_id==SingleProject.id ">
+        <h1 class="titre">Evaluation {{sprint.name}}</h1>
 
-<!--sprint2-->
-<div class="container card-margin " *ngIf="sprint.name=='sprint 2' && sprint.project_id==SingleProject.id">
-    <h1 class="titre">Evaluation {{sprint.name}}</h1>
-    <form [formGroup]="statForm2">
-        <div class="row">
-            <h4 class="my-4 mx-4 " style="color: #0081c2;">Nombre total utilisateur :</h4>
-            <input formControlName="totalUsers" type="number" style="width:30%;" class="mx-4 col-md-6 form-control">
-            <h4 class="my-4 mx-4" style="color: #0081c2;">Nombre d'early adopters :</h4>
-            <input type="number" formControlName="earlyAdopters" style="width:30%;" class="mx-4 col-md-6 form-control">
-        </div>
-        <div class="row" >
-            <h4 class="my-4 mx-4" style="color: #0081c2;">Nombre de co-créateur : </h4>
-            <input type="number" formControlName="coCreator" style="width:30%;" class="mx-4 col-md-6 form-control">
-            <h4 class="my-4 mx-4" style="color: #0081c2;">Nombre d'hypothèses : </h4>
-            <input type="number" formControlName="hypothesis" style="width:30%;" class="mx-4 col-md-6 form-control">
-        </div>
+        
+        <form class="mx-5" [formGroup]="statForm" >
+            <div class="row justify-content-md-center">
+              <div class="col-md-5 mb-4 mx-4">
+                <h4 class="my-4 mx-4" style="color: #0081c2;">Number of hours the work is done</h4>
+                <input formControlName="duree" type="text" class="form-control p-3" id="validationServer01"
+                  placeholder="Hours">
+              </div>
+             
+            </div>
+        
+         
+          
+            <div class="row justify-content-md-center">
+              <button  class="btn  col-md-2" style="float: right;background-color: #0081c2;color: white;" (click)="submitSprint1()" type="submit">Submit</button>
+            </div>
+          </form>
+
+
+
+
+
+
+
+    </div>
+
+    <!--sprint2-->
+    <div class="container card-margin " *ngIf="sprint.name=='sprint 2' && sprint.project_id==SingleProject.id">
+        <h1 class="titre">Evaluation {{sprint.name}}</h1>
+
+
+        <form class="mx-5" [formGroup]="statForm2">
+            <div class="row justify-content-md-center">
+              <div class="col-md-5 mb-4 mx-4">
+                <label for="validationServer01">Total users</label>
+                <input formControlName="totalUsers" type="number" class="form-control p-3" id="validationServer01"
+                 >
+              </div>
+              <div class="col-md-5 mb-4 mx-4 ">
+                <label for="validationServer02">Early adapters</label>
+                <input type="number" formControlName="earlyAdopters" class="form-control p-3" required>
+              </div>
+            </div>
+
+            <div class="row justify-content-md-center">
+                <div class="col-md-5 mb-4 mx-4">
+                  <label for="validationServer01">Co-creators</label>
+                  <input type="number" formControlName="coCreator" class="form-control p-3" id="validationServer01"
+                   >
+                </div>
+                <div class="col-md-5 mb-4 mx-4 ">
+                  <label for="validationServer02">Hypothesis</label>
+                  <input type="number" formControlName="hypothesis" class="form-control p-3" required>
+                </div>
+              </div>
+          
+         
+          
+            <div class="row justify-content-md-center">
+                <button type="button" class="btn mx-5 px-3" style=" background-color: #0081c2 ; color: white;margin-left: 200px; width: 10%;     "
+                (click)="submitSprint2()">submit</button>            </div>
+          </form>
+
+
+    </div>
+    <!--sprint3-->
+    <div class="container card-margin " *ngIf="sprint.name=='sprint 3' && sprint.project_id==SingleProject.id">
+        <h1 class="titre">Evaluation {{sprint.name}}</h1>
+        <form [formGroup]="statForm3">
+            <table class="table" style="border: 2px;">
+                <tr>
+                    <th rowspan="5">Tête de pont</th>
+                    <td>Le client cible a-t-il de l’argent ? </td>
+                    <td> <select class="form-control" formControlName="tp1" aria-label="Default select example">
+                            <option value="0">Insuffisant</option>
+                            <option value="30">En cours</option>
+                            <option value="60">Acceptable</option>
+                            <option value="100">Validé</option>
+
+                        </select></td>
+
+
+                </tr>
+                <tr>
+                    <td>Vous avez identifié le plus grand défi pour votre start-up ?</td>
+                    <td> <select class="form-select" formControlName="tp2" aria-label="Default select example">
+                            <option value="0">Insuffisant</option>
+                            <option value="30">En cours</option>
+                            <option value="60">Acceptable</option>
+                            <option value="100">Validé</option>
+
+                        </select></td>
+                </tr>
+                <tr>
+                    <td>Disposez vous d'un schéma de segmentation de votre marché.</td>
+                    <td> <select class="form-select" formControlName="tp3" aria-label="Default select example">
+                            <option value="0">Insuffisant</option>
+                            <option value="30">En cours</option>
+                            <option value="60">Acceptable</option>
+                            <option value="100">Validé</option>
+
+                        </select></td>
+                </tr>
+                <tr>
+                    <td>Pouvez-vous lui fournir le produit complet?</td>
+                    <td> <select class="form-select" formControlName="tp4" aria-label="Default select example">
+                            <option value="0">Insuffisant</option>
+                            <option value="30">En cours</option>
+                            <option value="60">Acceptable</option>
+                            <option value="100">Validé</option>
+
+                        </select></td>
+                </tr>
+                <tr>
+                    <td>Disposez vous des "ressources" suffisantes pour pénétrer d’autres marchés</td>
+                    <td> <select class="form-select" formControlName="tp5" aria-label="Default select example">
+                            <option value="0">Insuffisant</option>
+                            <option value="30">En cours</option>
+                            <option value="60">Acceptable</option>
+                            <option value="100">Validé</option>
+                        </select></td>
+                </tr>
+                <tr>
+                    <th rowspan="4">Profil utilisateur final</th>
+                    <td> Les utilisateurs finaux utilisent t-ils tous le même produit?
+
+                    </td>
+                    <td> <select class="form-select" formControlName="uf1" aria-label="Default select example">
+                            <option value="0">Insuffisant</option>
+                            <option value="30">En cours</option>
+                            <option value="60">Acceptable</option>
+                            <option value="100">Validé</option>
+
+                        </select></td>
+
+                </tr>
+                <tr>
+                    <td>Les utilisateurs finaux ont t-ils exprimé leurs besoins?</td>
+                    <td> <select class="form-select" formControlName="uf2" aria-label="Default select example">
+                            <option value="0">Insuffisant</option>
+                            <option value="30">En cours</option>
+                            <option value="60">Acceptable</option>
+                            <option value="100">Validé</option>
+
+                        </select></td>
+                </tr>
+                <tr>
+                    <td>A-t-il une bonne raison d’acheter votre produit ?</td>
+                    <td>
+                        <select class="form-select" formControlName="uf3" aria-label="Default select example">
+                            <option value="0">Insuffisant</option>
+                            <option value="30">En cours</option>
+                            <option value="60">Acceptable</option>
+                            <option value="100">Validé</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>L'équipe peut fournir une solution complète ?</td>
+                    <td>
+                        <select class="form-select" formControlName="uf4" aria-label="Default select example">
+                            <option value="0">Insuffisant</option>
+                            <option value="30">En cours</option>
+                            <option value="60">Acceptable</option>
+                            <option value="100">Validé</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th rowspan="5">TAM : La taille potentielle de votre marché</th>
+                    <td>Avez vous fixé des hypothèses :</td>
+                    <td>
+                        <div class="form-check-inline">
+                            <input formControlName="tam1" class="form-check-input" type="radio" value="1">
+                            <label class="form-check-label">
+                                <h6>Yes</h6>
+                            </label>
+                        </div>
+                        <div class="form-check-inline">
+                            <input formControlName="tam1" class="form-check-input" type="radio" value="0">
+                            <label class="form-check-label">
+                                <h6>No</h6>
+                            </label>
+                        </div>
+                    </td>
+
+
+                </tr>
+                <tr>
+                    <td>Combien coûte chaque produit ?</td>
+                    <td>
+                        <input type="number" formControlName="tam2">
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>Combien d’unités le client en achète pour l’utilisateur final ? </td>
+                    <td>
+                        <input type="number" formControlName="tam3">
+                    </td>
+                </tr>
+                <tr>
+                    <td>La durée de vie moyenne du produit avant qu’il soit remplacé ? </td>
+                    <td>
+                        <select class="form-select" formControlName="tam4" aria-label="Default select example">
+                            <option value="0">Insuffisant</option>
+                            <option value="30">En cours</option>
+                            <option value="60">Acceptable</option>
+                            <option value="100">Validé</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td> Avez vous une idée sur le potentiel de votre marché? </td>
+                    <td> <select class="form-select" formControlName="tam5" aria-label="Default select example">
+                            <option value="0">Insuffisant</option>
+                            <option value="30">En cours</option>
+                            <option value="60">Acceptable</option>
+                            <option value="100">Validé</option>
+                        </select>
+                    </td>
+                </tr>
+               
+            </table>
+            <button type="button" class="btn mx-5 px-3" style=" background-color: #0081c2 ; color: white;margin-left: 200px;     "
+                            (click)="submitSprint3()">submit</button>
+        </form>
+    </div>
+    <!--sprint4-->
+    <div class="container card-margin " *ngIf="sprint.name=='sprint 4' && sprint.project_id==SingleProject.id">
+        <h1 class="titre">Evaluation {{sprint.name}}</h1>
+        <form [formGroup]="statForm4">
+            <table class="table">
+                <tr>
+                    <th>Identifier hypothèses clés</th>
+                    <td>Décrire les principales hypothèses sur lesquelles repose votre projet de façon à pouvoir les
+                        tester
+                        avant
+                        que le marché ne le fasse à votre place.</td>
+                    <td>
+                        <select class="form-select" formControlName="q1" aria-label="Default select example">
+                            <option value="0">Insuffisant</option>
+                            <option value="30">En cours</option>
+                            <option value="60">Acceptable</option>
+                            <option value="100">Validé</option>
+
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Tester hypothèses clés</th>
+                    <td>Organiser une série de petites expériences peu coûteuses pour tester chacune des hypothèses
+                        identifiées à
+                        l’étape précédente. Faites preuve d’imagination !
+                    </td>
+                    <td> <select class="form-select" formControlName="q2" aria-label="Default select example">
+                            <option value="0">Insuffisant</option>
+                            <option value="30">En cours</option>
+                            <option value="60">Acceptable</option>
+                            <option value="100">Validé</option>
+                        </select></td>
+                </tr>
+                <tr>
+                    <th>MVBP : le produit minimum business viable</th>
+                    <td>Déterminer le produit minimum qui pourrait vous permettre de vérifier que votre utilisateur
+                        final
+                        tire de
+                        la valeur de votre produit et que celui-ci vous sera payé.</td>
+                    <td> <select class="form-select" formControlName="q3" aria-label="Default select example">
+                            <option value="0">Insuffisant</option>
+                            <option value="30">En cours</option>
+                            <option value="60">Acceptable</option>
+                            <option value="100">Validé</option>
+                        </select></td>
+
+                </tr>
+               
+            </table>
+            <div class="row justify-content-md-center">
+                <button  class="btn  col-md-2" style="float: right;background-color: #0081c2;color: white;" (click)="submitSprint4()" type="submit">Submit</button>
+              </div>
+        </form>
+    </div>
+
+    <!--sprint5-->
+    <div class="container card-margin " *ngIf="sprint.name=='sprint 5' && sprint.project_id==SingleProject.id">
+        <h1 class="titre">Evaluation {{sprint.name}}</h1>
+
+
+
+
+        <form class="mx-5" [formGroup]="statForm5">
+            <div class="row justify-content-md-center">
+              <div class="col-md-5 mb-4 mx-4">
+                <label for="validationServer01">The number of customers per day</label>
+                <input type="number" formControlName="clientparjour" class="form-control p-3" id="validationServer01"
+                 >
+              </div>
+              <div class="col-md-5 mb-4 mx-4 ">
+                <label for="validationServer02">The number of customers per month</label>
+                <input type="number" formControlName="clientparmois" class="form-control p-3" required>
+              </div>
+            </div>
+            <div class="row justify-content-md-center">
+              <div class="col-md-5 mb-4 mx-4">
+                <label for="validationServer04">Conversion</label>
+                <input type="number" formControlName="conversions" class="form-control p-1" id="validationServer04" required>
+              </div>
+              <div class="col-md-5 mb-4 mx-4">
+                <label for="validationServer03">Ads interactions</label>
+                <input type="number" formControlName="interactions" class="form-control p-3"
+                  required>
+              </div>
+            </div>
+         
+          
+            <div class="row justify-content-md-center">
+                <button type="button" class="btn mx-5 px-3" style=" background-color: #0081c2 ; color: white;margin-left: 200px; width: 10%;     "
+                (click)="submitSprint5()">submit</button>            </div>
+          </form>
 
        
-        <br>
-        <button type="button" class="btn mx-5"
-            style="width: 10%; background-color: #0081c2 ;  color: white;  margin-left: 5px; " (click)="submitSprint2()">submit</button>
-    </form>
-</div>
-<!--sprint3-->
-<div class="container card-margin " *ngIf="sprint.name=='sprint 3' && sprint.project_id==SingleProject.id">
-    <h1 class="titre">Evaluation {{sprint.name}}</h1>
-    <form [formGroup]="statForm3">
-        <table class="table" style="border: 2px;">
-            <tr>
-                <th rowspan="5">Tête de pont</th>
-                <td>Le client cible a-t-il de l’argent ? </td>
-                <td> <select class="form-control" formControlName="tp1" aria-label="Default select example">
-                        <option value="0">Insuffisant</option>
-                        <option value="30">En cours</option>
-                        <option value="60">Acceptable</option>
-                        <option value="100">Validé</option>
-
-                    </select></td>
 
 
-            </tr>
-            <tr>
-                <td>Vous avez identifié le plus grand défi pour votre start-up ?</td>
-                <td> <select class="form-select" formControlName="tp2" aria-label="Default select example">
-                        <option value="0">Insuffisant</option>
-                        <option value="30">En cours</option>
-                        <option value="60">Acceptable</option>
-                        <option value="100">Validé</option>
-
-                    </select></td>
-            </tr>
-            <tr>
-                <td>Disposez vous d'un schéma de segmentation de votre marché.</td>
-                <td> <select class="form-select" formControlName="tp3" aria-label="Default select example">
-                        <option value="0">Insuffisant</option>
-                        <option value="30">En cours</option>
-                        <option value="60">Acceptable</option>
-                        <option value="100">Validé</option>
-
-                    </select></td>
-            </tr>
-            <tr>
-                <td>Pouvez-vous lui fournir le produit complet?</td>
-                <td> <select class="form-select" formControlName="tp4" aria-label="Default select example">
-                        <option value="0">Insuffisant</option>
-                        <option value="30">En cours</option>
-                        <option value="60">Acceptable</option>
-                        <option value="100">Validé</option>
-
-                    </select></td>
-            </tr>
-            <tr>
-                <td>Disposez vous des "ressources" suffisantes pour pénétrer d’autres marchés</td>
-                <td> <select class="form-select" formControlName="tp5" aria-label="Default select example">
-                        <option value="0">Insuffisant</option>
-                        <option value="30">En cours</option>
-                        <option value="60">Acceptable</option>
-                        <option value="100">Validé</option>
-                    </select></td>
-            </tr>
-            <tr>
-                <th rowspan="4">Profil utilisateur final</th>
-                <td> Les utilisateurs finaux utilisent t-ils tous le même produit?
-
-                </td>
-                <td> <select class="form-select" formControlName="uf1" aria-label="Default select example">
-                        <option value="0">Insuffisant</option>
-                        <option value="30">En cours</option>
-                        <option value="60">Acceptable</option>
-                        <option value="100">Validé</option>
-
-                    </select></td>
-
-            </tr>
-            <tr>
-                <td>Les utilisateurs finaux ont t-ils exprimé leurs besoins?</td>
-                <td> <select class="form-select" formControlName="uf2" aria-label="Default select example">
-                        <option value="0">Insuffisant</option>
-                        <option value="30">En cours</option>
-                        <option value="60">Acceptable</option>
-                        <option value="100">Validé</option>
-
-                    </select></td>
-            </tr>
-            <tr>
-                <td>A-t-il une bonne raison d’acheter votre produit ?</td>
-                <td>
-                    <select class="form-select" formControlName="uf3" aria-label="Default select example">
-                        <option value="0">Insuffisant</option>
-                        <option value="30">En cours</option>
-                        <option value="60">Acceptable</option>
-                        <option value="100">Validé</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>L'équipe peut fournir une solution complète ?</td>
-                <td>
-                    <select class="form-select" formControlName="uf4" aria-label="Default select example">
-                        <option value="0">Insuffisant</option>
-                        <option value="30">En cours</option>
-                        <option value="60">Acceptable</option>
-                        <option value="100">Validé</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <th rowspan="5">TAM : La taille potentielle de votre marché</th>
-                <td>Avez vous fixé des hypothèses :</td>
-                <td>
-                    <div class="form-check-inline">
-                        <input formControlName="tam1" class="form-check-input" type="radio" value="1" >
-                        <label class="form-check-label" >
-                            <h6>Yes</h6>
-                        </label>
-                    </div>
-                    <div class="form-check-inline">
-                        <input formControlName="tam1" class="form-check-input" type="radio" value="0"
-                            >
-                        <label class="form-check-label" >
-                            <h6>No</h6>
-                        </label>
-                    </div>
-                </td>
+    </div>
+    <!--sprint6-->
+    <div class="container card-margin " *ngIf="sprint.name=='sprint 6' && sprint.project_id==SingleProject.id">
+        <h1 class="titre">Evaluation {{sprint.name}}</h1>
 
 
-            </tr>
-            <tr>
-                <td>Combien coûte chaque produit ?</td>
-                <td>
-                    <input type="number" formControlName="tam2">
-                </td>
+        <form class="mx-5" [formGroup]="statForm6">
+            <div class="row justify-content-md-center">
+              <div class="col-md-5 mb-4 mx-4">
+                <label for="validationServer01">Customer lifetime</label>
+                <input type="number" formControlName="vieclient" class="form-control p-3" id="validationServer01"
+                 >
+              </div>
+              <div class="col-md-5 mb-4 mx-4 ">
+                <label for="validationServer02">Customer contribution</label>
+                <input type="number" formControlName="cotisationclient" class="form-control p-3" required>
+              </div>
+            </div>
+          
+         
+          
+            <div class="row justify-content-md-center">
+                <button type="button" class="btn mx-5 px-3" style=" background-color: #0081c2 ; color: white;margin-left: 200px; width: 10%;     "
+                (click)="submitSprint6()">submit</button>            </div>
+          </form>
 
-            </tr>
-            <tr>
-                <td>Combien d’unités le client en achète pour l’utilisateur final ? </td>
-                <td>
-                    <input type="number" formControlName="tam3">
-                </td>
-            </tr>
-            <tr>
-                <td>La durée de vie moyenne du produit avant qu’il soit remplacé ? </td>
-                <td>
-                    <select class="form-select" formControlName="tam4" aria-label="Default select example">
-                        <option value="0">Insuffisant</option>
-                        <option value="30">En cours</option>
-                        <option value="60">Acceptable</option>
-                        <option value="100">Validé</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td> Avez vous une idée sur le potentiel de votre marché? </td>
-                <td> <select class="form-select" formControlName="tam5" aria-label="Default select example">
-                        <option value="0">Insuffisant</option>
-                        <option value="30">En cours</option>
-                        <option value="60">Acceptable</option>
-                        <option value="100">Validé</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td><button type="button" class="btn mx-5"
-                        style=" background-color: #0081c2 ; color: white;     " (click)="submitSprint3()">submit</button></td>
-            </tr>
-        </table>
-    </form>
-</div>
-<!--sprint4-->
-<div class="container card-margin " *ngIf="sprint.name=='sprint 4' && sprint.project_id==SingleProject.id">
-    <h1 class="titre">Evaluation {{sprint.name}}</h1>
-    <form [formGroup]="statForm4">
-        <table class="table">
-            <tr>
-                <th>Identifier hypothèses clés</th>
-                <td>Décrire les principales hypothèses sur lesquelles repose votre projet de façon à pouvoir les tester
-                    avant
-                    que le marché ne le fasse à votre place.</td>
-                <td>
-                    <select class="form-select" formControlName="q1"  aria-label="Default select example">
-                        <option value="0">Insuffisant</option>
-                        <option value="30">En cours</option>
-                        <option value="60">Acceptable</option>
-                        <option value="100">Validé</option>
-
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <th>Tester hypothèses clés</th>
-                <td>Organiser une série de petites expériences peu coûteuses pour tester chacune des hypothèses
-                    identifiées à
-                    l’étape précédente. Faites preuve d’imagination !
-                </td>
-                <td> <select class="form-select" formControlName="q2" aria-label="Default select example">
-                        <option value="0">Insuffisant</option>
-                        <option value="30">En cours</option>
-                        <option value="60">Acceptable</option>
-                        <option value="100">Validé</option>
-                    </select></td>
-            </tr>
-            <tr>
-                <th>MVBP : le produit minimum business viable</th>
-                <td>Déterminer le produit minimum qui pourrait vous permettre de vérifier que votre utilisateur final
-                    tire de
-                    la valeur de votre produit et que celui-ci vous sera payé.</td>
-                <td> <select class="form-select" formControlName="q3" aria-label="Default select example">
-                        <option value="0">Insuffisant</option>
-                        <option value="30">En cours</option>
-                        <option value="60">Acceptable</option>
-                        <option value="100">Validé</option>
-                    </select></td>
-
-            </tr>
-            <tr>
-                <td><button type="button" class="btn mx-5"
-                        style=" background-color: #0081c2 ;  color: white;   " (click)="submitSprint4()" >submit</button></td>
-            </tr>
-        </table>
-    </form>
-</div>
-
-<!--sprint5-->
-<div class="container card-margin " *ngIf="sprint.name=='sprint 5' && sprint.project_id==SingleProject.id">
-    <h1 class="titre">Evaluation {{sprint.name}}</h1>
-
-    <form [formGroup]="statForm5">
-        <div *ngIf="sprint.state==0">
-            <h4 class="my-4 mx-4" style="color: #0081c2;">Le nombre de client par jour:</h4>
-            <input type="number" formControlName="clientparjour" style="width: 50%;" class="mx-4 form-control col-md-6">
-            <h4 class="my-4 mx-4" style="color: #0081c2;">Le nombre de client par mois:</h4>
-            <input type="number" formControlName="clientparmois" style="width: 50%;" class="mx-4 form-control col-md-6">
-            <h4 class="my-4 mx-4" style="color: #0081c2;">CONVERSIONS:</h4>
-            <input type="number" formControlName="conversions" style="width: 50%;" class="mx-4 form-control col-md-6">
-            <h4 class="my-4 mx-4" style="color: #0081c2;">NOMBRE D'INTERACTIONS PUBLICITAIRES :</h4>
-            <input type="number" formControlName="interactions" style="width: 50%;" class="mx-4 form-control col-md-6">
-            <br><br>
-            <button type="button" class="btn mx-5"
-                style="width: 10%; background-color: #0081c2 ;  color: white;  margin-left: 5px; " (click)="submitSprint5()">submit</button>
-
-        </div>
-    </form>
+       
 
 
-
-</div>
-<!--sprint6-->
-<div class="container card-margin " *ngIf="sprint.name=='sprint 6' && sprint.project_id==SingleProject.id">
-    <h1 class="titre">Evaluation {{sprint.name}}</h1>
-
-    <form [formGroup]="statForm6">
-        <div *ngIf="sprint.state==0">
-            <h4 class="my-4 mx-4" style="color: #0081c2;">Durée de vie de client:</h4>
-            <input type="number" formControlName="vieclient" style="width: 50%;" class="mx-4 form-control">
-            <h4 class="my-4 mx-4" style="color: #0081c2;">Cotisation de la client:</h4>
-            <input type="number" formControlName="cotisationclient" style="width: 50%;" class="mx-4 form-control">
-            <br><br>
-            <button type="button" class="btn mx-5"
-                style="width: 10%; background-color: #0081c2 ; color: white;   margin-left: 5px; " (click)="submitSprint6()" >submit</button>
-
-        </div>
-    </form>
-
-
-</div>
+    </div>
 </section>

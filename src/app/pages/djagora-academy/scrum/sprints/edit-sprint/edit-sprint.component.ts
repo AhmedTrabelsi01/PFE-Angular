@@ -106,14 +106,14 @@ evaluationSprint1:any
 
     })
   }
-
+  allmoy:any;
   evaluation3(){
     this.PublicDataService.evaluationSprint3(this.id).subscribe(res => {
       this.evaluationSprint1 = res;
       this.moy1=this.evaluationSprint1.moy1
       this.moy2=this.evaluationSprint1.moy2
       this.moy3=this.evaluationSprint1.moy3
-
+      this.allmoy=this.evaluationSprint1.moy
       this.evaluationSprint1=this.evaluationSprint1.evaluation
       this.loader=false
 

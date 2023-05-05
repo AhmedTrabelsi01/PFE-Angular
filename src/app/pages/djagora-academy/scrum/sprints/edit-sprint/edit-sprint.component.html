@@ -40,8 +40,48 @@
       <div class="container-fluid   ">
         <section class="container">
 
-          <div class="row ms-md-5 my-md-4 ">
-            <div class="col-xl-3 col-md-12  mb-4   ">
+          <div class="row ms-md-5 my-md-4  justify-content-center">
+            <div class="col-xl-4 col-md-12  mb-4   ">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between p-md-1">
+                    <div class="d-flex flex-row">
+                      <div class="align-self-center">
+                        <i class="fa-solid fa-bars-progress text-info fa-3x me-4"></i>
+                      </div>
+                      <div>
+                        <h4>Project </h4>
+                        <p class="mb-0">progress</p>
+                      </div>
+                    </div>
+                    <div class="align-self-center">
+                      <h2 class="h1 mb-0">{{evaluationSprint1.all}}%</h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-md-12  mb-4   ">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between p-md-1">
+                    <div class="d-flex flex-row">
+                      <div class="align-self-center">
+                        <i class="fa-solid fa-bars-progress text-info fa-3x me-4"></i>
+                      </div>
+                      <div>
+                        <h4>Sprint </h4>
+                        <p class="mb-0">progress</p>
+                      </div>
+                    </div>
+                    <div class="align-self-center">
+                      <h2 class="h1 mb-0">{{evaluationSprint1.sprint}}%</h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-md-12  mb-4   ">
               <div class="card">
                 <div class="card-body">
                   <div class="d-flex justify-content-between p-md-1">
@@ -61,7 +101,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-xl-3 col-md-12 mb-4   ">
+            <div class="col-xl-4 col-md-12 mb-4   ">
               <div class="card">
                 <div class="card-body">
                   <div class="d-flex justify-content-between p-md-1">
@@ -71,7 +111,7 @@
                       </div>
                       <div>
                         <h4>Total </h4>
-                        <p class="mb-0">réalisés</p>
+                        <p class="mb-0">realized</p>
                       </div>
                     </div>
                     <div class="align-self-center">
@@ -82,17 +122,17 @@
               </div>
             </div>
 
-            <div class="col-xl-3 col-md-12 mb-4   ">
+            <div class="col-xl-4 col-md-12 mb-4   ">
               <div class="card">
                 <div class="card-body">
                   <div class="d-flex justify-content-between p-md-1">
                     <div class="d-flex flex-row">
                       <div class="align-self-center">
-                        <i class="fa-regular fa-clock text-danger fa-3x me-4"></i>
+                        <i class="fa-regular fa-clock text-warning fa-3x me-4"></i>
                       </div>
                       <div>
                         <h4>Total </h4>
-                        <p class="mb-0">duree</p>
+                        <p class="mb-0">time</p>
                       </div>
                     </div>
                     <div class="align-self-center">
@@ -104,21 +144,24 @@
             </div>
 
 
-            <div class="col-xl-3 col-md-12 mb-4  ">
+            <div class="col-xl-4 col-md-12 mb-4  ">
               <div class="card">
                 <div class="card-body">
                   <div class="d-flex justify-content-between p-md-1">
                     <div class="d-flex flex-row">
                       <div class="align-self-center">
-                        <i class="fa-regular fa-clock text-warning fa-3x me-4"></i>
+                        <i class="fa-regular fa-clock text-danger fa-3x me-4"></i>
                       </div>
                       <div>
-                        <h4>Total </h4>
-                        <p class="mb-0">diff duree</p>
+                        <h4>Average </h4>
+                        <p class="mb-0">time rate</p>
                       </div>
                     </div>
                     <div class="align-self-center">
-                      <h2 class="h1 mb-0">{{evaluationSprint1.diff_duree}}</h2>
+                      <h2 class="h1 mb-0 " style="color: red;" *ngIf="evaluationSprint1.diff_duree<0" >{{evaluationSprint1.diff_duree}}</h2>
+                      <h2 class="h1 mb-0 " style="color: orange;" *ngIf="evaluationSprint1.diff_duree==0">{{evaluationSprint1.diff_duree}}</h2>
+                      <h2 class="h1 mb-0 " style="color: green;" *ngIf="evaluationSprint1.diff_duree>0">+{{evaluationSprint1.diff_duree}}</h2>
+
                     </div>
                   </div>
                 </div>
@@ -143,7 +186,7 @@
         <section class="container">
 
           <div class="row ms-md-6 my-md-4 justify-content-center ">
-            <div class="col-xl-5 col-md-12  mb-4   ">
+            <div class="col-xl-4 col-md-12  mb-4   ">
               <div class="card">
                 <div class="card-body">
                   <div class="d-flex justify-content-between p-md-1">
@@ -157,13 +200,55 @@
                       </div>
                     </div>
                     <div class="align-self-center">
-                      <h2 class="h1 mb-0">{{evaluationSprint1.ecart}}%</h2>
+                      <h2 class="h1 mb-0" style="color: red;" *ngIf="evaluationSprint1.ecart<13" >{{evaluationSprint1.ecart}}%</h2>
+                      <h2 class="h1 mb-0" style="color:green" *ngIf="evaluationSprint1.ecart>13" >{{evaluationSprint1.ecart}}%</h2>
+
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-           
+            <div class="col-xl-4 col-md-12 mb-4  ">
+              <div class="card" style="height: 99.5%;">
+                <div class="card-body" >
+                  <div class="d-flex justify-content-between p-md-1">
+                    <div class="d-flex flex-row">
+                      <div class="align-self-center">
+                        <i class="fas fa-user text-success fa-3x me-4"></i>
+                      </div>
+                      <div>
+                        <h4>Total </h4>
+                        <p class="mb-0">of co-creators</p>
+                      </div>
+                    </div>
+                    <div class="align-self-center">
+                      <h2 class="h1 mb-0">{{evaluationSprint1.cocreator}}</h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-4 col-md-12 mb-4  ">
+              <div class="card" style="height: 99.5%;">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between p-md-1">
+                    <div class="d-flex flex-row">
+                      <div class="align-self-center">
+                        <i class="fas fa-hand-point-up text-warning fa-3x me-4"></i>
+                      </div>
+                      <div>
+                        <h4>Total </h4>
+                        <p class="mb-0">of hypothesis</p>
+                      </div>
+                    </div>
+                    <div class="align-self-center">
+                      <h2 class="h1 mb-0">{{evaluationSprint1.hypothesis}}</h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
          
 
 
@@ -186,6 +271,7 @@
           
           <td>{{evaluationSprint1.tp1}}%</td>
           <td rowspan="5">{{moy1}}%</td>
+          <td rowspan="14">{{allmoy}}%</td>
 
         </tr>
         <tr>
@@ -298,10 +384,18 @@
          
             <td>{{evaluationSprint1.q3}}%</td>
         </tr>
+
         <tr>
-          <td><button type="button" class="btn mx-5"
-              style=" background-color: #0081c2 ;  color: white;   ">submit</button></td>
+          <th>Indicateur de suivis</th>
+          <td>sprint</td>
+         
+            <td style="color: red;" *ngIf="moy1<30"  >Insuffisant</td>
+            <td *ngIf="moy1<60 && moy1>=30" style="color:orange;" >En cours</td>
+            <td *ngIf="moy1>=60 && moy1<100" style="color: green;">Acceptable</td>
+            <td *ngIf="moy1==100" style="color: green;" >Validé</td>
+
         </tr>
+      
       </table>
     </div>
 
@@ -315,21 +409,23 @@
           
 
           <div class="row ms-md-6 my-md-4 justify-content-center ">
-            <div class="col-xl-5 col-md-12  mb-4   ">
-              <div class="card">
+            <div class="col-xl-5 col-md-12  mb-4   " >
+              <div class="card " style="height: 99.5%;" >
                 <div class="card-body">
                   <div class="d-flex justify-content-between p-md-1">
                     <div class="d-flex flex-row">
                       <div class="align-self-center">
-                        <i class="fa-solid fa-users text-info fa-3x me-4"></i>
+                        <i class="fa-sharp fa-regular fa-bullseye-pointer text-info fa-3x me-4"></i>
                       </div>
                       <div>
-                        <h4>Result </h4>
-                        <p class="mb-0">TAUX DE CONVERSION</p>
+                        <h4>Conversion rate </h4>
+                        <p class="mb-0">Number of conversions out of number of ad interactions</p>
                       </div>
                     </div>
                     <div class="align-self-center">
-                      <h2 class="h1 mb-0">{{evaluationSprint1.conversion}}%</h2>
+                      <h2 class="h1 mb-0" style="color:green ;" *ngIf="evaluationSprint1.conversion<=8 && evaluationSprint1.conversion>=6">{{evaluationSprint1.conversion}}%</h2>
+                      <h2 class="h1 mb-0" style="color:orange ;" *ngIf="evaluationSprint1.conversion>8 || evaluationSprint1.conversion<6">{{evaluationSprint1.conversion}}%</h2>
+
                     </div>
                   </div>
                 </div>
@@ -341,15 +437,17 @@
                   <div class="d-flex justify-content-between p-md-1">
                     <div class="d-flex flex-row">
                       <div class="align-self-center">
-                        <i class="fa-solid fa-users text-info fa-3x me-4"></i>
+                        <i class="fa-sharp fa-regular fa-bullseye-pointer text-info fa-3x me-4"></i>
                       </div>
                       <div>
-                        <h4>Result </h4>
-                        <p class="mb-0">DAU/MAU</p>
+                        <h4>DAU/MAU </h4>
+                        <p class="mb-0">average of number of daily active users out of average of number of monthly active users </p>
                       </div>
                     </div>
                     <div class="align-self-center">
-                      <h2 class="h1 mb-0">{{evaluationSprint1.daumau}}%</h2>
+                      <h2 class="h1 mb-0" style="color:green ;" *ngIf="evaluationSprint1.daumau<=50 && evaluationSprint1.daumau>=20">{{evaluationSprint1.daumau}}%</h2>
+                      <h2 class="h1 mb-0" style="color:orange ;" *ngIf="evaluationSprint1.daumau<20 || evaluationSprint1.daumau>50">{{evaluationSprint1.daumau}}%</h2>
+
                     </div>
                   </div>
                 </div>
@@ -383,11 +481,11 @@
                   <div class="d-flex justify-content-between p-md-1">
                     <div class="d-flex flex-row">
                       <div class="align-self-center">
-                        <i class="fa-solid fa-users text-info fa-3x me-4"></i>
+                        <i class="fa-sharp fa-regular fa-bullseye-pointer text-info fa-3x me-4"></i>
                       </div>
                       <div>
-                        <h4>Result </h4>
-                        <p class="mb-0">Early adapters out of total users</p>
+                        <h4>ltv - cac</h4>
+                        <p class="mb-0">customer contribution minus the lifetime of the customer</p>
                       </div>
                     </div>
                     <div class="align-self-center">
