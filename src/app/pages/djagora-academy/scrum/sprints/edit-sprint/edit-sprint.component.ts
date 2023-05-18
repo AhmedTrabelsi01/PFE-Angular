@@ -164,6 +164,8 @@ evaluationSprint1:any
         if(this.sprint.name=='sprint 4'){this.evaluation4()}
         if(this.sprint.name=='sprint 5'){this.evaluation5()}
         if(this.sprint.name=='sprint 6'){this.evaluation6()}
+      }else{
+        this.loader=false
       }
 
       this. getProjectById() ;
