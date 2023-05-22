@@ -12,13 +12,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { NotFoundComponent } from './not-found/not-found.component';
+import { NotFoundComponent } from './Components/not-found/not-found.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ScheduleModule, AgendaService, DayService, WeekService, WorkWeekService, MonthService, DragAndDropService, ResizeService } from '@syncfusion/ej2-angular-schedule';
 import { MultiSelectModule } from '@syncfusion/ej2-angular-dropdowns';
 import { AuthentificationModule } from './Authentification/Authentification.module';
 import { ProfilModule } from './profil/profil.module';
 import { ProjectModule } from './pages/djagora-academy/project.module';
+import { AccessDeniedComponent } from './components/access-denied/access-denied.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +29,7 @@ import { ProjectModule } from './pages/djagora-academy/project.module';
     HeaderComponent,
     FooterComponent,
     NotFoundComponent,
+    AccessDeniedComponent,
 
   ],
   imports: [

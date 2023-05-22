@@ -75,6 +75,10 @@ export class EditWorkComponent implements OnInit {
     this.StudentDataService.GetApplicationByID(this.id).subscribe(res=>{
        this.app=res;
 
+    },(error) => {
+      if(error.status==401){
+        this.route1.navigate (['accessdenied'])
+      };
     })
 
 
@@ -86,7 +90,11 @@ export class EditWorkComponent implements OnInit {
       this.proj=res;
       this.datas1 = this.proj.technologies;
       this.datas1 = JSON.parse(this.datas1)
-   })
+   },(error) => {
+    if(error.status==401){
+      this.route1.navigate (['accessdenied'])
+    };
+  })
 
   }
 
@@ -110,6 +118,10 @@ export class EditWorkComponent implements OnInit {
     if(this.error==null){
       this.toastr.success("Project updated")
     }
+  },(error) => {
+    if(error.status==401){
+      this.toastr.error("Access denied")
+    };
   })
 
 }
@@ -133,19 +145,31 @@ onSubmitApp(appid:any) {
     }
 
 
+  },(error) => {
+    if(error.status==401){
+      this.toastr.error("Access denied")
+    };
   })
 
 }
 
 onDeleteApp(idapp:any){
   this.PublicDataService.deleteApplication(idapp).subscribe(res=>{
-   }
+   },(error) => {
+    if(error.status==401){
+      this.toastr.error("Access denied")
+    };
+  }
  )
 
 }
 
 onDeletepro(idproj:any){
 this.PublicDataService.deleteProject(idproj).subscribe(res=>{
+},(error) => {
+  if(error.status==401){
+    this.toastr.error("Access denied")
+  };
 })
 
 }

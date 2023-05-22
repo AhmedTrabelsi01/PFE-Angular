@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { PublicDataService } from 'src/app/services/public-data.service';
 import { MentorDataService } from 'src/app/services/mentor-data.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { StudentDataService } from 'src/app/services/student-data.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DayService, WeekService, WorkWeekService, MonthService, AgendaService, View, EventSettingsModel } from '@syncfusion/ej2-angular-schedule';
 import { DataManager, UrlAdaptor, Query, ODataV4Adaptor } from '@syncfusion/ej2-data';
 import { ToastrService } from 'ngx-toastr';
-
 declare function popup(): any;
 
 @Component({
@@ -21,7 +20,7 @@ export class EditProfilComponent implements OnInit {
   singleuser: any;
   file: any;
   cv: any
-  constructor(private StudentDataService:StudentDataService, private toastr: ToastrService, private PublicDataService: PublicDataService, private MentorDataService: MentorDataService, private route1: ActivatedRoute) { }
+  constructor(private StudentDataService:StudentDataService, private toastr: ToastrService, private PublicDataService: PublicDataService, private MentorDataService: MentorDataService, private route1: ActivatedRoute,private route:Router) { }
   data: any;
   user: any = {};
   id: any;
@@ -114,6 +113,10 @@ export class EditProfilComponent implements OnInit {
       this.user = this.data
       this.datas1 = this.user.domain;
       this.datas1 = JSON.parse(this.datas1)
+    },(error) => {
+      if(error.status==401){
+        this.route.navigate (['accessdenied'])
+      };
     })
 
   }
@@ -138,7 +141,6 @@ export class EditProfilComponent implements OnInit {
     formdata.append('linkedin', this.singleuser.linkedin);
     formdata.append('location', this.singleuser.location);
     formdata.append('birth_date', new Date(this.singleuser.birth_date).toDateString());
-    console.log(JSON.stringify(this.singleuser.domain))
     this.PublicDataService.updateProfilData(this.id, formdata).subscribe(res => {
       this.error = res;
       if (this.error == null) {
@@ -148,12 +150,14 @@ export class EditProfilComponent implements OnInit {
 
 
       }
+    },(error) => {
+      if(error.status==401){
+        this.toastr.error("Access denied")
+      };
     })
 
 
   }
-
-
 
 
 
@@ -167,6 +171,10 @@ export class EditProfilComponent implements OnInit {
       this.next=this.projects.next_page_url
       this.prev=this.projects.prev_page_url
       this.projects=this.projects.data
+    },(error) => {
+      if(error.status==401){
+        this.route.navigate (['accessdenied'])
+      };
     }
     )
   }
@@ -177,23 +185,15 @@ export class EditProfilComponent implements OnInit {
       this.next=this.applications.next_page_url
       this.prev=this.applications.prev_page_url
       this.applications=this.applications.data
+    },(error) => {
+      if(error.status==401){
+        this.route.navigate (['accessdenied'])
+      };
     }
     )
   }
 
 
-  onDeleteApp(idapp: any) {
-    this.PublicDataService.deleteApplication(idapp).subscribe(res => {
-    }
-    )
-
-  }
-
-  onDeletepro(idproj: any) {
-    this.PublicDataService.deleteProject(idproj).subscribe(res => {
-    })
-
-  }
 
 
   // defined the array of data
