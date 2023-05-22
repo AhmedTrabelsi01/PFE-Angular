@@ -20,13 +20,13 @@ export class EditProfilComponent implements OnInit {
   singleuser: any;
   file: any;
   cv: any
-  constructor(private StudentDataService:StudentDataService, private toastr: ToastrService, private PublicDataService: PublicDataService, private MentorDataService: MentorDataService, private route1: ActivatedRoute,private route:Router) { }
+  constructor(private StudentDataService: StudentDataService, private toastr: ToastrService, private PublicDataService: PublicDataService, private MentorDataService: MentorDataService, private route1: ActivatedRoute, private route: Router) { }
   data: any;
   user: any = {};
   id: any;
   auth: any;
-  next:any;
-  prev:any;
+  next: any;
+  prev: any;
   error: any = []
   loggeduser: any = {};
   token: any;
@@ -113,9 +113,9 @@ export class EditProfilComponent implements OnInit {
       this.user = this.data
       this.datas1 = this.user.domain;
       this.datas1 = JSON.parse(this.datas1)
-    },(error) => {
-      if(error.status==401){
-        this.route.navigate (['accessdenied'])
+    }, (error) => {
+      if (error.status == 401) {
+        this.route.navigate(['accessdenied'])
       };
     })
 
@@ -150,8 +150,8 @@ export class EditProfilComponent implements OnInit {
 
 
       }
-    },(error) => {
-      if(error.status==401){
+    }, (error) => {
+      if (error.status == 401) {
         this.toastr.error("Access denied")
       };
     })
@@ -168,12 +168,12 @@ export class EditProfilComponent implements OnInit {
   GetOwnedProjects() {
     this.PublicDataService.GetOwnedProjects(this.id).subscribe(res => {
       this.projects = res;
-      this.next=this.projects.next_page_url
-      this.prev=this.projects.prev_page_url
-      this.projects=this.projects.data
-    },(error) => {
-      if(error.status==401){
-        this.route.navigate (['accessdenied'])
+      this.next = this.projects.next_page_url
+      this.prev = this.projects.prev_page_url
+      this.projects = this.projects.data
+    }, (error) => {
+      if (error.status == 401) {
+        this.route.navigate(['accessdenied'])
       };
     }
     )
@@ -182,12 +182,12 @@ export class EditProfilComponent implements OnInit {
   GetOwnedApplications() {
     this.PublicDataService.GetOwnedApplications(this.id).subscribe(res => {
       this.applications = res;
-      this.next=this.applications.next_page_url
-      this.prev=this.applications.prev_page_url
-      this.applications=this.applications.data
-    },(error) => {
-      if(error.status==401){
-        this.route.navigate (['accessdenied'])
+      this.next = this.applications.next_page_url
+      this.prev = this.applications.prev_page_url
+      this.applications = this.applications.data
+    }, (error) => {
+      if (error.status == 401) {
+        this.route.navigate(['accessdenied'])
       };
     }
     )
@@ -205,44 +205,44 @@ export class EditProfilComponent implements OnInit {
 
   //---------pagination
 
-  nextPage(link:any) {
+  nextPage(link: any) {
 
     if (this.role == '1') {
-      this.StudentDataService.getPageByURL(link).subscribe(res=>{
-        this.applications=res;
-        this.next=this.applications.next_page_url
-        this.prev=this.applications.prev_page_url
-        this.applications=this.applications.data
-        })
+      this.StudentDataService.getPageByURL(link).subscribe(res => {
+        this.applications = res;
+        this.next = this.applications.next_page_url
+        this.prev = this.applications.prev_page_url
+        this.applications = this.applications.data
+      })
     }
     if (this.role != '1') {
-      this.PublicDataService.getPageByURL(link).subscribe(res=>{
-        this.projects=res;
-        this.next=this.projects.next_page_url
-        this.prev=this.projects.prev_page_url
-        this.projects=this.projects.data
-        })
+      this.PublicDataService.getPageByURL(link).subscribe(res => {
+        this.projects = res;
+        this.next = this.projects.next_page_url
+        this.prev = this.projects.prev_page_url
+        this.projects = this.projects.data
+      })
     }
   }
 
-  prevPage(link:any) {
-    
-      if (this.role == '1') {
-        this.StudentDataService.getPageByURL(link).subscribe(res=>{
-          this.applications=res;
-          this.next=this.applications.next_page_url
-          this.prev=this.applications.prev_page_url
-          this.applications=this.applications.data
-          })
-      }
-      if (this.role != '1') {
-        this.MentorDataService.getPageByURL(link).subscribe(res=>{
-          this.projects=res;
-          this.next=this.projects.next_page_url
-          this.prev=this.projects.prev_page_url
-          this.projects=this.projects.data
-          })
-      }
+  prevPage(link: any) {
+
+    if (this.role == '1') {
+      this.StudentDataService.getPageByURL(link).subscribe(res => {
+        this.applications = res;
+        this.next = this.applications.next_page_url
+        this.prev = this.applications.prev_page_url
+        this.applications = this.applications.data
+      })
+    }
+    if (this.role != '1') {
+      this.MentorDataService.getPageByURL(link).subscribe(res => {
+        this.projects = res;
+        this.next = this.projects.next_page_url
+        this.prev = this.projects.prev_page_url
+        this.projects = this.projects.data
+      })
+    }
 
   }
 

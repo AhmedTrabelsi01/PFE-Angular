@@ -64,7 +64,13 @@ evaluationSprint1:any
 
 
       this.PublicDataService.updateData(formdata).subscribe(res=>{
-     })
+     }, (error) => {
+      if (error.status == 401) {
+        this.toastr.error("Access denied")
+        this.getAffectedUserStories()
+        this.getUserStories()
+      };
+    })
 
     }
 

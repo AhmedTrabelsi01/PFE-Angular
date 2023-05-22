@@ -97,6 +97,10 @@ scrumForm = new FormGroup({
         this.toastr.success("user story added with success")
      }
      this.getUserStories()
+  }, (error) => {
+    if (error.status == 401) {
+      this.toastr.error("Access denied")
+    };
   })
 }
 
@@ -108,8 +112,12 @@ updateScrumMaster(){
   formdata.append('project_id',this.id)
 
   this.PublicDataService.updateScrumMaster(formdata).subscribe(res=>{
-    window.location.reload()
- })
+    this.getScrumMaster()
+  }, (error) => {
+    if (error.status == 401) {
+      this.toastr.error("Access denied")
+    };
+  })
 }
 
 getScrumMaster(){

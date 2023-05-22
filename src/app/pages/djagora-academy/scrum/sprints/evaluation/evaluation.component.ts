@@ -131,6 +131,10 @@ export class EvaluationComponent implements OnInit {
     formdata.append('duree', this.valueSprint1.duree);
     formdata.append('id', this.id);
     this.PublicDataService.submitSprint1(formdata).subscribe(res => {
+    }, (error) => {
+      if (error.status == 401) {
+        this.toastr.error("Access denied")
+      };
     });
   }
 
@@ -146,6 +150,10 @@ export class EvaluationComponent implements OnInit {
     formdata.append('id', this.id);
     this.PublicDataService.submitSprint2(formdata).subscribe(res => {
 
+    }, (error) => {
+      if (error.status == 401) {
+        this.toastr.error("Access denied")
+      };
     });
   }
 
@@ -158,6 +166,10 @@ export class EvaluationComponent implements OnInit {
     formdata.append('id', this.id);
     this.PublicDataService.submitSprint3(formdata).subscribe(res => {
 
+    }, (error) => {
+      if (error.status == 401) {
+        this.toastr.error("Access denied")
+      };
     });
   }
 
@@ -170,6 +182,10 @@ export class EvaluationComponent implements OnInit {
     formdata.append('id', this.id);
     this.PublicDataService.submitSprint4(formdata).subscribe(res => {
 
+    }, (error) => {
+      if (error.status == 401) {
+        this.toastr.error("Access denied")
+      };
     });
   }
 
@@ -183,6 +199,10 @@ export class EvaluationComponent implements OnInit {
     formdata.append('id', this.id);
     this.PublicDataService.submitSprint5(formdata).subscribe(res => {
 
+    }, (error) => {
+      if (error.status == 401) {
+        this.toastr.error("Access denied")
+      };
     });
   }
 
@@ -195,6 +215,10 @@ export class EvaluationComponent implements OnInit {
     formdata.append('id', this.id);
     this.PublicDataService.submitSprint6(formdata).subscribe(res => {
 
+    }, (error) => {
+      if (error.status == 401) {
+        this.toastr.error("Access denied")
+      };
     });
   }
 
