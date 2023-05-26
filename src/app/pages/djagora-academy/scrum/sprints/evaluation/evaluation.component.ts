@@ -137,7 +137,7 @@ export class EvaluationComponent implements OnInit {
 
   //Function 2
   submitSprint2() {
-    this.valueSprint2 = this.statForm5.value;
+    this.valueSprint2 = this.statForm2.value;
     let formdata = new FormData();
     formdata.append('totalUsers', this.valueSprint2.totalUsers);
     formdata.append('earlyAdopters', this.valueSprint2.earlyAdopters);

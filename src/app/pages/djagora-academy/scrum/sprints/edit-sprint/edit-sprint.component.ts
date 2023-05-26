@@ -83,14 +83,14 @@ evaluationSprint1:any
   }
 
   /***************************** Pour l'évaluation *********************************/
- 
+
   valueSprint1:any;
 
-  
+
   valueSprint2:any;
   //---------Évaluation Sprint functions------------
 
-  //---evalution 
+  //---evalution
   evaluation1(){
     this.PublicDataService.evaluationSprint1(this.id).subscribe(res => {
       this.evaluationSprint1 = res;
@@ -98,7 +98,7 @@ evaluationSprint1:any
 
     })
   }
-  
+
   evaluation2(){
     this.PublicDataService.evaluationSprint2(this.id).subscribe(res => {
       this.evaluationSprint1 = res;
@@ -117,7 +117,7 @@ evaluationSprint1:any
       this.evaluationSprint1=this.evaluationSprint1.evaluation
       this.loader=false
 
-      
+
     })
   }
   moy1:any
@@ -132,7 +132,7 @@ evaluationSprint1:any
 
     })
   }
-  
+
   evaluation5(){
     this.PublicDataService.evaluationSprint5(this.id).subscribe(res => {
       this.evaluationSprint1 = res;
@@ -140,7 +140,7 @@ evaluationSprint1:any
 
     })
   }
-  
+
   evaluation6(){
     this.PublicDataService.evaluationSprint6(this.id).subscribe(res => {
       this.evaluationSprint1 = res;
@@ -148,10 +148,10 @@ evaluationSprint1:any
 
     })
   }
-  
 
 
- 
+
+
   //---get sprint by id
 
   getSprintById(){
@@ -164,6 +164,8 @@ evaluationSprint1:any
         if(this.sprint.name=='sprint 4'){this.evaluation4()}
         if(this.sprint.name=='sprint 5'){this.evaluation5()}
         if(this.sprint.name=='sprint 6'){this.evaluation6()}
+      }else{
+        this.loader=false
       }
 
       this. getProjectById() ;
@@ -216,5 +218,5 @@ evaluationSprint1:any
    })
   }
 
-  
+
 }
