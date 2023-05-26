@@ -1,10 +1,10 @@
 
-<div *ngIf="router.url !== '/Authentification' && router.url !== '/Authentification/forgot' && router.url !== '/notfound' && router.url !== '/Authentification/signup' && router.url !== '/Authentification/signup/signupstudent' && router.url !== '/Authentification/signup/signupmentor' " >
+<div *ngIf=" router.url!=='/accessdenied'   && router.url !== '/Authentification' && router.url !== '/Authentification/forgot' && router.url !== '/notfound' && router.url !== '/Authentification/signup' && router.url !== '/Authentification/signup/signupstudent' && router.url !== '/Authentification/signup/signupmentor' " >
     <app-header ></app-header>
 </div>
 <router-outlet></router-outlet>
 
-<div *ngIf="router.url !== '/Authentification/forgot' && router.url !== '/Authentification' && router.url !== '/notfound' && router.url !== '/Authentification/signup' && router.url !== '/Authentification/signup/signupstudent' && router.url !== '/Authentification/signup/signupmentor' " >
+<div *ngIf="router.url!=='/accessdenied' && router.url !== '/Authentification/forgot' && router.url !== '/Authentification' && router.url !== '/notfound' && router.url !== '/Authentification/signup' && router.url !== '/Authentification/signup/signupstudent' && router.url !== '/Authentification/signup/signupmentor' " >
    <app-footer></app-footer>
 </div>
  <!--

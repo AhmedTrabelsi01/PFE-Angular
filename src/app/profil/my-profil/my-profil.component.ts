@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StudentDataService } from 'src/app/services/student-data.service';
 import { MentorDataService } from 'src/app/services/mentor-data.service';
 import { PublicDataService } from 'src/app/services/public-data.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DayService, WeekService, WorkWeekService, MonthService, AgendaService, View, EventSettingsModel } from '@syncfusion/ej2-angular-schedule';
 import { DataManager, UrlAdaptor, Query, ODataV4Adaptor } from '@syncfusion/ej2-data';
 import { EMPTY, empty, Observable } from 'rxjs';
@@ -40,7 +40,7 @@ export class MyProfilComponent implements OnInit {
   public setDate: Date = new Date();
   //end variable calender
 
-  constructor(private StudentDataService: StudentDataService, private MentorDataService: MentorDataService, private PublicDataService: PublicDataService, private route: ActivatedRoute) {
+  constructor(private StudentDataService: StudentDataService, private MentorDataService: MentorDataService, private PublicDataService: PublicDataService, private route: ActivatedRoute,private route1:Router) {
     this.time$ = this.PublicDataService.getDate();
   }
   ngOnInit(): void {
@@ -150,6 +150,10 @@ export class MyProfilComponent implements OnInit {
       if (this.role != '1') {
         this.getMentorMeets();
       }
+    },(error) => {
+      if(error.status==401){
+        this.route1.navigate (['accessdenied'])
+      };
     }
     )
 
@@ -167,6 +171,10 @@ export class MyProfilComponent implements OnInit {
       if (this.projects) {
         this.loader = false
       }
+    },(error) => {
+      if(error.status==401){
+        this.route1.navigate (['accessdenied'])
+      };
     }
     )
   }
@@ -180,6 +188,10 @@ export class MyProfilComponent implements OnInit {
       if (this.applications) {
         this.loader = false
       }
+    },(error) => {
+      if(error.status==401){
+        this.route1.navigate (['accessdenied'])
+      };
     }
     )
   }

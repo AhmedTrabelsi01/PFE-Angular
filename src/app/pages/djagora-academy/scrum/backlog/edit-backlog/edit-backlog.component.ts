@@ -50,6 +50,10 @@ export class EditBacklogComponent implements OnInit {
       this.loader=false;
       this.getAcceptedStudents();
 
+    },(error) => {
+      if(error.status==401){
+        this.router.navigate (['accessdenied'])
+      };
     });
   }
   editUserStory(){
@@ -67,6 +71,10 @@ export class EditBacklogComponent implements OnInit {
     this.PublicDataService.updateUserStory(formdata).subscribe(res => {
       this.toastr.success("User story updated with success")
       this.router.navigateByUrl('/backlog/'+this.projID);
+    }, (error) => {
+      if (error.status == 401) {
+        this.toastr.error("Access denied")
+      };
     })
   }
 
