@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { PublicDataService } from 'src/app/services/public-data.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 @Component({
@@ -27,7 +27,7 @@ export class EvaluationComponent implements OnInit {
   newUserStories: any = [];
   affected: any = [];
   evaluationSprint1: any
-  constructor(private toastr: ToastrService, private route: ActivatedRoute, private PublicDataService: PublicDataService) { }
+  constructor(private router: Router, private toastr: ToastrService, private route: ActivatedRoute, private PublicDataService: PublicDataService) { }
   SprintForm = new FormGroup({
     name: new FormControl("", Validators.required),
     start_date: new FormControl("", Validators.required),
@@ -127,75 +127,113 @@ export class EvaluationComponent implements OnInit {
   //Function 1
   submitSprint1() {
     this.valueSprint1 = this.statForm.value;
-    let formdata = new FormData();
-    formdata.append('duree', this.valueSprint1.duree);
-    formdata.append('id', this.id);
-    this.PublicDataService.submitSprint1(formdata).subscribe(res => {
-    });
+    if (!this.valueSprint1.duree) {
+      this.toastr.error("Invalid")
+    } else {
+      let formdata = new FormData();
+      formdata.append('duree', this.valueSprint1.duree);
+      formdata.append('id', this.id);
+      this.PublicDataService.submitSprint1(formdata).subscribe(res => {
+        this.toastr.success('Success')
+        this.router.navigate(['/editsprint', this.id])
+      });
+    }
   }
 
 
   //Function 2
   submitSprint2() {
     this.valueSprint2 = this.statForm2.value;
-    let formdata = new FormData();
-    formdata.append('totalUsers', this.valueSprint2.totalUsers);
-    formdata.append('earlyAdopters', this.valueSprint2.earlyAdopters);
-    formdata.append('coCreator', this.valueSprint2.coCreator);
-    formdata.append('hypothesis', this.valueSprint2.hypothesis);
-    formdata.append('id', this.id);
-    this.PublicDataService.submitSprint2(formdata).subscribe(res => {
-
-    });
+    if (!this.valueSprint2.hypothesis && !this.valueSprint2.coCreator && !this.valueSprint2.totalUsers && !this.valueSprint2.earlyAdopters) {
+      this.toastr.error("Invalid")
+    } else {
+      let formdata = new FormData();
+      formdata.append('totalUsers', this.valueSprint2.totalUsers);
+      formdata.append('earlyAdopters', this.valueSprint2.earlyAdopters);
+      formdata.append('coCreator', this.valueSprint2.coCreator);
+      formdata.append('hypothesis', this.valueSprint2.hypothesis);
+      formdata.append('id', this.id);
+      this.PublicDataService.submitSprint2(formdata).subscribe(res => {
+        this.toastr.success('Success')
+        this.router.navigate(['/editsprint', this.id])
+      });
+    }
   }
 
 
   submitSprint3() {
     this.valueSprint2 = this.statForm3.value;
+    if (!this.valueSprint2.tp1 && !this.valueSprint2.tp3
+      && !this.valueSprint2.tp2 && !this.valueSprint2.tp4 && !this.valueSprint2.tp5
+      && !this.valueSprint2.tam1 && !this.valueSprint2.tam2
+      && !this.valueSprint2.tam3 && !this.valueSprint2.tam4 && !this.valueSprint2.tam5
+      && !this.valueSprint2.uf1 && !this.valueSprint2.uf2
+      && !this.valueSprint2.uf3 && !this.valueSprint2.uf4
 
-    let formdata = new FormData();
-    formdata.append('array', JSON.stringify(this.statForm3.value));
-    formdata.append('id', this.id);
-    this.PublicDataService.submitSprint3(formdata).subscribe(res => {
-
-    });
+    ) {
+      this.toastr.error("Invalid")
+    } else {
+      let formdata = new FormData();
+      formdata.append('array', JSON.stringify(this.statForm3.value));
+      formdata.append('id', this.id);
+      this.PublicDataService.submitSprint3(formdata).subscribe(res => {
+        this.toastr.success('Success')
+        this.router.navigate(['/editsprint', this.id])
+      });
+    }
   }
 
   submitSprint4() {
     this.valueSprint2 = this.statForm4.value;
+    if (!this.valueSprint2.q1 && !this.valueSprint2.q2 && !this.valueSprint2.q3) {
+      this.toastr.error("Invalid")
+    } else {
+      let formdata = new FormData();
+      console.log(this.statForm4.value)
+      formdata.append('array', JSON.stringify(this.statForm4.value));
+      formdata.append('id', this.id);
+      this.PublicDataService.submitSprint4(formdata).subscribe(res => {
+        this.toastr.success('Success')
+        this.router.navigate(['/editsprint', this.id])
 
-    let formdata = new FormData();
-    console.log(this.statForm4.value)
-    formdata.append('array', JSON.stringify(this.statForm4.value));
-    formdata.append('id', this.id);
-    this.PublicDataService.submitSprint4(formdata).subscribe(res => {
+      });
+    }
 
-    });
   }
 
   submitSprint5() {
     this.valueSprint5 = this.statForm5.value;
-    let formdata = new FormData();
-    formdata.append('clientparjour', this.valueSprint5.clientparjour);
-    formdata.append('clientparmois', this.valueSprint5.clientparmois);
-    formdata.append('interactions', this.valueSprint5.interactions);
-    formdata.append('conversions', this.valueSprint5.conversions);
-    formdata.append('id', this.id);
-    this.PublicDataService.submitSprint5(formdata).subscribe(res => {
-
-    });
+    if (!this.valueSprint5.clientparjour && !this.valueSprint5.clientparmois && !this.valueSprint5.conversions) {
+      this.toastr.error("Invalid")
+    } else {
+      let formdata = new FormData();
+      formdata.append('clientparjour', this.valueSprint5.clientparjour);
+      formdata.append('clientparmois', this.valueSprint5.clientparmois);
+      formdata.append('interactions', this.valueSprint5.interactions);
+      formdata.append('conversions', this.valueSprint5.conversions);
+      formdata.append('id', this.id);
+      this.PublicDataService.submitSprint5(formdata).subscribe(res => {
+        this.toastr.success('Success')
+        this.router.navigate(['/editsprint', this.id])
+      });
+    }
   }
 
 
   submitSprint6() {
     this.valueSprint2 = this.statForm6.value;
-    let formdata = new FormData();
-    formdata.append('vieclient', this.valueSprint2.vieclient);
-    formdata.append('cotisationclient', this.valueSprint2.cotisationclient);
-    formdata.append('id', this.id);
-    this.PublicDataService.submitSprint6(formdata).subscribe(res => {
-
-    });
+    if (!this.valueSprint2.vieclient && !this.valueSprint2.cotisationclient) {
+      this.toastr.error("Invalid")
+    } else {
+      let formdata = new FormData();
+      formdata.append('vieclient', this.valueSprint2.vieclient);
+      formdata.append('cotisationclient', this.valueSprint2.cotisationclient);
+      formdata.append('id', this.id);
+      this.PublicDataService.submitSprint6(formdata).subscribe(res => {
+        this.toastr.success('Success')
+        this.router.navigate(['/editsprint', this.id])
+      });
+    }
   }
 
 }
