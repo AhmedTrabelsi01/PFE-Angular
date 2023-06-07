@@ -98,6 +98,8 @@ export class AllProjectsComponent implements OnInit {
     this.next=this.projectss.next_page_url
     this.prev=this.projectss.prev_page_url
     this.projectss=this.projectss.data
+    window.scrollTo(0, 0)
+
     })
 
   }
@@ -108,6 +110,8 @@ export class AllProjectsComponent implements OnInit {
       this.next=this.projectss.next_page_url
       this.prev=this.projectss.prev_page_url
       this.projectss=this.projectss.data
+      window.scrollTo(0, 0)
+
       })
 
   }

@@ -58,10 +58,7 @@
         <div class="searchbar" *ngIf="loader==false" style="margin-top: 2%;">
 
             <div class="input-box">
-                <div class="search2">
-                    <input type="text" placeholder="search project" [(ngModel)]="searchTerm">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                </div>
+             
 
             </div>
             <div (click)="checkEdition()" class="input-box2" *ngIf="auth=='true' && role!='1' && acaState=='true' ">
