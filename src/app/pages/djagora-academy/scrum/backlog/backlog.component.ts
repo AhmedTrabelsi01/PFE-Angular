@@ -80,9 +80,9 @@ export class BacklogComponent implements OnInit {
 
   onSubmit() {
     this.userStory = this.userStoryForm.value
-    if (!this.userStory.name && !this.userStory.hours
-      && !this.userStory.priority && !this.userStory.description
-      && !this.userStory.resource && !this.userStory.actor) {
+    if (!this.userStory.name || !this.userStory.hours
+      || !this.userStory.priority || !this.userStory.description
+      || !this.userStory.resource || !this.userStory.actor) {
         this.toastr.error("Invalid")
     } else {
 

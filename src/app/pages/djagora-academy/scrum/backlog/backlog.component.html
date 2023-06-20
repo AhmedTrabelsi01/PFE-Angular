@@ -130,13 +130,13 @@
           </div>
           <div class="form-group">
             <label for="name">Estimated hours</label>
-            <input type="number" name="name" id="fullname" formControlName="hours" class="form-control"
+            <input type="number" name="name" min="0" id="fullname" formControlName="hours" class="form-control"
               placeholder="Number of hours...">
 
           </div>
           <div class="form-group">
             <label for="name">Priority</label>
-            <input type="number" max="10" name="name" id="fullname" formControlName="priority" class="form-control">
+            <input type="number" max="10" min="0" name="name" id="fullname" formControlName="priority" class="form-control">
 
           </div>
 

@@ -440,4 +440,9 @@ export class PublicDataService {
   evaluationSprint6(id:any){
     return this.httpClient.get('http://127.0.0.1:8000/api/evaluationSix/'+id, { headers: this.createHeader() })
   }
+
+  /**************** ABOUT US : GET ADMINS ********************/
+  getAdmins(){
+    return this.httpClient.get('http://127.0.0.1:8000/api/getAdmins', { headers: this.createHeader() })
+  }
 }

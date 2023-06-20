@@ -41,38 +41,29 @@
 <!-------------------------------------------------------------------->
 
 
-<!------------------part2:team boxs----------------------->
-
-<div class="part2">
-  <div class="titre">
-    <h2 name="1">Executive Team</h2>
+<!------------------part2:ADMINS ----------------------->
+  <div class="text-center">
+  <h2 name="1">Executive Team</h2>
   </div>
-  <div class="teamb">
-    <div class="teamsb">
-      <img src="assets/img/person.jpeg" alt="">
-      <h4>Lauren Rochford</h4>
-      <p>lauren@email.com</p>
-      <a href=""> <i class="fa-brands fa-linkedin"></i></a>
-    </div>
-    <div class="teamsb">
-      <img src="assets/img/person.jpeg" alt="">
-      <h4>Lauren Rochford</h4>
-      <p>lauren@email.com</p>
-      <a href=""><i class="fa-brands fa-linkedin"></i></a>
-    </div>
-    <div class="teamsb">
-      <img src="assets/img/person.jpeg" alt="">
-      <h4>Lauren Rochford</h4>
-      <p>lauren@email.com</p>
-      <a href=""><i class="fa-brands fa-linkedin"></i></a>
-    </div>
+  <br>
 
+      <div class=" wrapper1">
+      <div class="part2" *ngFor="let a of admins">
+        <div class="Col"> 
+        <div class="teamb">
+          <div class="teamsb">
+            <img class="postcard__img" [src]="imgpath+a.img" alt="Image Title" />
+            <h4>{{a.name}}</h4>
+            <p>{{a.email}}</p>
+            <a href=""> <i class="fa-brands fa-linkedin"></i></a>
+      
+        </div>
+      </div>
+      </div>
+    </div>
   </div>
-</div>
+
 <!----------------------------------------->
-
-
-
 <!------------------part3:what we value----------------------->
 
 
