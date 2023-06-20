@@ -136,6 +136,10 @@ export class EvaluationComponent implements OnInit {
       this.PublicDataService.submitSprint1(formdata).subscribe(res => {
         this.toastr.success('Success')
         this.router.navigate(['/editsprint', this.id])
+      }, (error) => {
+        if (error.status == 401) {
+          this.toastr.error("Access denied")
+        };
       });
     }
   }
@@ -156,6 +160,10 @@ export class EvaluationComponent implements OnInit {
       this.PublicDataService.submitSprint2(formdata).subscribe(res => {
         this.toastr.success('Success')
         this.router.navigate(['/editsprint', this.id])
+      }, (error) => {
+        if (error.status == 401) {
+          this.toastr.error("Access denied")
+        };
       });
     }
   }
@@ -179,6 +187,10 @@ export class EvaluationComponent implements OnInit {
       this.PublicDataService.submitSprint3(formdata).subscribe(res => {
         this.toastr.success('Success')
         this.router.navigate(['/editsprint', this.id])
+      }, (error) => {
+        if (error.status == 401) {
+          this.toastr.error("Access denied")
+        };
       });
     }
   }
@@ -196,6 +208,10 @@ export class EvaluationComponent implements OnInit {
         this.toastr.success('Success')
         this.router.navigate(['/editsprint', this.id])
 
+      }, (error) => {
+        if (error.status == 401) {
+          this.toastr.error("Access denied")
+        };
       });
     }
 
@@ -215,6 +231,10 @@ export class EvaluationComponent implements OnInit {
       this.PublicDataService.submitSprint5(formdata).subscribe(res => {
         this.toastr.success('Success')
         this.router.navigate(['/editsprint', this.id])
+      }, (error) => {
+        if (error.status == 401) {
+          this.toastr.error("Access denied")
+        };
       });
     }
   }
@@ -232,6 +252,10 @@ export class EvaluationComponent implements OnInit {
       this.PublicDataService.submitSprint6(formdata).subscribe(res => {
         this.toastr.success('Success')
         this.router.navigate(['/editsprint', this.id])
+      }, (error) => {
+        if (error.status == 401) {
+          this.toastr.error("Access denied")
+        };
       });
     }
   }

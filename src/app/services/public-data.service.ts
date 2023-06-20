@@ -49,7 +49,7 @@ export class PublicDataService {
 
   //---contact
   insertContact(data: any) {
-    return this.httpClient.post('http://127.0.0.1:8000/api/sendContact', data);
+    return this.httpClient.post('http://127.0.0.1:8000/api/sendContact', data,{ headers: this.createHeader() });
   }
   //---project
   GetProject() {
@@ -59,7 +59,7 @@ export class PublicDataService {
     return this.httpClient.get('http://127.0.0.1:8000/api/getownedproj/' + id, { headers: this.createHeader() });
   }
   getProjectById(id: any) {
-    return this.httpClient.get('http://127.0.0.1:8000/api/project/' + id);
+    return this.httpClient.get('http://127.0.0.1:8000/api/project/' + id,{ headers: this.createHeader() });
 
   }
   updateProject(id: any, data: any) {
@@ -227,22 +227,22 @@ export class PublicDataService {
 
 
   getAppApplication(id: any) {
-    return this.httpClient.get('http://127.0.0.1:8000/api/appposbyproj/'+id);
+    return this.httpClient.get('http://127.0.0.1:8000/api/appposbyproj/'+id,{ headers: this.createHeader() });
   }
 
 
   getCountApps(id:any) {
-    return this.httpClient.get('http://127.0.0.1:8000/api/getcountapp/'+id);
+    return this.httpClient.get('http://127.0.0.1:8000/api/getcountapp/'+id,{ headers: this.createHeader() });
 
   }
   getPendingApps(id:any) {
-    return this.httpClient.get('http://127.0.0.1:8000/api/postulations/'+id);
+    return this.httpClient.get('http://127.0.0.1:8000/api/postulations/'+id,{ headers: this.createHeader() });
 
   }
 
 
   getVotes() {
-    return this.httpClient.get('http://127.0.0.1:8000/api/getvotes');
+    return this.httpClient.get('http://127.0.0.1:8000/api/getvotes',{ headers: this.createHeader() });
 
   }
 
@@ -258,11 +258,11 @@ export class PublicDataService {
   }
 
   upVote(id:any,data:any){
-    return this.httpClient.post('http://127.0.0.1:8000/api/upvote/'+id,data);
+    return this.httpClient.post('http://127.0.0.1:8000/api/upvote/'+id,data,{ headers: this.createHeader() });
 
   }
   downVote(id:any,data:any){
-    return this.httpClient.post('http://127.0.0.1:8000/api/downvote/'+id,data);
+    return this.httpClient.post('http://127.0.0.1:8000/api/downvote/'+id,data,{ headers: this.createHeader() });
   }
 
   getedition(id:any){
@@ -329,7 +329,7 @@ export class PublicDataService {
 /***********user stories */
 
   addUserStory(data:any){
-    return this.httpClient.post('http://127.0.0.1:8000/api/addUserStory',data);
+    return this.httpClient.post('http://127.0.0.1:8000/api/addUserStory',data,{ headers: this.createHeader() });
 
   }
 

@@ -114,21 +114,31 @@ export class BacklogComponent implements OnInit {
     formdata.append('master', this.form_value.etudiant)
     formdata.append('project_id', this.id)
 
-    this.PublicDataService.updateScrumMaster(formdata).subscribe(res => {
-      window.location.reload()
-    })
-  }
+  this.PublicDataService.addUserStory(formdata).subscribe(res=>{
+     this.error=res;
+     if(this.error.code==200){
+        this.toastr.success("user story added with success")
+     }
+     this.getUserStories()
+  }, (error) => {
+    if (error.status == 401) {
+      this.toastr.error("Access denied")
+    };
+  })
+}
 
-  getScrumMaster() {
 
-    this.PublicDataService.getScrumMaster(this.id).subscribe(res => {
-      this.scrumMaster = res;
-      if (this.scrumMaster == null) {
-        this.scrumMaster = {}
-        this.scrumBool = false;
-      } else {
-        this.scrumBool = true
-      }
-    })
-  }
+
+getScrumMaster(){
+
+  this.PublicDataService.getScrumMaster(this.id).subscribe(res=>{
+    this.scrumMaster=res;
+    if(this.scrumMaster==null){
+      this.scrumMaster={}
+      this.scrumBool=false;
+    }else{
+      this.scrumBool=true
+    }
+ })
+}
 }

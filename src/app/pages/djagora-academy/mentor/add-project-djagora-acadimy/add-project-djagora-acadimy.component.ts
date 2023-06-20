@@ -74,7 +74,12 @@ export class AddProjectDjagoraAcadimyComponent implements OnInit {
       this.counterr=this.error.length;
      }
 
- })}
+ }
+ , (error) => {
+  if (error.status == 401) {
+    this.toastr.error("Access denied")
+  };
+})}
 
  onChange(event: any) {
   this.file = event.target.files[0];
