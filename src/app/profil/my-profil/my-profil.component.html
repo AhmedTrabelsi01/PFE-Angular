@@ -271,14 +271,17 @@
                           <img [src]="imgpath+a.img" alt="" class="header-avatar">
                         </div>
                         <div class="col-md-8 col-sm-12 profile-info">
+                          <p class=" d-flex flex-row-reverse read-more" style="margin-bottom: -4%;" >
+                            <a [routerLink]="['/SingleProject/',a.project_id]" >View Project</a>
+                          </p>
                           <div class="header-fullname"><i class="fas fa-user mr-2"></i> {{a.name}}</div>
 
                           <br>
 
                           <div class="header-information"><i class="fas fa-envelope mr-2"></i>
                             {{a.email}} </div>
-                          <div class="header-information"><i class="fas fa-envelope mr-2"></i>
-                            {{a.number}} </div>
+                          <div class="header-information"><i class="fas fa-hand-o-right mr-2"></i>
+                            {{a.projectName}} </div>
 
 
                         </div>
@@ -336,15 +339,17 @@
                           <li class="tag__item" *ngIf="SingleProject.projectState==0"><i
                               class="fa-solid fa-person-circle-check"></i>Pending
                           <li>
+                            <span style="color: green;">
                           <li class="tag__item" *ngIf="SingleProject.projectState==1"><i
                               class="fa-solid fa-person-circle-check"></i>
-                            Approuved </li>
+                            Approuved </li></span>
+                            <span style="color: darkred;">
                           <li class="tag__item" *ngIf="SingleProject.projectState==-1"><i
-                              class="fa-solid fa-person-circle-check"></i>Denied</li>
+                              class="fa-solid fa-person-circle-check"></i>Denied</li></span>
 
 
                         </ul>
-                        <p class="read-more">
+                        <p class="read-more" *ngIf="SingleProject.projectState==1">
                           <a [routerLink]="['/SingleProject',SingleProject.id]">read more</a>
                         </p>
 
