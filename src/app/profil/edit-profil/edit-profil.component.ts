@@ -20,7 +20,7 @@ export class EditProfilComponent implements OnInit {
   singleuser: any;
   file: any;
   cv: any
-  constructor(private StudentDataService: StudentDataService, private toastr: ToastrService, private PublicDataService: PublicDataService, private MentorDataService: MentorDataService, private route1: ActivatedRoute, private route: Router) { }
+  constructor(private StudentDataService: StudentDataService,private router: Router, private toastr: ToastrService, private PublicDataService: PublicDataService, private MentorDataService: MentorDataService, private route1: ActivatedRoute, private route: Router) { }
   data: any;
   user: any = {};
   id: any;
@@ -145,8 +145,8 @@ export class EditProfilComponent implements OnInit {
       this.error = res;
       if (this.error == null) {
         this.toastr.success('Profile updated with success');
-        setTimeout(() => { window.location.reload() }, 1000);
-
+        //setTimeout(() => { window.location.reload() }, 1000);
+        this.router.navigateByUrl('/myProfil/'+this.id);
 
 
       }
