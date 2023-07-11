@@ -554,8 +554,9 @@ a {
 }
 
 .blog-comment .post-comments {
-    border: 1px solid rgb(194, 193, 193);
+    border: 1px solid #c2c1c1;
     margin-bottom: 20px;
+    width: 100%;
     margin-left: 85px;
     margin-right: 0px;
     padding: 10px 20px;

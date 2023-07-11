@@ -44,6 +44,7 @@ getFormationById(){
       this.PublicDataService.getTrainingById(this.id).subscribe(res => {
         this.Singleformation = res
         this.Singleformation=this.Singleformation.formation
+        console.log(this.Singleformation)
         this.date=this.Singleformation.date
         this.loader=false
       })
